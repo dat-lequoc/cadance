@@ -1,0 +1,7 @@
+Beethoven — Piano Sonata No. 8, Op. 13, Pathétique
+II. Adagio cantabile
+Source: https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=295
+Mutopia-2011/10/25-295. Typeset by Chris Sawer; 2011 updates by Javier Ruiz-Alma.
+Source editions: Berners 1908 / Peters 1910.
+LilyPond and RDF metadata declare Public Domain.
+The original MIDI, score PDF, source and metadata are preserved unmodified.

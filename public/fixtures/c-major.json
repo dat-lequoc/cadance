@@ -1,0 +1,80 @@
+{
+  "version": 1,
+  "title": "Five-finger walk",
+  "explanation": "Keep your hand relaxed over C–G. Walk up, then find your way home.",
+  "tempo": 80,
+  "meter": [
+    4,
+    4
+  ],
+  "range": [
+    21,
+    108
+  ],
+  "mode": "wait",
+  "notes": [
+    {
+      "pitch": 60,
+      "beat": 2,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 1
+    },
+    {
+      "pitch": 62,
+      "beat": 3,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 2
+    },
+    {
+      "pitch": 64,
+      "beat": 4,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 3
+    },
+    {
+      "pitch": 65,
+      "beat": 5,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 4
+    },
+    {
+      "pitch": 67,
+      "beat": 6,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 5
+    },
+    {
+      "pitch": 65,
+      "beat": 7,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 4
+    },
+    {
+      "pitch": 64,
+      "beat": 8,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 3
+    },
+    {
+      "pitch": 62,
+      "beat": 9,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 2
+    },
+    {
+      "pitch": 60,
+      "beat": 10,
+      "duration": 0.75,
+      "hand": "right",
+      "finger": 1
+    }
+  ]
+}

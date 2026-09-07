@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:mp="http://www.mutopiaproject.org/piece-data/0.1/">
+
+<rdf:Description rdf:about=".">
+    <mp:title>Sonata No. 8 “Pathétique” (2nd Movement: Adagio cantabile)</mp:title>
+    <mp:composer>BeethovenLv</mp:composer>
+    <mp:opus>Op. 13</mp:opus>
+    <mp:lyricist/>
+    <mp:for>Piano</mp:for>
+    <mp:date/>
+    <mp:style>Classical</mp:style>
+    <mp:metre/>
+    <mp:arranger/>
+    <mp:source>Berners, 1908 (edited by A. Winterberger); Peters, 1910</mp:source>
+    <mp:licence>Public Domain</mp:licence>
+
+    <mp:lyFile>pathetique-2.ly</mp:lyFile>
+    <mp:midFile>pathetique-2.mid</mp:midFile>
+    <mp:psFileA4>pathetique-2-a4.ps.gz</mp:psFileA4>
+    <mp:pdfFileA4>pathetique-2-a4.pdf</mp:pdfFileA4>
+    <mp:psFileLet>pathetique-2-let.ps.gz</mp:psFileLet>
+    <mp:pdfFileLet>pathetique-2-let.pdf</mp:pdfFileLet>
+    <mp:pngFile>pathetique-2-preview.png</mp:pngFile>
+    <mp:pngHeight>138</mp:pngHeight>
+    <mp:pngWidth>539</mp:pngWidth>
+
+    <mp:id>Mutopia-2011/10/25-295</mp:id>
+    <mp:maintainer>Chris Sawer</mp:maintainer>
+    <mp:maintainerEmail>chris@mutopiaproject.org</mp:maintainerEmail>
+    <mp:maintainerWeb>http://cjsawer.whitewillow.co.uk/</mp:maintainerWeb>
+    <mp:moreInfo/>
+    <mp:lilypondVersion>2.14.2</mp:lilypondVersion>
+</rdf:Description>
+
+</rdf:RDF>
