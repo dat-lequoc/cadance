@@ -180,7 +180,7 @@ test("free-play recording backup round trip, deletion and notation without remot
   page.on("request", (r) => {
     if (
       r.url().startsWith("http") &&
-      !r.url().startsWith("http://127.0.0.1:4173")
+      !r.url().startsWith("http://127.0.0.1:4187")
     )
       external.push(r.url());
   });

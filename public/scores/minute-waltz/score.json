@@ -1,0 +1,1330 @@
+{
+  "version": 1,
+  "fingerprint": "82abbce12d0f099143fddb35357842e57432d98adf4140a21fed4392e055c21b",
+  "sourcePdf": "/pieces/minute-waltz-unfolded.pdf",
+  "pdfSha256": "531090ba8ce9550384753288c78df999e53a007337c6ae9fd876f82b17af4dcf",
+  "systems": [
+    {
+      "image": "/scores/minute-waltz/system-01.png",
+      "width": 1717,
+      "height": 502,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 5
+    },
+    {
+      "image": "/scores/minute-waltz/system-02.png",
+      "width": 1717,
+      "height": 453,
+      "page": 1,
+      "fromBar": 6,
+      "throughBar": 11
+    },
+    {
+      "image": "/scores/minute-waltz/system-03.png",
+      "width": 1717,
+      "height": 449,
+      "page": 1,
+      "fromBar": 12,
+      "throughBar": 16
+    },
+    {
+      "image": "/scores/minute-waltz/system-04.png",
+      "width": 1717,
+      "height": 453,
+      "page": 1,
+      "fromBar": 17,
+      "throughBar": 21
+    },
+    {
+      "image": "/scores/minute-waltz/system-05.png",
+      "width": 1717,
+      "height": 385,
+      "page": 1,
+      "fromBar": 22,
+      "throughBar": 26
+    },
+    {
+      "image": "/scores/minute-waltz/system-06.png",
+      "width": 1717,
+      "height": 521,
+      "page": 2,
+      "fromBar": 27,
+      "throughBar": 31
+    },
+    {
+      "image": "/scores/minute-waltz/system-07.png",
+      "width": 1717,
+      "height": 483,
+      "page": 2,
+      "fromBar": 32,
+      "throughBar": 36
+    },
+    {
+      "image": "/scores/minute-waltz/system-08.png",
+      "width": 1717,
+      "height": 477,
+      "page": 2,
+      "fromBar": 37,
+      "throughBar": 41
+    },
+    {
+      "image": "/scores/minute-waltz/system-09.png",
+      "width": 1717,
+      "height": 484,
+      "page": 2,
+      "fromBar": 42,
+      "throughBar": 46
+    },
+    {
+      "image": "/scores/minute-waltz/system-10.png",
+      "width": 1717,
+      "height": 471,
+      "page": 2,
+      "fromBar": 47,
+      "throughBar": 51
+    },
+    {
+      "image": "/scores/minute-waltz/system-11.png",
+      "width": 1717,
+      "height": 450,
+      "page": 3,
+      "fromBar": 52,
+      "throughBar": 58
+    },
+    {
+      "image": "/scores/minute-waltz/system-12.png",
+      "width": 1717,
+      "height": 473,
+      "page": 3,
+      "fromBar": 59,
+      "throughBar": 65
+    },
+    {
+      "image": "/scores/minute-waltz/system-13.png",
+      "width": 1717,
+      "height": 460,
+      "page": 3,
+      "fromBar": 66,
+      "throughBar": 72
+    },
+    {
+      "image": "/scores/minute-waltz/system-14.png",
+      "width": 1717,
+      "height": 477,
+      "page": 3,
+      "fromBar": 73,
+      "throughBar": 79
+    },
+    {
+      "image": "/scores/minute-waltz/system-15.png",
+      "width": 1717,
+      "height": 513,
+      "page": 3,
+      "fromBar": 80,
+      "throughBar": 87
+    },
+    {
+      "image": "/scores/minute-waltz/system-16.png",
+      "width": 1717,
+      "height": 464,
+      "page": 4,
+      "fromBar": 88,
+      "throughBar": 93
+    },
+    {
+      "image": "/scores/minute-waltz/system-17.png",
+      "width": 1717,
+      "height": 493,
+      "page": 4,
+      "fromBar": 94,
+      "throughBar": 99
+    },
+    {
+      "image": "/scores/minute-waltz/system-18.png",
+      "width": 1717,
+      "height": 488,
+      "page": 4,
+      "fromBar": 100,
+      "throughBar": 104
+    },
+    {
+      "image": "/scores/minute-waltz/system-19.png",
+      "width": 1717,
+      "height": 493,
+      "page": 4,
+      "fromBar": 105,
+      "throughBar": 110
+    },
+    {
+      "image": "/scores/minute-waltz/system-20.png",
+      "width": 1717,
+      "height": 508,
+      "page": 4,
+      "fromBar": 111,
+      "throughBar": 115
+    },
+    {
+      "image": "/scores/minute-waltz/system-21.png",
+      "width": 1717,
+      "height": 539,
+      "page": 5,
+      "fromBar": 116,
+      "throughBar": 120
+    },
+    {
+      "image": "/scores/minute-waltz/system-22.png",
+      "width": 1717,
+      "height": 474,
+      "page": 5,
+      "fromBar": 121,
+      "throughBar": 125
+    },
+    {
+      "image": "/scores/minute-waltz/system-23.png",
+      "width": 1717,
+      "height": 510,
+      "page": 5,
+      "fromBar": 126,
+      "throughBar": 130
+    },
+    {
+      "image": "/scores/minute-waltz/system-24.png",
+      "width": 1717,
+      "height": 483,
+      "page": 5,
+      "fromBar": 131,
+      "throughBar": 135
+    },
+    {
+      "image": "/scores/minute-waltz/system-25.png",
+      "width": 1717,
+      "height": 492,
+      "page": 5,
+      "fromBar": 136,
+      "throughBar": 140
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1152,
+      "system": 0,
+      "left": 0.1345195,
+      "right": 0.3728771
+    },
+    {
+      "number": 2,
+      "tick": 1152,
+      "endTick": 2304,
+      "system": 0,
+      "left": 0.3728771,
+      "right": 0.5190332
+    },
+    {
+      "number": 3,
+      "tick": 2304,
+      "endTick": 3456,
+      "system": 0,
+      "left": 0.5190332,
+      "right": 0.6633372
+    },
+    {
+      "number": 4,
+      "tick": 3456,
+      "endTick": 4608,
+      "system": 0,
+      "left": 0.6633372,
+      "right": 0.8066803
+    },
+    {
+      "number": 5,
+      "tick": 4608,
+      "endTick": 5760,
+      "system": 0,
+      "left": 0.8066803,
+      "right": 0.9509843
+    },
+    {
+      "number": 6,
+      "tick": 5760,
+      "endTick": 6912,
+      "system": 1,
+      "left": 0.0602271,
+      "right": 0.2917006
+    },
+    {
+      "number": 7,
+      "tick": 6912,
+      "endTick": 8064,
+      "system": 1,
+      "left": 0.2917006,
+      "right": 0.4341002
+    },
+    {
+      "number": 8,
+      "tick": 8064,
+      "endTick": 9216,
+      "system": 1,
+      "left": 0.4341002,
+      "right": 0.5838381
+    },
+    {
+      "number": 9,
+      "tick": 9216,
+      "endTick": 10368,
+      "system": 1,
+      "left": 0.5838381,
+      "right": 0.7036459
+    },
+    {
+      "number": 10,
+      "tick": 10368,
+      "endTick": 11520,
+      "system": 1,
+      "left": 0.7036459,
+      "right": 0.8321899
+    },
+    {
+      "number": 11,
+      "tick": 11520,
+      "endTick": 12672,
+      "system": 1,
+      "left": 0.8321899,
+      "right": 0.9509843
+    },
+    {
+      "number": 12,
+      "tick": 12672,
+      "endTick": 13824,
+      "system": 2,
+      "left": 0.0602271,
+      "right": 0.3028655
+    },
+    {
+      "number": 13,
+      "tick": 13824,
+      "endTick": 14976,
+      "system": 2,
+      "left": 0.3028655,
+      "right": 0.4628072
+    },
+    {
+      "number": 14,
+      "tick": 14976,
+      "endTick": 16128,
+      "system": 2,
+      "left": 0.4628072,
+      "right": 0.6234129
+    },
+    {
+      "number": 15,
+      "tick": 16128,
+      "endTick": 17280,
+      "system": 2,
+      "left": 0.6234129,
+      "right": 0.7833722
+    },
+    {
+      "number": 16,
+      "tick": 17280,
+      "endTick": 18432,
+      "system": 2,
+      "left": 0.7833722,
+      "right": 0.9509843
+    },
+    {
+      "number": 17,
+      "tick": 18432,
+      "endTick": 19584,
+      "system": 3,
+      "left": 0.0602271,
+      "right": 0.2952999
+    },
+    {
+      "number": 18,
+      "tick": 19584,
+      "endTick": 20736,
+      "system": 3,
+      "left": 0.2952999,
+      "right": 0.4498602
+    },
+    {
+      "number": 19,
+      "tick": 20736,
+      "endTick": 21888,
+      "system": 3,
+      "left": 0.4498602,
+      "right": 0.5964881
+    },
+    {
+      "number": 20,
+      "tick": 21888,
+      "endTick": 23040,
+      "system": 3,
+      "left": 0.5964881,
+      "right": 0.7648515
+    },
+    {
+      "number": 21,
+      "tick": 23040,
+      "endTick": 24192,
+      "system": 3,
+      "left": 0.7648515,
+      "right": 0.9509843
+    },
+    {
+      "number": 22,
+      "tick": 24192,
+      "endTick": 25344,
+      "system": 4,
+      "left": 0.0602271,
+      "right": 0.3077927
+    },
+    {
+      "number": 23,
+      "tick": 25344,
+      "endTick": 26496,
+      "system": 4,
+      "left": 0.3077927,
+      "right": 0.481887
+    },
+    {
+      "number": 24,
+      "tick": 26496,
+      "endTick": 27648,
+      "system": 4,
+      "left": 0.481887,
+      "right": 0.6413745
+    },
+    {
+      "number": 25,
+      "tick": 27648,
+      "endTick": 28800,
+      "system": 4,
+      "left": 0.6413745,
+      "right": 0.795131
+    },
+    {
+      "number": 26,
+      "tick": 28800,
+      "endTick": 29952,
+      "system": 4,
+      "left": 0.795131,
+      "right": 0.9509843
+    },
+    {
+      "number": 27,
+      "tick": 29952,
+      "endTick": 31104,
+      "system": 5,
+      "left": 0.0602271,
+      "right": 0.2992487
+    },
+    {
+      "number": 28,
+      "tick": 31104,
+      "endTick": 32256,
+      "system": 5,
+      "left": 0.2992487,
+      "right": 0.4463483
+    },
+    {
+      "number": 29,
+      "tick": 32256,
+      "endTick": 33408,
+      "system": 5,
+      "left": 0.4463483,
+      "right": 0.6360804
+    },
+    {
+      "number": 30,
+      "tick": 33408,
+      "endTick": 34560,
+      "system": 5,
+      "left": 0.6360804,
+      "right": 0.7862551
+    },
+    {
+      "number": 31,
+      "tick": 34560,
+      "endTick": 35712,
+      "system": 5,
+      "left": 0.7862551,
+      "right": 0.9509843
+    },
+    {
+      "number": 32,
+      "tick": 35712,
+      "endTick": 36864,
+      "system": 6,
+      "left": 0.0602271,
+      "right": 0.3136634
+    },
+    {
+      "number": 33,
+      "tick": 36864,
+      "endTick": 38016,
+      "system": 6,
+      "left": 0.3136634,
+      "right": 0.4903786
+    },
+    {
+      "number": 34,
+      "tick": 38016,
+      "endTick": 39168,
+      "system": 6,
+      "left": 0.4903786,
+      "right": 0.649272
+    },
+    {
+      "number": 35,
+      "tick": 39168,
+      "endTick": 40320,
+      "system": 6,
+      "left": 0.649272,
+      "right": 0.8259872
+    },
+    {
+      "number": 36,
+      "tick": 40320,
+      "endTick": 41472,
+      "system": 6,
+      "left": 0.8259872,
+      "right": 0.9509843
+    },
+    {
+      "number": 37,
+      "tick": 41472,
+      "endTick": 42624,
+      "system": 7,
+      "left": 0.0602271,
+      "right": 0.3193244
+    },
+    {
+      "number": 38,
+      "tick": 42624,
+      "endTick": 43776,
+      "system": 7,
+      "left": 0.3193244,
+      "right": 0.4751077
+    },
+    {
+      "number": 39,
+      "tick": 43776,
+      "endTick": 44928,
+      "system": 7,
+      "left": 0.4751077,
+      "right": 0.6453757
+    },
+    {
+      "number": 40,
+      "tick": 44928,
+      "endTick": 46080,
+      "system": 7,
+      "left": 0.6453757,
+      "right": 0.8010542
+    },
+    {
+      "number": 41,
+      "tick": 46080,
+      "endTick": 47232,
+      "system": 7,
+      "left": 0.8010542,
+      "right": 0.9509843
+    },
+    {
+      "number": 42,
+      "tick": 47232,
+      "endTick": 48384,
+      "system": 8,
+      "left": 0.0602271,
+      "right": 0.2993186
+    },
+    {
+      "number": 43,
+      "tick": 48384,
+      "endTick": 49536,
+      "system": 8,
+      "left": 0.2993186,
+      "right": 0.4518521
+    },
+    {
+      "number": 44,
+      "tick": 49536,
+      "endTick": 50688,
+      "system": 8,
+      "left": 0.4518521,
+      "right": 0.6030052
+    },
+    {
+      "number": 45,
+      "tick": 50688,
+      "endTick": 51840,
+      "system": 8,
+      "left": 0.6030052,
+      "right": 0.7967909
+    },
+    {
+      "number": 46,
+      "tick": 51840,
+      "endTick": 52992,
+      "system": 8,
+      "left": 0.7967909,
+      "right": 0.9509843
+    },
+    {
+      "number": 47,
+      "tick": 52992,
+      "endTick": 54144,
+      "system": 9,
+      "left": 0.0602271,
+      "right": 0.3180839
+    },
+    {
+      "number": 48,
+      "tick": 54144,
+      "endTick": 55296,
+      "system": 9,
+      "left": 0.3180839,
+      "right": 0.4718229
+    },
+    {
+      "number": 49,
+      "tick": 55296,
+      "endTick": 56448,
+      "system": 9,
+      "left": 0.4718229,
+      "right": 0.6374956
+    },
+    {
+      "number": 50,
+      "tick": 56448,
+      "endTick": 57600,
+      "system": 9,
+      "left": 0.6374956,
+      "right": 0.7853291
+    },
+    {
+      "number": 51,
+      "tick": 57600,
+      "endTick": 58752,
+      "system": 9,
+      "left": 0.7853291,
+      "right": 0.9509843
+    },
+    {
+      "number": 52,
+      "tick": 58752,
+      "endTick": 59904,
+      "system": 10,
+      "left": 0.0602271,
+      "right": 0.2603902
+    },
+    {
+      "number": 53,
+      "tick": 59904,
+      "endTick": 61056,
+      "system": 10,
+      "left": 0.2603902,
+      "right": 0.3754805
+    },
+    {
+      "number": 54,
+      "tick": 61056,
+      "endTick": 62208,
+      "system": 10,
+      "left": 0.3754805,
+      "right": 0.4929121
+    },
+    {
+      "number": 55,
+      "tick": 62208,
+      "endTick": 63360,
+      "system": 10,
+      "left": 0.4929121,
+      "right": 0.6069889
+    },
+    {
+      "number": 56,
+      "tick": 63360,
+      "endTick": 64512,
+      "system": 10,
+      "left": 0.6069889,
+      "right": 0.7228655
+    },
+    {
+      "number": 57,
+      "tick": 64512,
+      "endTick": 65664,
+      "system": 10,
+      "left": 0.7228655,
+      "right": 0.8367851
+    },
+    {
+      "number": 58,
+      "tick": 65664,
+      "endTick": 66816,
+      "system": 10,
+      "left": 0.8367851,
+      "right": 0.9509843
+    },
+    {
+      "number": 59,
+      "tick": 66816,
+      "endTick": 67968,
+      "system": 11,
+      "left": 0.0602271,
+      "right": 0.2612813
+    },
+    {
+      "number": 60,
+      "tick": 67968,
+      "endTick": 69120,
+      "system": 11,
+      "left": 0.2612813,
+      "right": 0.3865055
+    },
+    {
+      "number": 61,
+      "tick": 69120,
+      "endTick": 70272,
+      "system": 11,
+      "left": 0.3865055,
+      "right": 0.4975422
+    },
+    {
+      "number": 62,
+      "tick": 70272,
+      "endTick": 71424,
+      "system": 11,
+      "left": 0.4975422,
+      "right": 0.6098195
+    },
+    {
+      "number": 63,
+      "tick": 71424,
+      "endTick": 72576,
+      "system": 11,
+      "left": 0.6098195,
+      "right": 0.7221316
+    },
+    {
+      "number": 64,
+      "tick": 72576,
+      "endTick": 73728,
+      "system": 11,
+      "left": 0.7221316,
+      "right": 0.8410309
+    },
+    {
+      "number": 65,
+      "tick": 73728,
+      "endTick": 74880,
+      "system": 11,
+      "left": 0.8410309,
+      "right": 0.9509843
+    },
+    {
+      "number": 66,
+      "tick": 74880,
+      "endTick": 76032,
+      "system": 12,
+      "left": 0.0602271,
+      "right": 0.2599534
+    },
+    {
+      "number": 67,
+      "tick": 76032,
+      "endTick": 77184,
+      "system": 12,
+      "left": 0.2599534,
+      "right": 0.3739429
+    },
+    {
+      "number": 68,
+      "tick": 77184,
+      "endTick": 78336,
+      "system": 12,
+      "left": 0.3739429,
+      "right": 0.4811532
+    },
+    {
+      "number": 69,
+      "tick": 78336,
+      "endTick": 79488,
+      "system": 12,
+      "left": 0.4811532,
+      "right": 0.5896738
+    },
+    {
+      "number": 70,
+      "tick": 79488,
+      "endTick": 80640,
+      "system": 12,
+      "left": 0.5896738,
+      "right": 0.7107746
+    },
+    {
+      "number": 71,
+      "tick": 80640,
+      "endTick": 81792,
+      "system": 12,
+      "left": 0.7107746,
+      "right": 0.8299359
+    },
+    {
+      "number": 72,
+      "tick": 81792,
+      "endTick": 82944,
+      "system": 12,
+      "left": 0.8299359,
+      "right": 0.9509843
+    },
+    {
+      "number": 73,
+      "tick": 82944,
+      "endTick": 84096,
+      "system": 13,
+      "left": 0.0602271,
+      "right": 0.2574549
+    },
+    {
+      "number": 74,
+      "tick": 84096,
+      "endTick": 85248,
+      "system": 13,
+      "left": 0.2574549,
+      "right": 0.3753058
+    },
+    {
+      "number": 75,
+      "tick": 85248,
+      "endTick": 86400,
+      "system": 13,
+      "left": 0.3753058,
+      "right": 0.4887886
+    },
+    {
+      "number": 76,
+      "tick": 86400,
+      "endTick": 87552,
+      "system": 13,
+      "left": 0.4887886,
+      "right": 0.6072161
+    },
+    {
+      "number": 77,
+      "tick": 87552,
+      "endTick": 88704,
+      "system": 13,
+      "left": 0.6072161,
+      "right": 0.716523
+    },
+    {
+      "number": 78,
+      "tick": 88704,
+      "endTick": 89856,
+      "system": 13,
+      "left": 0.716523,
+      "right": 0.833046
+    },
+    {
+      "number": 79,
+      "tick": 89856,
+      "endTick": 91008,
+      "system": 13,
+      "left": 0.833046,
+      "right": 0.9509843
+    },
+    {
+      "number": 80,
+      "tick": 91008,
+      "endTick": 92160,
+      "system": 14,
+      "left": 0.0602271,
+      "right": 0.2692312
+    },
+    {
+      "number": 81,
+      "tick": 92160,
+      "endTick": 93312,
+      "system": 14,
+      "left": 0.2692312,
+      "right": 0.385597
+    },
+    {
+      "number": 82,
+      "tick": 93312,
+      "endTick": 94464,
+      "system": 14,
+      "left": 0.385597,
+      "right": 0.4985906
+    },
+    {
+      "number": 83,
+      "tick": 94464,
+      "endTick": 95616,
+      "system": 14,
+      "left": 0.4985906,
+      "right": 0.6178917
+    },
+    {
+      "number": 84,
+      "tick": 95616,
+      "endTick": 96768,
+      "system": 14,
+      "left": 0.6178917,
+      "right": 0.7350087
+    },
+    {
+      "number": 85,
+      "tick": 96768,
+      "endTick": 97920,
+      "system": 14,
+      "left": 0.7350087,
+      "right": 0.8099126
+    },
+    {
+      "number": 86,
+      "tick": 97920,
+      "endTick": 99072,
+      "system": 14,
+      "left": 0.8099126,
+      "right": 0.8760978
+    },
+    {
+      "number": 87,
+      "tick": 99072,
+      "endTick": 100224,
+      "system": 14,
+      "left": 0.8760978,
+      "right": 0.9509843
+    },
+    {
+      "number": 88,
+      "tick": 100224,
+      "endTick": 101376,
+      "system": 15,
+      "left": 0.0602271,
+      "right": 0.211293
+    },
+    {
+      "number": 89,
+      "tick": 101376,
+      "endTick": 102528,
+      "system": 15,
+      "left": 0.211293,
+      "right": 0.3595282
+    },
+    {
+      "number": 90,
+      "tick": 102528,
+      "endTick": 103680,
+      "system": 15,
+      "left": 0.3595282,
+      "right": 0.5070297
+    },
+    {
+      "number": 91,
+      "tick": 103680,
+      "endTick": 104832,
+      "system": 15,
+      "left": 0.5070297,
+      "right": 0.655265
+    },
+    {
+      "number": 92,
+      "tick": 104832,
+      "endTick": 105984,
+      "system": 15,
+      "left": 0.655265,
+      "right": 0.802749
+    },
+    {
+      "number": 93,
+      "tick": 105984,
+      "endTick": 107136,
+      "system": 15,
+      "left": 0.802749,
+      "right": 0.9509843
+    },
+    {
+      "number": 94,
+      "tick": 107136,
+      "endTick": 108288,
+      "system": 16,
+      "left": 0.0602271,
+      "right": 0.2918404
+    },
+    {
+      "number": 95,
+      "tick": 108288,
+      "endTick": 109440,
+      "system": 16,
+      "left": 0.2918404,
+      "right": 0.4343623
+    },
+    {
+      "number": 96,
+      "tick": 109440,
+      "endTick": 110592,
+      "system": 16,
+      "left": 0.4343623,
+      "right": 0.58424
+    },
+    {
+      "number": 97,
+      "tick": 110592,
+      "endTick": 111744,
+      "system": 16,
+      "left": 0.58424,
+      "right": 0.7041701
+    },
+    {
+      "number": 98,
+      "tick": 111744,
+      "endTick": 112896,
+      "system": 16,
+      "left": 0.7041701,
+      "right": 0.8320676
+    },
+    {
+      "number": 99,
+      "tick": 112896,
+      "endTick": 114048,
+      "system": 16,
+      "left": 0.8320676,
+      "right": 0.9509843
+    },
+    {
+      "number": 100,
+      "tick": 114048,
+      "endTick": 115200,
+      "system": 17,
+      "left": 0.0602271,
+      "right": 0.3077752
+    },
+    {
+      "number": 101,
+      "tick": 115200,
+      "endTick": 116352,
+      "system": 17,
+      "left": 0.3077752,
+      "right": 0.4664939
+    },
+    {
+      "number": 102,
+      "tick": 116352,
+      "endTick": 117504,
+      "system": 17,
+      "left": 0.4664939,
+      "right": 0.6258765
+    },
+    {
+      "number": 103,
+      "tick": 117504,
+      "endTick": 118656,
+      "system": 17,
+      "left": 0.6258765,
+      "right": 0.7845952
+    },
+    {
+      "number": 104,
+      "tick": 118656,
+      "endTick": 119808,
+      "system": 17,
+      "left": 0.7845952,
+      "right": 0.9509843
+    },
+    {
+      "number": 105,
+      "tick": 119808,
+      "endTick": 120960,
+      "system": 18,
+      "left": 0.0602271,
+      "right": 0.2679383
+    },
+    {
+      "number": 106,
+      "tick": 120960,
+      "endTick": 122112,
+      "system": 18,
+      "left": 0.2679383,
+      "right": 0.3945253
+    },
+    {
+      "number": 107,
+      "tick": 122112,
+      "endTick": 123264,
+      "system": 18,
+      "left": 0.3945253,
+      "right": 0.51318
+    },
+    {
+      "number": 108,
+      "tick": 123264,
+      "endTick": 124416,
+      "system": 18,
+      "left": 0.51318,
+      "right": 0.6535702
+    },
+    {
+      "number": 109,
+      "tick": 124416,
+      "endTick": 125568,
+      "system": 18,
+      "left": 0.6535702,
+      "right": 0.8121491
+    },
+    {
+      "number": 110,
+      "tick": 125568,
+      "endTick": 126720,
+      "system": 18,
+      "left": 0.8121491,
+      "right": 0.9509843
+    },
+    {
+      "number": 111,
+      "tick": 126720,
+      "endTick": 127872,
+      "system": 19,
+      "left": 0.0602271,
+      "right": 0.319604
+    },
+    {
+      "number": 112,
+      "tick": 127872,
+      "endTick": 129024,
+      "system": 19,
+      "left": 0.319604,
+      "right": 0.4755446
+    },
+    {
+      "number": 113,
+      "tick": 129024,
+      "endTick": 130176,
+      "system": 19,
+      "left": 0.4755446,
+      "right": 0.6426325
+    },
+    {
+      "number": 114,
+      "tick": 130176,
+      "endTick": 131328,
+      "system": 19,
+      "left": 0.6426325,
+      "right": 0.7949388
+    },
+    {
+      "number": 115,
+      "tick": 131328,
+      "endTick": 132480,
+      "system": 19,
+      "left": 0.7949388,
+      "right": 0.9509843
+    },
+    {
+      "number": 116,
+      "tick": 132480,
+      "endTick": 133632,
+      "system": 20,
+      "left": 0.0602271,
+      "right": 0.2964706
+    },
+    {
+      "number": 117,
+      "tick": 133632,
+      "endTick": 134784,
+      "system": 20,
+      "left": 0.2964706,
+      "right": 0.4714386
+    },
+    {
+      "number": 118,
+      "tick": 134784,
+      "endTick": 135936,
+      "system": 20,
+      "left": 0.4714386,
+      "right": 0.6265929
+    },
+    {
+      "number": 119,
+      "tick": 135936,
+      "endTick": 137088,
+      "system": 20,
+      "left": 0.6265929,
+      "right": 0.7963366
+    },
+    {
+      "number": 120,
+      "tick": 137088,
+      "endTick": 138240,
+      "system": 20,
+      "left": 0.7963366,
+      "right": 0.9509843
+    },
+    {
+      "number": 121,
+      "tick": 138240,
+      "endTick": 139392,
+      "system": 21,
+      "left": 0.0602271,
+      "right": 0.3183285
+    },
+    {
+      "number": 122,
+      "tick": 139392,
+      "endTick": 140544,
+      "system": 21,
+      "left": 0.3183285,
+      "right": 0.4749156
+    },
+    {
+      "number": 123,
+      "tick": 140544,
+      "endTick": 141696,
+      "system": 21,
+      "left": 0.4749156,
+      "right": 0.6493244
+    },
+    {
+      "number": 124,
+      "tick": 141696,
+      "endTick": 142848,
+      "system": 21,
+      "left": 0.6493244,
+      "right": 0.7703553
+    },
+    {
+      "number": 125,
+      "tick": 142848,
+      "endTick": 144000,
+      "system": 21,
+      "left": 0.7703553,
+      "right": 0.9509843
+    },
+    {
+      "number": 126,
+      "tick": 144000,
+      "endTick": 145152,
+      "system": 22,
+      "left": 0.0602271,
+      "right": 0.3045778
+    },
+    {
+      "number": 127,
+      "tick": 145152,
+      "endTick": 146304,
+      "system": 22,
+      "left": 0.3045778,
+      "right": 0.4752475
+    },
+    {
+      "number": 128,
+      "tick": 146304,
+      "endTick": 147456,
+      "system": 22,
+      "left": 0.4752475,
+      "right": 0.6313279
+    },
+    {
+      "number": 129,
+      "tick": 147456,
+      "endTick": 148608,
+      "system": 22,
+      "left": 0.6313279,
+      "right": 0.7985381
+    },
+    {
+      "number": 130,
+      "tick": 148608,
+      "endTick": 149760,
+      "system": 22,
+      "left": 0.7985381,
+      "right": 0.9509843
+    },
+    {
+      "number": 131,
+      "tick": 149760,
+      "endTick": 150912,
+      "system": 23,
+      "left": 0.0602271,
+      "right": 0.3030052
+    },
+    {
+      "number": 132,
+      "tick": 150912,
+      "endTick": 152064,
+      "system": 23,
+      "left": 0.3030052,
+      "right": 0.454106
+    },
+    {
+      "number": 133,
+      "tick": 152064,
+      "endTick": 153216,
+      "system": 23,
+      "left": 0.454106,
+      "right": 0.6280955
+    },
+    {
+      "number": 134,
+      "tick": 153216,
+      "endTick": 154368,
+      "system": 23,
+      "left": 0.6280955,
+      "right": 0.7822539
+    },
+    {
+      "number": 135,
+      "tick": 154368,
+      "endTick": 155520,
+      "system": 23,
+      "left": 0.7822539,
+      "right": 0.9509843
+    },
+    {
+      "number": 136,
+      "tick": 155520,
+      "endTick": 156672,
+      "system": 24,
+      "left": 0.0602271,
+      "right": 0.3074257
+    },
+    {
+      "number": 137,
+      "tick": 156672,
+      "endTick": 157824,
+      "system": 24,
+      "left": 0.3074257,
+      "right": 0.4868492
+    },
+    {
+      "number": 138,
+      "tick": 157824,
+      "endTick": 158976,
+      "system": 24,
+      "left": 0.4868492,
+      "right": 0.6566977
+    },
+    {
+      "number": 139,
+      "tick": 158976,
+      "endTick": 160128,
+      "system": 24,
+      "left": 0.6566977,
+      "right": 0.8235935
+    },
+    {
+      "number": 140,
+      "tick": 160128,
+      "endTick": 160896,
+      "system": 24,
+      "left": 0.8235935,
+      "right": 0.9492021
+    }
+  ]
+}

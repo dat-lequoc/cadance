@@ -10,6 +10,7 @@ import {
 import type { PracticeEngine } from "../core/engine";
 import { db } from "../core/storage";
 import bundledPlan from "../../public/plans/pathetique-ii.md?raw";
+import minutePlan from "../../public/plans/minute-waltz.md?raw";
 // Exact previous bundled plan; custom plans keep their own data and progress.
 const previousBundledSignature =
   "ec249e24cf7e9a408965ae57672928fd64798fd7fade19d42da1f7fc19af01d6";
@@ -64,7 +65,7 @@ export function useQuestPlan(
           ? saved.value
           : song.id === "beethoven-pathetique-ii"
             ? bundledPlan
-            : null;
+            : song.id === "chopin-minute-waltz" ? minutePlan : null;
       if (!markdown) return;
       let loaded = await readPracticePlan(markdown, song);
       const currentBundled =

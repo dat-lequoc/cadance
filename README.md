@@ -64,3 +64,5 @@ MIT for original code. Pathétique source assets are public domain as declared b
 Dashboard appearance defaults to dark. Use the **Dark / Light** button in the top navigation or **Settings → Appearance** to change it; the choice survives reloads and backups. Sheet music always uses white paper with dark notation for readability.
 
 To ask an agent to prepare another piece, use: “Use $prepare-piano-piece to add [composer, title, movement] to Cadance from A to Z, including finding a matching MIDI and sheet.” The skill lives in this repository under `.agents/skills/prepare-piano-piece/`.
+
+Minute Waltz (Chopin Op. 64 No. 1) is also bundled: Pieces → Practice Chopin · Minute Waltz → Start first quest. Its 140 performed bars have 252 quests and an unfolded score in both player views. See [edition, preparation and limitations](docs/minute-waltz.md). This onboarding clone uses preview port 4187 for Playwright.
