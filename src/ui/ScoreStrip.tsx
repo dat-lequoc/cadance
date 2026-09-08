@@ -41,6 +41,7 @@ export default function ScoreStrip({
   const manualScroll = useRef(false);
   const scrollFrame = useRef<number | null>(null);
   const scrollPoint = useRef<{ x: number; y: number } | null>(null);
+  const previousSystem = useRef(systemIndex);
   const selectPrintedPoint = (x: number, y: number) => {
     const images = [...viewport.current!.querySelectorAll<HTMLElement>(".score-image")];
     const image = images.reduce<HTMLElement | null>((best, item) => {
@@ -93,6 +94,8 @@ export default function ScoreStrip({
   const stackedTop = score.systems.slice(0, systemIndex).reduce((sum, s) => sum + width * s.height / s.width + 24, 12);
   useLayoutEffect(() => {
     const element = viewport.current!;
+    const systemChanged = previousSystem.current !== systemIndex;
+    previousSystem.current = systemIndex;
     if (only && manualScroll.current) {
       if (c.browsePosition !== null || scrollFrame.current !== null) return;
       manualScroll.current = false;
@@ -105,12 +108,12 @@ export default function ScoreStrip({
         const top = stackedTop + Math.min(...points.map((n) => n.y)) * height - 24;
         const bottom = stackedTop + Math.max(...points.map((n) => n.y)) * height + 24;
         if (top < element.scrollTop + 8 || bottom > element.scrollTop + size.height - 8)
-          element.scrollTop = Math.max(0, (top + bottom - size.height) / 2);
+          element.scrollTo({ top: Math.max(0, (top + bottom - size.height) / 2), behavior: systemChanged ? "smooth" : "instant" });
       } else if (stackedTop < element.scrollTop + 8 || stackedTop + height > element.scrollTop + size.height - 8 || browsing !== null) {
-        element.scrollTop = Math.max(0, stackedTop - 12);
+        element.scrollTo({ top: Math.max(0, stackedTop - 12), behavior: systemChanged ? "smooth" : "instant" });
       }
       if (browsing === null && (targetX < element.scrollLeft + 30 || targetX > element.scrollLeft + size.width - 30))
-        element.scrollLeft = Math.max(0, targetX - size.width / 2);
+        element.scrollTo({ left: Math.max(0, targetX - size.width / 2), behavior: systemChanged ? "smooth" : "instant" });
       return;
     }
     if (browsing !== null) return;
@@ -120,7 +123,7 @@ export default function ScoreStrip({
         (width * (bar.left + bar.right)) / 2 + 12 - size.width / 2,
       ),
       top: Math.max(0, (height + 20 - size.height) / 2),
-      behavior: "instant",
+      behavior: systemChanged ? "smooth" : "instant",
     });
   }, [
     bar.number,
