@@ -94,4 +94,4 @@ The score toolbar’s **Wrong notes** toggle controls the red pressed-note marke
 
 Each quest can optionally set `repetitions` (1–100), overriding the plan default. New passages use ten completed runs; cumulative and full-section reviews use five. The bundled upgrade preserves existing runs and manual completions; reviews with at least five earned runs become complete.
 
-To undo completion, select the completed checkpoint in the header, click its run counter, and confirm **Reset quest**. Its completed bar displays full even for a manual skip. Reset clears only that quest’s run tally and completion; later results and session history remain saved, and subsequent checkpoints follow the usual unlock rules.
+To undo completion, select the completed checkpoint in the header, click its run counter, and confirm **Reset quest**. Its completed bar displays full even for a manual skip. Reset clears only that quest’s run tally and completion; later results and session history remain saved, and previously unlocked checkpoints stay available after reset and reload.

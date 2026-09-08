@@ -8,6 +8,7 @@ import { QuestRunner } from "../src/core/quest-runner";
 import {
   creditQuest,
   markQuestComplete,
+  resetQuest,
   emptyProgress,
   evaluateQuest,
   questBounds,
@@ -424,7 +425,7 @@ it("manual completion saves separately from real runs, restores and advances aft
   expect(unlocked(loaded.plan, restored, 1)).toBe(true);
   expect(restored.processed).toHaveLength(0);
 });
-it("inserted review checkpoints retain later earned passage progress without unlocking the review", async () => {
+it("inserted reviews retain access to previously earned passage checkpoints", async () => {
   const { plan } = await fixture();
   let progress = markQuestComplete(plan, emptyProgress(), "bar-1");
   progress = markQuestComplete(plan, progress, "bar-2");
@@ -432,5 +433,16 @@ it("inserted review checkpoints retain later earned passage progress without unl
   const restored = readQuestProgress(progress, expanded);
   expect(restored.passes["bar-2"].completed).toBe(true);
   expect(restored.passes.review).toBeUndefined();
-  expect(unlocked(expanded, restored, 2)).toBe(false);
+  expect(unlocked(expanded, restored, 2)).toBe(true);
+});
+
+it("reset retains previously unlocked access after reload and new run credit", async () => {
+  const loaded = await fixture();
+  let progress = markQuestComplete(loaded.plan, emptyProgress(), "bar-1");
+  progress = resetQuest(loaded.plan, progress, "bar-1");
+  expect(progress.passes["bar-1"]).toBeUndefined();
+  progress = readQuestProgress(progress, loaded.plan);
+  expect(unlocked(loaded.plan, progress, 1)).toBe(true);
+  progress = creditQuest(loaded, song, progress, "bar-1", result(loaded.plan.quests[0])).progress;
+  expect(unlocked(loaded.plan, readQuestProgress(progress, loaded.plan), 1)).toBe(true);
 });

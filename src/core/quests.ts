@@ -26,6 +26,7 @@ export interface PracticePlan {
 }
 export interface QuestProgress {
   version: 1;
+  unlockedIds?: string[];
   passes: Record<
     string,
     { attempts: number; successes: number; streak: number; completed: boolean; manual?: boolean }
@@ -181,7 +182,10 @@ export function unlocked(
   return (
     index >= 0 &&
     index < plan.quests.length &&
-    plan.quests.slice(0, index).every((q) => progress.passes[q.id]?.completed)
+    (index === 0 ||
+      progress.unlockedIds?.includes(plan.quests[index].id) ||
+      !!progress.passes[plan.quests[index].id] ||
+      !!progress.passes[plan.quests[index - 1].id]?.completed)
   );
 }
 export const questGoal = (plan: PracticePlan, quest: Quest) => quest.repetitions ?? plan.repetitions;
@@ -213,6 +217,10 @@ export function readQuestProgress(
     return emptyProgress();
   const result = emptyProgress();
   result.processed = [...v.processed];
+  if (Array.isArray(v.unlockedIds)) {
+    const ids = new Set(plan.quests.map((q) => q.id));
+    result.unlockedIds = [...new Set(v.unlockedIds.filter((id) => typeof id === "string" && ids.has(id)))];
+  }
   for (const q of plan.quests) {
     const p = v.passes[q.id];
     if (!p) continue;
@@ -243,6 +251,7 @@ export function markQuestComplete(plan: PracticePlan, progress: QuestProgress, i
 export function resetQuest(plan: PracticePlan, progress: QuestProgress, id: string): QuestProgress {
   if (!plan.quests.some((q) => q.id === id)) throw Error("Unknown checkpoint.");
   const next = structuredClone(progress);
+  next.unlockedIds = plan.quests.filter((_, index) => unlocked(plan, progress, index)).map((q) => q.id);
   delete next.passes[id];
   return next;
 }
@@ -332,6 +341,7 @@ export function creditQuest(
     questGoal(plan, quest);
   return {
     progress: {
+      ...progress,
       version: 1 as const,
       passes: { ...progress.passes, [quest.id]: next },
       processed: [...progress.processed.slice(-49999), result.id],

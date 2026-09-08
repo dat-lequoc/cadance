@@ -344,6 +344,9 @@ test("manual completion advances without played runs and survives reload", async
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
   await expect(page.locator(".quest-run-label strong")).toHaveText("0 / 10 completed runs");
   await expect(page.locator(".quest-reps .earned")).toHaveCount(0);
+  await expect(page.locator('select[aria-label="Choose checkpoint"] option[value="bar-2"]')).toBeEnabled();
+  await page.getByLabel("Choose checkpoint").selectOption("bar-2");
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
   await page.reload();
   await expect(page.locator(".quest-overall")).toContainText("1 / 2");
   await expect(page.locator(".next-quest h3")).toHaveText("Checkpoint 1");
