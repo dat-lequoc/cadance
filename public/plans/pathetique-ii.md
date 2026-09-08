@@ -12,7 +12,7 @@ This is a playable practice plan for the included, voice-separated MIDI of Beeth
 
 ## Quest rules
 
-Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
+Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** for new passages, or **5 completed runs** for cumulative reviews, to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
 
 A completed run means finishing the entire passage and hitting every target note. Wrong notes and chord retries are recorded for feedback but do not cancel the repetition. These quests use Wait for notes: timing, hold duration, phrasing, fingering and pedal artistry are not graded. Use ordinary Rhythm practice when you want timing feedback.
 
@@ -22,7 +22,7 @@ Default speed is 80%, or 60% in the isolated busy bars. Slow enough to find the 
 
 ## Cumulative reviews
 
-After bars 3–4, play bars 1–4 together; after bars 5–6, play 1–6; after 7–8, play the whole 1–8 section. Then reset the review start to bar 9. Every later section follows the same pattern, including single-bar cuts in dense passages. Reviews use both hands and the same ten-run goal, with manual completion available. Existing musical section boundaries keep reviews at eight bars or fewer, below the ten-bar cap. Selected playback speed is remembered.
+After bars 3–4, play bars 1–4 together; after bars 5–6, play 1–6; after 7–8, play the whole 1–8 section. Then reset the review start to bar 9. Every later section follows the same pattern, including single-bar cuts in dense passages. Reviews use both hands and a five-run goal, with manual completion available. Existing musical section boundaries keep reviews at eight bars or fewer, below the ten-bar cap. Selected playback speed is remembered.
 
 ## Checkpoint map
 
@@ -79,7 +79,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
 ```cadance-plan
 {
   "version": 1,
-  "id": "pathetique-ii-reviews-v3",
+  "id": "pathetique-ii-reviews-v4",
   "title": "Pathétique II · one passage at a time",
   "song": {
     "title": "Pathétique · II. Adagio cantabile",
@@ -162,6 +162,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-1-4",
+      "repetitions": 5,
       "title": "Bars 1–4 · Build-up review",
       "section": "Opening theme",
       "instruction": "Join bars 1–4 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -210,6 +211,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-1-6",
+      "repetitions": 5,
       "title": "Bars 1–6 · Build-up review",
       "section": "Opening theme",
       "instruction": "Join bars 1–6 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -258,6 +260,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-1-8",
+      "repetitions": 5,
       "title": "Bars 1–8 · Section review",
       "section": "Opening theme",
       "instruction": "Join bars 1–8 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -342,6 +345,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-9-12",
+      "repetitions": 5,
       "title": "Bars 9–12 · Build-up review",
       "section": "Theme in the upper register",
       "instruction": "Join bars 9–12 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -390,6 +394,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-9-14",
+      "repetitions": 5,
       "title": "Bars 9–14 · Build-up review",
       "section": "Theme in the upper register",
       "instruction": "Join bars 9–14 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -438,6 +443,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-9-16",
+      "repetitions": 5,
       "title": "Bars 9–16 · Section review",
       "section": "Theme in the upper register",
       "instruction": "Join bars 9–16 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -522,6 +528,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-17-20",
+      "repetitions": 5,
       "title": "Bars 17–20 · Build-up review",
       "section": "Moving melody",
       "instruction": "Join bars 17–20 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -570,6 +577,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-17-21",
+      "repetitions": 5,
       "title": "Bars 17–21 · Build-up review",
       "section": "Moving melody",
       "instruction": "Join bars 17–21 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -618,6 +626,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-17-22",
+      "repetitions": 5,
       "title": "Bars 17–22 · Section review",
       "section": "Moving melody",
       "instruction": "Join bars 17–22 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -702,6 +711,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-23-26",
+      "repetitions": 5,
       "title": "Bars 23–26 · Build-up review",
       "section": "Transition and held cadence",
       "instruction": "Join bars 23–26 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -750,6 +760,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-23-28",
+      "repetitions": 5,
       "title": "Bars 23–28 · Section review",
       "section": "Transition and held cadence",
       "instruction": "Join bars 23–28 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -834,6 +845,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-29-32",
+      "repetitions": 5,
       "title": "Bars 29–32 · Build-up review",
       "section": "Opening material returns",
       "instruction": "Join bars 29–32 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -882,6 +894,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-29-34",
+      "repetitions": 5,
       "title": "Bars 29–34 · Build-up review",
       "section": "Opening material returns",
       "instruction": "Join bars 29–34 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -930,6 +943,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-29-36",
+      "repetitions": 5,
       "title": "Bars 29–36 · Section review",
       "section": "Opening material returns",
       "instruction": "Join bars 29–36 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1014,6 +1028,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-37-40",
+      "repetitions": 5,
       "title": "Bars 37–40 · Build-up review",
       "section": "Contrasting figures",
       "instruction": "Join bars 37–40 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1062,6 +1077,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-37-41",
+      "repetitions": 5,
       "title": "Bars 37–41 · Section review",
       "section": "Contrasting figures",
       "instruction": "Join bars 37–41 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1146,6 +1162,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-42-43",
+      "repetitions": 5,
       "title": "Bars 42–43 · Build-up review",
       "section": "Dense runs and chords",
       "instruction": "Join bars 42–43 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1194,6 +1211,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-42-44",
+      "repetitions": 5,
       "title": "Bars 42–44 · Section review",
       "section": "Dense runs and chords",
       "instruction": "Join bars 42–44 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1278,6 +1296,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-45-47",
+      "repetitions": 5,
       "title": "Bars 45–47 · Build-up review",
       "section": "Return transition",
       "instruction": "Join bars 45–47 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1326,6 +1345,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-45-48",
+      "repetitions": 5,
       "title": "Bars 45–48 · Build-up review",
       "section": "Return transition",
       "instruction": "Join bars 45–48 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1374,6 +1394,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-45-49",
+      "repetitions": 5,
       "title": "Bars 45–49 · Build-up review",
       "section": "Return transition",
       "instruction": "Join bars 45–49 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1422,6 +1443,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-45-50",
+      "repetitions": 5,
       "title": "Bars 45–50 · Section review",
       "section": "Return transition",
       "instruction": "Join bars 45–50 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1506,6 +1528,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-51-54",
+      "repetitions": 5,
       "title": "Bars 51–54 · Build-up review",
       "section": "Theme with new accompaniment",
       "instruction": "Join bars 51–54 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1554,6 +1577,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-51-56",
+      "repetitions": 5,
       "title": "Bars 51–56 · Build-up review",
       "section": "Theme with new accompaniment",
       "instruction": "Join bars 51–56 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1602,6 +1626,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-51-58",
+      "repetitions": 5,
       "title": "Bars 51–58 · Section review",
       "section": "Theme with new accompaniment",
       "instruction": "Join bars 51–58 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1686,6 +1711,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-59-62",
+      "repetitions": 5,
       "title": "Bars 59–62 · Build-up review",
       "section": "Upper-register return",
       "instruction": "Join bars 59–62 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1734,6 +1760,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-59-64",
+      "repetitions": 5,
       "title": "Bars 59–64 · Build-up review",
       "section": "Upper-register return",
       "instruction": "Join bars 59–64 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1782,6 +1809,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-59-66",
+      "repetitions": 5,
       "title": "Bars 59–66 · Section review",
       "section": "Upper-register return",
       "instruction": "Join bars 59–66 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1866,6 +1894,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-67-68",
+      "repetitions": 5,
       "title": "Bars 67–68 · Build-up review",
       "section": "Closing gestures",
       "instruction": "Join bars 67–68 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1914,6 +1943,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-67-69",
+      "repetitions": 5,
       "title": "Bars 67–69 · Build-up review",
       "section": "Closing gestures",
       "instruction": "Join bars 67–69 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -1962,6 +1992,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-67-71",
+      "repetitions": 5,
       "title": "Bars 67–71 · Build-up review",
       "section": "Closing gestures",
       "instruction": "Join bars 67–71 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
@@ -2010,6 +2041,7 @@ The app reads the single cadance-plan block below. Titles and instructions are p
     },
     {
       "id": "review-67-73",
+      "repetitions": 5,
       "title": "Bars 67–73 · Section review",
       "section": "Closing gestures",
       "instruction": "Join bars 67–73 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",

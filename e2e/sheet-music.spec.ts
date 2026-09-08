@@ -202,6 +202,7 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(page.locator(".score-note-overlay ellipse")).toHaveCount(0);
   const line = page.locator(".score-note-overlay line");
+  await expect(page.locator(".score-correct-overlay")).toHaveCount(0);
   const firstX = await line.getAttribute("x1");
   const send = (pitch: number) => page.evaluate((pitch) => (window as any).sheetPort.onmidimessage({ data: new Uint8Array([144, pitch, 100]), timeStamp: performance.now() }), pitch);
   await send(61);
@@ -220,6 +221,8 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await send(62);
   await send(60);
   await expect(page.locator(".stage-feedback")).toContainText("1 of 3 keys held");
+  await expect(page.locator('.score-correct-overlay [data-pitch="60"]')).toBeVisible();
+  await expect(page.locator('.score-correct-overlay ellipse')).toHaveCount(1);
   await expect(page.locator('.score-wrong-overlay g')).toHaveCount(2);
   await page.screenshot({ path: "test-results/sheet-wrong-notes.png" });
   await page.evaluate(() => {
@@ -232,6 +235,12 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await send(56);
   await send(44);
   await expect(line).not.toHaveAttribute("x1", firstX!);
+  await expect(page.locator('.score-correct-overlay ellipse')).toHaveCount(3);
+  await page.evaluate(() => {
+    (window as any).sheetPort.onmidimessage({ data: new Uint8Array([144, 60, 0]), timeStamp: performance.now() });
+  });
+  await expect(page.locator('.score-correct-overlay [data-pitch="60"]')).toHaveCount(0);
+  await expect(page.locator('.score-correct-overlay ellipse')).toHaveCount(2);
   await expect(page.locator(".stage-feedback")).toContainText("D♯3");
   await page.getByLabel("Sheet music zoom").fill("200");
   await expect(line).toBeInViewport();
@@ -254,6 +263,33 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await expect(page.locator(".stage")).toHaveCount(0);
   await page.getByRole("button", { name: "Sheet only", exact: true }).click();
   await expect(page.locator(".stage")).toBeVisible();
+});
+
+test("Space resumes a sheet preview without scrolling or repeated toggles", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Start practice", exact: true }).click();
+  await page.getByRole("button", { name: "Use simulated input" }).click();
+  await page.getByRole("button", { name: "Sheet music", exact: true }).click();
+  await page.getByRole("button", { name: "Sheet only", exact: true }).click();
+  const image = page.getByAltText("Score page 1, bars 1–4");
+  await image.click({ position: { x: 200, y: 80 } });
+  await expect(page.locator(".roll-preview")).toContainText("Resume here");
+  const viewport = page.getByLabel("Score image; scroll to pan");
+  const top = await viewport.evaluate((el) => el.scrollTop);
+  await page.keyboard.press("Space");
+  await expect(page.locator(".roll-preview")).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toBeVisible();
+  await page.keyboard.down("Space");
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await page.keyboard.down("Space");
+  await page.keyboard.up("Space");
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect.poll(() => viewport.evaluate((el) => el.scrollTop)).toBe(top);
+  // A focused toolbar button must not also activate on Space's keyup.
+  await page.getByRole("button", { name: "Sheet only", exact: true }).focus();
+  await page.keyboard.press("Space");
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toBeVisible();
+  await expect(page.locator(".score-strip")).toHaveClass(/score-only/);
 });
 
 test("scrolling back in sheet-only pauses and resume starts on the selected note", async ({ page }) => {

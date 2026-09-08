@@ -3,6 +3,7 @@ import { QuestRunner } from "../core/quest-runner";
 import {
   creditQuest,
   markQuestComplete,
+  resetQuest,
   readPracticePlan,
   readQuestProgress,
 } from "../core/quests";
@@ -14,6 +15,7 @@ const previousBundledSignature =
   "ec249e24cf7e9a408965ae57672928fd64798fd7fade19d42da1f7fc19af01d6";
 const previousHandsSignature = "980f9dfa06ebef071bfb68bd3bd5f86f09a865401f843c6c4e82c4e7b3160d5f";
 const previousContinuousSignature = "fd13c81717c852181335bdfb9c41d160d995d791afc14cae2c9d0338f63621a8";
+const previousReviewSignature = "16343507a96b6bae1f177ec8a2d0a668a8227817dbdfc0cc1fa525045764e66c";
 export function useQuestPlan(
   engine: PracticeEngine,
   report: (error: unknown) => void,
@@ -39,10 +41,10 @@ export function useQuestPlan(
           });
         },
         () => redraw((n) => n + 1),
-        async (loaded, id) => db.transaction("rw", db.settings, async () => {
+        async (loaded, id, reset) => db.transaction("rw", db.settings, async () => {
           const key = "quest-progress:" + loaded.signature;
           const progress = readQuestProgress((await db.settings.get(key))?.value, loaded.plan);
-          const next = markQuestComplete(loaded.plan, progress, id);
+          const next = reset ? resetQuest(loaded.plan, progress, id) : markQuestComplete(loaded.plan, progress, id);
           await db.settings.put({ key, value: next });
           return next;
         }),
@@ -69,16 +71,16 @@ export function useQuestPlan(
         song.id === "beethoven-pathetique-ii"
           ? await readPracticePlan(bundledPlan, song)
           : null;
-      if (currentBundled && (loaded.signature === previousBundledSignature || loaded.signature === previousHandsSignature || loaded.signature === previousContinuousSignature)) {
+      if (currentBundled && (loaded.signature === previousReviewSignature || loaded.signature === previousBundledSignature || loaded.signature === previousHandsSignature || loaded.signature === previousContinuousSignature)) {
         loaded = currentBundled;
         if (saved)
           await db.settings.put({ key: saved.key, value: bundledPlan });
       }
       const progressKey = "quest-progress:" + loaded.signature;
       let row = await db.settings.get(progressKey);
-      // Keep existing passage results; inserted reviews begin uncompleted.
+      // Keep earned runs; reviews meeting the reduced goal become complete.
       if (!row && currentBundled && loaded.signature === currentBundled.signature) {
-        const previous = await db.settings.get("quest-progress:" + previousContinuousSignature) ?? await db.settings.get("quest-progress:" + previousHandsSignature);
+        const previous = await db.settings.get("quest-progress:" + previousReviewSignature) ?? await db.settings.get("quest-progress:" + previousContinuousSignature) ?? await db.settings.get("quest-progress:" + previousHandsSignature);
         if (previous) {
           row = { key: progressKey, value: readQuestProgress(previous.value, loaded.plan) };
           await db.settings.put(row);

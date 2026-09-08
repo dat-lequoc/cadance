@@ -396,7 +396,7 @@ export function usePracticeController() {
         pressed.add(k);
         press(map[k]);
       }
-      if (k === " " && sourceRef.current === "simulated") {
+      if (k === "shift" && sourceRef.current === "simulated") {
         e.preventDefault();
         simulated.send([0xb0, 64, 127]);
       }
@@ -404,7 +404,7 @@ export function usePracticeController() {
     const up = (e: KeyboardEvent) => {
       const k = e.key.toLowerCase();
       if (pressed.delete(k)) release(map[k]);
-      if (k === " " && sourceRef.current === "simulated")
+      if (k === "shift" && sourceRef.current === "simulated")
         simulated.send([0xb0, 64, 0]);
     };
     const blur = () => {
@@ -745,14 +745,20 @@ export function usePracticeController() {
       }
       if (
         panel ||
-        e.repeat ||
         e.ctrlKey ||
         e.metaKey ||
         e.altKey ||
-        (e.target as HTMLElement).closest("input,select,textarea,[role=dialog]")
+        (e.target as HTMLElement).closest("input,select,textarea,[contenteditable=true],[role=dialog]")
       )
         return;
       const k = e.key.toLowerCase();
+      if (k === " ") {
+        // Cancel native scrolling and focused-button activation on every repeat.
+        e.preventDefault();
+        if (!e.repeat) void play();
+        return;
+      }
+      if (e.repeat) return;
       if (k === "p") {
         e.preventDefault();
         void play();

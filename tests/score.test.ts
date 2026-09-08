@@ -106,3 +106,12 @@ it("places an unprinted wrong pitch using the score clef and renders its acciden
   invalid.systems[0].staves![0].step = 0;
   await expect(validateScore(invalid, pathetique)).rejects.toThrow("staff geometry");
 });
+
+it("places a low played note on the bass staff even in a right-hand quest", () => {
+  const bar = score.bars[6], system = score.systems[bar.system], anchor = bar.anchors![0];
+  const bass = anchor.notes.find((note) => note.pitch === 34)!;
+  const point = playedScorePosition(system, anchor, 34, [53, 61], true)!;
+  expect(point.label).toBe("B♭1");
+  expect(Math.abs(point.y - bass.y) * system.height).toBeLessThan(.1);
+  expect(point.ledgers).toHaveLength(2);
+});

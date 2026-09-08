@@ -334,9 +334,19 @@ test("manual completion advances without played runs and survives reload", async
   await page.getByRole("button", { name: "0 / 10 completed runs", exact: true }).click();
   await page.getByRole("button", { name: "Mark complete & next" }).click();
   await expect(page.locator(".quest-run-label strong")).toHaveText("Marked complete ✓");
+  await expect(page.getByRole("progressbar", { name: "Completed runs toward checkpoint", exact: true })).toHaveAttribute("aria-valuenow", "10");
+  await expect(page.locator(".quest-reps .earned")).toHaveCount(10);
   await expect(page.locator(".stage")).toBeVisible();
+  await page.getByLabel("Choose checkpoint").selectOption("bar-1");
+  await page.getByRole("button", { name: "Marked complete ✓", exact: true }).click();
+  await expect(page.getByRole("dialog", { name: "Reset checkpoint?" })).toBeVisible();
+  await page.getByRole("button", { name: "Reset quest", exact: true }).click();
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
+  await expect(page.locator(".quest-run-label strong")).toHaveText("0 / 10 completed runs");
+  await expect(page.locator(".quest-reps .earned")).toHaveCount(0);
   await page.reload();
-  await expect(page.locator(".quest-overall")).toContainText("2 / 2");
+  await expect(page.locator(".quest-overall")).toContainText("1 / 2");
+  await expect(page.locator(".next-quest h3")).toHaveText("Checkpoint 1");
 });
 
 test("bundled review upgrade retains old passage runs and leaves added reviews unfinished", async ({ page }) => {
@@ -365,5 +375,39 @@ test("bundled review upgrade retains old passage runs and leaves added reviews u
   await page.reload();
   await expect(page.locator(".quest-overall")).toContainText("9 / 161");
   await expect(page.locator(".next-quest h3")).toHaveText("Bars 1–4 · Build-up review");
-  await expect(page.locator(".next-quest > strong")).toHaveText("0 / 10 completed runs");
+  await expect(page.locator(".next-quest > strong")).toHaveText("0 / 5 completed runs");
+});
+
+test("five-run review upgrade preserves completed and partial review progress", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator(".quest-overall")).toContainText("0 / 161");
+  await page.evaluate(async () => {
+    const md = await (await fetch("/plans/pathetique-ii.md")).text();
+    const plan = JSON.parse(md.split("```cadance-plan\n")[1].split("```")[0]);
+    plan.id = "pathetique-ii-reviews-v3";
+    for (const q of plan.quests) delete q.repetitions;
+    const signature = Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256", new TextEncoder().encode(JSON.stringify(plan))))).map(b => b.toString(16).padStart(2, "0")).join("");
+    const passes = Object.fromEntries(plan.quests.slice(0, 10).map((q: { id: string }) => [q.id, { attempts: 10, successes: 10, streak: 10, completed: true }]));
+    passes["review-1-4"] = { attempts: 7, successes: 5, streak: 5, completed: false };
+    passes["review-1-6"] = { attempts: 4, successes: 3, streak: 3, completed: false };
+    await new Promise<void>((resolve, reject) => {
+      const request = indexedDB.open("cadence-piano");
+      request.onsuccess = () => {
+        const db = request.result;
+        const tx = db.transaction("settings", "readwrite");
+        tx.objectStore("settings").put({ key: "quest-progress:" + signature, value: { version: 1, passes, processed: [] } });
+        tx.objectStore("settings").put({ key: "quest-plan:beethoven-pathetique-ii", value: "```cadance-plan\n" + JSON.stringify(plan) + "\n```\n" });
+        tx.oncomplete = () => { db.close(); resolve(); };
+        tx.onerror = () => reject(tx.error);
+      };
+      request.onerror = () => reject(request.error);
+    });
+  });
+  await page.reload();
+  await expect(page.locator(".quest-overall")).toContainText("10 / 161");
+  await expect(page.locator(".next-quest h3")).toHaveText("Bars 1–6 · Build-up review");
+  await expect(page.locator(".next-quest > strong")).toHaveText("3 / 5 completed runs");
+  await page.getByRole("button", { name: /Continue quest/ }).click();
+  await page.getByRole("button", { name: "Use simulated input" }).click();
+  await expect(page.locator(".quest-run-progress")).toContainText("3 / 5 completed runs");
 });

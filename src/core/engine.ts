@@ -64,6 +64,7 @@ export class PracticeEngine {
   feedback = "Take a breath. Start when you’re ready.";
   lastWrong: number | null = null;
   wrongHeld = new Map<string, { event: InputEvent; reason: "wrong" | "early" }>();
+  correctHeld = new Map<string, { event: InputEvent; notes: Note[] }>();
   loop: [number, number] | null = null;
   passage: [number, number];
   adaptive = false;
@@ -141,6 +142,7 @@ export class PracticeEngine {
   }
   private resetAttempt() {
     this.wrongHeld.clear();
+    this.correctHeld.clear();
     this.hits.clear();
     this.misses.clear();
     this.extras = 0;
@@ -352,6 +354,8 @@ export class PracticeEngine {
     this.input.lost(port);
     for (const [key, value] of this.wrongHeld)
       if (!port || value.event.port === port) this.wrongHeld.delete(key);
+    for (const [key, value] of this.correctHeld)
+      if (!port || value.event.port === port) this.correctHeld.delete(key);
     this.partial.clear();
     this.epoch++;
     this.emit();
@@ -429,7 +433,10 @@ export class PracticeEngine {
     if (e.source === "playback") return;
     const wasHeld = this.input.held.has(keyId(e));
     this.input.apply(e);
-    if (e.type === "off") this.wrongHeld.delete(keyId(e));
+    if (e.type === "off") {
+      this.wrongHeld.delete(keyId(e));
+      this.correctHeld.delete(keyId(e));
+    }
     this.tick();
     if (this.preparationRemaining > 0) {
       this.emit();
@@ -493,6 +500,9 @@ export class PracticeEngine {
         this.retries++;
       }
       this.partial.set(e.pitch, { time: e.time, key: keyId(e) });
+      this.correctHeld.set(keyId(e), {
+        event: { ...e }, notes: this.group.notes.filter((n) => n.pitch === e.pitch),
+      });
       this.lastWrong = null;
       if (this.group.notes.every((n) => this.partial.has(n.pitch))) {
         for (const n of this.group.notes) this.hits.add(n.id);
@@ -533,6 +543,7 @@ export class PracticeEngine {
             Math.abs(a.delta) - Math.abs(b.delta) || a.n.time - b.n.time,
         );
       if (eligible.length) {
+        this.correctHeld.set(keyId(e), { event: { ...e }, notes: [eligible[0].n] });
         this.hits.add(eligible[0].n.id);
         this.timings.push(eligible[0].delta);
         this.lastWrong = null;

@@ -13,6 +13,7 @@ export interface Quest {
   focus: NonNullable<Config["focus"]>;
   mode: "wait" | "rhythm";
   speed: number;
+  repetitions?: number;
 }
 export interface PracticePlan {
   version: 1;
@@ -125,7 +126,8 @@ export async function readPracticePlan(
       !["wait", "rhythm"].includes(q.mode) ||
       !Number.isFinite(q.speed) ||
       q.speed < 0.25 ||
-      q.speed > 1.5
+      q.speed > 1.5 ||
+      (q.repetitions !== undefined && (!Number.isInteger(q.repetitions) || q.repetitions < 1 || q.repetitions > 100))
     )
       throw Error(
         "Invalid quest: IDs must be unique and ranges, parts, modes and speeds must be valid.",
@@ -182,6 +184,7 @@ export function unlocked(
     plan.quests.slice(0, index).every((q) => progress.passes[q.id]?.completed)
   );
 }
+export const questGoal = (plan: PracticePlan, quest: Quest) => quest.repetitions ?? plan.repetitions;
 export const questCount = (
   plan: PracticePlan,
   progress: QuestProgress,
@@ -189,7 +192,7 @@ export const questCount = (
 ) => {
   const p = progress.passes[quest.id];
   return Math.min(
-    plan.repetitions,
+    questGoal(plan, quest),
     plan.counting === "consecutive" ? (p?.streak ?? 0) : (p?.successes ?? 0),
   );
 };
@@ -222,7 +225,7 @@ export function readQuestProgress(
     )
       break;
     const completed = p.manual === true ||
-      (plan.counting === "total" ? p.successes : p.streak) >= plan.repetitions;
+      (plan.counting === "total" ? p.successes : p.streak) >= questGoal(plan, q);
     result.passes[q.id] = { ...p, completed };
 
   }
@@ -234,6 +237,13 @@ export function markQuestComplete(plan: PracticePlan, progress: QuestProgress, i
   if (!unlocked(plan, progress, index)) throw Error("Complete the earlier checkpoint first.");
   const next = structuredClone(progress);
   next.passes[id] = { ...(next.passes[id] ?? { attempts: 0, successes: 0, streak: 0 }), completed: true, manual: true };
+  return next;
+}
+/** Reset only this checkpoint; keep later results and attempt deduplication. */
+export function resetQuest(plan: PracticePlan, progress: QuestProgress, id: string): QuestProgress {
+  if (!plan.quests.some((q) => q.id === id)) throw Error("Unknown checkpoint.");
+  const next = structuredClone(progress);
+  delete next.passes[id];
   return next;
 }
 export function evaluateQuest(
@@ -319,7 +329,7 @@ export function creditQuest(
   };
   next.completed =
     (plan.counting === "total" ? next.successes : next.streak) >=
-    plan.repetitions;
+    questGoal(plan, quest);
   return {
     progress: {
       version: 1 as const,

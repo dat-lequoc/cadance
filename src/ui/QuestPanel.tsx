@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import type { PracticeController } from "./usePracticeController";
-import { questCount, unlocked } from "../core/quests";
+import { questCount, questGoal, unlocked } from "../core/quests";
 import { download } from "../core/files";
 export default function QuestPanel({ c }: { c: PracticeController }) {
   const input = useRef<HTMLInputElement>(null),
@@ -40,7 +40,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
               <h3>{next.title}</h3>
               <p>{next.instruction}</p>
               <strong>
-                {questCount(plan, runner.progress, next)} / {plan.repetitions}{" "}
+                {questCount(plan, runner.progress, next)} / {questGoal(plan, next)}{" "}
                 completed runs{plan.counting === "consecutive" ? " in a row" : ""}
               </strong>
               <small>
@@ -90,7 +90,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
                         {done
                           ? "Completed"
                           : open
-                            ? `${questCount(plan, runner.progress, q)} / ${plan.repetitions} completed runs`
+                            ? `${questCount(plan, runner.progress, q)} / ${questGoal(plan, q)} completed runs`
                             : "Complete the previous quest to unlock"}
                       </small>
                     </span>
@@ -177,6 +177,7 @@ function QuestRunProgress({
     return () => clearTimeout(timer);
   }, [lastRun]);
   const active = c.quests.runner.activeId === questId;
+  const completed = !!c.quests.runner.progress.passes[questId]?.completed;
   const hits = active ? c.engine.hits.size : 0;
   const targets = active ? c.engine.targets.length : 0;
   return (
@@ -190,9 +191,9 @@ function QuestRunProgress({
       <div className="quest-run-label">
         <button
           className="quest-counter"
-          title="Skip and mark this checkpoint complete"
+          title={completed ? "Reset this checkpoint" : "Skip and mark this checkpoint complete"}
           aria-haspopup="dialog"
-          disabled={!active || c.quests.runner.completed || c.quests.runner.saving || !!c.quests.runner.error}
+          disabled={!active || c.quests.runner.saving || !!c.quests.runner.error}
           onClick={() => {
             resumeOnCancel.current = c.engine.status === "playing" || c.engine.status === "waiting";
             c.pause();
@@ -235,22 +236,23 @@ function QuestRunProgress({
       <dialog
         ref={confirmation}
         className="quest-skip-dialog"
-        aria-label="Skip checkpoint?"
+        aria-label={completed ? "Reset checkpoint?" : "Skip checkpoint?"}
         onCancel={(event) => { event.preventDefault(); cancelSkip(); }}
         onKeyDown={(event) => event.stopPropagation()}
         onKeyUp={(event) => event.stopPropagation()}
         onClick={(event) => { if (event.target === event.currentTarget) cancelSkip(); }}
       >
         <div>
-          <h3>Skip checkpoint?</h3>
-          <p>Mark this checkpoint complete and move to the next one?</p>
+          <h3>{completed ? "Reset checkpoint?" : "Skip checkpoint?"}</h3>
+          <p>{completed ? "Reset this quest to zero runs and mark it incomplete? Later quest results and session history stay saved." : "Mark this checkpoint complete and move to the next one?"}</p>
           <footer>
             <button onClick={cancelSkip}>Keep practicing</button>
             <button className="primary" onClick={() => {
               resumeOnCancel.current = false;
               confirmation.current?.close();
-              void c.quests.runner.markComplete();
-            }}>Mark complete & next →</button>
+              setReward(null);
+              void c.quests.runner.markComplete(completed);
+            }}>{completed ? "Reset quest" : "Mark complete & next →"}</button>
           </footer>
         </div>
       </dialog>
@@ -281,7 +283,7 @@ function QuestJourney({ c }: { c: PracticeController }) {
   const sections = [...new Set(plan.quests.map((q) => q.section))];
   const done = plan.quests.filter((q) => runner.progress.passes[q.id]?.completed).length;
   const earned = (q: typeof plan.quests[number]) => runner.progress.passes[q.id]?.completed
-    ? 1 : questCount(plan, runner.progress, q) / plan.repetitions;
+    ? 1 : questCount(plan, runner.progress, q) / questGoal(plan, q);
   const percent = Math.floor(100 * plan.quests.reduce((sum, q) => sum + earned(q), 0) / plan.quests.length);
   const current = (runner.active ?? runner.next)?.section;
   return (
@@ -323,9 +325,10 @@ export function QuestStatus({ c }: { c: PracticeController }) {
   }, [runner.activeId, runner.lastRun?.id]);
   const entering = !!runner.activeId && announcedQuest === runner.activeId;
   if (!plan) return null;
+  const goal = quest ? questGoal(plan, quest) : plan.repetitions;
   const count = quest
-    ? questCount(plan, runner.progress, quest)
-    : plan.repetitions;
+    ? runner.progress.passes[quest.id]?.completed ? goal : questCount(plan, runner.progress, quest)
+    : goal;
   return (
     <div
       className="quest-dock quest-header"
@@ -367,7 +370,7 @@ export function QuestStatus({ c }: { c: PracticeController }) {
       <div className="quest-transition" role="status" aria-live="polite" aria-atomic="true">
         {entering && runner.active && <div key={`${runner.activeId}:${runner.lastRun?.id ?? "start"}`} className="quest-transition-cue">
           <b>{continuing ? "↻ Continue" : "→ New quest"}</b>
-          <span>{continuing ? `Run ${Math.min(count + 1, plan.repetitions)} of ${plan.repetitions} · ` : ""}{runner.active.fromBar === runner.active.throughBar ? `Bar ${runner.active.fromBar}` : `Bars ${runner.active.fromBar}–${runner.active.throughBar}`} · {runner.active.hand === "both" ? "Both hands" : runner.active.hand === "right" ? "Right hand" : "Left hand"}{runner.active.id.startsWith("review-") ? " · Review" : ""}</span>
+          <span>{continuing ? `Run ${Math.min(count + 1, goal)} of ${goal} · ` : ""}{runner.active.fromBar === runner.active.throughBar ? `Bar ${runner.active.fromBar}` : `Bars ${runner.active.fromBar}–${runner.active.throughBar}`} · {runner.active.hand === "both" ? "Both hands" : runner.active.hand === "right" ? "Right hand" : "Left hand"}{runner.active.id.startsWith("review-") ? " · Review" : ""}</span>
         </div>}
       </div>
       </div>
@@ -376,13 +379,13 @@ export function QuestStatus({ c }: { c: PracticeController }) {
         key={runner.loaded!.signature}
         c={c}
         count={count}
-        goal={plan.repetitions}
+        goal={goal}
         questId={quest?.id ?? "complete"}
       />
       <progress
         aria-label="Current quest progress"
         value={count}
-        max={plan.repetitions}
+        max={goal}
       />
       <small role="status">
         {runner.active

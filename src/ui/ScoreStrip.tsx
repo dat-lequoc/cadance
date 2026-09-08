@@ -26,6 +26,17 @@ export default function ScoreStrip({
   const flats = (c.song.keys.findLast((key) => key.tick <= map.ticks(position))?.key ?? "").includes("b");
   const mismatches = c.sheetWrongNotes && c.active && c.engine.preparationRemaining <= 0 && c.browsePosition === null && browsing === null
     ? [...new Map([...c.engine.wrongHeld].filter(([key]) => c.engine.input.held.has(key)).map(([, value]) => [value.event.pitch, value])).values()] : [];
+  const scorePoints = useMemo(() => new Map(score.bars.flatMap((bar) =>
+    (bar.anchors ?? []).flatMap((anchor) => anchor.notes.map((note) =>
+      [`${anchor.tick}:${note.pitch}`, { ...note, system: bar.system }] as const)))), [score]);
+  const correctHeld = c.active && c.engine.preparationRemaining <= 0 && c.browsePosition === null && browsing === null
+    ? [...new Map([...c.engine.correctHeld].filter(([key]) => c.engine.input.held.has(key))
+      .flatMap(([, value]) => value.notes.map((note) => [note.id, note] as const))).values()] : [];
+  const correctPitches = [...new Set(correctHeld.map((note) => note.pitch))];
+  const correctNotes = correctHeld.flatMap((note) => {
+        const point = scorePoints.get(`${note.tick}:${note.pitch - c.config.transpose}`);
+        return point ? [{ ...point, id: note.id, playedPitch: note.pitch }] : [];
+      });
   const viewport = useRef<HTMLDivElement>(null);
   const manualScroll = useRef(false);
   const scrollFrame = useRef<number | null>(null);
@@ -273,15 +284,24 @@ export default function ScoreStrip({
               <img src={item.image} width={item.width} height={item.height} loading={only && index > systemIndex + 1 ? "lazy" : "eager"}
                 alt={`Score page ${item.page}, bars ${item.fromBar}–${item.throughBar}`}
                 onError={() => setFailedImage(item.image)} draggable={false} />
+              {correctNotes.some((note) => note.system === index) && <svg className="score-correct-overlay" viewBox={`0 0 ${item.width} ${item.height}`} role="img" aria-label="Correct held notes on score">
+                {correctNotes.filter((note) => note.system === index).map((note) =>
+                  <ellipse key={note.id} data-pitch={note.playedPitch} cx={note.x * item.width} cy={note.y * item.height} rx="12" ry="8" aria-label={`Correct ${scorePitch(note.playedPitch, flats).label}`} />)}
+              </svg>}
               {current && <>
                 <div className="score-current-bar" aria-label={`Highlighted bar ${bar.number}`} style={{ left: `${bar.left * 100}%`, width: `${(bar.right - bar.left) * 100}%` }} />
                 {anchor && <svg className="score-note-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" role="img" aria-label={`Score cursor at bar ${bar.number}`}>
                   <line x1={anchor.x} x2={anchor.x} y1="0.08" y2="0.94" vectorEffect="non-scaling-stroke" />
                 </svg>}
-                {mismatches.length > 0 && <>
-                  <div className="score-input-feedback" role="status" aria-label="Played note mismatch" style={{ left: `${Math.min(.75, anchor?.x ?? bar.left) * 100}%` }}>
+                {(correctPitches.length > 0 || mismatches.length > 0) && <div className="score-input-labels" style={{ left: `${Math.min(.75, anchor?.x ?? bar.left) * 100}%` }}>
+                  {correctPitches.length > 0 && <div className="score-input-feedback score-input-correct" role="status" aria-label="Correct played notes">
+                    Correct {correctPitches.map((pitch) => scorePitch(pitch, flats).label).join(" + ")}
+                  </div>}
+                  {mismatches.length > 0 && <div className="score-input-feedback" role="status" aria-label="Played note mismatch">
                     Played {mismatches.map(({ event, reason }) => `${scorePitch(event.pitch, flats).label}${reason === "early" ? " (early)" : ""}`).join(" + ")}
-                  </div>
+                  </div>}
+                </div>}
+                {mismatches.length > 0 && <>
                   {anchor && c.config.transpose === 0 && <svg className="score-wrong-overlay" viewBox={`0 0 ${item.width} ${item.height}`} aria-label="Wrong pressed notes on score" role="img">
                     {mismatches.map(({ event }, wrongIndex) => {
                       const point = playedScorePosition(item, anchor, event.pitch, [...required], flats);

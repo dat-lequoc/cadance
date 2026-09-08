@@ -31,7 +31,7 @@ for (const [first, last, section] of sections)
   }
 const plan: PracticePlan = {
   version: 1,
-  id: "pathetique-ii-reviews-v3",
+  id: "pathetique-ii-reviews-v4",
   title: "Pathétique II · one passage at a time",
   song: { title: song.title, fingerprint: await songFingerprint(song) },
   repetitions: 10,
@@ -88,6 +88,7 @@ for (const p of passages) {
   if (p.from > sectionStart) {
     const q = {
       id: `review-${sectionStart}-${p.through}`,
+      repetitions: 5,
       title: `Bars ${sectionStart}–${p.through} · ${p.through === sectionEnd ? "Section review" : "Build-up review"}`,
       section: p.section,
       instruction: `Join bars ${sectionStart}–${p.through} with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.`,
@@ -120,7 +121,7 @@ This is a playable practice plan for the included, voice-separated MIDI of Beeth
 
 ## Quest rules
 
-Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
+Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** for new passages, or **5 completed runs** for cumulative reviews, to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
 
 A completed run means finishing the entire passage and hitting every target note. Wrong notes and chord retries are recorded for feedback but do not cancel the repetition. These quests use Wait for notes: timing, hold duration, phrasing, fingering and pedal artistry are not graded. Use ordinary Rhythm practice when you want timing feedback.
 
@@ -130,7 +131,7 @@ Default speed is 80%, or 60% in the isolated busy bars. Slow enough to find the 
 
 ## Cumulative reviews
 
-After bars 3–4, play bars 1–4 together; after bars 5–6, play 1–6; after 7–8, play the whole 1–8 section. Then reset the review start to bar 9. Every later section follows the same pattern, including single-bar cuts in dense passages. Reviews use both hands and the same ten-run goal, with manual completion available. Existing musical section boundaries keep reviews at eight bars or fewer, below the ten-bar cap. Selected playback speed is remembered.
+After bars 3–4, play bars 1–4 together; after bars 5–6, play 1–6; after 7–8, play the whole 1–8 section. Then reset the review start to bar 9. Every later section follows the same pattern, including single-bar cuts in dense passages. Reviews use both hands and a five-run goal, with manual completion available. Existing musical section boundaries keep reviews at eight bars or fewer, below the ten-bar cap. Selected playback speed is remembered.
 
 ## Checkpoint map
 

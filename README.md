@@ -11,7 +11,7 @@ pnpm install --frozen-lockfile --ignore-scripts
 pnpm dev
 ```
 
-Open http://127.0.0.1:5173. Choose **Connect your piano**, grant permission and explicitly select an input. Without hardware, choose **Use simulated input**, then use the screen keys or A W S E D F T G Y H U J K for C4–C5; space controls sustain. Click outside form controls before using computer keys.
+Open http://127.0.0.1:5173. Choose **Connect your piano**, grant permission and explicitly select an input. Without hardware, choose **Use simulated input**, then use the screen keys or A W S E D F T G Y H U J K for C4–C5; Shift controls sustain; Space plays/pauses. Click outside form controls before using computer keys.
 
 ```sh
 pnpm test                         # deterministic engine / adapter / scheduler tests
@@ -46,7 +46,7 @@ See [architecture](docs/architecture.md), [hardware setup](docs/hardware.md), [e
 1. **Import MIDI** or drop a file into the page. **Pieces** contains your searchable library; selecting Practice opens setup.
 2. Choose **Wait for notes**, **Practice rhythm**, or **Recital**, then choose a hand and All notes / Melody line / Harmonies independently. Choose speed, accompaniment and a whole piece or saved passage.
 3. **Start practice** enters the focused player. If no piano is selected, connect one or choose simulated input; the original start action continues automatically. **Listen** plays inline on setup with pause, seek and stop controls, without MIDI hardware or opening the focused player. **Open player** is an optional explicit action.
-4. The player fills the window. Use **⛶** for browser fullscreen; the keyboard remains visible above a slim transport dock. **P** plays/pauses, **R** restarts, and **Escape** closes a panel or pauses. Simulated note keys and Space sustain are unchanged.
+4. The player fills the window. Use **⛶** for browser fullscreen; the keyboard remains visible above a slim transport dock. **Space** or **P** plays/pauses, **R** restarts, and **Escape** closes a panel or pauses. Simulated note keys stay available; hold **Shift** for sustain.
 5. Mark **A** and **B** at the playhead, or press **[** and **]**. **Loop** / **L** repeats the range without requiring a name. **Passages** opens exact range editing and optional saving. Editing boundaries does not change an active loop until **Apply loop**; arrow keys move handles by bars when snapping is enabled.
 6. **Tools** opens Display and Sound controls and pauses. Close the panel, then resume deliberately. **Setup** returns to configuration without ending an unchanged attempt. Changing hand/part/mode begins a new attempt.
 7. **Finish** opens the review. Loop passes are saved without interrupting playback. **History** contains recordings and MIDI export; **Settings** contains calibration, matching, backup and local-data controls.

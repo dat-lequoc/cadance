@@ -65,10 +65,10 @@ test("white and black pointer keys remain accurate after resize; sustain and rel
   }
   await page.locator(".stage").click({ position: { x: 10, y: 80 } });
   await page.keyboard.down("a");
-  await page.keyboard.down("Space");
+  await page.keyboard.down("Shift");
   await page.keyboard.up("a");
   await expect.poll(() => keyPixel(page, 60)).toEqual([177, 153, 255]);
-  await page.keyboard.up("Space");
+  await page.keyboard.up("Shift");
   await expect.poll(() => keyPixel(page, 60)).toEqual([255, 255, 255]);
   await page.keyboard.down("a");
   await page.evaluate(() => window.dispatchEvent(new Event("blur")));

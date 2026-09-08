@@ -408,13 +408,14 @@ export default function PlayerView({ c }: { c: PracticeController }) {
             </button>
             <button
               className="primary transport-play"
+              data-state={c.active ? "playing" : c.engine.status === "paused" ? "paused" : "ready"}
               disabled={
                 c.updating ||
                 c.quests.runner.saving ||
                 !!c.quests.runner.error ||
                 (c.quests.runner.completed && c.engine.status === "finished")
               }
-              title="Play / pause (P)"
+              title={c.active ? "Playing — pause (Space / P)" : c.engine.status === "paused" ? "Paused — resume (Space / P)" : "Start playing (Space / P)"}
               aria-label={c.active ? "Pause practice" : "Start practice"}
               onClick={() => void c.play()}
             >
@@ -520,14 +521,14 @@ export default function PlayerView({ c }: { c: PracticeController }) {
               <details className="shortcut-help">
                 <summary>Keyboard shortcuts</summary>
                 <p>
-                  P · Play/pause
+                  Space / P · Play/pause
                   <br />R · Restart
                   <br />[ / ] · Mark A/B
                   <br />L · Loop
                   <br />
                   Escape · Close panel or pause
                   <br />
-                  Space · Sustain with simulated input
+                  Shift · Sustain with simulated input
                 </p>
                 <p>Music keeps playing when you switch tabs or windows.</p>
               </details>

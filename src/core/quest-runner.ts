@@ -6,6 +6,7 @@ import {
   questConfig,
   unlocked,
   questCount,
+  questGoal,
   type LoadedPlan,
   type QuestProgress,
   type creditQuest,
@@ -20,7 +21,7 @@ export class QuestRunner {
   error = "";
   speedOverride: number | null = null;
   lastRun: { id: string; count: number; goal: number; complete: boolean } | null = null;
-  private manualJob: { loaded: LoadedPlan; id: string; token: number } | null = null;
+  private manualJob: { loaded: LoadedPlan; id: string; token: number; reset: boolean } | null = null;
   private token = 0;
   private autoContinue = true;
   private pending: {
@@ -39,7 +40,7 @@ export class QuestRunner {
       result: Result,
     ) => Promise<Outcome>,
     private changed: () => void,
-    private persistManual?: (loaded: LoadedPlan, id: string) => Promise<QuestProgress>,
+    private persistManual?: (loaded: LoadedPlan, id: string, reset?: boolean) => Promise<QuestProgress>,
   ) {}
   get active() {
     return this.loaded?.plan.quests.find((q) => q.id === this.activeId) ?? null;
@@ -119,10 +120,10 @@ export class QuestRunner {
     if (this.manualJob) await this.saveManual();
     else if (this.pending) await this.savePending();
   }
-  async markComplete() {
+  async markComplete(reset = false) {
     if (!this.loaded || !this.activeId || this.saving || this.pending || this.manualJob || !this.persistManual) return;
     this.engine.pause();
-    this.manualJob = { loaded: this.loaded, id: this.activeId, token: this.token };
+    this.manualJob = { loaded: this.loaded, id: this.activeId, token: this.token, reset };
     await this.saveManual();
   }
   private async saveManual() {
@@ -132,12 +133,19 @@ export class QuestRunner {
     this.error = "";
     this.changed();
     try {
-      const progress = await this.persistManual(job.loaded, job.id);
+      const progress = await this.persistManual(job.loaded, job.id, job.reset);
       this.manualJob = null;
       if (this.loaded?.signature !== job.loaded.signature) return;
       this.progress = progress;
       if (this.token !== job.token || this.activeId !== job.id) return;
-      this.lastRun = { id: crypto.randomUUID(), count: this.count, goal: job.loaded.plan.repetitions, complete: true };
+      if (job.reset) {
+        this.lastRun = null;
+        this.saving = false;
+        this.prepare(job.id);
+        this.message = "Checkpoint reset. Press Play when ready.";
+        return;
+      }
+      this.lastRun = { id: crypto.randomUUID(), count: this.count, goal: questGoal(job.loaded.plan, job.loaded.plan.quests.find((q) => q.id === job.id)!), complete: true };
       this.message = "Checkpoint marked complete.";
       this.saving = false;
       if (this.next) {
@@ -147,7 +155,7 @@ export class QuestRunner {
       }
     } catch (error) {
       this.error = error instanceof Error ? error.message : String(error);
-      this.message = "Completion has not been saved. Retry to continue.";
+      this.message = "Checkpoint change has not been saved. Retry to continue.";
     } finally {
       this.saving = false;
       this.changed();
@@ -172,7 +180,7 @@ export class QuestRunner {
       this.progress = outcome.progress;
       this.message = outcome.reason;
       if (outcome.success && this.token === job.token && this.activeId === job.id)
-        this.lastRun = { id: job.result.id, count: this.count, goal: job.loaded.plan.repetitions, complete: this.completed };
+        this.lastRun = { id: job.result.id, count: this.count, goal: questGoal(job.loaded.plan, job.loaded.plan.quests.find((q) => q.id === job.id)!), complete: this.completed };
       if (this.progress.passes[job.id]?.completed)
         this.message = "Quest complete! The next checkpoint is unlocked.";
       if (

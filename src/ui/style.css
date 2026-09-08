@@ -3102,6 +3102,8 @@ legend {
 .score-pan.score-stack { flex-direction: column; justify-content: flex-start; gap: 24px; padding: 12px 24px; }
 .score-note-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .score-note-overlay line { stroke: #2563a4; stroke-width: 2; opacity: .65; }
+.score-correct-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.score-correct-overlay ellipse { fill: #16a34acc; stroke: #137c3b; stroke-width: 2; }
 .score-actions button[aria-pressed="true"] { border-color: #b9ed83; color: #d9ffb5; }
 @media (max-width: 650px) {
   .score-toolbar { flex-wrap: wrap; height: auto; min-height: 68px; gap: 3px; }
@@ -3113,10 +3115,37 @@ legend {
 .score-wrong-overlay ellipse { fill: #dc263bd9; stroke: #a41427; stroke-width: 1.8; }
 .score-wrong-overlay line { stroke: #b91c30; stroke-width: 1.5; }
 .score-wrong-overlay text { fill: #b91c30; font-family: Georgia, serif; font-weight: bold; paint-order: stroke; stroke: white; stroke-width: 1; }
-.score-input-feedback {
+.score-input-labels {
   position: absolute;
   top: 6px;
-  max-width: 70%;
+  right: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  pointer-events: none;
+  z-index: 2;
+}
+.score-input-feedback.score-input-correct { color: #116332; border-color: #65b883; background: #ecfdf3; }
+.player-dock button.transport-play[data-state="ready"] {
+  background: #b9dcff;
+  border-color: #b9dcff;
+  color: #123653;
+}
+.player-dock button.transport-play[data-state="playing"] {
+  background: #9adac6;
+  border-color: #9adac6;
+  color: #102b25;
+}
+.player-dock button.transport-play[data-state="paused"] {
+  background: #ffd28a;
+  border-color: #ffd28a;
+  color: #4a2c06;
+}
+.player-dock button.transport-play[data-state]:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.score-input-feedback {
+  max-width: 100%;
   padding: 3px 7px;
   border: 1px solid #dc7180;
   border-radius: 5px;

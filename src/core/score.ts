@@ -136,8 +136,12 @@ export function scorePitch(pitch: number, flats = false) {
 /** Project a played pitch on the clef currently printed at the cursor. */
 export function playedScorePosition(system: ScoreSystem, anchor: ScoreAnchor, pitch: number, expected: number[], flats = false) {
   if (!system.staves) return null;
-  const candidates = anchor.notes.filter((n) => expected.includes(n.pitch));
-  const nearby = (candidates.length ? candidates : anchor.notes).reduce((best, n) => Math.abs(n.pitch - pitch) < Math.abs(best.pitch - pitch) ? n : best);
+  // Place the actual played pitch, including notes from the unselected hand.
+  // The practiced hand only breaks ties; it must not pull bass notes upstairs.
+  const nearby = anchor.notes.reduce((best, n) => {
+    const distance = Math.abs(n.pitch - pitch) - Math.abs(best.pitch - pitch);
+    return distance < 0 || (distance === 0 && expected.includes(n.pitch) && !expected.includes(best.pitch)) ? n : best;
+  });
   const staffs = system.staves.map((staff) => {
     const clef = staff.clefs.findLast((c) => c.x <= anchor.x) ?? staff.clefs[0];
     const top = clef.y - (clef.pitch === 67 ? 6 : 2) * staff.step;

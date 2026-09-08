@@ -12,6 +12,7 @@ import {
   evaluateQuest,
   questBounds,
   questConfig,
+  questGoal,
   questTargets,
   readPracticePlan,
   readQuestProgress,
@@ -87,6 +88,7 @@ describe("Markdown practice plans", () => {
     expect(reviews.slice(0, 3).map((q) => [q.fromBar, q.throughBar])).toEqual([[1, 4], [1, 6], [1, 8]]);
     expect(reviews[3].fromBar).toBe(9);
     for (const q of reviews) {
+      expect(questGoal(loaded.plan, q)).toBe(5);
       expect(q.throughBar - q.fromBar + 1).toBeLessThanOrEqual(10);
       expect(questTargets(pathetique, q).length).toBeGreaterThan(0);
       const i = loaded.plan.quests.indexOf(q);
@@ -152,6 +154,24 @@ describe("Markdown practice plans", () => {
     );
     expect(prose.signature).toBe(l.signature);
   });
+});
+
+it("per-quest goals unlock at five runs, preserve earned runs and reject invalid overrides", async () => {
+  const loaded = await fixture();
+  const q = loaded.plan.quests[0];
+  q.repetitions = 5;
+  expect(questGoal(loaded.plan, loaded.plan.quests[1])).toBe(10);
+  let progress = emptyProgress();
+  for (let i = 0; i < 5; i++) {
+    progress = creditQuest(loaded, song, progress, q.id, result(q, { id: `five-${i}` })).progress;
+    expect(unlocked(loaded.plan, progress, 1)).toBe(i === 4);
+  }
+  progress.passes[q.id].completed = false;
+  const restored = readQuestProgress(progress, loaded.plan);
+  expect(restored.passes[q.id]).toMatchObject({ successes: 5, completed: true });
+  for (const repetitions of [0, 101, 2.5, null]) {
+    await expect(readPracticePlan(markdown({ ...loaded.plan, quests: [{ ...q, repetitions } as typeof q] }), song)).rejects.toThrow("Invalid quest");
+  }
 });
 describe("earned quest progression", () => {
   it("unlocks only after ten full completed runs, deduplicates results and retains successes across failures", async () => {

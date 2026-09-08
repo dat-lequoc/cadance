@@ -14,7 +14,7 @@ Tools and Passages are focus-trapped panels. They pause the engine without endin
 
 - P: play/pause. R: restart. Escape: close panel, otherwise pause.
 - A/B buttons or [ / ]: mark the current position. L toggles a valid loop.
-- Space remains simulated sustain; A W S E D F T G Y H U J K remain the simulated note keys.
+- Space plays/pauses; Shift controls simulated sustain; A W S E D F T G Y H U J K remain the simulated note keys.
 - Shortcuts do not consume text-field input or dialog interactions. Blur releases simulated notes and pedal without pausing music.
 - Timeline scrubbing previews locally and commits once, avoiding many saved attempts per drag. Seeking inside an active loop retains its original boundaries; seeking outside disables it.
 - Loop drafts remain independent of the active engine passage. Two marks enable quick Loop activation without naming. Passages accepts exact seconds or derived bar numbers; Apply loop commits edits. Saving/renaming is independent of activation.
