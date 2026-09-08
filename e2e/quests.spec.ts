@@ -182,9 +182,10 @@ test("listening never earns quest credit; another MIDI plan and malformed Markdo
   const { plan } = await loadFixture(page);
   await page.getByRole("button", { name: "Listen", exact: true }).click();
   await expect(
-    page.getByRole("button", { name: "Pause listening" }),
+    page.getByRole("button", { name: "Pause practice" }),
   ).toBeVisible();
   await page.waitForTimeout(700);
+  await page.getByRole("button", { name: "Setup", exact: false }).click();
   await expect(page.locator(".next-quest > strong")).toHaveText(
     "0 / 10 completed runs",
   );

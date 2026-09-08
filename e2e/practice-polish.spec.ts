@@ -59,7 +59,7 @@ test("resume preserves the playhead and keyboard restart clears a scroll preview
 test("sound and preparation preferences survive reload", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Tools", exact: false }).click();
   await expect(page.getByLabel("Live piano sound")).toHaveValue("piano");
   await page.getByLabel("Live piano sound").selectOption("computer");
@@ -100,7 +100,7 @@ test("sound and preparation preferences survive reload", async ({ page }) => {
     .click();
   await expect(page.getByLabel("One-bar count-in")).toBeChecked();
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Tools", exact: false }).click();
   await expect(page.getByLabel("Preparation time")).toHaveValue("5");
   await expect(page.getByLabel("Auto accompaniment")).not.toBeChecked();

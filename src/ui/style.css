@@ -2316,8 +2316,9 @@ legend {
 }
 .player-header:has(.quest-header) .player-title {
   flex: 0 1 200px;
+  min-width: 82px;
 }
-.player-header:has(.quest-header) .player-title > span {
+.player-header:has(.quest-header) .player-title > span:not(.hand-badge) {
   display: none;
 }
 .quest-range {
@@ -2335,6 +2336,10 @@ legend {
     padding-inline: 6px;
   }
   .player-header:has(.quest-header) .player-title {
+    display: flex;
+    flex: 0 0 auto;
+  }
+  .player-header:has(.quest-header) .player-title > strong {
     display: none;
   }
   .quest-header {
@@ -3144,6 +3149,22 @@ legend {
 .player-dock button.transport-play[data-state]:hover:not(:disabled) {
   filter: brightness(1.08);
 }
+.hand-badge {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 2px 7px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .02em;
+  flex: 0 0 auto;
+}
+.player-header .hand-badge { display: inline-flex; visibility: visible; opacity: 1; }
+.hand-right { color: #ffc56f; background: #523b1b; }
+.hand-left { color: #8fc9ff; background: #183b5a; }
+.hand-both { color: #b9ed83; background: #254a2d; }
 .score-input-feedback {
   max-width: 100%;
   padding: 3px 7px;

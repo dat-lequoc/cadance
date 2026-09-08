@@ -265,6 +265,13 @@ export default function PlayerView({ c }: { c: PracticeController }) {
                 : "All notes"}
           </span>
         </div>
+        <span
+          className={`hand-badge hand-${c.config.hand}`}
+          aria-label={`Active hand: ${c.config.hand === "both" ? "Both hands" : c.config.hand === "right" ? "Right hand" : "Left hand"}`}
+          title={c.config.hand === "both" ? "Both hands active" : `${c.config.hand === "right" ? "Right" : "Left"} hand active`}
+        >
+          {c.config.hand === "both" ? "↔ Both" : c.config.hand === "right" ? "R Right" : "L Left"}
+        </span>
         <QuestStatus c={c} />
         {c.config.mode !== "free" && (
           <button

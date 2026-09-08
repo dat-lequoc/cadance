@@ -7,7 +7,7 @@ async function seek(page: Page, seconds: number) {
 async function startListen(page: Page) {
   await page.goto("/");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await expect(
     page.getByRole("button", { name: "Pause practice" }),
   ).toBeVisible();
@@ -59,7 +59,7 @@ test("piece-first interface, audible schedule, real hand and harmony selections"
   await expect(page.locator(".target-count")).toContainText("331 target notes");
   await page.getByLabel("Play the other parts for me").uncheck();
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await expect
     .poll(() => page.evaluate(() => (window as any).scheduledPitches))
     .toContain(60);
@@ -112,7 +112,7 @@ test("mark A/B, activate without saving, save and edit passage; restart retains 
     .getByLabel("Practice passage")
     .selectOption({ label: "Bars 2–4 · 0:03–0:13" });
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Passages", exact: true }).click();
   await expect(page.getByLabel("Loop start seconds")).toHaveValue("3.333");
   await page.getByRole("button", { name: "Delete loop Bars 2–4" }).click();
@@ -154,7 +154,7 @@ test("invalid loop blocked, saved loops per piece, responsive screenshots", asyn
     fullPage: true,
   });
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.screenshot({ path: "test-results/player-desktop.png" });
   await page.setViewportSize({ width: 390, height: 844 });
   expect(

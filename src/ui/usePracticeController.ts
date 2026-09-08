@@ -553,11 +553,7 @@ export function usePracticeController() {
       setReview(null);
       setPanel(null);
       engine.start();
-      setPage(
-        engine.config.mode === "listen" && page !== "player"
-          ? "setup"
-          : "player",
-      );
+      setPage("player");
     } catch (e) {
       starting.current = false;
       report(e);

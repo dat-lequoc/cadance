@@ -77,7 +77,7 @@ test("a one-bar loop follows its score through a repeat at changed speed", async
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Sheet music", exact: true }).click();
   await page.getByLabel("Playback speed").selectOption("150");
   await page.getByRole("button", { name: "Passages", exact: true }).click();
@@ -142,7 +142,7 @@ test("sheet follows the practice preview and survives reload with its zoom", asy
   await page.screenshot({ path: "test-results/sheet-music.png" });
   await page.reload();
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await expect(page.getByLabel("Sheet music zoom")).toHaveValue("150");
   await page.getByRole("button", { name: "Hide sheet music" }).click();
   await expect(page.locator(".score-strip")).toHaveCount(0);
@@ -158,7 +158,7 @@ test("score browsing and panning keep Listen playing, including offline images",
   });
   await page.reload();
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Sheet music", exact: true }).click();
   await page.getByLabel("Sheet music zoom").fill("200");
   await page.getByLabel("Score image; scroll to pan").hover();
@@ -257,7 +257,7 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await wrongToggle.click();
   await page.reload();
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await expect(page.getByRole("button", { name: "Sheet only", exact: true })).toHaveAttribute("aria-pressed", "true");
   await expect(wrongToggle).toHaveAttribute("aria-pressed", "false");
   await expect(page.locator(".stage")).toHaveCount(0);

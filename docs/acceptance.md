@@ -26,7 +26,7 @@ Body, muted, primary-button, stage-label and transport text contrast was calcula
 - Pointer-drag and keyboard edits of loop handles, draft boundaries independent of active loops and explicit application.
 - Loop repetitions remain in the player; natural listening completion has no fabricated score.
 - Panel pause/resume and setup transitions preserve unchanged attempts; changed scoring selections retain the previous attempt once.
-- Listen stays inline on setup with pause/seek/stop; library listening uses the same flow. Start practice still enters the focused player.
+- Listen opens the shared player from setup or the library, with sheet/roll views, pause/resume/seek and loops; it never automatically enters browser fullscreen or asks for MIDI input.
 - Fullscreen entry, exit with playback continuity, and nonfatal rejected-fullscreen fallback.
 - Tab/window changes retain musical progress and schedule audio; background lookahead remains bounded by practice gates.
 - White/black pointer keys after resize, playback colors, sustained-key coloring, release/blur cleanup and persisted display preferences.

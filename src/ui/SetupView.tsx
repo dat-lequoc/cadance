@@ -306,34 +306,6 @@ export default function SetupView({ c }: { c: PracticeController }) {
               : "Listen"}
             <span>Hear your selected parts</span>
           </button>
-          {config.mode === "listen" && (
-            <div className="inline-listen" aria-label="Listening controls">
-              <div className="inline-listen-timeline">
-                <span>{duration(Math.max(0, engine.position))}</span>
-                <input
-                  aria-label="Listening position"
-                  type="range"
-                  min="0"
-                  max={song.duration}
-                  step=".01"
-                  value={Math.max(0, engine.position)}
-                  onChange={(e) => engine.seek(Number(e.target.value))}
-                />
-                <span>{duration(song.duration)}</span>
-              </div>
-              <div className="inline-listen-actions">
-                <button
-                  onClick={() => {
-                    engine.stop();
-                    c.audio.stopAll();
-                  }}
-                >
-                  Stop listening
-                </button>
-                <button onClick={c.openPlayer}>Open player ↗</button>
-              </div>
-            </div>
-          )}
           {song.scoreUrl && (
             <a
               className="score-link"

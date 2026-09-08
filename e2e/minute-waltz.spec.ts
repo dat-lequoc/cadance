@@ -23,7 +23,7 @@ test("returning workspace receives new bundle without losing selection",async({p
 });
 test("Minute Waltz final-system loop stays aligned at changed speed",async({page})=>{
  await page.goto("/");await page.getByRole("button",{name:"Pieces",exact:true}).click();await page.getByRole("button",{name:"Practice Chopin · Minute Waltz (Op. 64 No. 1)",exact:true}).click();
- await page.getByRole("button",{name:"Listen",exact:true}).click();await page.getByRole("button",{name:"Open player",exact:false}).click();await page.getByRole("button",{name:"Sheet music",exact:true}).click();
+ await page.getByRole("button",{name:"Listen",exact:true}).click();await page.getByRole("button",{name:"Sheet music",exact:true}).click();
  await page.getByLabel("Playback speed").selectOption("50");await page.getByRole("button",{name:"Passages",exact:true}).click();await page.getByLabel("Loop last bar").selectOption("140");await page.getByLabel("Loop first bar").selectOption("140");await page.getByRole("button",{name:"Apply loop",exact:true}).click();await page.keyboard.press("Escape");await page.getByRole("button",{name:"Start practice",exact:true}).click();
  await expect(page.getByLabel("Highlighted bar 140",{exact:true})).toBeVisible();await page.waitForTimeout(3000);await expect(page.getByLabel("Highlighted bar 140",{exact:true})).toBeVisible();await page.getByRole("button",{name:"Sheet only",exact:true}).click();await expect(page.getByAltText("Score page 5, bars 136–140")).toBeInViewport();await page.screenshot({path:"test-results/minute-waltz-final-loop.png"});
 });

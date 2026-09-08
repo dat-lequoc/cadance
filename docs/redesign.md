@@ -4,7 +4,7 @@
 
 **Pieces → Setup → Player → Review** is the primary flow. History and Settings are available in the light workspace header. The last selected piece opens in setup on reload. Import replaces the selected piece after successful parsing and storage; failures retain the current workspace.
 
-The desktop setup pairs hand/part/mode/speed/passage choices with a static source-note preview. Wait for notes replaces the ambiguous visible label Practice melody; its saved mode remains `wait`. Listen plays inline on setup with pause, seek and stop; opening the player is an explicit optional action. scored practice requests a MIDI or simulated source and automatically continues the pending start once connected.
+The desktop setup pairs hand/part/mode/speed/passage choices with a static source-note preview. Wait for notes replaces the ambiguous visible label Practice melody; its saved mode remains `wait`. Listen directly opens the shared player with sheet/roll views and the normal transport, without automatic browser fullscreen. Scored practice requests a MIDI or simulated source and automatically continues the pending start once connected.
 
 The focused player fills `100dvh`, with a 48px header, flexible canvas, and 110px transport dock on desktop. At 1366×768, the stage occupies 610px (79.4%); at 1440×900 it occupies 742px (82.4%). Mobile uses two control rows, and landscape is suggested without blocking use. Browser fullscreen is optional and its failure is nonfatal. Fullscreen toggles, tab changes and window changes preserve playback; leaving the player exits fullscreen.
 

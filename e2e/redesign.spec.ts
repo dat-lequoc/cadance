@@ -81,7 +81,7 @@ test("loop handles preview without replacing active passage; drag and keyboard e
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.getByRole("button", { name: "Passages", exact: true }).click();
   await page.getByLabel("Loop start seconds").fill("4");
   await page.getByLabel("Loop end seconds").fill("18");
@@ -180,7 +180,7 @@ test("natural listen completion shows no score, while changing a scoring selecti
   await page.goto("/");
   await page.locator(importer).setInputFiles("public/fixtures/checkpoint.mid");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   const total = Number(
     await page.getByLabel("Song position").getAttribute("max"),
   );
@@ -242,7 +242,7 @@ test("library rename/search, modal focus, settings and MIDI stress piece", async
     .locator(importer)
     .setInputFiles("public/fixtures/stress-10000.mid");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await page.setViewportSize({ width: 1440, height: 900 });
   await expect(
     page.getByRole("button", { name: "Pause practice" }),

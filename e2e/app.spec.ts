@@ -168,7 +168,7 @@ test("cached production app loads and imports offline", async ({
   await page.locator(importer).setInputFiles("public/fixtures/checkpoint.mid");
   await expect(page.locator("h1")).toHaveText("checkpoint");
   await page.getByRole("button", { name: "Listen", exact: true }).click();
-  await page.getByRole("button", { name: "Open player", exact: false }).click();
+
   await expect(
     page.getByRole("button", { name: "Pause practice" }),
   ).toBeVisible();
