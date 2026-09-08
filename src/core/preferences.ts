@@ -18,7 +18,7 @@ export interface PracticePreferences {
 }
 export function readPracticePreferences(
   value: unknown,
-  legacyPreparation: unknown = 3,
+  legacyPreparation: unknown = 2,
 ): PracticePreferences {
   const defaults: PracticePreferences = {
     version: 1,
@@ -28,7 +28,7 @@ export function readPracticePreferences(
     countIn: false,
     preparationSeconds: [0, 2, 3, 5].includes(Number(legacyPreparation))
       ? Number(legacyPreparation)
-      : 3,
+      : 2,
     visualOffset: 0,
     audioOffset: 0,
     sheetMusic: false,

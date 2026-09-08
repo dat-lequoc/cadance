@@ -24,7 +24,7 @@ import { importFile, download } from "../core/files";
 export function usePracticeController() {
   const engine = useMemo(() => {
     const engine = new PracticeEngine(pathetique);
-    engine.preparationSeconds = 3;
+    engine.preparationSeconds = 2;
     return engine;
   }, []);
   const audio = useMemo(() => new PianoAudio(), []);

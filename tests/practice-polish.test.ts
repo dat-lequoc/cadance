@@ -173,7 +173,7 @@ it("preferences preserve legacy preparation while rejecting invalid values", () 
     countIn: true,
     visualOffset: 300,
     audioOffset: 0,
-    preparationSeconds: 3,
+    preparationSeconds: 2,
   });
 });
 it("duplicate held note-on messages create only one live voice", () => {
