@@ -25,3 +25,7 @@ This demonstrates a usable authoring workflow with agent judgment, not fully aut
 The main-branch repo-local skill now removes the personal validator path, explains the optional RTK wrapper, and records repeat unfolding, modern/legacy engraving compatibility, double-barline and crop review, cross-staff hand verification, and isolated browser-test coverage. The trial code also fixes new catalogue-piece insertion for returning users and registers its plan without reusing Pathétique migration signatures. Those runtime changes are now included in main.
 
 The workflow is sufficient for a capable fresh agent to deliver a second piece. Fresh-host prerequisite bootstrap, general score recognition and full piece-specific performance verification remain outside what this trial proves.
+
+## Verification after merging into main
+
+A second clean clone of committed main (`abe5fd8`) installed with the frozen lockfile and built successfully without Python, LilyPond or asset regeneration. All 72 unit tests and all 51 browser tests passed. Browser tests used an isolated preview on port 4191 with reuse disabled. This validates the merged catalogue, included files, returning-user insertion, reset/unlock behavior and both pieces’ existing browser coverage; the physical-piano and full-piece limits above still apply.
