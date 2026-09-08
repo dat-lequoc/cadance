@@ -7,7 +7,7 @@ description: Add a piano piece to Cadance from a title, links, or supplied files
 
 Deliver a playable piece in the existing player, an editable quest Markdown file, reviewed score crops with MIDI alignment, and reproducible preparation instructions. Start from the user’s piece name, source links, or supplied files; obtain missing assets as part of the task. Preserve original files and attribution.
 
-Paths below are relative to the repository root (three levels above this skill). Use the installed project tools; shell commands in this workspace start with `rtk`.
+Paths below are relative to the repository root (three levels above this skill). Use the installed project tools; shell commands in this workspace start with `rtk`. The examples use `rtk proxy` as a command wrapper; on a different machine without RTK, run the command after that prefix directly. RTK is not an application dependency. Read the README setup instructions before running preparation scripts.
 
 ## Workflow
 

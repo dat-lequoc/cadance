@@ -30,7 +30,10 @@ rtk proxy pnpm exec tsx scripts/inspect-piece.ts src/core/pathetique.json public
 rtk proxy pnpm test
 rtk proxy pnpm build
 rtk proxy pnpm test:e2e
-rtk proxy python3 /Users/nightfury/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/prepare-piano-piece
 ```
 
 Run targeted checks while developing, then the relevant regression suite after final changes. Existing `tests/score.test.ts` and `e2e/sheet-music.spec.ts` exercise the bundled example. Report physical-piano verification separately from simulated browser input. Do not claim deployment or hardware testing based only on a successful build. Finish with the actual access path, prepared assets/skill location, timing precision and remaining edition-specific limitations.
+
+These checks use repository files and installed project dependencies. No personal/global Codex skill files are required. If your agent provides an optional skill validator, use its installed location rather than copying a path from another machine.
+
+For a fresh-clone test, install that clone’s dependencies and preparation environment separately. Use a unique preview port and configure both Playwright baseURL and its web-server command to match; confirm the server serves this checkout. Origin assertions should use the configured test origin, and library tests must select the intended piece rather than assume there is only one. Verify returning-user insertion with a pre-existing library, then test actual simulated MIDI input through a complete quest, a later/final bar and loop behavior. Opening the sheet alone is not an end-to-end input test. Distinguish a new checkout on an equipped host from a clean operating-system or physical-piano test.
