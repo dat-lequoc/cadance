@@ -211,7 +211,7 @@ test("library rename/search, modal focus, settings and MIDI stress piece", async
 }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Pieces", exact: true }).click();
-  await page.locator(".item-menu summary").click();
+  await page.getByLabel("Options for Pathétique · II. Adagio cantabile", {exact:true}).click();
   await page.getByRole("button", { name: "Rename", exact: true }).click();
   await page.getByLabel("Piece title").fill("My Pathétique");
   await page.getByRole("button", { name: "Save", exact: true }).click();

@@ -24,3 +24,7 @@ The upstream evaluations are documented in `docs/architecture.md`. Bach to Basic
 ## Included Beethoven piece
 
 The Pathétique second movement MIDI, PDF and LilyPond/RDF sources come from [Mutopia-2011/10/25-295](https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=295), typeset by Chris Sawer with updates by Javier Ruiz-Alma. The edition declares Public Domain. This piece is not an original Cadence composition or arrangement. Voice splitting and event-preservation details are documented in `docs/pathetique.md`; original assets and metadata are preserved in `public/pieces/`.
+
+## Minute Waltz
+
+Chopin Op. 64 No. 1, Peters edition engraved by Magnus Lewis-Smith, Mutopia-2015/01/17-483. Original MIDI, PDF and LilyPond sources, and derived unfolded PDF/crops: public domain as declared by the typesetter. Source: https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=483 . See docs/minute-waltz.md for provenance and preparation.

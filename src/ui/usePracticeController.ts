@@ -218,6 +218,13 @@ export function usePracticeController() {
         await db.settings.put({ key: "piece-workspace-v2", value: true });
         await db.settings.put({ key: "lastPiece", value: pathetique.id });
       }
+      for (const piece of initialPieces) {
+        const key = "bundled-piece:" + piece.id;
+        if (!(await db.settings.get(key))) {
+          if (!(await db.songs.get(piece.id))) await db.songs.put(piece);
+          await db.settings.put({ key, value: true });
+        }
+      }
       await reload();
       const preferences = (await db.settings.get("display-v1"))?.value as
         Record<string, unknown> | undefined;
