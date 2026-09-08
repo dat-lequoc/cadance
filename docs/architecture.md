@@ -1,3 +1,11 @@
+# Current UI architecture
+
+The redesign extracts `usePracticeController` from the original application component. The controller owns one engine, AudioContext/scheduler, MIDI adapters, IndexedDB IO, typed screen state and modal/drawer state. Screen components are presentation and interaction layers; moving between setup/player/review does not recreate the engine. `useLoops` owns draft boundaries and persisted passages shared by the dock and editor. See [redesign](redesign.md).
+
+The engine retains its original transport and scoring contracts. Background visibility changes adjust scheduler lookahead without pausing. Simulated key cleanup is independent of musical playback. Matching configuration, backup schema and the `cadence-piano` database identity remain unchanged.
+
+---
+
 # Architecture and foundation decision
 
 **Current product:** MIDI-piece practice; see `docs/features.md`. The old exercise-led UI was removed after user clarification. `catalogue.ts` loads the prepared Pathétique piece; `LoopPanel.tsx` / `loops.ts` provide named per-piece A/B loops, and `PartsPanel.tsx` provides independent hand, musical-role, visibility and audio controls. Historical exercise helpers remain only for developer examples and tests.
@@ -33,7 +41,7 @@ A focused implementation was chosen because correctness-sensitive timing, matchi
 
 The engine owns source-song seconds. While running, position = anchor song position + (monotonic now − anchor time) × speed. `TempoMap` converts PPQ ticks to source seconds and back. Audio start times map that same position into AudioContext time with offsets; there is no separate accumulated audio playhead. Visual offset affects drawing only. Input offset subtracts from input timestamps only. Speed preserves musical position and invalidates scheduled sound.
 
-Each pause, seek, waiting transition, restart or speed change increments an epoch. The scheduler cancels app-owned scheduled oscillator nodes and rebuilds from the current position. It does not schedule an onset at or beyond the next unresolved wait boundary. Learner monitoring voices are separate from scheduled accompaniment. Panic stops all app sound but the engine retains known physically held keys until release. Device loss invalidates knowledge from that port and pauses immediately; reselection and deliberate resume are required.
+Each pause, seek, waiting transition, restart or speed change increments an epoch. The scheduler cancels app-owned scheduled oscillator nodes and rebuilds from the current position. It does not schedule an onset at or beyond the next unresolved wait boundary. Learner monitoring voices are separate from scheduled accompaniment. Panic stops all app sound but the engine retains known physically held keys until release. Device loss invalidates knowledge from that port and pauses immediately; the remembered device reconnects automatically when permission allows; deliberate resume is required after device loss.
 
 Count-in uses the active tempo and time signature at passage start. Metronome ticks use PPQ, tempo map and active meter denominator. Complex meter semantics and compound-meter accent groupings are not inferred.
 
@@ -54,3 +62,5 @@ Passage selection/seek/mode/hand/transposition changes stop the current attempt 
 Dexie schema 1 stores songs, sessions and key/value settings. Session comparison metadata includes source ID, mode, hand, speed, passage, range/transposition and matching windows. Recordings retain wall time plus musical-position checkpoints across waits, pauses, loops and speed changes. MIDI export follows actual elapsed performance time, not the target arrangement; still-held notes close at recording end. Replay routes audio only and never enters the learner matcher.
 
 Production build generates an explicit asset cache and service worker. Document navigations, including query strings, resolve to the cached index. The same-origin precache ignores response Vary headers because preview servers return `Vary: Origin` even for immutable same-origin JS/CSS; browser integration tests cover offline reload and worker import. Core has no remote requests. Storage is local to the origin and may be evicted. Backups are recommended; changing dev/preview ports uses a different database origin.
+
+Practice session polish adds a resumable preparation phase to the engine, centralizes preview/transport actions in the controller, and stores versioned sound/preparation preferences with a synchronous cache for immediate-refresh recovery. A waiting service worker activates only after explicit update consent and pending saves. See [practice polish](practice-polish.md) for the behavior and compatibility contract.

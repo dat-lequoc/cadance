@@ -1,0 +1,445 @@
+{
+  "version": 1,
+  "pdfSha256": "e06ebea3d4935ac18bf9c50f433f6f4fe0ca5cd9b29752a8b8138dd2780c97d6",
+  "method": "ordered-columns-and-staff-pitch",
+  "bars": [
+    {
+      "bar": 1,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 2,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 3,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 4,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 5,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 9
+    },
+    {
+      "bar": 6,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 7,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 8,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 10
+    },
+    {
+      "bar": 9,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 10,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 11,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 12,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 13,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 9
+    },
+    {
+      "bar": 14,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 15,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 16,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 6
+    },
+    {
+      "bar": 17,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 18,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 19,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 20,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 9
+    },
+    {
+      "bar": 21,
+      "mode": "bar",
+      "reason": "9 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 22,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 14
+    },
+    {
+      "bar": 23,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 6
+    },
+    {
+      "bar": 24,
+      "mode": "bar",
+      "reason": "9 printed columns / 8 MIDI onsets",
+      "onsets": 8
+    },
+    {
+      "bar": 25,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 7
+    },
+    {
+      "bar": 26,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 27,
+      "mode": "bar",
+      "reason": "9 printed columns / 8 MIDI onsets",
+      "onsets": 8
+    },
+    {
+      "bar": 28,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 29,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 30,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 31,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 32,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 33,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 9
+    },
+    {
+      "bar": 34,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 35,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 8
+    },
+    {
+      "bar": 36,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 6
+    },
+    {
+      "bar": 37,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 38,
+      "mode": "bar",
+      "reason": "24 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 39,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 40,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 41,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 42,
+      "mode": "bar",
+      "reason": "18 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 43,
+      "mode": "bar",
+      "reason": "19 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 44,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 45,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 46,
+      "mode": "bar",
+      "reason": "24 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 47,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 48,
+      "mode": "bar",
+      "reason": "14 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 49,
+      "mode": "bar",
+      "reason": "14 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 50,
+      "mode": "bar",
+      "reason": "21 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 51,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 52,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 53,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 54,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 55,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 14
+    },
+    {
+      "bar": 56,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 57,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 58,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 59,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 60,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 61,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 62,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 63,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 14
+    },
+    {
+      "bar": 64,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 65,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 12
+    },
+    {
+      "bar": 66,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 13
+    },
+    {
+      "bar": 67,
+      "mode": "bar",
+      "reason": "26 printed columns / 15 MIDI onsets",
+      "onsets": 15
+    },
+    {
+      "bar": 68,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 14
+    },
+    {
+      "bar": 69,
+      "mode": "bar",
+      "reason": "24 printed columns / 12 MIDI onsets",
+      "onsets": 12
+    },
+    {
+      "bar": 70,
+      "mode": "bar",
+      "reason": "7 printed columns / 8 MIDI onsets",
+      "onsets": 8
+    },
+    {
+      "bar": 71,
+      "mode": "bar",
+      "reason": "7 printed columns / 8 MIDI onsets",
+      "onsets": 8
+    },
+    {
+      "bar": 72,
+      "mode": "bar",
+      "reason": "7 printed columns / 8 MIDI onsets",
+      "onsets": 8
+    },
+    {
+      "bar": 73,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 3
+    }
+  ]
+}

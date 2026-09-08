@@ -1,7 +1,10 @@
+import { stageColors } from "./theme";
 import { useEffect, useRef } from "react";
 import { PracticeEngine } from "../core/engine";
 import { NoteIndex } from "../core/render-index";
 import { black, noteName, scored } from "../core/model";
+export const keyboardHeight = (height: number) =>
+  Math.max(88, Math.min(132, height * 0.18));
 export function keyGeometry(min: number, max: number, width: number) {
   const whites = Array.from(
     { length: max - min + 1 },
@@ -31,6 +34,9 @@ export default function Roll({
   showBackground = true,
   zoom = 90,
   accompaniment = true,
+  scroll,
+  section,
+  viewPosition,
 }: {
   engine: PracticeEngine;
   min: number;
@@ -38,13 +44,41 @@ export default function Roll({
   press: (p: number) => void;
   release: (p: number) => void;
   visualOffset: number;
+  viewPosition?: number | null;
   labels?: "notes" | "fingers" | "none";
   showBackground?: boolean;
   zoom?: number;
   accompaniment?: boolean;
+  scroll?: (deltaPixels: number) => void;
+  section?: {
+    start: number;
+    end: number;
+    label: string;
+    draft: boolean;
+    startMarked?: boolean;
+    endMarked?: boolean;
+  } | null;
 }) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const active = useRef(new Map<number, number>());
+  const scrollRef = useRef(scroll);
+  scrollRef.current = scroll;
+  useEffect(() => {
+    const el = canvas.current!;
+    const wheel = (event: WheelEvent) => {
+      if (!scrollRef.current || event.ctrlKey || event.metaKey) return;
+      const rect = el.getBoundingClientRect();
+      if (event.clientY - rect.top >= rect.height - keyboardHeight(rect.height))
+        return;
+      event.preventDefault();
+      const factor =
+        event.deltaMode === 1 ? 16 : event.deltaMode === 2 ? rect.height : 1;
+      scrollRef.current(event.deltaY * factor);
+    };
+    el.addEventListener("wheel", wheel, { passive: false });
+    return () => el.removeEventListener("wheel", wheel);
+  }, []);
+
   useEffect(() => {
     const el = canvas.current!;
     const ctx = el.getContext("2d")!;
@@ -64,13 +98,14 @@ export default function Roll({
       }
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
-      const keyboard = 98,
+      const keyboard = keyboardHeight(h),
         line = h - keyboard,
         geo = keyGeometry(min, max, w);
       const time =
-        engine.currentPosition() + (visualOffset / 1000) * engine.config.speed;
+        (viewPosition ?? engine.currentPosition()) +
+        (visualOffset / 1000) * engine.config.speed;
       const scale = zoom;
-      ctx.fillStyle = "#102238";
+      ctx.fillStyle = stageColors.stage;
       ctx.fillRect(0, 0, w, h);
       for (const [p, g] of geo) {
         if (!black(p)) {
@@ -96,7 +131,11 @@ export default function Roll({
       }
       if (index.notes !== engine.notes) index = new NoteIndex(engine.notes);
       for (const n of index.visible(time - 0.3, time + line / scale + 1)) {
-        if (n.hidden || (!showBackground && !scored(n, engine.config)))
+        if (
+          n.hidden ||
+          (engine.preparationRemaining > 0 && n.time < engine.passage[0]) ||
+          (!showBackground && !scored(n, engine.config))
+        )
           continue;
         const g = geo.get(n.pitch);
         if (!g) continue;
@@ -105,15 +144,13 @@ export default function Roll({
         if (top > line + 8 || bottom < 0) continue;
         const hit = engine.hits.has(n.id),
           miss = engine.misses.has(n.id);
-        ctx.fillStyle = hit
-          ? "#42e89b"
-          : miss
-            ? "#ff7979"
-            : n.hand === "left"
-              ? "#59b3ff"
-              : n.hand === "accompaniment"
-                ? "#a8b8c9"
-                : "#ffc15a";
+        ctx.fillStyle = miss
+          ? "#ff7979"
+          : n.hand === "left"
+            ? stageColors.left
+            : n.hand === "accompaniment"
+              ? stageColors.background
+              : stageColors.right;
         ctx.globalAlpha =
           !scored(n, engine.config) && engine.config.mode !== "listen"
             ? 0.6
@@ -127,6 +164,10 @@ export default function Roll({
           4,
         );
         ctx.fill();
+        if (hit) {
+          ctx.fillStyle = stageColors.success;
+          ctx.fillRect(g.x + 3, Math.max(0, top), Math.max(1, g.width - 5), 3);
+        }
         ctx.globalAlpha = 1;
         if (
           labels !== "none" &&
@@ -134,7 +175,7 @@ export default function Roll({
           bottom - top > 24 &&
           bottom > 25
         ) {
-          ctx.fillStyle = "#102238";
+          ctx.fillStyle = stageColors.stage;
           ctx.font = "700 11px system-ui";
           ctx.fillText(
             labels === "fingers"
@@ -147,6 +188,79 @@ export default function Roll({
           );
         }
       }
+      if (section) {
+        const startY = line - (section.start - time) * scale;
+        const endY = line - (section.end - time) * scale;
+        ctx.fillStyle = "#06132388";
+        ctx.fillRect(0, 0, w, Math.max(0, Math.min(line, endY)));
+        const below = Math.max(0, Math.min(line, startY));
+        ctx.fillRect(0, below, w, line - below);
+        // Time runs vertically: a bright bracket follows the entire passage.
+        const top = Math.max(8, Math.min(line - 8, endY));
+        const bottom = Math.max(8, Math.min(line - 8, startY));
+        const color = section.draft ? "#ffd18a" : "#ccff80";
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "#061323";
+        ctx.lineWidth = 12;
+        ctx.beginPath();
+        ctx.moveTo(12, top);
+        ctx.lineTo(12, bottom);
+        ctx.stroke();
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 6;
+        ctx.setLineDash(section.draft ? [10, 7] : []);
+        ctx.beginPath();
+        ctx.moveTo(12, top);
+        ctx.lineTo(12, bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        const endLabelY = Math.max(4, Math.min(line - 52, top - 26));
+        const startLabelY = Math.max(
+          endLabelY + 26,
+          Math.min(line - 26, bottom + 4),
+        );
+        const mark = (y: number, label: string, above: boolean) => {
+          ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(12, y);
+          ctx.lineTo(32, y);
+          ctx.stroke();
+          const labelY = above ? endLabelY : startLabelY;
+          ctx.fillStyle = color;
+          ctx.beginPath();
+          ctx.roundRect(26, labelY, 112, 22, 4);
+          ctx.fill();
+          ctx.fillStyle = "#102238";
+          ctx.font = "800 12px system-ui";
+          ctx.fillText(label, 34, labelY + 15);
+        };
+        if (startY < 8 || endY > line - 8) {
+          mark(top, startY < 8 ? "↑ SECTION" : "↓ SECTION", startY >= 8);
+        } else {
+          if (section.endMarked !== false)
+            mark(
+              top,
+              endY < 8
+                ? "↑ END · B"
+                : endY > line - 8
+                  ? "↓ END · B"
+                  : "END · B",
+              true,
+            );
+          if (section.startMarked !== false)
+            mark(
+              bottom,
+              startY > line - 8
+                ? "↓ START · A"
+                : startY < 8
+                  ? "↑ START · A"
+                  : "START · A",
+              false,
+            );
+        }
+        ctx.lineWidth = 1;
+        ctx.lineCap = "butt";
+      }
       ctx.shadowColor = "#ffffff";
       ctx.shadowBlur = 10;
       ctx.fillStyle = "#ffffff";
@@ -158,10 +272,10 @@ export default function Roll({
         );
       const handColor = (hand: string) =>
         hand === "left"
-          ? "#59b3ff"
+          ? stageColors.left
           : hand === "accompaniment"
-            ? "#a8b8c9"
-            : "#ffc15a";
+            ? stageColors.background
+            : stageColors.right;
       const playback = new Map<number, string>();
       const inputColors = new Map<number, string>();
       for (const n of index.visible(time, time)) {
@@ -173,47 +287,103 @@ export default function Roll({
             : accompaniment && !scored(n, engine.config);
         if (
           engine.status === "playing" &&
+          !engine.resuming &&
           engine.config.mode !== "free" &&
           playable &&
           !n.muted &&
           !n.hidden &&
+          n.time >= engine.passage[0] &&
           n.time < engine.boundary &&
           time < engine.passage[1]
         )
           playback.set(n.pitch, handColor(n.hand));
       }
-      if (engine.status === "waiting")
-        for (const n of engine.group?.notes ?? [])
-          inputColors.set(n.pitch, handColor(n.hand));
-      const expected = new Set(
-        engine.status === "waiting"
-          ? engine.group?.notes.map((n) => n.pitch)
-          : [],
-      );
+      const promptGroup =
+        engine.config.mode === "wait"
+          ? engine.group
+          : engine.groups.find(
+              (group) =>
+                group.time >= engine.position - 0.001 &&
+                group.notes.some(
+                  (n) => !engine.hits.has(n.id) && !engine.misses.has(n.id),
+                ),
+            );
+      const promptNotes =
+        engine.status === "waiting" || engine.preparationRemaining > 0
+          ? (promptGroup?.notes ?? [])
+          : [];
+      for (const n of promptNotes) inputColors.set(n.pitch, handColor(n.hand));
+      const expected = new Set(promptNotes.map((n) => n.pitch));
+      // Accompaniment pauses with wait mode, but its simultaneous notes should
+      // remain visible as context rather than disappearing from the keyboard.
+      const companion = new Map<number, string>();
+      if (
+        promptNotes.length &&
+        promptGroup &&
+        accompaniment &&
+        showBackground
+      ) {
+        for (const n of index.visible(promptGroup.time, promptGroup.time)) {
+          if (
+            Math.abs(n.time - promptGroup.time) < 0.00001 &&
+            !scored(n, engine.config) &&
+            !n.hidden &&
+            !n.muted &&
+            n.time >= engine.passage[0] &&
+            n.time < engine.boundary &&
+            !expected.has(n.pitch)
+          )
+            companion.set(n.pitch, handColor(n.hand));
+        }
+      }
       for (const isBlack of [false, true])
         for (const [p, g] of geo) {
           if (black(p) !== isBlack) continue;
-          const height = isBlack ? 62 : keyboard - 4;
+          const height = isBlack ? keyboard * 0.64 : keyboard - 4;
           ctx.fillStyle = held.has(p)
             ? engine.lastWrong === p
-              ? "#ff7171"
+              ? stageColors.wrong
               : (inputColors.get(p) ??
-                (engine.config.hand === "left" ? "#59b3ff" : "#ffc15a"))
+                (engine.config.hand === "left"
+                  ? stageColors.left
+                  : stageColors.right))
             : sounding.has(p)
-              ? "#b199ff"
+              ? stageColors.sustain
               : (playback.get(p) ?? (isBlack ? "#0c1522" : "#ffffff"));
           ctx.beginPath();
           ctx.roundRect(g.x + 1, line + 2, g.width - 2, height, [0, 0, 3, 3]);
           ctx.fill();
+          if (expected.has(p) || companion.has(p)) {
+            ctx.fillStyle = inputColors.get(p) ?? companion.get(p)!;
+            ctx.globalAlpha = expected.has(p) ? 0.35 : 0.16;
+            ctx.fillRect(
+              g.x + 2,
+              line + 3,
+              Math.max(1, g.width - 4),
+              height - 2,
+            );
+            ctx.globalAlpha = 1;
+          }
           if (expected.has(p)) {
             ctx.fillStyle = engine.partial.has(p) ? "#06753b" : "#cf4d00";
             ctx.beginPath();
             ctx.arc(g.x + g.width / 2, line + height - 28, 5, 0, Math.PI * 2);
             ctx.fill();
+          } else if (companion.has(p)) {
+            ctx.strokeStyle = isBlack ? companion.get(p)! : "#51677c";
+            ctx.lineWidth = 2;
+            ctx.beginPath();
+            ctx.arc(g.x + g.width / 2, line + height - 28, 5, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.lineWidth = 1;
           }
           if (
             labels !== "none" &&
-            (p % 12 === 0 || held.has(p) || expected.has(p) || g.width > 25) &&
+            (p % 12 === 0 ||
+              held.has(p) ||
+              expected.has(p) ||
+              companion.has(p) ||
+              g.width > 25) &&
             g.width > 14
           ) {
             ctx.fillStyle =
@@ -235,10 +405,16 @@ export default function Roll({
     min,
     max,
     visualOffset,
+    viewPosition,
     labels,
     showBackground,
     zoom,
     accompaniment,
+    section?.start,
+    section?.end,
+    section?.draft,
+    section?.startMarked,
+    section?.endMarked,
   ]);
   const up = (id: number) => {
     const p = active.current.get(id);
@@ -247,6 +423,20 @@ export default function Roll({
       active.current.delete(id);
     }
   };
+  const releaseRef = useRef(release);
+  releaseRef.current = release;
+  useEffect(() => {
+    const heldPointers = active.current;
+    const clear = () => {
+      for (const pitch of heldPointers.values()) releaseRef.current(pitch);
+      heldPointers.clear();
+    };
+    window.addEventListener("blur", clear);
+    return () => {
+      window.removeEventListener("blur", clear);
+      clear();
+    };
+  }, []);
   return (
     <canvas
       ref={canvas}
@@ -255,7 +445,8 @@ export default function Roll({
       onPointerDown={(e) => {
         const rect = e.currentTarget.getBoundingClientRect();
         const y = e.clientY - rect.top;
-        if (y < rect.height - 98) return;
+        const keyboard = keyboardHeight(rect.height);
+        if (y < rect.height - keyboard) return;
         const geo = keyGeometry(min, max, rect.width);
         const x = e.clientX - rect.left;
         const found = [...geo]
@@ -264,7 +455,7 @@ export default function Roll({
             ([p, g]) =>
               x >= g.x &&
               x < g.x + g.width &&
-              (!black(p) || y < rect.height - 34),
+              (!black(p) || y < rect.height - keyboard + 2 + keyboard * 0.64),
           );
         if (found) {
           e.currentTarget.setPointerCapture(e.pointerId);
@@ -274,6 +465,7 @@ export default function Roll({
       }}
       onPointerUp={(e) => up(e.pointerId)}
       onPointerCancel={(e) => up(e.pointerId)}
+      onLostPointerCapture={(e) => up(e.pointerId)}
     />
   );
 }

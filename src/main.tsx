@@ -1,3 +1,4 @@
+import { installTheme } from "./ui/theme";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./ui/App";
@@ -7,5 +8,5 @@ createRoot(document.getElementById("root")!).render(
     <App />
   </React.StrictMode>,
 );
-if (import.meta.env.PROD && "serviceWorker" in navigator)
-  navigator.serviceWorker.register("/sw.js").catch(console.error);
+
+installTheme();

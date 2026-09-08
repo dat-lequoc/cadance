@@ -9,6 +9,33 @@ import { normalize } from "../src/core/midi";
 import { defaults, scored } from "../src/core/model";
 const { Midi } = midiPackage;
 describe("real Pathétique practice", () => {
+  it("waits for the complete opening chord in both-hands mode and rejects a wrong note in left-hand mode", () => {
+    const e = new PracticeEngine(
+      pathetique,
+      { mode: "wait", hand: "both", focus: "all" },
+      () => 0,
+    );
+    e.start();
+    expect(e.group?.notes.map((n) => n.pitch).sort()).toEqual([44, 56, 60]);
+    e.receive(normalize([144, 60, 100], 0, "p")!);
+    expect(e.status).toBe("waiting");
+    expect(e.hits.size).toBe(0);
+    e.receive(normalize([144, 56, 100], 0, "p")!);
+    expect(e.status).toBe("waiting");
+    e.receive(normalize([144, 44, 100], 0, "p")!);
+    expect(e.hits.size).toBe(3);
+    const left = new PracticeEngine(
+      pathetique,
+      { mode: "wait", hand: "left", focus: "all" },
+      () => 0,
+    );
+    left.start();
+    left.receive(normalize([144, 60, 100], 0, "p")!);
+    expect(left.status).toBe("waiting");
+    expect(left.hits.size).toBe(0);
+    left.receive(normalize([144, 44, 100], 0, "p")!);
+    expect(left.hits.size).toBe(1);
+  });
   it("retains all original note pitches, onsets, releases and velocities when separating voices", () => {
     const original = new Midi(readFileSync("public/pieces/pathetique-2.mid"));
     const expected = original.tracks

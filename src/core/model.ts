@@ -37,6 +37,7 @@ export interface Song {
   attribution?: string;
 }
 export interface InputEvent {
+  raw?: number[];
   type: "on" | "off" | "sustain";
   pitch: number;
   velocity: number;

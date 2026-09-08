@@ -1,0 +1,2025 @@
+# Pathétique II: one passage at a time
+
+This is a playable practice plan for the included, voice-separated MIDI of Beethoven's Pathétique second movement. Import this Markdown file into Cadance, or use its bundled Practice quests card. It does not replace the MIDI.
+
+## What the MIDI shows
+
+- 73 bars in 2/4, 1,629 note events, about 4:03 at the source tempo (36 quarter-note BPM).
+- 331 melody notes, 711 right-hand inner-harmony notes and 587 left-hand notes. Parts come from the supplied score voices, not a middle-C guess.
+- Most checkpoints are two bars (about 6.7 source seconds). Busy passages at bars 21–22, 42–44, 48–50, 67 and 69 are isolated into single bars.
+- Bars 27–28 stay together: two melody pitches sustain across that boundary, and bar 28 has no new melody or left-hand attacks.
+- These are practice-sized cuts informed by note density and the supplied score, not a claim that every cut is a complete musical phrase. Passage times follow this MIDI's tempo map, not a recording.
+
+## Quest rules
+
+Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
+
+A completed run means finishing the entire passage and hitting every target note. Wrong notes and chord retries are recorded for feedback but do not cancel the repetition. These quests use Wait for notes: timing, hold duration, phrasing, fingering and pedal artistry are not graded. Use ordinary Rhythm practice when you want timing feedback.
+
+The player repeats the current quest automatically until its goal is reached. It then automatically starts the next checkpoint with preparation time and a brief header toast. Click the completed-run counter and confirm **Mark complete & next** to advance manually; this does not fabricate played runs. Listening, stopped runs, skipped passages and altered hand/mode settings do not earn successes. Progress is local, survives reload, and is included in backups.
+
+Default speed is 80%, or 60% in the isolated busy bars. Slow enough to find the notes is the aim; this is not the final performance tempo. You can review completed quests and leave quest mode for unrestricted practice at any time.
+
+## Cumulative reviews
+
+After bars 3–4, play bars 1–4 together; after bars 5–6, play 1–6; after 7–8, play the whole 1–8 section. Then reset the review start to bar 9. Every later section follows the same pattern, including single-bar cuts in dense passages. Reviews use both hands and the same ten-run goal, with manual completion available. Existing musical section boundaries keep reviews at eight bars or fewer, below the ten-bar cap. Selected playback speed is remembered.
+
+## Checkpoint map
+
+| Bars | Source time | Melody attacks | Left-hand attacks | All note events | Area |
+| --- | --- | ---: | ---: | ---: | --- |
+| 1–2 | 0:00.0–0:06.7 | 4 | 4 | 24 | Opening theme |
+| 3–4 | 0:06.7–0:13.3 | 6 | 6 | 28 | Opening theme |
+| 5–6 | 0:13.3–0:20.0 | 6 | 4 | 26 | Opening theme |
+| 7–8 | 0:20.0–0:26.7 | 8 | 5 | 31 | Opening theme |
+| 9–10 | 0:26.7–0:33.3 | 4 | 20 | 40 | Theme in the upper register |
+| 11–12 | 0:33.3–0:40.0 | 6 | 20 | 42 | Theme in the upper register |
+| 13–14 | 0:40.0–0:46.7 | 6 | 17 | 39 | Theme in the upper register |
+| 15–16 | 0:46.7–0:53.3 | 8 | 15 | 36 | Theme in the upper register |
+| 17–18 | 0:53.3–0:60.0 | 8 | 31 | 39 | Moving melody |
+| 19–20 | 0:60.0–1:06.7 | 8 | 48 | 56 | Moving melody |
+| 21–21 | 1:06.7–1:10.0 | 7 | 20 | 27 | Moving melody |
+| 22–22 | 1:10.0–1:13.3 | 13 | 18 | 31 | Moving melody |
+| 23–24 | 1:13.3–1:20.0 | 15 | 3 | 26 | Transition and held cadence |
+| 25–26 | 1:20.0–1:26.7 | 10 | 8 | 25 | Transition and held cadence |
+| 27–28 | 1:26.7–1:33.3 | 2 | 1 | 19 | Transition and held cadence |
+| 29–30 | 1:33.3–1:40.0 | 5 | 5 | 26 | Opening material returns |
+| 31–32 | 1:40.0–1:46.7 | 6 | 6 | 28 | Opening material returns |
+| 33–34 | 1:46.7–1:53.3 | 6 | 4 | 26 | Opening material returns |
+| 35–36 | 1:53.3–1:60.0 | 9 | 5 | 27 | Opening material returns |
+| 37–38 | 1:60.0–2:06.7 | 6 | 11 | 65 | Contrasting figures |
+| 39–40 | 2:06.7–2:13.3 | 6 | 10 | 70 | Contrasting figures |
+| 41–41 | 2:13.3–2:16.7 | 4 | 1 | 29 | Contrasting figures |
+| 42–42 | 2:16.7–2:20.0 | 8 | 48 | 56 | Dense runs and chords |
+| 43–43 | 2:20.0–2:23.3 | 10 | 42 | 52 | Dense runs and chords |
+| 44–44 | 2:23.3–2:26.7 | 25 | 2 | 27 | Dense runs and chords |
+| 45–46 | 2:26.7–2:33.3 | 6 | 11 | 65 | Return transition |
+| 47–47 | 2:33.3–2:36.7 | 4 | 1 | 29 | Return transition |
+| 48–48 | 2:36.7–2:40.0 | 2 | 6 | 44 | Return transition |
+| 49–49 | 2:40.0–2:43.3 | 2 | 6 | 44 | Return transition |
+| 50–50 | 2:43.3–2:46.7 | 2 | 6 | 47 | Return transition |
+| 51–52 | 2:46.7–2:53.3 | 4 | 5 | 33 | Theme with new accompaniment |
+| 53–54 | 2:53.3–2:60.0 | 6 | 6 | 36 | Theme with new accompaniment |
+| 55–56 | 2:60.0–3:06.7 | 6 | 4 | 34 | Theme with new accompaniment |
+| 57–58 | 3:06.7–3:13.3 | 10 | 5 | 39 | Theme with new accompaniment |
+| 59–60 | 3:13.3–3:20.0 | 4 | 28 | 56 | Upper-register return |
+| 61–62 | 3:20.0–3:26.7 | 6 | 23 | 53 | Upper-register return |
+| 63–64 | 3:26.7–3:33.3 | 6 | 9 | 39 | Upper-register return |
+| 65–66 | 3:33.3–3:40.0 | 11 | 20 | 43 | Upper-register return |
+| 67–67 | 3:40.0–3:43.3 | 10 | 36 | 46 | Closing gestures |
+| 68–68 | 3:43.3–3:46.7 | 7 | 14 | 21 | Closing gestures |
+| 69–69 | 3:46.7–3:50.0 | 18 | 36 | 54 | Closing gestures |
+| 70–71 | 3:50.0–3:56.7 | 17 | 9 | 27 | Closing gestures |
+| 72–73 | 3:56.7–4:03.3 | 14 | 8 | 24 | Closing gestures |
+
+## Editable app data
+
+The app reads the single cadance-plan block below. Titles and instructions are plain text; no Markdown or scripts are executed. The fingerprint binds this plan to the MIDI's timing, pitches and hand/part assignments. Changing the plan data starts a separate progress record, so changing a goal cannot silently claim earlier mastery.
+
+```cadance-plan
+{
+  "version": 1,
+  "id": "pathetique-ii-reviews-v3",
+  "title": "Pathétique II · one passage at a time",
+  "song": {
+    "title": "Pathétique · II. Adagio cantabile",
+    "fingerprint": "8d582014ac072bd98309215f1db7fa4e5525e6b23441a33041381f1d2063660c"
+  },
+  "repetitions": 10,
+  "counting": "total",
+  "quests": [
+    {
+      "id": "bars-1-2-right",
+      "title": "Bars 1–2 · Right hand",
+      "section": "Opening theme",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 1,
+      "throughBar": 2,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-1-2-left",
+      "title": "Bars 1–2 · Left hand",
+      "section": "Opening theme",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 1,
+      "throughBar": 2,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-1-2-together",
+      "title": "Bars 1–2 · Both hands",
+      "section": "Opening theme",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 1,
+      "throughBar": 2,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-3-4-right",
+      "title": "Bars 3–4 · Right hand",
+      "section": "Opening theme",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 3,
+      "throughBar": 4,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-3-4-left",
+      "title": "Bars 3–4 · Left hand",
+      "section": "Opening theme",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 3,
+      "throughBar": 4,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-3-4-together",
+      "title": "Bars 3–4 · Both hands",
+      "section": "Opening theme",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 3,
+      "throughBar": 4,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-1-4",
+      "title": "Bars 1–4 · Build-up review",
+      "section": "Opening theme",
+      "instruction": "Join bars 1–4 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 1,
+      "throughBar": 4,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-5-6-right",
+      "title": "Bars 5–6 · Right hand",
+      "section": "Opening theme",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 5,
+      "throughBar": 6,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-5-6-left",
+      "title": "Bars 5–6 · Left hand",
+      "section": "Opening theme",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 5,
+      "throughBar": 6,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-5-6-together",
+      "title": "Bars 5–6 · Both hands",
+      "section": "Opening theme",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 5,
+      "throughBar": 6,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-1-6",
+      "title": "Bars 1–6 · Build-up review",
+      "section": "Opening theme",
+      "instruction": "Join bars 1–6 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 1,
+      "throughBar": 6,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-7-8-right",
+      "title": "Bars 7–8 · Right hand",
+      "section": "Opening theme",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 7,
+      "throughBar": 8,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-7-8-left",
+      "title": "Bars 7–8 · Left hand",
+      "section": "Opening theme",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 7,
+      "throughBar": 8,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-7-8-together",
+      "title": "Bars 7–8 · Both hands",
+      "section": "Opening theme",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 7,
+      "throughBar": 8,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-1-8",
+      "title": "Bars 1–8 · Section review",
+      "section": "Opening theme",
+      "instruction": "Join bars 1–8 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 1,
+      "throughBar": 8,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-9-10-right",
+      "title": "Bars 9–10 · Right hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 9,
+      "throughBar": 10,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-9-10-left",
+      "title": "Bars 9–10 · Left hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 9,
+      "throughBar": 10,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-9-10-together",
+      "title": "Bars 9–10 · Both hands",
+      "section": "Theme in the upper register",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 9,
+      "throughBar": 10,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-11-12-right",
+      "title": "Bars 11–12 · Right hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 11,
+      "throughBar": 12,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-11-12-left",
+      "title": "Bars 11–12 · Left hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 11,
+      "throughBar": 12,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-11-12-together",
+      "title": "Bars 11–12 · Both hands",
+      "section": "Theme in the upper register",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 11,
+      "throughBar": 12,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-9-12",
+      "title": "Bars 9–12 · Build-up review",
+      "section": "Theme in the upper register",
+      "instruction": "Join bars 9–12 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 9,
+      "throughBar": 12,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-13-14-right",
+      "title": "Bars 13–14 · Right hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 13,
+      "throughBar": 14,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-13-14-left",
+      "title": "Bars 13–14 · Left hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 13,
+      "throughBar": 14,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-13-14-together",
+      "title": "Bars 13–14 · Both hands",
+      "section": "Theme in the upper register",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 13,
+      "throughBar": 14,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-9-14",
+      "title": "Bars 9–14 · Build-up review",
+      "section": "Theme in the upper register",
+      "instruction": "Join bars 9–14 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 9,
+      "throughBar": 14,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-15-16-right",
+      "title": "Bars 15–16 · Right hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 15,
+      "throughBar": 16,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-15-16-left",
+      "title": "Bars 15–16 · Left hand",
+      "section": "Theme in the upper register",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 15,
+      "throughBar": 16,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-15-16-together",
+      "title": "Bars 15–16 · Both hands",
+      "section": "Theme in the upper register",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 15,
+      "throughBar": 16,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-9-16",
+      "title": "Bars 9–16 · Section review",
+      "section": "Theme in the upper register",
+      "instruction": "Join bars 9–16 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 9,
+      "throughBar": 16,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-17-18-right",
+      "title": "Bars 17–18 · Right hand",
+      "section": "Moving melody",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 17,
+      "throughBar": 18,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-17-18-left",
+      "title": "Bars 17–18 · Left hand",
+      "section": "Moving melody",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 17,
+      "throughBar": 18,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-17-18-together",
+      "title": "Bars 17–18 · Both hands",
+      "section": "Moving melody",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 17,
+      "throughBar": 18,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-19-20-right",
+      "title": "Bars 19–20 · Right hand",
+      "section": "Moving melody",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 19,
+      "throughBar": 20,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-19-20-left",
+      "title": "Bars 19–20 · Left hand",
+      "section": "Moving melody",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 19,
+      "throughBar": 20,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-19-20-together",
+      "title": "Bars 19–20 · Both hands",
+      "section": "Moving melody",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 19,
+      "throughBar": 20,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-17-20",
+      "title": "Bars 17–20 · Build-up review",
+      "section": "Moving melody",
+      "instruction": "Join bars 17–20 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 17,
+      "throughBar": 20,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-21-21-right",
+      "title": "Bar 21 · Right hand",
+      "section": "Moving melody",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 21,
+      "throughBar": 21,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-21-21-left",
+      "title": "Bar 21 · Left hand",
+      "section": "Moving melody",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 21,
+      "throughBar": 21,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-21-21-together",
+      "title": "Bar 21 · Both hands",
+      "section": "Moving melody",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 21,
+      "throughBar": 21,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-17-21",
+      "title": "Bars 17–21 · Build-up review",
+      "section": "Moving melody",
+      "instruction": "Join bars 17–21 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 17,
+      "throughBar": 21,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-22-22-right",
+      "title": "Bar 22 · Right hand",
+      "section": "Moving melody",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 22,
+      "throughBar": 22,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-22-22-left",
+      "title": "Bar 22 · Left hand",
+      "section": "Moving melody",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 22,
+      "throughBar": 22,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-22-22-together",
+      "title": "Bar 22 · Both hands",
+      "section": "Moving melody",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 22,
+      "throughBar": 22,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-17-22",
+      "title": "Bars 17–22 · Section review",
+      "section": "Moving melody",
+      "instruction": "Join bars 17–22 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 17,
+      "throughBar": 22,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-23-24-right",
+      "title": "Bars 23–24 · Right hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 23,
+      "throughBar": 24,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-23-24-left",
+      "title": "Bars 23–24 · Left hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 23,
+      "throughBar": 24,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-23-24-together",
+      "title": "Bars 23–24 · Both hands",
+      "section": "Transition and held cadence",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 23,
+      "throughBar": 24,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-25-26-right",
+      "title": "Bars 25–26 · Right hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 25,
+      "throughBar": 26,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-25-26-left",
+      "title": "Bars 25–26 · Left hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 25,
+      "throughBar": 26,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-25-26-together",
+      "title": "Bars 25–26 · Both hands",
+      "section": "Transition and held cadence",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 25,
+      "throughBar": 26,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-23-26",
+      "title": "Bars 23–26 · Build-up review",
+      "section": "Transition and held cadence",
+      "instruction": "Join bars 23–26 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 23,
+      "throughBar": 26,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-27-28-right",
+      "title": "Bars 27–28 · Right hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 27,
+      "throughBar": 28,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-27-28-left",
+      "title": "Bars 27–28 · Left hand",
+      "section": "Transition and held cadence",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 27,
+      "throughBar": 28,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-27-28-together",
+      "title": "Bars 27–28 · Both hands",
+      "section": "Transition and held cadence",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 27,
+      "throughBar": 28,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-23-28",
+      "title": "Bars 23–28 · Section review",
+      "section": "Transition and held cadence",
+      "instruction": "Join bars 23–28 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 23,
+      "throughBar": 28,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-29-30-right",
+      "title": "Bars 29–30 · Right hand",
+      "section": "Opening material returns",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 29,
+      "throughBar": 30,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-29-30-left",
+      "title": "Bars 29–30 · Left hand",
+      "section": "Opening material returns",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 29,
+      "throughBar": 30,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-29-30-together",
+      "title": "Bars 29–30 · Both hands",
+      "section": "Opening material returns",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 29,
+      "throughBar": 30,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-31-32-right",
+      "title": "Bars 31–32 · Right hand",
+      "section": "Opening material returns",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 31,
+      "throughBar": 32,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-31-32-left",
+      "title": "Bars 31–32 · Left hand",
+      "section": "Opening material returns",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 31,
+      "throughBar": 32,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-31-32-together",
+      "title": "Bars 31–32 · Both hands",
+      "section": "Opening material returns",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 31,
+      "throughBar": 32,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-29-32",
+      "title": "Bars 29–32 · Build-up review",
+      "section": "Opening material returns",
+      "instruction": "Join bars 29–32 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 29,
+      "throughBar": 32,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-33-34-right",
+      "title": "Bars 33–34 · Right hand",
+      "section": "Opening material returns",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 33,
+      "throughBar": 34,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-33-34-left",
+      "title": "Bars 33–34 · Left hand",
+      "section": "Opening material returns",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 33,
+      "throughBar": 34,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-33-34-together",
+      "title": "Bars 33–34 · Both hands",
+      "section": "Opening material returns",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 33,
+      "throughBar": 34,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-29-34",
+      "title": "Bars 29–34 · Build-up review",
+      "section": "Opening material returns",
+      "instruction": "Join bars 29–34 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 29,
+      "throughBar": 34,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-35-36-right",
+      "title": "Bars 35–36 · Right hand",
+      "section": "Opening material returns",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 35,
+      "throughBar": 36,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-35-36-left",
+      "title": "Bars 35–36 · Left hand",
+      "section": "Opening material returns",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 35,
+      "throughBar": 36,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-35-36-together",
+      "title": "Bars 35–36 · Both hands",
+      "section": "Opening material returns",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 35,
+      "throughBar": 36,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-29-36",
+      "title": "Bars 29–36 · Section review",
+      "section": "Opening material returns",
+      "instruction": "Join bars 29–36 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 29,
+      "throughBar": 36,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-37-38-right",
+      "title": "Bars 37–38 · Right hand",
+      "section": "Contrasting figures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 37,
+      "throughBar": 38,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-37-38-left",
+      "title": "Bars 37–38 · Left hand",
+      "section": "Contrasting figures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 37,
+      "throughBar": 38,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-37-38-together",
+      "title": "Bars 37–38 · Both hands",
+      "section": "Contrasting figures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 37,
+      "throughBar": 38,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-39-40-right",
+      "title": "Bars 39–40 · Right hand",
+      "section": "Contrasting figures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 39,
+      "throughBar": 40,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-39-40-left",
+      "title": "Bars 39–40 · Left hand",
+      "section": "Contrasting figures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 39,
+      "throughBar": 40,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-39-40-together",
+      "title": "Bars 39–40 · Both hands",
+      "section": "Contrasting figures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 39,
+      "throughBar": 40,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-37-40",
+      "title": "Bars 37–40 · Build-up review",
+      "section": "Contrasting figures",
+      "instruction": "Join bars 37–40 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 37,
+      "throughBar": 40,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-41-41-right",
+      "title": "Bar 41 · Right hand",
+      "section": "Contrasting figures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 41,
+      "throughBar": 41,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-41-41-left",
+      "title": "Bar 41 · Left hand",
+      "section": "Contrasting figures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 41,
+      "throughBar": 41,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-41-41-together",
+      "title": "Bar 41 · Both hands",
+      "section": "Contrasting figures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 41,
+      "throughBar": 41,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-37-41",
+      "title": "Bars 37–41 · Section review",
+      "section": "Contrasting figures",
+      "instruction": "Join bars 37–41 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 37,
+      "throughBar": 41,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-42-42-right",
+      "title": "Bar 42 · Right hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 42,
+      "throughBar": 42,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-42-42-left",
+      "title": "Bar 42 · Left hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 42,
+      "throughBar": 42,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-42-42-together",
+      "title": "Bar 42 · Both hands",
+      "section": "Dense runs and chords",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 42,
+      "throughBar": 42,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-43-43-right",
+      "title": "Bar 43 · Right hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 43,
+      "throughBar": 43,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-43-43-left",
+      "title": "Bar 43 · Left hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 43,
+      "throughBar": 43,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-43-43-together",
+      "title": "Bar 43 · Both hands",
+      "section": "Dense runs and chords",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 43,
+      "throughBar": 43,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-42-43",
+      "title": "Bars 42–43 · Build-up review",
+      "section": "Dense runs and chords",
+      "instruction": "Join bars 42–43 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 42,
+      "throughBar": 43,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-44-44-right",
+      "title": "Bar 44 · Right hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 44,
+      "throughBar": 44,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-44-44-left",
+      "title": "Bar 44 · Left hand",
+      "section": "Dense runs and chords",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 44,
+      "throughBar": 44,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-44-44-together",
+      "title": "Bar 44 · Both hands",
+      "section": "Dense runs and chords",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 44,
+      "throughBar": 44,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-42-44",
+      "title": "Bars 42–44 · Section review",
+      "section": "Dense runs and chords",
+      "instruction": "Join bars 42–44 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 42,
+      "throughBar": 44,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-45-46-right",
+      "title": "Bars 45–46 · Right hand",
+      "section": "Return transition",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 45,
+      "throughBar": 46,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-45-46-left",
+      "title": "Bars 45–46 · Left hand",
+      "section": "Return transition",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 45,
+      "throughBar": 46,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-45-46-together",
+      "title": "Bars 45–46 · Both hands",
+      "section": "Return transition",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 45,
+      "throughBar": 46,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-47-47-right",
+      "title": "Bar 47 · Right hand",
+      "section": "Return transition",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 47,
+      "throughBar": 47,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-47-47-left",
+      "title": "Bar 47 · Left hand",
+      "section": "Return transition",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 47,
+      "throughBar": 47,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-47-47-together",
+      "title": "Bar 47 · Both hands",
+      "section": "Return transition",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 47,
+      "throughBar": 47,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-45-47",
+      "title": "Bars 45–47 · Build-up review",
+      "section": "Return transition",
+      "instruction": "Join bars 45–47 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 45,
+      "throughBar": 47,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-48-48-right",
+      "title": "Bar 48 · Right hand",
+      "section": "Return transition",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 48,
+      "throughBar": 48,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-48-48-left",
+      "title": "Bar 48 · Left hand",
+      "section": "Return transition",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 48,
+      "throughBar": 48,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-48-48-together",
+      "title": "Bar 48 · Both hands",
+      "section": "Return transition",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 48,
+      "throughBar": 48,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-45-48",
+      "title": "Bars 45–48 · Build-up review",
+      "section": "Return transition",
+      "instruction": "Join bars 45–48 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 45,
+      "throughBar": 48,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-49-49-right",
+      "title": "Bar 49 · Right hand",
+      "section": "Return transition",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 49,
+      "throughBar": 49,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-49-49-left",
+      "title": "Bar 49 · Left hand",
+      "section": "Return transition",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 49,
+      "throughBar": 49,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-49-49-together",
+      "title": "Bar 49 · Both hands",
+      "section": "Return transition",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 49,
+      "throughBar": 49,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-45-49",
+      "title": "Bars 45–49 · Build-up review",
+      "section": "Return transition",
+      "instruction": "Join bars 45–49 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 45,
+      "throughBar": 49,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-50-50-right",
+      "title": "Bar 50 · Right hand",
+      "section": "Return transition",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 50,
+      "throughBar": 50,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-50-50-left",
+      "title": "Bar 50 · Left hand",
+      "section": "Return transition",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 50,
+      "throughBar": 50,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-50-50-together",
+      "title": "Bar 50 · Both hands",
+      "section": "Return transition",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 50,
+      "throughBar": 50,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-45-50",
+      "title": "Bars 45–50 · Section review",
+      "section": "Return transition",
+      "instruction": "Join bars 45–50 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 45,
+      "throughBar": 50,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-51-52-right",
+      "title": "Bars 51–52 · Right hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 51,
+      "throughBar": 52,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-51-52-left",
+      "title": "Bars 51–52 · Left hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 51,
+      "throughBar": 52,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-51-52-together",
+      "title": "Bars 51–52 · Both hands",
+      "section": "Theme with new accompaniment",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 51,
+      "throughBar": 52,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-53-54-right",
+      "title": "Bars 53–54 · Right hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 53,
+      "throughBar": 54,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-53-54-left",
+      "title": "Bars 53–54 · Left hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 53,
+      "throughBar": 54,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-53-54-together",
+      "title": "Bars 53–54 · Both hands",
+      "section": "Theme with new accompaniment",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 53,
+      "throughBar": 54,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-51-54",
+      "title": "Bars 51–54 · Build-up review",
+      "section": "Theme with new accompaniment",
+      "instruction": "Join bars 51–54 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 51,
+      "throughBar": 54,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-55-56-right",
+      "title": "Bars 55–56 · Right hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 55,
+      "throughBar": 56,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-55-56-left",
+      "title": "Bars 55–56 · Left hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 55,
+      "throughBar": 56,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-55-56-together",
+      "title": "Bars 55–56 · Both hands",
+      "section": "Theme with new accompaniment",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 55,
+      "throughBar": 56,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-51-56",
+      "title": "Bars 51–56 · Build-up review",
+      "section": "Theme with new accompaniment",
+      "instruction": "Join bars 51–56 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 51,
+      "throughBar": 56,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-57-58-right",
+      "title": "Bars 57–58 · Right hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 57,
+      "throughBar": 58,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-57-58-left",
+      "title": "Bars 57–58 · Left hand",
+      "section": "Theme with new accompaniment",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 57,
+      "throughBar": 58,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-57-58-together",
+      "title": "Bars 57–58 · Both hands",
+      "section": "Theme with new accompaniment",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 57,
+      "throughBar": 58,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-51-58",
+      "title": "Bars 51–58 · Section review",
+      "section": "Theme with new accompaniment",
+      "instruction": "Join bars 51–58 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 51,
+      "throughBar": 58,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-59-60-right",
+      "title": "Bars 59–60 · Right hand",
+      "section": "Upper-register return",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 59,
+      "throughBar": 60,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-59-60-left",
+      "title": "Bars 59–60 · Left hand",
+      "section": "Upper-register return",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 59,
+      "throughBar": 60,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-59-60-together",
+      "title": "Bars 59–60 · Both hands",
+      "section": "Upper-register return",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 59,
+      "throughBar": 60,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-61-62-right",
+      "title": "Bars 61–62 · Right hand",
+      "section": "Upper-register return",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 61,
+      "throughBar": 62,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-61-62-left",
+      "title": "Bars 61–62 · Left hand",
+      "section": "Upper-register return",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 61,
+      "throughBar": 62,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-61-62-together",
+      "title": "Bars 61–62 · Both hands",
+      "section": "Upper-register return",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 61,
+      "throughBar": 62,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-59-62",
+      "title": "Bars 59–62 · Build-up review",
+      "section": "Upper-register return",
+      "instruction": "Join bars 59–62 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 59,
+      "throughBar": 62,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-63-64-right",
+      "title": "Bars 63–64 · Right hand",
+      "section": "Upper-register return",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 63,
+      "throughBar": 64,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-63-64-left",
+      "title": "Bars 63–64 · Left hand",
+      "section": "Upper-register return",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 63,
+      "throughBar": 64,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-63-64-together",
+      "title": "Bars 63–64 · Both hands",
+      "section": "Upper-register return",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 63,
+      "throughBar": 64,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-59-64",
+      "title": "Bars 59–64 · Build-up review",
+      "section": "Upper-register return",
+      "instruction": "Join bars 59–64 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 59,
+      "throughBar": 64,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-65-66-right",
+      "title": "Bars 65–66 · Right hand",
+      "section": "Upper-register return",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 65,
+      "throughBar": 66,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-65-66-left",
+      "title": "Bars 65–66 · Left hand",
+      "section": "Upper-register return",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 65,
+      "throughBar": 66,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-65-66-together",
+      "title": "Bars 65–66 · Both hands",
+      "section": "Upper-register return",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 65,
+      "throughBar": 66,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-59-66",
+      "title": "Bars 59–66 · Section review",
+      "section": "Upper-register return",
+      "instruction": "Join bars 59–66 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 59,
+      "throughBar": 66,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-67-67-right",
+      "title": "Bar 67 · Right hand",
+      "section": "Closing gestures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 67,
+      "throughBar": 67,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-67-67-left",
+      "title": "Bar 67 · Left hand",
+      "section": "Closing gestures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 67,
+      "throughBar": 67,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-67-67-together",
+      "title": "Bar 67 · Both hands",
+      "section": "Closing gestures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 67,
+      "throughBar": 67,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-68-68-right",
+      "title": "Bar 68 · Right hand",
+      "section": "Closing gestures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 68,
+      "throughBar": 68,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-68-68-left",
+      "title": "Bar 68 · Left hand",
+      "section": "Closing gestures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 68,
+      "throughBar": 68,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-68-68-together",
+      "title": "Bar 68 · Both hands",
+      "section": "Closing gestures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 68,
+      "throughBar": 68,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-67-68",
+      "title": "Bars 67–68 · Build-up review",
+      "section": "Closing gestures",
+      "instruction": "Join bars 67–68 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 67,
+      "throughBar": 68,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-69-69-right",
+      "title": "Bar 69 · Right hand",
+      "section": "Closing gestures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 69,
+      "throughBar": 69,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-69-69-left",
+      "title": "Bar 69 · Left hand",
+      "section": "Closing gestures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 69,
+      "throughBar": 69,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-69-69-together",
+      "title": "Bar 69 · Both hands",
+      "section": "Closing gestures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 69,
+      "throughBar": 69,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "review-67-69",
+      "title": "Bars 67–69 · Build-up review",
+      "section": "Closing gestures",
+      "instruction": "Join bars 67–69 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 67,
+      "throughBar": 69,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-70-71-right",
+      "title": "Bars 70–71 · Right hand",
+      "section": "Closing gestures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 70,
+      "throughBar": 71,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-70-71-left",
+      "title": "Bars 70–71 · Left hand",
+      "section": "Closing gestures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 70,
+      "throughBar": 71,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-70-71-together",
+      "title": "Bars 70–71 · Both hands",
+      "section": "Closing gestures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 70,
+      "throughBar": 71,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-67-71",
+      "title": "Bars 67–71 · Build-up review",
+      "section": "Closing gestures",
+      "instruction": "Join bars 67–71 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 67,
+      "throughBar": 71,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    },
+    {
+      "id": "bars-72-73-right",
+      "title": "Bars 72–73 · Right hand",
+      "section": "Closing gestures",
+      "instruction": "Play every right-hand note, including melody and inner harmonies. Hold chord notes together; the app waits for every required note. The left hand accompanies you.",
+      "fromBar": 72,
+      "throughBar": 73,
+      "hand": "right",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-72-73-left",
+      "title": "Bars 72–73 · Left hand",
+      "section": "Closing gestures",
+      "instruction": "Play the left-hand part alone while the right hand accompanies you. Release and press repeated notes again.",
+      "fromBar": 72,
+      "throughBar": 73,
+      "hand": "left",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "bars-72-73-together",
+      "title": "Bars 72–73 · Both hands",
+      "section": "Closing gestures",
+      "instruction": "Combine melody, inner harmonies and left hand. Keep chord notes held as you add the others. A complete run earns one repetition, even if you corrected mistakes along the way.",
+      "fromBar": 72,
+      "throughBar": 73,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.8
+    },
+    {
+      "id": "review-67-73",
+      "title": "Bars 67–73 · Section review",
+      "section": "Closing gestures",
+      "instruction": "Join bars 67–73 with both hands. Practice the transitions between the short passages. This review stays inside the current musical section.",
+      "fromBar": 67,
+      "throughBar": 73,
+      "hand": "both",
+      "focus": "all",
+      "mode": "wait",
+      "speed": 0.6
+    }
+  ]
+}
+```

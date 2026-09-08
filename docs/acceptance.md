@@ -1,67 +1,61 @@
-# Current piece-workspace verification
+# Current redesign and quest verification
 
-The user clarified the product scope after the initial release: import a MIDI piece and practice it, without an exercise course. The retained app now opens with the complete **Pathétique second movement** and exposes hand, melody/harmony, continuous practice and saved-loop controls directly.
+Verified on 2026-09-07 with macOS arm64 / Apple M5, Node 26.0.0, pnpm 11.5.3 and headless Playwright Chromium. Node 24 remains the `.nvmrc` target; it was not independently exercised in this session.
 
-Current deterministic suite: **35 passing tests across 3 files**. Browser suite: **9 passing Chromium tests**. TypeScript and production build pass. The expanded tests cover exact preservation of all 1,629 source notes, score-defined parts, solo/all-part listening, actual audio scheduling, harmony/hand scoring, 73-bar mapping, A/B marking, rename/save/reload, per-piece loops, loop restart/seek, and the existing import/MIDI/backup/offline scenarios. Browser playback tests observe AudioContext scheduling; they are not a human listening or real-instrument test.
+## Automated results
 
-Screenshots: `test-results/piece-desktop.png` and `test-results/piece-mobile.png`. Current feature inventory: `docs/features.md`. Source and part-preparation details: `docs/pathetique.md`.
+| Check | Result |
+| --- | --- |
+| TypeScript and production build | Pass; existing large-bundle advisory for bundled piece data and lazy VexFlow |
+| Unit suite | 54 tests across 5 files |
+| Browser suite | 33 tests across 7 files |
+| MIDI stress benchmark | 10,000 notes parsed in 24.83ms; 10,000 indexed culling queries in 11.66ms; maximum 163 visible notes in sampled windows |
+| Desktop player geometry | 79.4% stage at 1366×768; 82.4% at 1440×900; no page scrolling |
 
-The report below records the earlier core-engine acceptance baseline; the former exercise catalogue is no longer in the product UI.
+Benchmark timings are one local CPU run alongside verification, not guarantees of GPU rendering or hardware latency.
 
----
+Body, muted, primary-button, stage-label and transport text contrast was calculated at 13.21:1, 5.32:1, 8.01:1, 12.56:1 and 12.35:1 respectively. A 720×450 viewport (the CSS viewport equivalent of 200% zoom at 1440×900) retained all player controls without page overflow; actual browser zoom and complete assistive-technology coverage remain manual checks.
 
-# Acceptance and verification
+## Coverage
 
-Verification performed on 2026-09-07: macOS arm64, Apple M5, Node v26.0.0, pnpm 11.5.3, Playwright Chromium 153.0.8010.12 (headless). `.nvmrc` targets Node 24 LTS; this session used the installed Node 26 runtime, so Node 24 is not separately verified.
+- MIDI/JSON import, worker validation, malformed rejection, native permission errors and no-device state.
+- Fake hardware connection, middle-C monitor, disconnect pause and pending-start continuation.
+- Wait-for-notes wrong-note blocking and chord collection, genuine history after reload, retained review.
+- Exact preservation of all 1,629 Pathétique source notes, score-defined hand/role selection, 73-bar mapping and scheduled listening audio.
+- A/B marking, optional naming, loop activation before saving, rename/delete/reopen, per-piece persistence and restart/seek behavior.
+- Pointer-drag and keyboard edits of loop handles, draft boundaries independent of active loops and explicit application.
+- Loop repetitions remain in the player; natural listening completion has no fabricated score.
+- Panel pause/resume and setup transitions preserve unchanged attempts; changed scoring selections retain the previous attempt once.
+- Listen stays inline on setup with pause/seek/stop; library listening uses the same flow. Start practice still enters the focused player.
+- Fullscreen entry, exit with playback continuity, and nonfatal rejected-fullscreen fallback.
+- Tab/window changes retain musical progress and schedule audio; background lookahead remains bounded by practice gates.
+- White/black pointer keys after resize, playback colors, sustained-key coloring, release/blur cleanup and persisted display preferences.
+- Library search/rename, dialog focus trap/restore, mobile overflow and large MIDI playback.
+- Free-play recording, backup/import/deletion, notation, actual-performance MIDI export and local-only requests.
+- Failed session storage stays retryable and does not create duplicate results after retry.
+- Bundled Markdown plan covers all 73 bars in 43 passages / 129 hand quests plus 32 cumulative reviews, with MIDI fingerprint validation and preserved tied-note passage boundaries.
+- Ten clean simulated-input runs unlock the next quest; failures retain total successes, reload retains progress, and listening earns no credit.
+- Consecutive counting, invalid ranges/parts, altered plan identity, incomplete attempts and duplicate result rejection are covered by unit tests.
+- Quest attempt and progress writes are atomic; injected storage failure rolls back, retry earns one credit and History updates immediately.
+- Production offline reload/import/playback through the service worker.
 
-## Commands
+Screenshots generated in `test-results/`: `piece-desktop.png`, `piece-mobile.png`, `player-desktop.png`, `player-mobile.png`, `player-tablet.png`, `library-desktop.png`, `history-desktop.png`, and `settings-desktop.png`.
 
-| Command                                           | Result                                                                                                            |
-| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `pnpm install --frozen-lockfile --ignore-scripts` | Passed; lockfile unchanged; install scripts disabled                                                              |
-| `pnpm test`                                       | 25 deterministic tests passed (2 test files)                                                                      |
-| `pnpm fixtures`                                   | Generated checkpoint MIDI, C-major JSON and 10,000-note MIDI                                                      |
-| `pnpm benchmark`                                  | 10,000 notes: 13.95 ms parse, 4.97 ms for 10,000 culling queries, maximum 163 visible notes in six-second windows |
-| `pnpm build`                                      | Passed TypeScript + Vite production build; lazy VexFlow chunk-size warning                                        |
-| `pnpm test:e2e`                                   | 6 browser tests passed, including offline import, hardware boundary and recording backup                          |
-| Physical hardware / listening test                | Not run — no instrument tested                                                                                    |
-| Deployment                                        | Not performed; static production output is in dist                                                                |
+Quest screenshots: `quest-setup.png`, `quest-complete.png` and `quest-shared-player.png`. Shared-header checkpoint selection, full-piece range highlighting, mouse-wheel seeking and speed changes are verified in the browser. See [practice plans](practice-plans.md) for the editable format and the limits of clean-run grading.
 
-Benchmark numbers are a single local CPU run, not a guarantee of frame rate, audio quality or latency. Desktop and 390px mobile screenshots are generated by the browser import test in `test-results/`.
+## Practical limits
 
-## Feature-to-test matrix
+Physical piano, audible human listening, drivers, real pedal behavior, OS-level suspension, native tablet hardware and the complete browser/OS matrix remain manual checks. Automated scheduling and fake MIDI are not evidence of a real-instrument test. Fullscreen support varies by browser; the viewport-filling player remains available without it.
 
-| Feature / defining behavior                                                                   | Evidence                                                             | Status                                               |
-| --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | ---------------------------------------------------- |
-| NoteOn-zero, 1-based channels, raw pedal, held vs sustained state                             | core MIDI adapter tests                                              | Automated pass                                       |
-| Fake production port select/switch/loss/reconnect/cleanup                                     | core adapter test + browser hardware test                            | Automated pass                                       |
-| Permission rejection and no inputs                                                            | unit and browser tests                                               | Automated pass                                       |
-| C4 wrong key blocks → C4 advances → CEG chord → repeated C4 requires fresh attacks            | full deterministic adapter scenario; browser plays first C and chord | Automated pass                                       |
-| Released/expired partial chord, sustain cannot advance repeats                                | core wait tests                                                      | Automated pass                                       |
-| Exact unison deduplication, arpeggio separation, playback excluded                            | core wait tests                                                      | Automated pass                                       |
-| Closest eligible attack, extras, early/late boundaries, half-speed milliseconds, onset misses | core rhythm tests                                                    | Automated pass                                       |
-| Hand filtering, accompaniment exclusion, no pitch clamping, range block                       | core scope tests                                                     | Automated pass                                       |
-| 30-second wait freezes clock and no queued accompaniment burst                                | core wait + audio scheduler tests                                    | Automated pass                                       |
-| Speed preserves position; seek invalidates audio; panic retains physical holds                | core transport + audio tests                                         | Automated pass                                       |
-| Pause on device loss and deliberate resume                                                    | unit and browser hardware test                                       | Automated pass                                       |
-| Loop scopes and performance-gated speed increases                                             | core adaptive test                                                   | Automated pass                                       |
-| Tempo-map inverse and tempo-change MIDI fixture                                               | core tempo/import tests                                              | Automated pass                                       |
-| MIDI/JSON import, malformed/empty/type2/SMPTE rejection                                       | unit + browser imports                                               | Automated pass                                       |
-| Final summary retained on stop, genuine progress after reload                                 | unit + browser practice                                              | Automated pass                                       |
-| Performance export keeps actual pitch/releases/CC64                                           | core export test                                                     | Automated pass                                       |
-| Recording backup/import/deletion, free play, staff rendering                                  | browser round-trip test                                              | Automated pass                                       |
-| Production cache reload and MIDI worker import offline                                        | browser offline test                                                 | Automated pass                                       |
-| Original lesson content (12)                                                                  | validation/unit + visible library                                    | Implemented                                          |
-| Large-score culling and overlap preservation                                                  | render-index unit + 10k benchmark                                    | CPU measured                                         |
-| Background/focus interruption                                                                 | UI visibility/focus handlers                                         | Implemented; dedicated hidden-tab automation pending |
-| Meter/count-in/metronome and audio routing                                                    | implementation; scheduler gate tests                                 | Full audible/meter-transition manual check pending   |
-| Physical keyboard, real pedal, OS/browser matrix                                              | docs/hardware.md checklist                                           | Pending                                              |
-| Advanced notation, optional MIDI output, independent per-track switches                       | docs/limitations.md                                                  | Deferred                                             |
+The original MIDI/engine fixture helpers remain for development, but no exercise catalogue appears in the app. Remaining product gaps are documented in [limitations](limitations.md); redesign behavior and compatibility are documented in [redesign](redesign.md).
 
-See `docs/limitations.md` for the remaining goal items and exact scope of the first release. No untested hardware result is counted as passed.
+Preparation verification: default three-second starts and repeats, pause/resume of the countdown, ignored positioning input, immediate Listen, configurable lead-in, disconnect feedback, and falling-roll A/B section markers. `preparation-section.png` captures the shared player during a paused lead-in.
 
-## Final retained verification
+Practice-polish verification: exact-position resume preparation, shared keyboard/pointer transport and preview, saved sound/count-in/offset preferences through immediate reload and backup restore, canceled delayed audio starts, one software voice per held MIDI note, and real service-worker update consent with a failed-save retry all pass. The fast-refresh preference scenario also passed five consecutive runs. See [practice polish](practice-polish.md); physical-instrument verification remains pending.
 
-`pnpm test`: 25/25 passed. `pnpm build`: passed. `pnpm test:e2e`: 6/6 passed in 6.2 seconds. The retained production app is served locally at http://127.0.0.1:4173 during this session. Build emitted only the documented VexFlow chunk-size advisory; no TypeScript errors.
+## Prepared score checks
 
-Earlier checks caught an exact-window floating-point boundary, CommonJS import compatibility in fixture scripts, and service-worker caching issues (Vary matching and duplicate precache URLs). Those were fixed and the final suites above passed. Backup validation also rejects malformed nested recording, timing and configuration data before any IndexedDB writes.
+- All 73 MIDI measures match reviewed score regions across 22 systems; PNG dimensions and original PDF hash are verified. Wrong fingerprints, missing coverage and out-of-image bounds are rejected.
+- Exact boundaries and tempo changes use source ticks; negative lead-in and the final tail clamp correctly.
+- Browser checks cover a later quest during lead-in/wait/resume/restart, a sped-up one-bar loop, roll preview without seeking, score browsing/panning without stopping Listen, saved visibility/zoom, and offline image loading.
+- All generated crops were visually reviewed, including initial tempo text, dense passages and final fermata. This is bar-level alignment, not note-level score tracking.

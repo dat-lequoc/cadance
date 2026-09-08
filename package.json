@@ -15,7 +15,9 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "fixtures": "tsx scripts/fixtures.ts",
-    "benchmark": "tsx scripts/benchmark.ts"
+    "plan:pathetique": "tsx scripts/pathetique-plan.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "score:pathetique": "tsx scripts/align-score.ts src/core/pathetique.json public/scores/pathetique-ii/geometry.json /pieces/pathetique-2.pdf"
   },
   "dependencies": {
     "@tonejs/midi": "2.0.28",

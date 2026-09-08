@@ -1,0 +1,323 @@
+{
+  "version": 1,
+  "pdfSha256": "e06ebea3d4935ac18bf9c50f433f6f4fe0ca5cd9b29752a8b8138dd2780c97d6",
+  "renderer": "PyMuPDF 1.28.2",
+  "scale": 3,
+  "systems": [
+    {
+      "image": "system-01.png",
+      "width": 1717,
+      "height": 530,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 4,
+      "barEdges": [
+        0.1097612,
+        0.3980897,
+        0.5853582,
+        0.7772044,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-02.png",
+      "width": 1717,
+      "height": 463,
+      "page": 1,
+      "fromBar": 5,
+      "throughBar": 8,
+      "barEdges": [
+        0.0354688,
+        0.3343157,
+        0.5326441,
+        0.7320734,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-03.png",
+      "width": 1717,
+      "height": 494,
+      "page": 1,
+      "fromBar": 9,
+      "throughBar": 12,
+      "barEdges": [
+        0.0354688,
+        0.3289866,
+        0.5428829,
+        0.7566395,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-04.png",
+      "width": 1717,
+      "height": 439,
+      "page": 1,
+      "fromBar": 13,
+      "throughBar": 16,
+      "barEdges": [
+        0.0354688,
+        0.3393477,
+        0.5639196,
+        0.7775888,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-05.png",
+      "width": 1717,
+      "height": 400,
+      "page": 2,
+      "fromBar": 17,
+      "throughBar": 20,
+      "barEdges": [
+        0.0354688,
+        0.3183809,
+        0.5325044,
+        0.7638905,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-06.png",
+      "width": 1717,
+      "height": 469,
+      "page": 2,
+      "fromBar": 21,
+      "throughBar": 23,
+      "barEdges": [
+        0.0354688,
+        0.3601747,
+        0.742452,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-07.png",
+      "width": 1717,
+      "height": 493,
+      "page": 2,
+      "fromBar": 24,
+      "throughBar": 27,
+      "barEdges": [
+        0.0354688,
+        0.3402563,
+        0.5340245,
+        0.7494059,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-08.png",
+      "width": 1717,
+      "height": 477,
+      "page": 2,
+      "fromBar": 28,
+      "throughBar": 31,
+      "barEdges": [
+        0.0354688,
+        0.3338614,
+        0.5507455,
+        0.7626849,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-09.png",
+      "width": 1717,
+      "height": 442,
+      "page": 3,
+      "fromBar": 32,
+      "throughBar": 35,
+      "barEdges": [
+        0.0354688,
+        0.3253349,
+        0.5547467,
+        0.7639779,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-10.png",
+      "width": 1717,
+      "height": 509,
+      "page": 3,
+      "fromBar": 36,
+      "throughBar": 38,
+      "barEdges": [
+        0.0354688,
+        0.3365347,
+        0.6297379,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-11.png",
+      "width": 1717,
+      "height": 492,
+      "page": 3,
+      "fromBar": 39,
+      "throughBar": 41,
+      "barEdges": [
+        0.0354688,
+        0.3925684,
+        0.6880606,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-12.png",
+      "width": 1717,
+      "height": 507,
+      "page": 3,
+      "fromBar": 42,
+      "throughBar": 43,
+      "barEdges": [
+        0.0354688,
+        0.5145428,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-13.png",
+      "width": 1717,
+      "height": 430,
+      "page": 3,
+      "fromBar": 44,
+      "throughBar": 46,
+      "barEdges": [
+        0.0354688,
+        0.3511066,
+        0.6155154,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-14.png",
+      "width": 1717,
+      "height": 441,
+      "page": 4,
+      "fromBar": 47,
+      "throughBar": 49,
+      "barEdges": [
+        0.0354688,
+        0.3723704,
+        0.6909785,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-15.png",
+      "width": 1717,
+      "height": 524,
+      "page": 4,
+      "fromBar": 50,
+      "throughBar": 52,
+      "barEdges": [
+        0.0354688,
+        0.438643,
+        0.7131508,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-16.png",
+      "width": 1717,
+      "height": 455,
+      "page": 4,
+      "fromBar": 53,
+      "throughBar": 55,
+      "barEdges": [
+        0.0354688,
+        0.3962202,
+        0.6865055,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-17.png",
+      "width": 1717,
+      "height": 455,
+      "page": 4,
+      "fromBar": 56,
+      "throughBar": 58,
+      "barEdges": [
+        0.0354688,
+        0.3891264,
+        0.6690332,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-18.png",
+      "width": 1717,
+      "height": 517,
+      "page": 4,
+      "fromBar": 59,
+      "throughBar": 61,
+      "barEdges": [
+        0.0354688,
+        0.401986,
+        0.6869773,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-19.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 62,
+      "throughBar": 64,
+      "barEdges": [
+        0.0354688,
+        0.4078742,
+        0.6964123,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-20.png",
+      "width": 1717,
+      "height": 482,
+      "page": 5,
+      "fromBar": 65,
+      "throughBar": 67,
+      "barEdges": [
+        0.0354688,
+        0.3836925,
+        0.6484508,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-21.png",
+      "width": 1717,
+      "height": 482,
+      "page": 5,
+      "fromBar": 68,
+      "throughBar": 70,
+      "barEdges": [
+        0.0354688,
+        0.3981246,
+        0.7387303,
+        0.9749214
+      ]
+    },
+    {
+      "image": "system-22.png",
+      "width": 1717,
+      "height": 494,
+      "page": 5,
+      "fromBar": 71,
+      "throughBar": 73,
+      "barEdges": [
+        0.0354688,
+        0.4129412,
+        0.7302388,
+        0.9670938
+      ]
+    }
+  ]
+}

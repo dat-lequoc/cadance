@@ -19,6 +19,7 @@ export function normalize(
   const command = status & 240,
     channel = (status & 15) + 1;
   const base = {
+    raw: Array.from(data),
     pitch,
     velocity: value / 127,
     value,
@@ -121,6 +122,7 @@ export class HardwareInput implements MidiInputAdapter {
           this.detach();
           this.lost(old);
         }
+        if (!this.port && p?.state === "connected") this.select(this.selected);
         this.changed();
       };
     }
@@ -132,6 +134,7 @@ export class HardwareInput implements MidiInputAdapter {
     );
   }
   select(id: string) {
+    if (this.connected && this.selected === id) return;
     if (this.port) {
       const old = this.selected;
       this.detach();

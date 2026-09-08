@@ -68,6 +68,7 @@ export class PianoAudio {
     const k = keyId(e),
       p = pedalId(e);
     if (e.type === "on") {
+      if (this.live.has(k)) return;
       const v = this.tone(e.pitch, e.velocity, this.time, undefined, "live");
       if (v) this.live.set(k, [...(this.live.get(k) ?? []), v]);
     } else if (e.type === "off") {
@@ -122,6 +123,7 @@ export class AudioScheduler {
   private cursor = 0;
   private beatScheduled = new Set<number>();
   private timer: ReturnType<typeof setInterval> | null = null;
+  lookaheadSeconds = 0.1;
   accompaniment = true;
   metronome = false;
   audioOffsetMs = 0;
@@ -147,10 +149,10 @@ export class AudioScheduler {
       )
         this.cursor++;
     }
-    if (e.status !== "playing" || !this.audio.context) return;
+    if (e.status !== "playing" || e.resuming || !this.audio.context) return;
     const position = e.currentPosition(),
       horizon = Math.min(
-        position + 0.1 * e.config.speed,
+        position + this.lookaheadSeconds * e.config.speed,
         e.boundary,
         e.passage[1],
       ),
@@ -166,6 +168,7 @@ export class AudioScheduler {
         !playable ||
         n.muted ||
         e.config.mode === "free" ||
+        n.time < e.passage[0] ||
         n.time >= e.boundary ||
         n.time >= e.passage[1] ||
         n.time + n.duration <= position ||

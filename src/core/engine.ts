@@ -1,5 +1,6 @@
 import {
   defaults,
+  TempoMap,
   rhythmMode,
   prepare,
   rangeWarnings,
@@ -62,6 +63,7 @@ export class PracticeEngine {
   groupIndex = 0;
   feedback = "Take a breath. Start when you’re ready.";
   lastWrong: number | null = null;
+  wrongHeld = new Map<string, { event: InputEvent; reason: "wrong" | "early" }>();
   loop: [number, number] | null = null;
   passage: [number, number];
   adaptive = false;
@@ -138,6 +140,7 @@ export class PracticeEngine {
     });
   }
   private resetAttempt() {
+    this.wrongHeld.clear();
     this.hits.clear();
     this.misses.clear();
     this.extras = 0;
@@ -227,7 +230,47 @@ export class PracticeEngine {
     this.status = "ready";
     this.emit();
   }
-  start(countInSeconds = 0) {
+  preparationSeconds = 0;
+  countIn = false;
+  private resumeSeconds = 0;
+  private resumeAnchor = 0;
+  get resuming() {
+    return this.resumeSeconds > 0;
+  }
+  get preparationDuration() {
+    if (!this.countIn) return this.preparationSeconds;
+    const at =
+      this.status === "paused"
+        ? Math.max(this.position, this.passage[0])
+        : this.passage[0];
+    const tick = new TempoMap(this.song.ppq, this.song.tempos).ticks(at);
+    const meter = this.song.meters.findLast((m) => m.tick <= tick) ?? {
+      numerator: 4,
+      denominator: 4,
+    };
+    const bpm = this.song.tempos.findLast((t) => t.tick <= tick)?.bpm ?? 120;
+    return (
+      (((meter.numerator * 4) / meter.denominator) * 60) /
+      bpm /
+      this.config.speed
+    );
+  }
+  get preparationRemaining() {
+    if (this.resumeSeconds > 0)
+      return this.status === "playing"
+        ? Math.max(
+            0,
+            this.resumeSeconds - (this.now() - this.resumeAnchor) / 1000,
+          )
+        : this.resumeSeconds;
+    return ["playing", "paused"].includes(this.status)
+      ? Math.max(
+          0,
+          (this.passage[0] - this.currentPosition()) / this.config.speed,
+        )
+      : 0;
+  }
+  start(countInSeconds = this.preparationDuration) {
     if (this.status === "playing" || this.status === "waiting") return;
     if (
       this.config.mode !== "listen" &&
@@ -242,8 +285,19 @@ export class PracticeEngine {
         "No notes match this hand and part. Choose Both hands or All notes, or edit the part assignments.",
       );
     if (this.status === "finished" || this.status === "ready") {
-      this.position = this.passage[0] - countInSeconds * this.config.speed;
+      this.position =
+        this.passage[0] -
+        (["listen", "free"].includes(this.config.mode) ? 0 : countInSeconds) *
+          this.config.speed;
       this.resetAttempt();
+    }
+    if (
+      this.status === "paused" &&
+      this.position >= this.passage[0] &&
+      !["listen", "free"].includes(this.config.mode)
+    ) {
+      this.resumeSeconds = this.resumeSeconds || countInSeconds;
+      this.resumeAnchor = this.now();
     }
     this.anchorTime = this.now();
     this.anchorPosition = this.position;
@@ -263,6 +317,8 @@ export class PracticeEngine {
       if ((this.status as Status) === "finished") return;
       if (this.status === "waiting")
         this.findingMs += this.now() - this.waitingAt;
+      if (this.resumeSeconds > 0)
+        this.resumeSeconds = this.preparationRemaining;
       this.status = "paused";
       this.partial.clear();
       this.feedback = reason;
@@ -279,6 +335,7 @@ export class PracticeEngine {
       }
       this.save(false);
     }
+    this.resumeSeconds = 0;
     this.status = "ready";
     this.position = this.passage[0];
     this.partial.clear();
@@ -293,6 +350,8 @@ export class PracticeEngine {
   deviceLost(port?: string) {
     this.pause("Piano disconnected. Reconnect, select an input, then resume.");
     this.input.lost(port);
+    for (const [key, value] of this.wrongHeld)
+      if (!port || value.event.port === port) this.wrongHeld.delete(key);
     this.partial.clear();
     this.epoch++;
     this.emit();
@@ -306,7 +365,7 @@ export class PracticeEngine {
       : Infinity;
   }
   currentPosition() {
-    if (this.status !== "playing") return this.position;
+    if (this.status !== "playing" || this.resuming) return this.position;
     return Math.min(
       this.anchorPosition +
         ((this.now() - this.anchorTime) / 1000) * this.config.speed,
@@ -328,6 +387,14 @@ export class PracticeEngine {
       return;
     }
     if (this.status !== "playing") return;
+    if (this.resuming) {
+      if (this.preparationRemaining > 0) return;
+      this.anchorTime = this.resumeAnchor + this.resumeSeconds * 1000;
+      this.anchorPosition = this.position;
+      this.resumeSeconds = 0;
+      this.epoch++;
+      this.checkpoint("resume-ready");
+    }
     this.position = this.currentPosition();
     if (
       this.config.mode === "wait" &&
@@ -338,6 +405,7 @@ export class PracticeEngine {
       this.status = "waiting";
       this.waitingAt = now;
       this.partial.clear();
+      this.lastWrong = null;
       this.feedback = "Your turn — play the highlighted notes.";
       this.epoch++;
       this.emit();
@@ -361,7 +429,13 @@ export class PracticeEngine {
     if (e.source === "playback") return;
     const wasHeld = this.input.held.has(keyId(e));
     this.input.apply(e);
+    if (e.type === "off") this.wrongHeld.delete(keyId(e));
     this.tick();
+    if (this.preparationRemaining > 0) {
+      this.emit();
+      return;
+    }
+
     if (
       ["playing", "waiting", "paused"].includes(this.status) &&
       this.config.mode !== "listen"
@@ -386,13 +460,27 @@ export class PracticeEngine {
       return;
     }
     if (this.config.mode === "wait") {
+      const matchesNext = this.group?.notes.some((n) => n.pitch === e.pitch);
+      if (this.status === "playing" && this.group && matchesNext &&
+          (this.group.time - this.position) / this.config.speed * 1000 <= this.config.earlyMs + 1e-7) {
+        // Anticipation is normal: accept the upcoming target inside the same
+        // real-time early window used for rhythm matching, without skipping it.
+        this.position = this.group.time;
+        this.status = "waiting";
+        this.waitingAt = this.now();
+        this.partial.clear();
+        this.epoch++;
+      }
       if (
         this.status !== "waiting" ||
-        !this.group?.notes.some((n) => n.pitch === e.pitch)
+        !matchesNext
       ) {
         this.extras++;
         this.lastWrong = e.pitch;
-        this.feedback = "That’s a different note. Try the highlighted key.";
+        this.wrongHeld.set(keyId(e), { event: { ...e }, reason: matchesNext ? "early" : "wrong" });
+        this.feedback = matchesNext
+          ? "A little early. Release and play this note when it reaches the line."
+          : "That’s a different note. Try the highlighted key.";
         this.emit();
         return;
       }
@@ -452,6 +540,7 @@ export class PracticeEngine {
       } else {
         this.extras++;
         this.lastWrong = e.pitch;
+        this.wrongHeld.set(keyId(e), { event: { ...e }, reason: "wrong" });
         this.feedback = "Extra note — find the next beat.";
       }
     }
@@ -529,4 +618,11 @@ export class PracticeEngine {
     }
     this.emit();
   }
+}
+
+/** Re-enter at the start of the selected hand's note/chord, never inside it. */
+export function noteStartAt(song: Song, config: Config, seconds: number) {
+  const position = Math.max(0, Math.min(song.duration, seconds));
+  return song.notes.filter((n) => scored(n, config) && n.time <= position + 1e-7)
+    .reduce((latest, n) => Math.max(latest, n.time), 0);
 }

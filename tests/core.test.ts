@@ -79,7 +79,7 @@ describe("MIDI adapter boundary", () => {
     apply([129, 60, 0]);
     expect(s.sounding.size).toBe(0);
   });
-  it("selects exactly one fake production port, detaches on switch/loss and requires reselection", async () => {
+  it("selects exactly one fake production port, detaches on switch/loss and reconnects the selected port", async () => {
     const a: Port = {
         id: "a",
         name: "Piano",
@@ -120,7 +120,7 @@ describe("MIDI adapter boundary", () => {
     expect(lost).toBe(2);
     b.state = "connected";
     access.onstatechange?.();
-    expect(h.connected).toBe(false);
+    expect(h.connected).toBe(true);
     h.select("b");
     expect(h.connected).toBe(true);
     h.dispose();
