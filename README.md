@@ -25,6 +25,24 @@ pnpm preview                      # http://127.0.0.1:4173
 
 Offline caching runs in the production build. Load the production address once online, then reopen that same address offline. Deploy `dist/` to an HTTPS static host; localhost is valid for development. No deployment was performed.
 
+## Clone onto another computer
+
+Install Git, Node.js 24 or newer, and pnpm 11.5.3, then run:
+
+```sh
+git clone https://github.com/dat-lequoc/cadance.git
+cd cadance
+pnpm install --frozen-lockfile --ignore-scripts
+pnpm build
+pnpm preview
+```
+
+Open **http://127.0.0.1:4173** and choose **Pieces**. Pathétique II and Chopin’s Minute Waltz are bundled: source MIDI/PDFs, normalized song data, cropped sheet images/PDFs, timing manifests, quests, attribution and the repo-local preparation skill are all tracked in Git. There is no separate asset download or score-generation step. Python and LilyPond are only needed if you want to regenerate scores, not to run or practice these pieces.
+
+Your personal progress, imported pieces and settings live in your browser, not Git. To move those too, export a backup in **Settings** on the old computer and restore it on the new one. MIDI access must be granted on the new computer.
+
+Browser tests default to port 4173. For an isolated checkout, set `CADANCE_TEST_PORT` to a free port (for example 4191) before running `pnpm test:e2e`; the test runner starts that checkout’s preview and refuses to reuse an existing server on that port.
+
 ## Included
 
 - Explicit Web MIDI permission and input selection, hotplug handling, live monitor, calibration, and separately labeled simulated input.
@@ -32,7 +50,7 @@ Offline caching runs in the production build. Load the production address once o
 - Piece library and MIDI type 0/1 import; tempo maps, explicit hand/part assignments, transposition and playable-range checks. Pathétique includes the complete 1,629-note movement, separated into score-defined melody, right-hand inner harmony and left-hand bass/accompaniment.
 - Light piece library and setup, followed by a dedicated dark player. The roll and keyboard occupy over 75% of desktop height; transport stays visible, with optional browser fullscreen. Display preferences persist.
 - Visible **A / B / Loop**, timeline handles, bar snapping, exact seconds/bar inputs, and optional named saved passages. Draft edits apply deliberately. Restart retains the active loop; seeking within it retains the original boundaries.
-- Markdown practice quests: Pathétique has 43 short passages progressing through right hand, left hand and both hands, plus 32 cumulative section reviews. Ten completed runs unlock the next quest; repetitions, counting rules, ranges and parts are editable. Progress persists locally.
+- Markdown practice quests: Pathétique has 43 short passages progressing through right hand, left hand and both hands, plus 32 cumulative section reviews. Ten completed runs for new passages or five for cumulative reviews unlock the next quest; repetitions, counting rules, ranges and parts are editable. Progress persists locally.
 - Listen, Wait for notes, Practice rhythm, Recital, and Free play. Hand and melody/harmony selection are independent, with automatic playback of unpracticed parts. Tracks can be independently hidden or muted.
 - Local synthesis, explicit My piano / Computer live-sound routing, sustain, panic, and persisted sound/preparation/offset preferences. Resume includes preparation without rewinding the musical position.
 - End-of-session review and expandable history. IndexedDB songs, attempts and settings; actual-performance MIDI export, audio replay, versioned backup and deletion controls.

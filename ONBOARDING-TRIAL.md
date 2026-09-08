@@ -1,3 +1,5 @@
+This report records the original isolated trial. The piece and all required assets were subsequently merged into main; use the root README for current clone/run instructions and default preview port.
+
 # Fresh-clone Minute Waltz onboarding trial
 
 Worked only in `/tmp/cadance-onboarding-minute-waltz`, a public repository clone. Did not consult the original checkout or reuse its prepared assets, node_modules or Python environment. No push or deployment. Preview/test port: **4187**.

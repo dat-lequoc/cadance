@@ -175,12 +175,13 @@ test("cached production app loads and imports offline", async ({
 });
 test("free-play recording backup round trip, deletion and notation without remote requests", async ({
   page,
+  baseURL,
 }) => {
   const external: string[] = [];
   page.on("request", (r) => {
     if (
       r.url().startsWith("http") &&
-      !r.url().startsWith("http://127.0.0.1:4187")
+      new URL(r.url()).origin !== new URL(baseURL!).origin
     )
       external.push(r.url());
   });
