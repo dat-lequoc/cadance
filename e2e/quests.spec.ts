@@ -135,9 +135,7 @@ test("completed runs light the repetition track and clearing the checkpoint turn
   await page.getByLabel("Preparation time").selectOption("0");
   await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Restart", exact: true }).click();
-  await page
-    .getByRole("button", { name: "Start practice", exact: true })
-    .click();
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await page.locator(".stage").click({ position: { x: 10, y: 80 } });
   await expect(page.getByRole("progressbar", { name: "Overall quest journey" })).toHaveAttribute("aria-valuenow", "0");
   await clean(page, 1, 2);
@@ -168,9 +166,7 @@ test("ten real completed runs advance to the next checkpoint; failures and reloa
   await page.getByRole("button", { name: "Tools", exact: false }).click();
   await expect(page.getByLabel("Visible keys")).toHaveValue("88");
   await page.keyboard.press("Escape");
-  await page
-    .getByRole("button", { name: "Start practice", exact: true })
-    .click();
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await page.locator(".stage").click({ position: { x: 10, y: 80 } });
   await expect(page.getByLabel("Song position")).toBeVisible();
   await expect(page.getByLabel("Playback speed")).toBeVisible();
@@ -282,14 +278,10 @@ test("shared player exposes checkpoint range, switching, speed and wheel browsin
       Number(await page.getByLabel("Song position").inputValue()),
     )
     .toBeGreaterThan(0.2);
-  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
-  await expect(page.getByLabel("Falling notes section")).toContainText(
-    "Checkpoint · bars 1–1",
-  );
-  await page.getByRole("button", { name: "Back to playhead" }).click();
-  await expect(page.getByLabel("Song position")).toHaveValue("0");
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("");
+  await expect(page.getByRole("button", { name: "Back to playhead" })).toHaveCount(0);
   await page.getByLabel("Playback speed").selectOption("75");
-  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("");
   await page.getByLabel("Choose checkpoint").selectOption("bar-1");
   await expect(page.getByLabel("Playback speed")).toHaveValue("75");
   await page.reload();
@@ -316,12 +308,14 @@ test("playing after a preview keeps the active checkpoint attached", async ({ pa
   await page.mouse.wheel(0, -1000);
   await expect(page.getByRole("button", { name: "Listen forward from here", exact: true })).toBeVisible();
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
-  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await expect(page.locator(".quest-dock strong")).toHaveText("0 / 1 completed runs");
 
-  await page.getByRole("button", { name: "Start practice", exact: true }).click();
+  await page.keyboard.press("Space");
   await expect(page.getByText("Your turn — play the highlighted notes.", { exact: false })).toBeVisible();
   await page.locator(".stage").click({ position: { x: 10, y: 80 } });
+  await page.keyboard.press("a");
+  await expect(page.getByText("Your turn — play the highlighted notes.", { exact: false })).toBeVisible();
   await page.keyboard.press("s");
   await expect(page.locator(".quest-reward")).toContainText("Checkpoint cleared!");
 });
@@ -336,14 +330,9 @@ test("practice starts immediately, ignores hand placement and shows section boun
   await expect(page.getByLabel("Falling notes section")).toContainText(
     "Checkpoint · bars 1–1",
   );
-  await page.getByRole("button", { name: "Pause practice" }).click();
-  const paused = await page.locator(".stage-feedback").textContent();
-  await page.waitForTimeout(500);
-  await expect(page.locator(".stage-feedback")).toHaveText(paused!);
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toHaveCount(0);
+  await expect(page.locator(".wait-ready-label")).toContainText("Ready");
   await page.screenshot({ path: "test-results/preparation-section.png" });
-  await page
-    .getByRole("button", { name: "Start practice", exact: true })
-    .click();
   await page.locator(".stage").click({ position: { x: 200, y: 100 } });
   await clean(page, 1);
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
@@ -351,9 +340,6 @@ test("practice starts immediately, ignores hand placement and shows section boun
   await page.getByLabel("Preparation time").selectOption("0");
   await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Restart", exact: true }).click();
-  await page
-    .getByRole("button", { name: "Start practice", exact: true })
-    .click();
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
 });
 

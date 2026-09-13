@@ -245,7 +245,7 @@ export default function PlayerView({ c }: { c: PracticeController }) {
           : c.engine.lastWrong !== null
             ? c.engine.feedback
             : c.engine.status === "ready"
-              ? "Ready when you are. Press P to begin."
+              ? c.config.mode === "wait" ? "Ready — play when you are ready." : "Ready when you are. Press P to begin."
               : "";
   return (
     <div className="player" data-testid="focused-player">
@@ -407,28 +407,20 @@ export default function PlayerView({ c }: { c: PracticeController }) {
             >
               <Icon name="back" />
             </button>
-            <button
+            {!(c.config.mode === "wait" && c.active) && <button
               className="primary transport-play"
               data-state={c.active ? "playing" : c.engine.status === "paused" ? "paused" : "ready"}
-              disabled={
-                c.updating ||
-                c.quests.runner.saving ||
-                !!c.quests.runner.error ||
-                (c.quests.runner.completed && c.engine.status === "finished")
-              }
+              disabled={c.updating || c.quests.runner.saving || !!c.quests.runner.error || (c.quests.runner.completed && c.engine.status === "finished")}
               title={c.active ? "Playing — pause (Space / P)" : c.engine.status === "paused" ? "Paused — resume (Space / P)" : "Start playing (Space / P)"}
               aria-label={c.active ? "Pause practice" : "Start practice"}
               onClick={() => void c.play()}
             >
               <Icon name={c.active ? "pause" : "play"} />
-              {c.active
-                ? "Pause"
-                : c.engine.status === "paused"
-                  ? "Resume"
-                  : "Play"}
-            </button>
-            <button aria-label="Listen forward from here" onClick={() => void c.listenSection()} disabled={c.active || c.quests.runner.saving}>
-              ♫ Listen forward
+              {c.active ? "Pause" : c.engine.status === "paused" ? "Resume" : "Play"}
+            </button>}
+            {c.config.mode === "wait" && c.active && <span className="wait-ready-label">Ready · play when you are ready</span>}
+            <button aria-label={c.listeningPreview ? "Back to practice" : "Listen forward from here"} onClick={() => void c.listenSection()} disabled={c.quests.runner.saving}>
+              {c.listeningPreview ? "↩ Back to practice" : "♫ Listen forward"}
             </button>
             <button aria-label="Finish practice" onClick={c.finish}>
               Finish

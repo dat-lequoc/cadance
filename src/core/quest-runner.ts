@@ -117,6 +117,26 @@ export class QuestRunner {
   resume() {
     this.autoContinue = true;
   }
+  /** A practice seek is real, not a preview to be replaced on Play. Retain a
+   * quest while rehearsing into it; a mid-quest start cannot earn a full run. */
+  seek(position: number) {
+    if (this.saving || this.pending || this.manualJob)
+      throw Error("Wait for the current run to finish saving before changing position.");
+    const quest = this.active;
+    const bounds = quest && questBounds(this.engine.song, quest);
+    this.token++;
+    if (bounds && position < bounds[1]) {
+      this.engine.selectPassage(Math.max(0, position), bounds[1], false);
+      this.autoContinue = true;
+      this.message = position <= bounds[0]
+        ? "Ready here. Play through the whole quest to earn a run."
+        : "Practice from here. Only a full quest earns a run.";
+    } else {
+      this.leave();
+      this.engine.seek(position);
+    }
+    this.changed();
+  }
   handleResult(result: Result) {
     if (!this.loaded || !this.activeId || !result.completed) return false;
     if (this.saving || this.pending || this.manualJob) return true;
@@ -157,7 +177,7 @@ export class QuestRunner {
         this.lastRun = null;
         this.saving = false;
         this.prepare(job.id);
-        this.message = "Checkpoint reset. Press Play when ready.";
+        this.message = "Checkpoint reset. Ready for your next attempt.";
         return;
       }
       this.lastRun = { id: crypto.randomUUID(), count: this.count, goal: questGoal(job.loaded.plan, job.loaded.plan.quests.find((q) => q.id === job.id)!), complete: true };
@@ -212,7 +232,9 @@ export class QuestRunner {
           this.prepare(nextId);
           this.engine.start(0);
         } else if (!this.completed) {
-          this.engine.restart();
+          // A lead-in or partial rehearsal is a one-off range. The next full
+          // repetition uses the quest bounds, not the last scrolled position.
+          this.engine.selectPassage(...questBounds(this.engine.song, this.active!), false);
           this.engine.start(0);
         }
       }

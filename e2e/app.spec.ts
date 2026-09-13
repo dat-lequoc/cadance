@@ -16,18 +16,18 @@ test("imported piece, simulated wait gating and retained persistence", async ({
   await page.getByRole("button", { name: "Use simulated input" }).click();
   await expect(page.getByTestId("focused-player")).toBeVisible();
   await page.locator(".stage").click({ position: { x: 10, y: 80 } });
-  await expect(page.getByRole("status")).toContainText("Your turn", {
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn", {
     timeout: 6000,
   });
   await page.keyboard.press("w");
-  await expect(page.getByRole("status")).toContainText("different note");
+  await expect(page.locator(".stage-feedback")).toContainText("different note");
   await page.keyboard.press("a");
-  await expect(page.getByRole("status")).toContainText("Your turn", {
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn", {
     timeout: 6000,
   });
   await page.keyboard.down("a");
   await page.keyboard.down("d");
-  await expect(page.getByRole("status")).toContainText("2 of 3 keys held");
+  await expect(page.locator(".stage-feedback")).toContainText("2 of 3 keys held");
   await page.keyboard.down("g");
   await page.keyboard.up("a");
   await page.keyboard.up("d");

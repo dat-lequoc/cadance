@@ -56,10 +56,8 @@ test("a later checkpoint shows its starting score immediately", async ({
   await expect(page.locator(".score-wrong-overlay")).toHaveCount(0);
   await page.keyboard.up("a");
   await expect(page.getByLabel("Played note mismatch")).toHaveCount(0);
-  await page.getByRole("button", { name: "Pause practice" }).click();
-  await page
-    .getByRole("button", { name: "Start practice", exact: true })
-    .click();
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await expect(
     page.getByLabel("Highlighted bar 42", { exact: true }),
   ).toBeVisible();
@@ -119,22 +117,15 @@ test("sheet follows the practice preview and survives reload with its zoom", asy
   const before = await page.getByLabel("Song position").inputValue();
   await roll.hover({ position: { x: 200, y: 100 } });
   await page.mouse.wheel(0, 1600);
-  await expect(page.locator(".score-position")).toContainText("Resume here");
+  await expect(page.locator(".score-position")).not.toContainText("Resume here");
   await expect(page.getByAltText("Score page 1, bars 5–8")).toBeVisible();
-  await page
-    .getByRole("button", { name: "Back to playhead", exact: true })
-    .click();
-  await expect(page.getByLabel("Song position")).toHaveValue(before);
-  await expect(
-    page.getByLabel("Highlighted bar 1", { exact: true }),
-  ).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to playhead", exact: true })).toHaveCount(0);
+  await expect.poll(async () => Number(await page.getByLabel("Song position").inputValue())).toBeGreaterThan(Number(before));
   await page.getByLabel("Sheet music zoom").fill("150");
   await page.getByRole("button", { name: "Next score system" }).click();
   await expect(page.locator(".score-position")).toContainText("Browsing score");
   await page.getByRole("button", { name: "Follow", exact: true }).click();
-  await expect(
-    page.getByLabel("Highlighted bar 1", { exact: true }),
-  ).toBeVisible();
+  await expect(page.locator(".score-current-bar")).toHaveCount(1);
   const stage = await page.locator(".stage").boundingBox();
   const strip = await page.locator(".score-strip").boundingBox();
   expect(stage!.height).toBeGreaterThan(250);
@@ -265,7 +256,7 @@ test("sheet-only follows required notes, waits for the whole chord and remembers
   await expect(page.locator(".stage")).toBeVisible();
 });
 
-test("Space resumes a sheet preview without scrolling or repeated toggles", async ({ page }) => {
+test("Space does not toggle an always-ready wait quest", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
   await page.getByRole("button", { name: "Use simulated input" }).click();
@@ -273,40 +264,40 @@ test("Space resumes a sheet preview without scrolling or repeated toggles", asyn
   await page.getByRole("button", { name: "Sheet only", exact: true }).click();
   const image = page.getByAltText("Score page 1, bars 1–4");
   await image.click({ position: { x: 200, y: 80 } });
-  await expect(page.locator(".roll-preview")).toContainText("Resume here");
+  await expect(page.locator(".roll-preview")).toHaveCount(0);
   const viewport = page.getByLabel("Score image; scroll to pan");
   const top = await viewport.evaluate((el) => el.scrollTop);
   await page.keyboard.press("Space");
   await expect(page.locator(".roll-preview")).toHaveCount(0);
-  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toHaveCount(0);
   await page.keyboard.down("Space");
-  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await page.keyboard.down("Space");
   await page.keyboard.up("Space");
-  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   await expect.poll(() => viewport.evaluate((el) => el.scrollTop)).toBe(top);
   // A focused toolbar button must not also activate on Space's keyup.
   await page.getByRole("button", { name: "Sheet only", exact: true }).focus();
   await page.keyboard.press("Space");
-  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Pause practice", exact: true })).toHaveCount(0);
   await expect(page.locator(".score-strip")).toHaveClass(/score-only/);
 });
 
-test("scrolling back in sheet-only pauses and resume starts on the selected note", async ({ page }) => {
+test("scrolling back in sheet-only makes the selected note immediately ready", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
   await page.getByRole("button", { name: "Use simulated input" }).click();
   await page.getByRole("button", { name: "Sheet music", exact: true }).click();
   await page.getByRole("button", { name: "Sheet only", exact: true }).click();
   await page.getByRole("button", { name: "Next score system" }).click();
-  await expect(page.locator(".roll-preview")).toContainText("Resume here");
+  await expect(page.locator(".roll-preview")).toHaveCount(0);
   await page.getByLabel("Score image; scroll to pan").hover({ position: { x: 300, y: 200 } });
   await page.mouse.wheel(0, -450);
-  await expect(page.locator(".score-position")).toContainText("Resume here");
-  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect(page.locator(".score-position")).not.toContainText("Resume here");
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toHaveCount(0);
   const preview = Number(await page.getByLabel("Song position").inputValue());
   expect(preview).toBeLessThan(score.bars[4].tick / 384 * (60 / 36));
-  await page.getByRole("button", { name: "Start practice", exact: true }).click();
+  await page.keyboard.press("Space");
   await expect(page.locator(".roll-preview")).toHaveCount(0);
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect.poll(async () => Number(await page.getByLabel("Song position").inputValue())).toBeCloseTo(preview, 4);
@@ -317,7 +308,6 @@ test("scrolling back in sheet-only pauses and resume starts on the selected note
   const note = score.bars[0].anchors[0].notes[0];
   await image.click({ position: { x: box.width * note.x, y: box.height * note.y } });
   await expect(page.getByLabel("Song position")).toHaveValue("0");
-  await page.getByRole("button", { name: "Start practice", exact: true }).click();
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(page.getByLabel("Song position")).toHaveValue("0");
 });

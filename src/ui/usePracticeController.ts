@@ -70,6 +70,7 @@ export function usePracticeController() {
   const [dashboardDark, setDashboardDark] = useState(true);
   const [updating, setUpdating] = useState(false);
   const [panel, setPanel] = useState<"tools" | "passages" | "quests" | null>(null);
+  const [questDialogOpen, setQuestDialogOpen] = useState(false);
   const [review, setReview] = useState<Result | null>(null);
   const [pendingSaves, setPendingSaves] = useState<Result[]>([]);
   const pendingSave = pendingSaves[0] ?? null;
@@ -81,7 +82,10 @@ export function usePracticeController() {
   const preferenceCacheKey = "cadance-practice-preferences-v1";
   const [browsePosition, setBrowsePosition] = useState<number | null>(null);
   const resumeFromBrowse = useRef<number | null>(null);
-  const listenRestore = useRef<{ config: Config; passage: [number, number] } | null>(null);
+  const listenRestore = useRef<{ config: Config; passage: [number, number]; loop: [number, number] | null; position: number } | null>(null);
+  const waitInputEnabled = useRef(false);
+  const armWait = useRef(() => {});
+  waitInputEnabled.current = ready && page === "player" && !panel && !modal && !questDialogOpen && !updating && !replaying && !error;
   const clearBrowse = () => {
     resumeFromBrowse.current = null;
     setBrowsePosition(null);
@@ -93,7 +97,7 @@ export function usePracticeController() {
   };
   const practiceMode = useRef<Config["mode"]>("wait");
   const inputEnabled = useRef(false);
-  inputEnabled.current = (page === "player" && !panel) || modal;
+  inputEnabled.current = (page === "player" && !panel && !questDialogOpen) || modal;
   const sourceRef = useRef(source);
   sourceRef.current = source;
   const soundRef = useRef(computerSound);
@@ -118,6 +122,27 @@ export function usePracticeController() {
   const report = (e: unknown) =>
     setError(e instanceof Error ? e.message : String(e));
   const quests = useQuestPlan(engine, report);
+  armWait.current = () => {
+    if (!waitInputEnabled.current || engine.config.mode !== "wait" || listenRestore.current ||
+        starting.current || quests.runner.saving || quests.runner.error ||
+        sourceRef.current === "none" || (sourceRef.current === "hardware" && !hardware.connected)) return;
+    if (engine.status === "ready" || engine.status === "paused" || (engine.status === "finished" && quests.runner.active)) {
+      try { quests.runner.resume(); engine.start(0); } catch (error) { report(error); }
+    }
+  };
+  const stopListenPreview = () => {
+    const restore = listenRestore.current;
+    if (!restore) return;
+    listenRestore.current = null;
+    cancelStart();
+    audio.stopAll();
+    engine.stop();
+    engine.config = { ...restore.config };
+    // Return to the chosen note, never silently reload the original quest.
+    engine.selectPassage(restore.position, restore.passage[1], false);
+    engine.loop = restore.loop;
+    armWait.current();
+  };
   suspendQuest.current = () => quests.runner.suspend();
   useEffect(() => {
     const subscription = liveQuery(() => db.sessions.toArray()).subscribe({
@@ -309,6 +334,10 @@ export function usePracticeController() {
         (e.source === "simulated" && sourceRef.current !== "simulated")
       )
         return;
+      if (engine.config.mode === "wait") {
+        if (!waitInputEnabled.current) engine.pause();
+        else if (e.type === "on") { resumeFromBrowse.current = null; armWait.current(); }
+      }
       debugLog.capture(engine, e, quests.runner.activeId, () => engine.receive(e));
       if (soundRef.current || e.source === "simulated") audio.receive(e);
       setMonitor((v) => [e, ...v].slice(0, 8));
@@ -317,13 +346,7 @@ export function usePracticeController() {
     const off1 = simulated.subscribe(receive),
       off2 = hardware.subscribe(receive),
       off3 = engine.subscribe(() => {
-        const restore = listenRestore.current;
-        if (restore && engine.status === "finished") {
-          listenRestore.current = null;
-          engine.stop();
-          engine.config = { ...restore.config };
-          engine.selectPassage(...restore.passage, false);
-        }
+        if (listenRestore.current && engine.status === "finished") stopListenPreview();
         redraw((v) => v + 1);
       });
     engine.onResult = (r) => {
@@ -444,6 +467,7 @@ export function usePracticeController() {
     };
   }, [engine, simulated]);
   const selectSong = (song: Song) => {
+    stopListenPreview();
     cancelStart();
     clearBrowse();
     quests.runner.leave();
@@ -453,6 +477,7 @@ export function usePracticeController() {
     setPage("setup");
   };
   const configure = (patch: Partial<Config>) => {
+    stopListenPreview();
     cancelStart();
     clearBrowse();
     if (Object.keys(patch).every((key) => key === "speed") && patch.speed !== undefined) {
@@ -527,6 +552,7 @@ export function usePracticeController() {
     stopReplay();
     try {
       if (engine.status === "playing" || engine.status === "waiting") {
+        if (engine.config.mode === "wait") return;
         quests.runner.suspend();
         engine.pause();
         audio.stopAll();
@@ -555,23 +581,7 @@ export function usePracticeController() {
       const preview = resumeFromBrowse.current;
       if (preview !== null) {
         const onset = noteStartAt(engine.song, engine.config, preview);
-        const activeId = quests.runner.activeId;
-        if (activeId) {
-          // A score preview is not a practice seek. Keep the active quest
-          // attached and restart its configured passage; rehearing from the
-          // selected line is provided explicitly by Listen forward.
-          quests.runner.prepare(activeId);
-        } else {
-          // Score browsing leaves quest counting, but the lead-in should keep
-          // the hand/part selected by the quest instead of falling back to
-          // the user's general both-hands setting.
-          const questHand = quests.runner.active?.hand;
-          const questFocus = quests.runner.active?.focus;
-          quests.runner.leave();
-          if (questHand) engine.config.hand = questHand;
-          if (questFocus) engine.config.focus = questFocus;
-          engine.seek(onset);
-        }
+        quests.runner.seek(onset);
       }
       clearBrowse();
       quests.runner.resume();
@@ -604,18 +614,26 @@ export function usePracticeController() {
     void play();
   };
   const listenSection = async () => {
-    if (engine.status === "playing" || engine.status === "waiting") return;
-    const selected = resumeFromBrowse.current ?? engine.passage[0];
+    if (listenRestore.current) { stopListenPreview(); return; }
+    if (quests.runner.saving || quests.runner.error) return;
+    if (engine.config.mode !== "wait" && (engine.status === "playing" || engine.status === "waiting")) return;
+    const selected = Math.max(0, Math.min(engine.song.duration - 0.001, resumeFromBrowse.current ?? engine.currentPosition()));
     // Leave score-browse mode so the playhead follows the live audio position.
     clearBrowse();
-    await audio.unlock();
-    listenRestore.current = { config: { ...engine.config }, passage: [...engine.passage] };
-    engine.stop();
-    engine.config = { ...engine.config, mode: "listen" };
-    // Listen from the selected point through the rest of the piece. This is
-    // preview audio only and is restored before the next practice attempt.
-    engine.selectPassage(Math.max(0, Math.min(engine.song.duration - 0.001, selected)), engine.song.duration, false);
-    engine.start(engine.preparationDuration);
+    const position = Math.max(engine.passage[0], Math.min(engine.passage[1] - 0.001, selected));
+    listenRestore.current = { config: { ...engine.config }, passage: [...engine.passage], loop: engine.loop && [...engine.loop], position };
+    quests.runner.suspend();
+    engine.pause();
+    cancelStart();
+    const generation = startGeneration.current;
+    try {
+      await audio.unlock();
+      if (generation !== startGeneration.current || !listenRestore.current) return;
+      engine.stop();
+      engine.config = { ...engine.config, mode: "listen" };
+      engine.selectPassage(selected, engine.song.duration, false);
+      engine.start(engine.preparationDuration);
+    } catch (error) { stopListenPreview(); report(error); }
   };
   const startPractice = () => {
     // Returning from the player leaves the engine paused but clears the
@@ -696,6 +714,7 @@ export function usePracticeController() {
     audio.stopAll();
   };
   const navigate = (next: Screen) => {
+    stopListenPreview();
     clearBrowse();
     quests.runner.leave();
     pause();
@@ -718,6 +737,7 @@ export function usePracticeController() {
     setPanel(next);
   };
   const finish = () => {
+    stopListenPreview();
     cancelStart();
     clearBrowse();
     quests.runner.leave();
@@ -777,19 +797,36 @@ export function usePracticeController() {
     audio.stopAll();
   }, [modal, engine, audio]);
   const restart = () => {
+    stopListenPreview();
     pause();
     clearBrowse();
-    engine.restart();
+    if (engine.config.mode === "wait" && quests.runner.activeId) {
+      try { quests.runner.prepare(quests.runner.activeId); } catch (error) { report(error); return; }
+    } else engine.restart();
+    armWait.current();
   };
   const seek = (position: number) => {
-    quests.runner.leave();
-    pause();
-    clearBrowse();
-    engine.seek(position);
+    stopListenPreview();
+    try {
+      pause();
+      clearBrowse();
+      if (engine.config.mode === "wait") {
+        quests.runner.seek(noteStartAt(engine.song, engine.config, position));
+        armWait.current();
+      } else {
+        quests.runner.leave();
+        engine.seek(position);
+      }
+    } catch (error) { report(error); }
   };
   const previewAt = (seconds: number) => {
-    pause();
     const position = Math.max(0, Math.min(engine.song.duration, seconds));
+    if (engine.config.mode === "wait") {
+      seek(position);
+      resumeFromBrowse.current = position;
+      return;
+    }
+    pause();
     resumeFromBrowse.current = position;
     setBrowsePosition(position);
   };
@@ -797,12 +834,13 @@ export function usePracticeController() {
     if (!delta) return;
     previewAt((resumeFromBrowse.current ?? engine.currentPosition()) + delta / zoom);
   };
+  useEffect(() => { armWait.current(); }, [ready, revision, page, panel, modal, questDialogOpen, source, updating, error]);
   useEffect(() => {
     if (page !== "player" || modal) return;
     const key = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         if (panel) setPanel(null);
-        else pause();
+        else if (engine.config.mode !== "wait") pause();
         return;
       }
       if (
@@ -817,13 +855,17 @@ export function usePracticeController() {
       if (k === " ") {
         // Cancel native scrolling and focused-button activation on every repeat.
         e.preventDefault();
-        if (!e.repeat) void play();
+        if (!e.repeat) {
+          if (engine.config.mode === "wait") armWait.current();
+          else void play();
+        }
         return;
       }
       if (e.repeat) return;
       if (k === "p") {
         e.preventDefault();
-        void play();
+        if (engine.config.mode === "wait") armWait.current();
+        else void play();
       }
       if (k === "r") {
         e.preventDefault();
@@ -901,6 +943,7 @@ export function usePracticeController() {
       cancelStart();
       clearBrowse();
       try {
+        stopListenPreview();
         stopReplay();
         quests.runner.prepare(id);
         setVisible("88");
@@ -1061,6 +1104,8 @@ export function usePracticeController() {
     selectMode,
     listen,
     listenSection,
+    listeningPreview: !!listenRestore.current,
+    setQuestDialogOpen,
     startPractice,
     practiceMode: practiceMode.current,
     openPlayer: () => setPage("player"),

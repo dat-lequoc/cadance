@@ -3303,6 +3303,8 @@ legend {
   line-height: 1.3;
   pointer-events: none;
 }
+.wait-ready-label { padding: 8px 10px; border: 1px solid #91b779; border-radius: 6px; color: #2d633c; background: #eef8e9; font-size: 12px; font-weight: 700; }
+:root[data-theme="dark"] .wait-ready-label { color: #d9ffb5; background: #254a2d; border-color: #65954e; }
 :root[data-theme="dark"] .quest-editor-section { background: #20372b; }
 :root[data-theme="dark"] .quest-editor-fields input,
 :root[data-theme="dark"] .quest-editor-fields select,

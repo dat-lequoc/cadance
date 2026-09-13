@@ -167,6 +167,7 @@ function QuestRunProgress({
   const resumeOnCancel = useRef(false);
   const cancelSkip = () => {
     confirmation.current?.close();
+    c.setQuestDialogOpen(false);
     if (resumeOnCancel.current) void c.play();
     resumeOnCancel.current = false;
   };
@@ -204,6 +205,7 @@ function QuestRunProgress({
           onClick={() => {
             resumeOnCancel.current = c.engine.status === "playing" || c.engine.status === "waiting";
             c.pause();
+            c.setQuestDialogOpen(true);
             confirmation.current?.showModal();
           }}
         >
@@ -257,6 +259,7 @@ function QuestRunProgress({
             <button className="primary" onClick={() => {
               resumeOnCancel.current = false;
               confirmation.current?.close();
+              c.setQuestDialogOpen(false);
               setReward(null);
               void c.quests.runner.markComplete(completed);
             }}>{completed ? "Reset quest" : "Mark complete & next →"}</button>

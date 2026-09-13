@@ -189,6 +189,23 @@ it("starts and credits a later quest without completing earlier quests", async (
   expect(() => runner.prepare("missing")).toThrow("Unknown quest");
   expect(unlocked(loaded.plan, emptyProgress(), -1)).toBe(false);
 });
+it("keeps a quest attached when seeking into its lead-in and allows full completion", async () => {
+  const loaded = await fixture();
+  const quest = loaded.plan.quests[1];
+  const runner = new QuestRunner(new PracticeEngine(song), async () => { throw Error("unused"); }, () => {});
+  runner.load(loaded);
+  runner.prepare(quest.id);
+  const [, end] = questBounds(song, quest);
+  runner.seek(0);
+  expect(runner.activeId).toBe(quest.id);
+  expect(runner.engine.passage).toEqual([0, end]);
+  expect(runner.engine.status).toBe("ready");
+  const e = new PracticeEngine(song, questConfig(quest));
+  e.selectPassage(0, end);
+  for (const n of e.targets) e.hits.add(n.id);
+  e.events.push({ event: normalize([144, e.targets[0].pitch, 100], 0, "test")!, elapsedMs: 0, position: 0 });
+  expect(evaluateQuest(song, quest, e.result(true)).success).toBe(true);
+});
 
 describe("earned quest progression", () => {
   it("completes after ten full completed runs, deduplicates results and retains successes across failures", async () => {

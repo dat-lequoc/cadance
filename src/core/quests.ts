@@ -159,8 +159,10 @@ export function questConfig(quest: Quest): Partial<Config> {
   };
 }
 export function questTargets(song: Song, quest: Quest) {
-  const [start, end] = questBounds(song, quest),
-    unique = new Set<string>();
+  return targetsInPassage(song, quest, questBounds(song, quest));
+}
+function targetsInPassage(song: Song, quest: Quest, [start, end]: [number, number]) {
+  const unique = new Set<string>();
   return song.notes.filter((n) => {
     if (
       n.time < start ||
@@ -255,7 +257,7 @@ export function evaluateQuest(
   result: Result,
 ): { success: boolean; reason: string } {
   const [a, b] = questBounds(song, quest),
-    expected = questTargets(song, quest).length;
+    expected = targetsInPassage(song, quest, result.passage).length;
   if (!result.completed)
     return {
       success: false,
@@ -263,7 +265,9 @@ export function evaluateQuest(
     };
   if (
     result.songId !== song.id ||
-    Math.abs(result.passage[0] - a) > 0.00001 ||
+    !Number.isFinite(result.passage[0]) || result.passage[0] < 0 ||
+    result.passage[0] > a + 0.00001 ||
+    !Number.isFinite(result.passage[1]) ||
     Math.abs(result.passage[1] - b) > 0.00001 ||
     Object.entries(questConfig(quest)).some(
       ([key, value]) => key !== "speed" && result.config[key as keyof Config] !== value,

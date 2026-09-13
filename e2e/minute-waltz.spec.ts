@@ -9,7 +9,7 @@ test("Minute Waltz library, quests, both score views, reload and offline assets"
  for(const key of ["y","g","y","k","u","g","y","u","y","k","u"]){await page.keyboard.press(key);await page.waitForTimeout(500);}
  await expect(page.locator(".quest-dock strong")).toHaveText("1 / 10 completed runs");
  await page.getByRole("button",{name:"Sheet only",exact:true}).click();await expect(page.locator(".stage")).toHaveCount(0);
- await page.getByRole("button",{name:"Pause practice"}).click();await page.getByRole("button",{name:"Restart",exact:true}).click();
+ await expect(page.getByRole("button",{name:"Pause practice"})).toHaveCount(0);await page.getByRole("button",{name:"Restart",exact:true}).click();
  await page.screenshot({path:"test-results/minute-waltz-sheet-only.png"});
  await page.evaluate(async()=>{await navigator.serviceWorker.ready;});
  await page.reload();await expect(page.getByRole("heading",{name:/Minute Waltz/}).first()).toBeVisible();
