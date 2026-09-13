@@ -57,6 +57,12 @@ export class QuestRunner {
   get lastQuest() {
     return this.loaded?.plan.quests.find((q) => q.id === this.lastId) ?? null;
   }
+  following(id: string) {
+    const plan = this.loaded?.plan;
+    if (!plan) return null;
+    const index = plan.quests.findIndex((q) => q.id === id);
+    return index >= 0 ? plan.quests[index + 1] ?? null : null;
+  }
   get count() {
     return this.loaded && this.active
       ? questCount(this.loaded.plan, this.progress, this.active)
@@ -157,8 +163,9 @@ export class QuestRunner {
       this.lastRun = { id: crypto.randomUUID(), count: this.count, goal: questGoal(job.loaded.plan, job.loaded.plan.quests.find((q) => q.id === job.id)!), complete: true };
       this.message = "Checkpoint marked complete.";
       this.saving = false;
-      if (this.next) {
-        const id = this.next.id;
+      const following = this.following(job.id);
+      if (following) {
+        const id = following.id;
         this.prepare(id);
         this.engine.start(0);
       }
@@ -198,8 +205,9 @@ export class QuestRunner {
         this.autoContinue &&
         this.engine.status === "finished"
       ) {
-        if (this.completed && this.next) {
-          const nextId = this.next.id;
+        const following = this.following(job.id);
+        if (this.completed && following) {
+          const nextId = following.id;
           this.saving = false;
           this.prepare(nextId);
           this.engine.start(0);

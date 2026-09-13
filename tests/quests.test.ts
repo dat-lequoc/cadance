@@ -280,6 +280,35 @@ describe("earned quest progression", () => {
   });
 });
 describe("quest runner with actual MIDI matching", () => {
+  it("does not jump back to an earlier skipped checkpoint after finishing the current one", async () => {
+    const loaded = await fixture();
+    loaded.plan.repetitions = 1;
+    let now = 0,
+      p = emptyProgress();
+    const e = new PracticeEngine(song, {}, () => now);
+    const runner = new QuestRunner(
+      e,
+      async (l, s, id, r) => {
+        const out = creditQuest(l, s, p, id, r);
+        p = out.progress;
+        return out;
+      },
+      () => {},
+    );
+    e.onResult = (r) => { runner.handleResult(r); };
+    runner.load(loaded, p);
+    runner.prepare("bar-2");
+    e.start(0);
+    expect(e.status).toBe("waiting");
+    e.receive(normalize([144, 62, 100], now, "p")!);
+    e.receive(normalize([128, 62, 0], now, "p")!);
+    now += 300;
+    e.tick();
+    await Promise.resolve();
+    expect(runner.activeId).toBe("bar-2");
+    expect(runner.progress.passes["bar-2"]?.completed).toBe(true);
+  });
+
   it("repeats after durable credit and automatically starts the next checkpoint", async () => {
     const loaded = await fixture();
     let now = 0,
