@@ -1,0 +1,1074 @@
+{
+  "version": 1,
+  "fingerprint": "0f941b398d6fce47a9cd504be5178950cd23b8256f3428ac81162bed96718e96",
+  "sourcePdf": "/pieces/debussy-arabesque-no-1.pdf",
+  "pdfSha256": "5f2fb9087b45d6a030b1827a21dcd1816d24fec6833afff8183bafbee95e72a0",
+  "systems": [
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-01.png",
+      "width": 1717,
+      "height": 508,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 3
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-02.png",
+      "width": 1717,
+      "height": 486,
+      "page": 1,
+      "fromBar": 4,
+      "throughBar": 6
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-03.png",
+      "width": 1717,
+      "height": 503,
+      "page": 1,
+      "fromBar": 7,
+      "throughBar": 10
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-04.png",
+      "width": 1717,
+      "height": 504,
+      "page": 1,
+      "fromBar": 11,
+      "throughBar": 14
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-05.png",
+      "width": 1717,
+      "height": 478,
+      "page": 1,
+      "fromBar": 15,
+      "throughBar": 18
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-06.png",
+      "width": 1717,
+      "height": 444,
+      "page": 2,
+      "fromBar": 19,
+      "throughBar": 21
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-07.png",
+      "width": 1717,
+      "height": 496,
+      "page": 2,
+      "fromBar": 22,
+      "throughBar": 25
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-08.png",
+      "width": 1717,
+      "height": 508,
+      "page": 2,
+      "fromBar": 26,
+      "throughBar": 30
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-09.png",
+      "width": 1717,
+      "height": 478,
+      "page": 2,
+      "fromBar": 31,
+      "throughBar": 34
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-10.png",
+      "width": 1717,
+      "height": 490,
+      "page": 2,
+      "fromBar": 35,
+      "throughBar": 38
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-11.png",
+      "width": 1717,
+      "height": 491,
+      "page": 3,
+      "fromBar": 39,
+      "throughBar": 43
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-12.png",
+      "width": 1717,
+      "height": 483,
+      "page": 3,
+      "fromBar": 44,
+      "throughBar": 48
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-13.png",
+      "width": 1717,
+      "height": 515,
+      "page": 3,
+      "fromBar": 49,
+      "throughBar": 52
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-14.png",
+      "width": 1717,
+      "height": 518,
+      "page": 3,
+      "fromBar": 53,
+      "throughBar": 57
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-15.png",
+      "width": 1717,
+      "height": 470,
+      "page": 3,
+      "fromBar": 58,
+      "throughBar": 62
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-16.png",
+      "width": 1717,
+      "height": 439,
+      "page": 4,
+      "fromBar": 63,
+      "throughBar": 68
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-17.png",
+      "width": 1717,
+      "height": 487,
+      "page": 4,
+      "fromBar": 69,
+      "throughBar": 72
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-18.png",
+      "width": 1717,
+      "height": 478,
+      "page": 4,
+      "fromBar": 73,
+      "throughBar": 75
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-19.png",
+      "width": 1717,
+      "height": 487,
+      "page": 4,
+      "fromBar": 76,
+      "throughBar": 79
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-20.png",
+      "width": 1717,
+      "height": 492,
+      "page": 4,
+      "fromBar": 80,
+      "throughBar": 83
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-21.png",
+      "width": 1717,
+      "height": 437,
+      "page": 4,
+      "fromBar": 84,
+      "throughBar": 86
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-22.png",
+      "width": 1717,
+      "height": 453,
+      "page": 5,
+      "fromBar": 87,
+      "throughBar": 90
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-23.png",
+      "width": 1717,
+      "height": 499,
+      "page": 5,
+      "fromBar": 91,
+      "throughBar": 94
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-24.png",
+      "width": 1717,
+      "height": 495,
+      "page": 5,
+      "fromBar": 95,
+      "throughBar": 98
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-25.png",
+      "width": 1717,
+      "height": 499,
+      "page": 5,
+      "fromBar": 99,
+      "throughBar": 102
+    },
+    {
+      "image": "/scores/debussy-arabesque-no-1/system-26.png",
+      "width": 1717,
+      "height": 511,
+      "page": 5,
+      "fromBar": 103,
+      "throughBar": 107
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1536,
+      "system": 0,
+      "left": 0.1097612,
+      "right": 0.4566919
+    },
+    {
+      "number": 2,
+      "tick": 1536,
+      "endTick": 3072,
+      "system": 0,
+      "left": 0.4566919,
+      "right": 0.7206814
+    },
+    {
+      "number": 3,
+      "tick": 3072,
+      "endTick": 4608,
+      "system": 0,
+      "left": 0.7206814,
+      "right": 0.9749214
+    },
+    {
+      "number": 4,
+      "tick": 4608,
+      "endTick": 6144,
+      "system": 1,
+      "left": 0.0354688,
+      "right": 0.3898952
+    },
+    {
+      "number": 5,
+      "tick": 6144,
+      "endTick": 7680,
+      "system": 1,
+      "left": 0.3898952,
+      "right": 0.7022831
+    },
+    {
+      "number": 6,
+      "tick": 7680,
+      "endTick": 9216,
+      "system": 1,
+      "left": 0.7022831,
+      "right": 0.9749214
+    },
+    {
+      "number": 7,
+      "tick": 9216,
+      "endTick": 10752,
+      "system": 2,
+      "left": 0.0354688,
+      "right": 0.3295282
+    },
+    {
+      "number": 8,
+      "tick": 10752,
+      "endTick": 12288,
+      "system": 2,
+      "left": 0.3295282,
+      "right": 0.555131
+    },
+    {
+      "number": 9,
+      "tick": 12288,
+      "endTick": 13824,
+      "system": 2,
+      "left": 0.555131,
+      "right": 0.7622132
+    },
+    {
+      "number": 10,
+      "tick": 13824,
+      "endTick": 15360,
+      "system": 2,
+      "left": 0.7622132,
+      "right": 0.9749214
+    },
+    {
+      "number": 11,
+      "tick": 15360,
+      "endTick": 16896,
+      "system": 3,
+      "left": 0.0354688,
+      "right": 0.3190973
+    },
+    {
+      "number": 12,
+      "tick": 16896,
+      "endTick": 18432,
+      "system": 3,
+      "left": 0.3190973,
+      "right": 0.5219336
+    },
+    {
+      "number": 13,
+      "tick": 18432,
+      "endTick": 19968,
+      "system": 3,
+      "left": 0.5219336,
+      "right": 0.7499126
+    },
+    {
+      "number": 14,
+      "tick": 19968,
+      "endTick": 21504,
+      "system": 3,
+      "left": 0.7499126,
+      "right": 0.9749214
+    },
+    {
+      "number": 15,
+      "tick": 21504,
+      "endTick": 23040,
+      "system": 4,
+      "left": 0.0354688,
+      "right": 0.3295282
+    },
+    {
+      "number": 16,
+      "tick": 23040,
+      "endTick": 24576,
+      "system": 4,
+      "left": 0.3295282,
+      "right": 0.5473559
+    },
+    {
+      "number": 17,
+      "tick": 24576,
+      "endTick": 26112,
+      "system": 4,
+      "left": 0.5473559,
+      "right": 0.7643972
+    },
+    {
+      "number": 18,
+      "tick": 26112,
+      "endTick": 27648,
+      "system": 4,
+      "left": 0.7643972,
+      "right": 0.9749214
+    },
+    {
+      "number": 19,
+      "tick": 27648,
+      "endTick": 29184,
+      "system": 5,
+      "left": 0.0354688,
+      "right": 0.391293
+    },
+    {
+      "number": 20,
+      "tick": 29184,
+      "endTick": 30720,
+      "system": 5,
+      "left": 0.391293,
+      "right": 0.7021083
+    },
+    {
+      "number": 21,
+      "tick": 30720,
+      "endTick": 32256,
+      "system": 5,
+      "left": 0.7021083,
+      "right": 0.9749214
+    },
+    {
+      "number": 22,
+      "tick": 32256,
+      "endTick": 33792,
+      "system": 6,
+      "left": 0.0354688,
+      "right": 0.3228363
+    },
+    {
+      "number": 23,
+      "tick": 33792,
+      "endTick": 35328,
+      "system": 6,
+      "left": 0.3228363,
+      "right": 0.5491031
+    },
+    {
+      "number": 24,
+      "tick": 35328,
+      "endTick": 36864,
+      "system": 6,
+      "left": 0.5491031,
+      "right": 0.7676995
+    },
+    {
+      "number": 25,
+      "tick": 36864,
+      "endTick": 38400,
+      "system": 6,
+      "left": 0.7676995,
+      "right": 0.9749214
+    },
+    {
+      "number": 26,
+      "tick": 38400,
+      "endTick": 39936,
+      "system": 7,
+      "left": 0.0354688,
+      "right": 0.3331101
+    },
+    {
+      "number": 27,
+      "tick": 39936,
+      "endTick": 41472,
+      "system": 7,
+      "left": 0.3331101,
+      "right": 0.4731508
+    },
+    {
+      "number": 28,
+      "tick": 41472,
+      "endTick": 43008,
+      "system": 7,
+      "left": 0.4731508,
+      "right": 0.6762143
+    },
+    {
+      "number": 29,
+      "tick": 43008,
+      "endTick": 44544,
+      "system": 7,
+      "left": 0.6762143,
+      "right": 0.8256203
+    },
+    {
+      "number": 30,
+      "tick": 44544,
+      "endTick": 46080,
+      "system": 7,
+      "left": 0.8256203,
+      "right": 0.9749214
+    },
+    {
+      "number": 31,
+      "tick": 46080,
+      "endTick": 47616,
+      "system": 8,
+      "left": 0.0354688,
+      "right": 0.3634595
+    },
+    {
+      "number": 32,
+      "tick": 47616,
+      "endTick": 49152,
+      "system": 8,
+      "left": 0.3634595,
+      "right": 0.5210425
+    },
+    {
+      "number": 33,
+      "tick": 49152,
+      "endTick": 50688,
+      "system": 8,
+      "left": 0.5210425,
+      "right": 0.7620384
+    },
+    {
+      "number": 34,
+      "tick": 50688,
+      "endTick": 52224,
+      "system": 8,
+      "left": 0.7620384,
+      "right": 0.9749214
+    },
+    {
+      "number": 35,
+      "tick": 52224,
+      "endTick": 53760,
+      "system": 9,
+      "left": 0.0354688,
+      "right": 0.3623588
+    },
+    {
+      "number": 36,
+      "tick": 53760,
+      "endTick": 55296,
+      "system": 9,
+      "left": 0.3623588,
+      "right": 0.6045079
+    },
+    {
+      "number": 37,
+      "tick": 55296,
+      "endTick": 56832,
+      "system": 9,
+      "left": 0.6045079,
+      "right": 0.8220909
+    },
+    {
+      "number": 38,
+      "tick": 56832,
+      "endTick": 58368,
+      "system": 9,
+      "left": 0.8220909,
+      "right": 0.9288818
+    },
+    {
+      "number": 39,
+      "tick": 58368,
+      "endTick": 59904,
+      "system": 10,
+      "left": 0.0354688,
+      "right": 0.3060105
+    },
+    {
+      "number": 40,
+      "tick": 59904,
+      "endTick": 61440,
+      "system": 10,
+      "left": 0.3060105,
+      "right": 0.4372103
+    },
+    {
+      "number": 41,
+      "tick": 61440,
+      "endTick": 62976,
+      "system": 10,
+      "left": 0.4372103,
+      "right": 0.5892895
+    },
+    {
+      "number": 42,
+      "tick": 62976,
+      "endTick": 64512,
+      "system": 10,
+      "left": 0.5892895,
+      "right": 0.7804892
+    },
+    {
+      "number": 43,
+      "tick": 64512,
+      "endTick": 66048,
+      "system": 10,
+      "left": 0.7804892,
+      "right": 0.9749214
+    },
+    {
+      "number": 44,
+      "tick": 66048,
+      "endTick": 67584,
+      "system": 11,
+      "left": 0.0354688,
+      "right": 0.2692662
+    },
+    {
+      "number": 45,
+      "tick": 67584,
+      "endTick": 69120,
+      "system": 11,
+      "left": 0.2692662,
+      "right": 0.3973034
+    },
+    {
+      "number": 46,
+      "tick": 69120,
+      "endTick": 70656,
+      "system": 11,
+      "left": 0.3973034,
+      "right": 0.5242749
+    },
+    {
+      "number": 47,
+      "tick": 70656,
+      "endTick": 72192,
+      "system": 11,
+      "left": 0.5242749,
+      "right": 0.7623704
+    },
+    {
+      "number": 48,
+      "tick": 72192,
+      "endTick": 73728,
+      "system": 11,
+      "left": 0.7623704,
+      "right": 0.9749214
+    },
+    {
+      "number": 49,
+      "tick": 73728,
+      "endTick": 75264,
+      "system": 12,
+      "left": 0.0354688,
+      "right": 0.3016599
+    },
+    {
+      "number": 50,
+      "tick": 75264,
+      "endTick": 76800,
+      "system": 12,
+      "left": 0.3016599,
+      "right": 0.5085149
+    },
+    {
+      "number": 51,
+      "tick": 76800,
+      "endTick": 78336,
+      "system": 12,
+      "left": 0.5085149,
+      "right": 0.7537915
+    },
+    {
+      "number": 52,
+      "tick": 78336,
+      "endTick": 79872,
+      "system": 12,
+      "left": 0.7537915,
+      "right": 0.9749214
+    },
+    {
+      "number": 53,
+      "tick": 79872,
+      "endTick": 81408,
+      "system": 13,
+      "left": 0.0354688,
+      "right": 0.3142225
+    },
+    {
+      "number": 54,
+      "tick": 81408,
+      "endTick": 82944,
+      "system": 13,
+      "left": 0.3142225,
+      "right": 0.5149097
+    },
+    {
+      "number": 55,
+      "tick": 82944,
+      "endTick": 84480,
+      "system": 13,
+      "left": 0.5149097,
+      "right": 0.7022481
+    },
+    {
+      "number": 56,
+      "tick": 84480,
+      "endTick": 86016,
+      "system": 13,
+      "left": 0.7022481,
+      "right": 0.8307397
+    },
+    {
+      "number": 57,
+      "tick": 86016,
+      "endTick": 87552,
+      "system": 13,
+      "left": 0.8307397,
+      "right": 0.9749214
+    },
+    {
+      "number": 58,
+      "tick": 87552,
+      "endTick": 89088,
+      "system": 14,
+      "left": 0.0354688,
+      "right": 0.2982353
+    },
+    {
+      "number": 59,
+      "tick": 89088,
+      "endTick": 90624,
+      "system": 14,
+      "left": 0.2982353,
+      "right": 0.4860454
+    },
+    {
+      "number": 60,
+      "tick": 90624,
+      "endTick": 92160,
+      "system": 14,
+      "left": 0.4860454,
+      "right": 0.665399
+    },
+    {
+      "number": 61,
+      "tick": 92160,
+      "endTick": 93696,
+      "system": 14,
+      "left": 0.665399,
+      "right": 0.8055446
+    },
+    {
+      "number": 62,
+      "tick": 93696,
+      "endTick": 95232,
+      "system": 14,
+      "left": 0.8055446,
+      "right": 0.9418462
+    },
+    {
+      "number": 63,
+      "tick": 95232,
+      "endTick": 96768,
+      "system": 15,
+      "left": 0.0354688,
+      "right": 0.2246768
+    },
+    {
+      "number": 64,
+      "tick": 96768,
+      "endTick": 98304,
+      "system": 15,
+      "left": 0.2246768,
+      "right": 0.3451835
+    },
+    {
+      "number": 65,
+      "tick": 98304,
+      "endTick": 99840,
+      "system": 15,
+      "left": 0.3451835,
+      "right": 0.5185265
+    },
+    {
+      "number": 66,
+      "tick": 99840,
+      "endTick": 101376,
+      "system": 15,
+      "left": 0.5185265,
+      "right": 0.7289983
+    },
+    {
+      "number": 67,
+      "tick": 101376,
+      "endTick": 102912,
+      "system": 15,
+      "left": 0.7289983,
+      "right": 0.8657717
+    },
+    {
+      "number": 68,
+      "tick": 102912,
+      "endTick": 104448,
+      "system": 15,
+      "left": 0.8657717,
+      "right": 0.9749214
+    },
+    {
+      "number": 69,
+      "tick": 104448,
+      "endTick": 105984,
+      "system": 16,
+      "left": 0.0354688,
+      "right": 0.2297437
+    },
+    {
+      "number": 70,
+      "tick": 105984,
+      "endTick": 107520,
+      "system": 16,
+      "left": 0.2297437,
+      "right": 0.4272685
+    },
+    {
+      "number": 71,
+      "tick": 107520,
+      "endTick": 109056,
+      "system": 16,
+      "left": 0.4272685,
+      "right": 0.7183576
+    },
+    {
+      "number": 72,
+      "tick": 109056,
+      "endTick": 110592,
+      "system": 16,
+      "left": 0.7183576,
+      "right": 0.9749214
+    },
+    {
+      "number": 73,
+      "tick": 110592,
+      "endTick": 112128,
+      "system": 17,
+      "left": 0.0354688,
+      "right": 0.3886546
+    },
+    {
+      "number": 74,
+      "tick": 112128,
+      "endTick": 113664,
+      "system": 17,
+      "left": 0.3886546,
+      "right": 0.6569773
+    },
+    {
+      "number": 75,
+      "tick": 113664,
+      "endTick": 115200,
+      "system": 17,
+      "left": 0.6569773,
+      "right": 0.9749214
+    },
+    {
+      "number": 76,
+      "tick": 115200,
+      "endTick": 116736,
+      "system": 18,
+      "left": 0.0354688,
+      "right": 0.3474723
+    },
+    {
+      "number": 77,
+      "tick": 116736,
+      "endTick": 118272,
+      "system": 18,
+      "left": 0.3474723,
+      "right": 0.5505533
+    },
+    {
+      "number": 78,
+      "tick": 118272,
+      "endTick": 119808,
+      "system": 18,
+      "left": 0.5505533,
+      "right": 0.7718579
+    },
+    {
+      "number": 79,
+      "tick": 119808,
+      "endTick": 121344,
+      "system": 18,
+      "left": 0.7718579,
+      "right": 0.9749214
+    },
+    {
+      "number": 80,
+      "tick": 121344,
+      "endTick": 122880,
+      "system": 19,
+      "left": 0.0354688,
+      "right": 0.3292137
+    },
+    {
+      "number": 81,
+      "tick": 122880,
+      "endTick": 124416,
+      "system": 19,
+      "left": 0.3292137,
+      "right": 0.531456
+    },
+    {
+      "number": 82,
+      "tick": 124416,
+      "endTick": 125952,
+      "system": 19,
+      "left": 0.531456,
+      "right": 0.7406174
+    },
+    {
+      "number": 83,
+      "tick": 125952,
+      "endTick": 127488,
+      "system": 19,
+      "left": 0.7406174,
+      "right": 0.9749214
+    },
+    {
+      "number": 84,
+      "tick": 127488,
+      "endTick": 129024,
+      "system": 20,
+      "left": 0.0354688,
+      "right": 0.4071229
+    },
+    {
+      "number": 85,
+      "tick": 129024,
+      "endTick": 130560,
+      "system": 20,
+      "left": 0.4071229,
+      "right": 0.6915725
+    },
+    {
+      "number": 86,
+      "tick": 130560,
+      "endTick": 132096,
+      "system": 20,
+      "left": 0.6915725,
+      "right": 0.9749214
+    },
+    {
+      "number": 87,
+      "tick": 132096,
+      "endTick": 133632,
+      "system": 21,
+      "left": 0.0354688,
+      "right": 0.3259464
+    },
+    {
+      "number": 88,
+      "tick": 133632,
+      "endTick": 135168,
+      "system": 21,
+      "left": 0.3259464,
+      "right": 0.5247467
+    },
+    {
+      "number": 89,
+      "tick": 135168,
+      "endTick": 136704,
+      "system": 21,
+      "left": 0.5247467,
+      "right": 0.7308328
+    },
+    {
+      "number": 90,
+      "tick": 136704,
+      "endTick": 138240,
+      "system": 21,
+      "left": 0.7308328,
+      "right": 0.9749214
+    },
+    {
+      "number": 91,
+      "tick": 138240,
+      "endTick": 139776,
+      "system": 22,
+      "left": 0.0354688,
+      "right": 0.340763
+    },
+    {
+      "number": 92,
+      "tick": 139776,
+      "endTick": 141312,
+      "system": 22,
+      "left": 0.340763,
+      "right": 0.5752941
+    },
+    {
+      "number": 93,
+      "tick": 141312,
+      "endTick": 142848,
+      "system": 22,
+      "left": 0.5752941,
+      "right": 0.8028014
+    },
+    {
+      "number": 94,
+      "tick": 142848,
+      "endTick": 143616,
+      "system": 22,
+      "left": 0.8028014,
+      "right": 0.9500757
+    },
+    {
+      "number": 95,
+      "tick": 143616,
+      "endTick": 145152,
+      "system": 23,
+      "left": 0.0354688,
+      "right": 0.3517356
+    },
+    {
+      "number": 96,
+      "tick": 145152,
+      "endTick": 146688,
+      "system": 23,
+      "left": 0.3517356,
+      "right": 0.555166
+    },
+    {
+      "number": 97,
+      "tick": 146688,
+      "endTick": 148224,
+      "system": 23,
+      "left": 0.555166,
+      "right": 0.7662667
+    },
+    {
+      "number": 98,
+      "tick": 148224,
+      "endTick": 149760,
+      "system": 23,
+      "left": 0.7662667,
+      "right": 0.9749214
+    },
+    {
+      "number": 99,
+      "tick": 149760,
+      "endTick": 151296,
+      "system": 24,
+      "left": 0.0354688,
+      "right": 0.3486255
+    },
+    {
+      "number": 100,
+      "tick": 151296,
+      "endTick": 152832,
+      "system": 24,
+      "left": 0.3486255,
+      "right": 0.5509377
+    },
+    {
+      "number": 101,
+      "tick": 152832,
+      "endTick": 154368,
+      "system": 24,
+      "left": 0.5509377,
+      "right": 0.7741992
+    },
+    {
+      "number": 102,
+      "tick": 154368,
+      "endTick": 155904,
+      "system": 24,
+      "left": 0.7741992,
+      "right": 0.9749214
+    },
+    {
+      "number": 103,
+      "tick": 155904,
+      "endTick": 157440,
+      "system": 25,
+      "left": 0.0354688,
+      "right": 0.320495
+    },
+    {
+      "number": 104,
+      "tick": 157440,
+      "endTick": 158976,
+      "system": 25,
+      "left": 0.320495,
+      "right": 0.5256902
+    },
+    {
+      "number": 105,
+      "tick": 158976,
+      "endTick": 160512,
+      "system": 25,
+      "left": 0.5256902,
+      "right": 0.7190565
+    },
+    {
+      "number": 106,
+      "tick": 160512,
+      "endTick": 162048,
+      "system": 25,
+      "left": 0.7190565,
+      "right": 0.8486663
+    },
+    {
+      "number": 107,
+      "tick": 162048,
+      "endTick": 162432,
+      "system": 25,
+      "left": 0.8486663,
+      "right": 0.9670938
+    }
+  ]
+}

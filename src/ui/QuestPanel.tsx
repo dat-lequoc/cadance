@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import type { PracticeController } from "./usePracticeController";
-import { questCount, questGoal, unlocked } from "../core/quests";
+import { questCount, questGoal } from "../core/quests";
 import { download } from "../core/files";
 export default function QuestPanel({ c }: { c: PracticeController }) {
   const input = useRef<HTMLInputElement>(null),
@@ -74,32 +74,34 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
             </summary>
             <div>
               {plan.quests.map((q, index) => {
-                const done = runner.progress.passes[q.id]?.completed,
-                  open = unlocked(plan, runner.progress, index);
+                const done = runner.progress.passes[q.id]?.completed;
                 return (
+                  <Fragment key={q.id}>
+                  {(index === 0 || q.section !== plan.quests[index - 1].section) && (
+                    <h3 className="quest-session-divider">{q.section}</h3>
+                  )}
                   <button
-                    key={q.id}
-                    disabled={!open || runner.saving || !!runner.error}
-                    aria-label={`${open ? (done ? "Replay" : "Start") : "Locked"} quest ${index + 1}: ${q.title}`}
+                    disabled={runner.saving || !!runner.error}
+                    aria-label={`${done ? "Replay" : "Start"} quest ${index + 1}: ${q.title}`}
                     onClick={() => c.startQuest(q.id)}
                   >
-                    <span>{done ? "✓" : open ? "→" : "○"}</span>
+                    <span>{done ? "✓" : "→"}</span>
                     <span>
                       <strong>{q.title}</strong>
                       <small>
                         {done
                           ? "Completed"
-                          : open
-                            ? `${questCount(plan, runner.progress, q)} / ${questGoal(plan, q)} completed runs`
-                            : "Complete the previous quest to unlock"}
+                          : `${questCount(plan, runner.progress, q)} / ${questGoal(plan, q)} completed runs`}
                       </small>
                     </span>
                   </button>
+                  </Fragment>
                 );
               })}
             </div>
           </details>
           <p className="quest-rule">
+            Jump into any checkpoint at any time. {" "}
             Complete = finish the passage and play every target note. Wrong notes and chord retries do not cancel your repetition. Wait mode does not grade rhythm or how long you hold
             notes.
           </p>
@@ -352,19 +354,18 @@ export function QuestStatus({ c }: { c: PracticeController }) {
         <option value="">
           {quest ? `Next: ${quest.title}` : "Plan complete"} · Free practice
         </option>
-        {plan.quests.map((q, i) => (
+        {[...new Set(plan.quests.map((q) => q.section))].map((section) => (
+          <optgroup key={section} label={section}>
+          {plan.quests.map((q, i) => q.section === section && (
           <option
             key={q.id}
             value={q.id}
-            disabled={!unlocked(plan, runner.progress, i)}
           >
-            {runner.progress.passes[q.id]?.completed
-              ? "✓ "
-              : unlocked(plan, runner.progress, i)
-                ? ""
-                : "Locked · "}
+            {runner.progress.passes[q.id]?.completed ? "✓ " : ""}
             {i + 1}. {q.title}
           </option>
+          ))}
+          </optgroup>
         ))}
       </select>
       <div className="quest-transition" role="status" aria-live="polite" aria-atomic="true">

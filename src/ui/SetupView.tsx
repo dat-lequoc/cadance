@@ -317,6 +317,12 @@ export default function SetupView({ c }: { c: PracticeController }) {
               Full sheet music ↗
             </a>
           )}
+          {song.studyScore && /^(https?:\/\/|\/(?!\/))/.test(song.studyScore.url) && (
+            <a className="score-link" href={song.studyScore.url} target="_blank" rel="noreferrer">
+              <Icon name="book" />
+              {song.studyScore.title} ↗
+            </a>
+          )}
           <QuestPanel c={c} />
           <div className="setup-tools">
             <PartsPanel song={song} onChange={c.saveParts} />

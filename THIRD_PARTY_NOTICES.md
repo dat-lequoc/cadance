@@ -28,3 +28,9 @@ The Pathétique second movement MIDI, PDF and LilyPond/RDF sources come from [Mu
 ## Minute Waltz
 
 Chopin Op. 64 No. 1, Peters edition engraved by Magnus Lewis-Smith, Mutopia-2015/01/17-483. Original MIDI, PDF and LilyPond sources, and derived unfolded PDF/crops: public domain as declared by the typesetter. Source: https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=483 . See docs/minute-waltz.md for provenance and preparation.
+
+## Ballade No. 1
+
+Chopin Op. 23, Klindworth / Bote & Bock edition, engraved by Javier Ruiz-Alma, Mutopia-2014/07/19-1959. The downloaded MIDI, engraving PDF and LilyPond source, and derived normalized song and spacious player score/crops, are provided under Creative Commons Attribution-ShareAlike 4.0. The original MIDI events are retained; hand ownership and score layout were prepared for Cadance. Preserve attribution and the license in `public/licenses/chopin-ballade-1-CC-BY-SA-4.0.txt`. Source: https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1959 . See `docs/ballade-1.md` for modifications and reproduction.
+
+`public/pieces/chopin-ballade-1-barton.pdf` is the user's unchanged, supplied Paul Barton annotated study score, copied for their local learning workflow. It is a separate edition and is not covered by Mutopia's license. Its annotation/reproduction rights remain with their respective owners; no redistribution license is asserted for that supplied file.

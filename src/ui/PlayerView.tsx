@@ -433,6 +433,9 @@ export default function PlayerView({ c }: { c: PracticeController }) {
                   ? "Resume"
                   : "Play"}
             </button>
+            <button aria-label="Listen forward from here" onClick={() => void c.listenSection()} disabled={c.active || c.quests.runner.saving}>
+              ♫ Listen forward
+            </button>
             <button aria-label="Finish practice" onClick={c.finish}>
               Finish
             </button>

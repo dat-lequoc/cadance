@@ -33,6 +33,7 @@ export interface Song {
   trackNames?: string[];
   roleSource?: "score" | "suggested";
   scoreUrl?: string;
+  studyScore?: { url: string; title: string };
   sourceUrl?: string;
   attribution?: string;
 }
@@ -60,6 +61,7 @@ export interface Config {
   chordMs: number;
   groupingMs: number;
   inputOffsetMs: number;
+  restartOnWrong: boolean;
 }
 export const defaults: Config = {
   mode: "wait",
@@ -74,6 +76,7 @@ export const defaults: Config = {
   chordMs: 1000,
   groupingMs: 0,
   inputOffsetMs: 0,
+  restartOnWrong: false,
 };
 export const noteName = (pitch: number) =>
   ["C", "C♯", "D", "D♯", "E", "F", "F♯", "G", "G♯", "A", "A♯", "B"][

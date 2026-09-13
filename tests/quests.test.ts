@@ -157,7 +157,7 @@ describe("Markdown practice plans", () => {
   });
 });
 
-it("per-quest goals unlock at five runs, preserve earned runs and reject invalid overrides", async () => {
+it("per-quest goals complete at five runs, preserve earned runs and reject invalid overrides", async () => {
   const loaded = await fixture();
   const q = loaded.plan.quests[0];
   q.repetitions = 5;
@@ -165,7 +165,7 @@ it("per-quest goals unlock at five runs, preserve earned runs and reject invalid
   let progress = emptyProgress();
   for (let i = 0; i < 5; i++) {
     progress = creditQuest(loaded, song, progress, q.id, result(q, { id: `five-${i}` })).progress;
-    expect(unlocked(loaded.plan, progress, 1)).toBe(i === 4);
+    expect(progress.passes[q.id].completed).toBe(i === 4);
   }
   progress.passes[q.id].completed = false;
   const restored = readQuestProgress(progress, loaded.plan);
@@ -174,12 +174,28 @@ it("per-quest goals unlock at five runs, preserve earned runs and reject invalid
     await expect(readPracticePlan(markdown({ ...loaded.plan, quests: [{ ...q, repetitions } as typeof q] }), song)).rejects.toThrow("Invalid quest");
   }
 });
+it("starts and credits a later quest without completing earlier quests", async () => {
+  const loaded = await fixture();
+  const quest = loaded.plan.quests[1];
+  const runner = new QuestRunner(new PracticeEngine(song), async () => { throw Error("unused"); }, () => {});
+  runner.load(loaded);
+  runner.prepare(quest.id);
+  expect(runner.activeId).toBe(quest.id);
+  const outcome = creditQuest(loaded, song, emptyProgress(), quest.id, result(quest));
+  expect(outcome.success).toBe(true);
+  expect(outcome.progress.passes[quest.id].successes).toBe(1);
+  expect(outcome.progress.passes[loaded.plan.quests[0].id]).toBeUndefined();
+  expect(markQuestComplete(loaded.plan, emptyProgress(), quest.id).passes[quest.id].completed).toBe(true);
+  expect(() => runner.prepare("missing")).toThrow("Unknown quest");
+  expect(unlocked(loaded.plan, emptyProgress(), -1)).toBe(false);
+});
+
 describe("earned quest progression", () => {
-  it("unlocks only after ten full completed runs, deduplicates results and retains successes across failures", async () => {
+  it("completes after ten full completed runs, deduplicates results and retains successes across failures", async () => {
     const l = await fixture();
     let progress = emptyProgress();
     const q = l.plan.quests[0];
-    expect(unlocked(l.plan, progress, 1)).toBe(false);
+    expect(unlocked(l.plan, progress, 1)).toBe(true);
     const first = result(q);
     progress = creditQuest(l, song, progress, q.id, first).progress;
     progress = creditQuest(l, song, progress, q.id, first).progress;
@@ -194,10 +210,11 @@ describe("earned quest progression", () => {
     expect(progress.passes[q.id].successes).toBe(2);
     for (let i = 2; i < 9; i++)
       progress = creditQuest(l, song, progress, q.id, result(q)).progress;
-    expect(unlocked(l.plan, progress, 1)).toBe(false);
+    expect(progress.passes[q.id].completed).toBe(false);
     progress = creditQuest(l, song, progress, q.id, result(q)).progress;
     expect(unlocked(l.plan, progress, 1)).toBe(true);
     expect(progress.passes[q.id].successes).toBe(10);
+    expect(progress.passes[q.id].completed).toBe(true);
   });
   it("resets consecutive success streaks while retaining attempt history", async () => {
     const l = await fixture("consecutive");
@@ -228,11 +245,6 @@ describe("earned quest progression", () => {
       expect(evaluateQuest(song, q, { ...base, ...patch }).success).toBe(false);
     expect(evaluateQuest(song, q, { ...base, config: { ...base.config, speed: .5 }, checkpoints: [{ elapsedMs: 20, position: .1, speed: .5, action: "speed" }] }).success).toBe(true);
     expect(evaluateQuest(song, q, { ...base, extras: 2, retries: 1 }).success).toBe(true);
-    const second = l.plan.quests[1];
-    expect(
-      creditQuest(l, song, emptyProgress(), second.id, result(second)).progress
-        .passes,
-    ).toEqual({});
   });
   it("restores progress without trusting unsupported completion flags", async () => {
     const l = await fixture();

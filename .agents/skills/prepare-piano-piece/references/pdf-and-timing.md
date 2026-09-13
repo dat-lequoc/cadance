@@ -2,6 +2,8 @@
 
 ## Tools and reproducible worked example
 
+For dependency checks, source inspection, scanned-score coordinate editing and visual QA, read [preparation toolkit](toolkit.md). It connects the reusable scripts below; do not write another piece-specific crop viewer for the same workflow.
+
 Browser playback uses prepared PNGs and a JSON manifest; it needs no PDF renderer or server. Python/PyMuPDF is a **preparation-only** dependency. Use a temporary environment so the repo stays clean:
 
 ```sh
@@ -26,6 +28,8 @@ The proposal detects evenly spaced five-line staves, pairs upper/lower staves an
 
 ## Review coordinates and make the cuts
 
+For a scanned or hand-annotated target, render every page and author the same cuts JSON manually when vector detection cannot work. Measure in PDF points (convert from rendered pixels using the actual scale). Retain handwritten fingerings, arrows and marginal notes relevant to each system, increasing padding where needed. Keep an ambiguous annotation with enough context rather than clipping or silently interpreting it. No OCR or optical music recognition result is verified merely because a script produced it.
+
 Cuts JSON:
 
 - `version: 1`, `reviewed: false` initially, `pdfSha256` of the original bytes, `expectedBars`.
@@ -41,7 +45,7 @@ After inspecting proposed coordinates, set `reviewed: true` and render. Inspect 
 Output in `public/scores/PIECE/`:
 
 - `system-01.png` etc at default 3 pixels/point (216 DPI).
-- `systems.pdf`: one cropped system per page, retaining vector score content for inspection/export.
+- `systems.pdf`: one cropped system per page, retaining vector score content for inspection/export unless the source page has PDF annotation objects; those pages use the rendered appearance so annotation marks are not lost. The original PDF always remains unchanged.
 - `geometry.json`: image dimensions, page/bar ranges, normalized horizontal bar edges, PDF hash, renderer version and scale.
 
 The script accounts for raster clip rounding when converting PDF x coordinates to normalized image positions. Avoid manually dividing by a guessed screen width. Increasing resolution changes pixels, not the alignment coordinates or MIDI timing.
@@ -52,9 +56,9 @@ The script accounts for raster clip rounding when converting PDF x coordinates t
 rtk proxy pnpm exec tsx scripts/align-score.ts NORMALIZED_SONG.json public/scores/PIECE/geometry.json /pieces/PIECE.pdf
 ```
 
-The generator writes `score.json`. Each bar records `number`, `tick`, `endTick`, zero-based `system`, normalized `left` and `right`. It requires all MIDI measures exactly once and compares geometry coverage with `measures(song)`; inspect disagreements instead of forcing `expectedBars`. This v1 preparation path assumes an unfolded, one-to-one bar sequence. Printed repeats/pickups that disagree with MIDI need a matching unfolded edition or a tested model extension, not invented timestamps.
+The generator writes `score.json`. Each bar records `number`, `tick`, `endTick`, zero-based `system`, normalized `left` and `right`. It requires all MIDI measures exactly once and compares geometry coverage with `measures(song)`; inspect disagreements instead of forcing `expectedBars`. This v1 preparation path assumes an unfolded, one-to-one bar sequence. Printed repeats/pickups that disagree with MIDI need explicit reconciliation, not invented timestamps. Seek direction before replacing a supplied score or making a material model extension.
 
-Import the generated manifest in `src/core/scores.ts` and add it to `preparedScores`. The runtime selects it by full musical fingerprint and validates every interval. It converts the engine's source seconds through `TempoMap.ticks`; playback speed is already included in engine position, so do not apply speed a second time. Bar intervals are start-inclusive/end-exclusive. Lead-in holds the starting bar; pause/wait holds the playhead; resume preserves the exact position; loops/quests jump to their current start. Falling-note preview supplies a separate display position without seeking the attempt.
+The generated `public/scores/PIECE/score.json` is discovered automatically at build time. The runtime selects it by full musical fingerprint and validates every interval. It converts the engine's source seconds through `TempoMap.ticks`; playback speed is already included in engine position, so do not apply speed a second time. Bar intervals are start-inclusive/end-exclusive. Lead-in holds the starting bar; pause/wait holds the playhead; resume preserves the exact position; loops/quests jump to their current start. Falling-note preview supplies a separate display position without seeking the attempt.
 
 Engraved spacing is nonlinear: a whole-bar highlight is accurate at bar precision; a sweeping line across equal width would imply unverified note timing. For note/beat highlighting, prepare and review explicit note/beat x anchors from engraving data, then extend the manifest and tests. Do not claim that ordinary PDF barlines provide that information.
 
@@ -83,7 +87,7 @@ For live mismatch overlays, `align-score-notes.py` also emits optional `ScoreSys
 
 ## Lessons from the Minute Waltz fresh-clone trial
 
-When layout repeats differ from MIDI playback, make a separate unfolded PDF from the permitted engraving source and keep the original PDF unchanged. With modern LilyPond, use `\unfoldRepeats` in the layout expression as well as the MIDI expression. Legacy `\applyMusic #unfold-repeats` may require conversion for the installed renderer. Record the renderer version and the exact printed-to-performed bar sequence, then compare the first repeat return, new section entries and final cadence visually. LilyPond is an additional preparation dependency only when rebuilding engraving; it is not needed to run the app.
+When layout repeats differ from MIDI playback and an unfolded engraving is acceptable to the user, make a separate unfolded PDF from the permitted engraving source and keep the original PDF unchanged. This is not a default replacement for a supplied annotated score. If preserving the target requires mapping repeated visits or unequal bar segmentation that the current schema cannot represent, report the exact limitation and seek direction before expanding the model. With modern LilyPond, use `\unfoldRepeats` in the layout expression as well as the MIDI expression. Legacy `\applyMusic #unfold-repeats` may require conversion for the installed renderer. Record the renderer version and the exact printed-to-performed bar sequence, then compare the first repeat return, new section entries and final cadence visually. LilyPond is an additional preparation dependency only when rebuilding engraving; it is not needed to run the app.
 
 Treat close double/repeat barlines as one musical boundary when reviewing proposed cuts. Count agreement is not sufficient: inspect source pages and every crop for stray pedal marks from neighboring systems, clipped page labels, and the final barline. Do not automatically discard thin lines without checking the notation.
 

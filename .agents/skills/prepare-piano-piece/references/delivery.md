@@ -6,15 +6,16 @@ Use the current `ScoreStrip.tsx`, `PlayerView.tsx`, `score.ts` and `scores.ts`; 
 
 ## Register the new piece
 
-- Add the prepared `Song` export and entry to `initialPieces` in `src/core/catalogue.ts`. Use a distinct stable song ID, retaining Pathétique and user-imported pieces. Reconstruct `original` from `originalBytes` as the current catalogue does.
-- Register its score manifest in `preparedScores` in `src/core/scores.ts`; matching uses the normalized musical fingerprint.
-- Register its Markdown plan by song ID in `src/ui/useQuestPlan.ts`. This hook currently has Pathétique-specific fallback/migration branches; extend the default plan lookup to cover the new song without applying Pathétique migration signatures to it. Preserve explicitly imported custom plans and existing progress. Adding a file under `public/plans` alone does not enable it.
+- Save normalized song JSON under `src/core/SLUG.json`, with a distinct stable ID and `originalBytes`. `catalogue.ts` discovers these files at build time and reconstructs `original`; no new named export or array entry is required.
+- Save the score manifest under `public/scores/SLUG/score.json`; `scores.ts` discovers it and matches the normalized musical fingerprint.
+- Save the validated Markdown plan under `public/plans/SLUG.md`; `core/plans.ts` discovers it by fingerprint, independent of song ID. Custom imported plans take priority; unmatched frontend MIDI uploads get a mechanical bar-based plan immediately. Do not replace reviewed authoring with that fallback or change legacy progress migrations to register a piece.
+- Put primary score links in `Song.scoreUrl` and optional references in `Song.studyScore: { url, title }`, not piece-ID conditionals in UI code. Ensure the manifest's `sourcePdf` and cuts' PDF hash identify the intended primary PDF. A secondary link to the supplied PDF does not satisfy preparing it for the player.
 - Inspect the existing initial-piece insertion in `usePracticeController.ts`; confirm a returning browser receives the new catalogue piece as well as a fresh browser. Avoid resetting IndexedDB to make registration appear successful.
 - Keep reproducible piece-specific preparation scripts/configuration and document direct source/derived asset paths in `docs/SLUG.md`. Original/downloaded MIDI and source-derived hand assignments can have different fingerprints; verify the path actually offered to the user loads the intended prepared version.
 
 ## Piece checks
 
-- Verify original vs normalized note-event multisets and reviewed hand/voice counts when changing normalization. Check imported original/parts MIDI behavior and the source PDF's first/last bars and transitions.
+- Verify original vs normalized note-event multisets and reviewed hand/voice counts when changing normalization. Exact original MIDI bytes are recognized on frontend upload and reuse prepared data while retaining the new library ID; changed files must not receive that assignment by filename alone. Check imported original/parts MIDI behavior and the source PDF's first/last bars and transitions.
 - Validate each quest through `readPracticePlan` and each score through `validateScore`. Check all source bars are covered, every image exists and image dimensions match geometry. Test wrong fingerprints, missing bars, tempo changes and exact boundary transitions.
 - Read all cropped systems visually. Count agreement alone does not prove a crop is legible or a bar mapping correct.
 - Check first bar and final bar, every new system, a dense passage, and any tie across a checkpoint cut. Verify RH → LH → both progression, cumulative review boundaries, automatic continuation, and manual completion through the run counter; wrong notes do not cancel credit when all targets are completed.

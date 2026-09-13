@@ -9,8 +9,7 @@ import {
 } from "../core/quests";
 import type { PracticeEngine } from "../core/engine";
 import { db } from "../core/storage";
-import bundledPlan from "../../public/plans/pathetique-ii.md?raw";
-import minutePlan from "../../public/plans/minute-waltz.md?raw";
+import { automaticPlanFor, preparedPlanFor, previousPreparedPlansFor } from "../core/plans";
 // Exact previous bundled plan; custom plans keep their own data and progress.
 const previousBundledSignature =
   "ec249e24cf7e9a408965ae57672928fd64798fd7fade19d42da1f7fc19af01d6";
@@ -60,25 +59,39 @@ export function useQuestPlan(
     setLoadError("");
     void (async () => {
       const saved = await db.settings.get("quest-plan:" + song.id);
-      const markdown =
-        typeof saved?.value === "string"
-          ? saved.value
-          : song.id === "beethoven-pathetique-ii"
-            ? bundledPlan
-            : song.id === "chopin-minute-waltz" ? minutePlan : null;
-      if (!markdown) return;
-      let loaded = await readPracticePlan(markdown, song);
+      const prepared = await preparedPlanFor(song);
+      let loaded = typeof saved?.value === "string"
+        ? await readPracticePlan(saved.value, song)
+        : prepared ?? await automaticPlanFor(song);
+      if (!loaded) return;
+      const revisions = prepared ? await previousPreparedPlansFor(prepared, song) : [];
+      // Only an exact archived bundled revision is replaced; custom plans win.
+      if (prepared && revisions.some((revision) => revision.signature === loaded?.signature)) {
+        loaded = prepared;
+        if (saved) await db.settings.put({ key: saved.key, value: prepared.markdown });
+      }
+      // Legacy progress migration only; discovery above is independent of piece IDs.
       const currentBundled =
         song.id === "beethoven-pathetique-ii"
-          ? await readPracticePlan(bundledPlan, song)
+          ? prepared
           : null;
       if (currentBundled && (loaded.signature === previousReviewSignature || loaded.signature === previousBundledSignature || loaded.signature === previousHandsSignature || loaded.signature === previousContinuousSignature)) {
         loaded = currentBundled;
         if (saved)
-          await db.settings.put({ key: saved.key, value: bundledPlan });
+          await db.settings.put({ key: saved.key, value: currentBundled.markdown });
       }
       const progressKey = "quest-progress:" + loaded.signature;
       let row = await db.settings.get(progressKey);
+      if (!row && prepared && loaded.signature === prepared.signature) {
+        for (const revision of revisions) {
+          const previous = await db.settings.get("quest-progress:" + revision.signature);
+          if (previous) {
+            row = { key: progressKey, value: readQuestProgress(previous.value, loaded.plan) };
+            await db.settings.put(row);
+            break;
+          }
+        }
+      }
       // Keep earned runs; reviews meeting the reduced goal become complete.
       if (!row && currentBundled && loaded.signature === currentBundled.signature) {
         const previous = await db.settings.get("quest-progress:" + previousReviewSignature) ?? await db.settings.get("quest-progress:" + previousContinuousSignature) ?? await db.settings.get("quest-progress:" + previousHandsSignature);

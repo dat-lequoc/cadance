@@ -232,6 +232,22 @@ export class PracticeEngine {
     this.status = "ready";
     this.emit();
   }
+  private restartAfterWrong(e: InputEvent) {
+    const start = this.loop?.[0] ?? this.passage[0];
+    if (this.loop) this.passage = [...this.loop];
+    this.position = start;
+    this.resetAttempt();
+    // Keep the offending key visible until it is released, even though the
+    // attempt itself has been reset.
+    this.lastWrong = e.pitch;
+    this.wrongHeld.set(keyId(e), { event: { ...e }, reason: "wrong" });
+    this.status = "playing";
+    this.anchorPosition = start;
+    this.anchorTime = this.now();
+    this.checkpoint("wrong-restart");
+    this.tick();
+    this.emit();
+  }
   preparationSeconds = 0;
   countIn = false;
   private resumeSeconds = 0;
@@ -482,6 +498,7 @@ export class PracticeEngine {
         this.status !== "waiting" ||
         !matchesNext
       ) {
+        if (this.config.restartOnWrong) { this.lastWrong = e.pitch; this.feedback = "Wrong note — restarting this section."; this.restartAfterWrong(e); return; }
         this.extras++;
         this.lastWrong = e.pitch;
         this.wrongHeld.set(keyId(e), { event: { ...e }, reason: matchesNext ? "early" : "wrong" });
@@ -549,6 +566,7 @@ export class PracticeEngine {
         this.lastWrong = null;
         this.feedback = `Good note · ${Math.round(eligible[0].delta)} ms`;
       } else {
+        if (this.config.restartOnWrong) { this.lastWrong = e.pitch; this.feedback = "Wrong note — restarting this section."; this.restartAfterWrong(e); return; }
         this.extras++;
         this.lastWrong = e.pitch;
         this.wrongHeld.set(keyId(e), { event: { ...e }, reason: "wrong" });

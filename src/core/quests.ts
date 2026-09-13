@@ -98,7 +98,7 @@ export async function readPracticePlan(
     !["total", "consecutive"].includes(plan.counting) ||
     !Array.isArray(plan.quests) ||
     !plan.quests.length ||
-    plan.quests.length > 300
+    plan.quests.length > 1000
   )
     throw Error(
       "Invalid practice plan. Check its version, song, repetitions and quests.",
@@ -176,17 +176,11 @@ export function questTargets(song: Song, quest: Quest) {
 }
 export function unlocked(
   plan: PracticePlan,
-  progress: QuestProgress,
+  _progress: QuestProgress,
   index: number,
 ) {
-  return (
-    index >= 0 &&
-    index < plan.quests.length &&
-    (index === 0 ||
-      progress.unlockedIds?.includes(plan.quests[index].id) ||
-      !!progress.passes[plan.quests[index].id] ||
-      !!progress.passes[plan.quests[index - 1].id]?.completed)
-  );
+  // Self-directed practice: progress records achievement, never access.
+  return Number.isInteger(index) && index >= 0 && index < plan.quests.length;
 }
 export const questGoal = (plan: PracticePlan, quest: Quest) => quest.repetitions ?? plan.repetitions;
 export const questCount = (
@@ -242,7 +236,7 @@ export function readQuestProgress(
 /** Explicit user override; retain real attempt counts without fabricating runs. */
 export function markQuestComplete(plan: PracticePlan, progress: QuestProgress, id: string): QuestProgress {
   const index = plan.quests.findIndex((q) => q.id === id);
-  if (!unlocked(plan, progress, index)) throw Error("Complete the earlier checkpoint first.");
+  if (!unlocked(plan, progress, index)) throw Error("Unknown checkpoint.");
   const next = structuredClone(progress);
   next.passes[id] = { ...(next.passes[id] ?? { attempts: 0, successes: 0, streak: 0 }), completed: true, manual: true };
   return next;

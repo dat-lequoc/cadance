@@ -24,7 +24,7 @@ import { importFile, download } from "../core/files";
 export function usePracticeController() {
   const engine = useMemo(() => {
     const engine = new PracticeEngine(pathetique);
-    engine.preparationSeconds = 2;
+    engine.preparationSeconds = 1;
     return engine;
   }, []);
   const audio = useMemo(() => new PianoAudio(), []);
@@ -81,6 +81,7 @@ export function usePracticeController() {
   const preferenceCacheKey = "cadance-practice-preferences-v1";
   const [browsePosition, setBrowsePosition] = useState<number | null>(null);
   const resumeFromBrowse = useRef<number | null>(null);
+  const listenRestore = useRef<{ config: Config; passage: [number, number] } | null>(null);
   const clearBrowse = () => {
     resumeFromBrowse.current = null;
     setBrowsePosition(null);
@@ -220,10 +221,15 @@ export function usePracticeController() {
       }
       for (const piece of initialPieces) {
         const key = "bundled-piece:" + piece.id;
+        const existing = await db.songs.get(piece.id);
         if (!(await db.settings.get(key))) {
-          if (!(await db.songs.get(piece.id))) await db.songs.put(piece);
+          if (!existing) await db.songs.put(piece);
           await db.settings.put({ key, value: true });
         }
+        // Add newly supplied reference metadata without replacing edited parts
+        // or resurrecting a piece the user deleted from their library.
+        if (existing && !existing.studyScore && piece.studyScore)
+          await db.songs.update(piece.id, { studyScore: piece.studyScore });
       }
       await reload();
       const preferences = (await db.settings.get("display-v1"))?.value as
@@ -310,7 +316,16 @@ export function usePracticeController() {
     };
     const off1 = simulated.subscribe(receive),
       off2 = hardware.subscribe(receive),
-      off3 = engine.subscribe(() => redraw((v) => v + 1));
+      off3 = engine.subscribe(() => {
+        const restore = listenRestore.current;
+        if (restore && engine.status === "finished") {
+          listenRestore.current = null;
+          engine.stop();
+          engine.config = { ...restore.config };
+          engine.selectPassage(...restore.passage, false);
+        }
+        redraw((v) => v + 1);
+      });
     engine.onResult = (r) => {
       if (quests.runner.handleResult(r)) return;
       setPendingSaves((current) => [...current, r]);
@@ -544,7 +559,14 @@ export function usePracticeController() {
         if (activeId && Math.abs(onset - engine.passage[0]) < 1e-5) {
           quests.runner.prepare(activeId);
         } else {
+          // Score browsing leaves quest counting, but the lead-in should keep
+          // the hand/part selected by the quest instead of falling back to
+          // the user's general both-hands setting.
+          const questHand = quests.runner.active?.hand;
+          const questFocus = quests.runner.active?.focus;
           quests.runner.leave();
+          if (questHand) engine.config.hand = questHand;
+          if (questFocus) engine.config.focus = questFocus;
           engine.seek(onset);
         }
       }
@@ -553,6 +575,8 @@ export function usePracticeController() {
       setReview(null);
       setPanel(null);
       engine.start();
+      // Sheet-only follows the printed cursor immediately; falling notes keep the count-in.
+      engine.preparationSeconds = sheetOnly ? 0 : preferenceSnapshot.current.preparationSeconds;
       setPage("player");
     } catch (e) {
       starting.current = false;
@@ -567,6 +591,20 @@ export function usePracticeController() {
       configure({ mode: "listen" });
     }
     void play();
+  };
+  const listenSection = async () => {
+    if (engine.status === "playing" || engine.status === "waiting") return;
+    const selected = resumeFromBrowse.current ?? engine.passage[0];
+    // Leave score-browse mode so the playhead follows the live audio position.
+    clearBrowse();
+    await audio.unlock();
+    listenRestore.current = { config: { ...engine.config }, passage: [...engine.passage] };
+    engine.stop();
+    engine.config = { ...engine.config, mode: "listen" };
+    // Listen from the selected point through the rest of the piece. This is
+    // preview audio only and is restored before the next practice attempt.
+    engine.selectPassage(Math.max(0, Math.min(engine.song.duration - 0.001, selected)), engine.song.duration, false);
+    engine.start(0);
   };
   const startPractice = () => {
     quests.runner.leave();
@@ -808,7 +846,7 @@ export function usePracticeController() {
     savesPending:
       pendingSaves.length > 0 || quests.runner.saving || !!quests.runner.error,
     setPreparation: (seconds: number) => {
-      if (![0, 2, 3, 5].includes(seconds)) return;
+      if (![0, 1, 2, 3, 5].includes(seconds)) return;
       engine.preparationSeconds = seconds;
       persistPreferences({ preparationSeconds: seconds });
       redraw((v) => v + 1);
@@ -960,6 +998,7 @@ export function usePracticeController() {
     sheetOnly,
     setSheetOnly: (value: boolean) => {
       setSheetOnly(value);
+      engine.preparationSeconds = value ? 0 : preferenceSnapshot.current.preparationSeconds;
       persistPreferences({ sheetOnly: value });
     },
     sheetMusic,
@@ -1005,6 +1044,7 @@ export function usePracticeController() {
     finish,
     selectMode,
     listen,
+    listenSection,
     startPractice,
     practiceMode: practiceMode.current,
     openPlayer: () => setPage("player"),

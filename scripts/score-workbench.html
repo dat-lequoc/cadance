@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<title>Cadance score preparation workbench</title>
+<style>
+body{font:15px system-ui;margin:20px;color:#17232b;background:#f5f6f8}h1{font-size:22px}
+button,input,select{font:inherit;padding:6px;margin:3px}button{cursor:pointer}label{display:inline-block}
+header{position:sticky;top:0;background:#f5f6f8;z-index:2;padding-bottom:8px;border-bottom:1px solid #ccc}
+canvas{display:block;max-width:100%;height:auto;background:white;cursor:crosshair;border:1px solid #888;margin:12px 0}
+textarea{box-sizing:border-box;width:100%;height:320px;font:13px monospace}#status{min-height:24px;color:#9b2600}
+.help{max-width:1000px}input[type=number]{width:70px}
+</style>
+<h1>Score preparation workbench</h1>
+<p class="help">Keep the original score and handwriting. Coordinates are PDF points, not image pixels. First choose <b>Crop</b> and click two opposite corners around a complete grand-staff system. Choose <b>Bar edges</b> and click each boundary, including the first and last. Double/repeat lines count as one boundary. Add the system in performed order. No musical boundaries are inferred.</p>
+<header>
+  <label>Page <select id="page" aria-label="Page"></select></label>
+  <label>Tool <select id="mode" aria-label="Tool"><option value="crop">Crop</option><option value="edges">Bar edges</option></select></label>
+  <label>First MIDI bar <input id="first" type="number" min="1" value="1"></label>
+  <label>Last MIDI bar <input id="last" type="number" min="1" value="1"></label>
+  <button id="undo">Undo point</button><button id="clear">Clear draft</button><button id="add">Add system</button>
+  <span id="position"></span><div id="status" role="status"></div>
+</header>
+<canvas id="sheet" aria-label="Score coordinate canvas"></canvas>
+<h2>Cuts JSON</h2>
+<p>To correct or reorder a saved system, edit JSON and apply it. Set expectedBars to the verified MIDI count. Export is always <code>reviewed: false</code>; inspect the review report before explicitly approving cuts. Download your work before closing this page.</p>
+<label>Load cuts JSON <input id="load" type="file" accept=".json"></label>
+<button id="apply">Apply JSON</button><button id="export">Download cuts JSON</button>
+<textarea id="json" aria-label="Cuts JSON" spellcheck="false"></textarea>
+<script>
+const data = /*WORKBENCH_DATA*/;
+const $ = id => document.getElementById(id);
+let cuts = structuredClone(data.cuts), corners = [], edges = [], image = new Image();
+cuts.reviewed = false;
+const canvas = $("sheet"), ctx = canvas.getContext("2d");
+const pageInfo = () => data.pages[Number($("page").value)];
+const round = n => Math.round(n * 100) / 100;
+function status(message) { $("status").textContent = message; }
+function sync() { $("json").value = JSON.stringify(cuts, null, 2); }
+function cropRect() {
+  if (corners.length !== 2) return null;
+  return [Math.min(corners[0][0],corners[1][0]),Math.min(corners[0][1],corners[1][1]),Math.max(corners[0][0],corners[1][0]),Math.max(corners[0][1],corners[1][1])];
+}
+function draw() {
+  if (!image.complete || !image.naturalWidth) return;
+  canvas.width = image.naturalWidth; canvas.height = image.naturalHeight;
+  ctx.drawImage(image,0,0);
+  const p = pageInfo(); ctx.save(); ctx.scale(canvas.width/p.width,canvas.height/p.height);
+  function overlay(rect, points, color, label) {
+    ctx.strokeStyle=color; ctx.fillStyle=color; ctx.lineWidth=0.8; ctx.font="10px sans-serif";
+    ctx.strokeRect(rect[0],rect[1],rect[2]-rect[0],rect[3]-rect[1]);
+    ctx.fillText(label,rect[0]+2,Math.max(10,rect[1]-3));
+    for(const x of points){ctx.beginPath();ctx.moveTo(x,rect[1]);ctx.lineTo(x,rect[3]);ctx.stroke();}
+  }
+  cuts.systems.forEach((s,i)=>{if(s.page===Number($("page").value)+1)overlay(s.crop,s.barEdges,"#1764d8",`System ${i+1}: MIDI ${s.fromBar}-${s.throughBar}`);});
+  const rect=cropRect(); if(rect)overlay(rect,edges,"#d12c13","Draft");
+  else for(const [x,y] of corners){ctx.fillStyle="#d12c13";ctx.fillRect(x-2,y-2,4,4);}
+  ctx.restore();
+}
+function loadPage() {
+  corners=[];edges=[];
+  const next = new Image();
+  image = next;
+  next.onload=()=>{if(image===next)draw();}; next.src=pageInfo().image;
+}
+function applyJSON() {
+  const candidate=JSON.parse($("json").value);
+  if(candidate.version!==1 || candidate.pdfSha256!==data.cuts.pdfSha256 || !Array.isArray(candidate.systems))throw Error("Wrong PDF hash or cuts format");
+  for(const s of candidate.systems){
+    const p=data.pages[s.page-1];
+    if(!Number.isInteger(s.page)||!p || !Array.isArray(s.crop)||s.crop.length!==4||!s.crop.every(Number.isFinite)||!Array.isArray(s.barEdges)||!s.barEdges.every(Number.isFinite))throw Error("Invalid page or coordinates");
+    if(s.crop[0]<0||s.crop[1]<0||s.crop[2]>p.width||s.crop[3]>p.height||s.crop[0]>=s.crop[2]||s.crop[1]>=s.crop[3])throw Error("Crop outside page or empty");
+  }
+  candidate.reviewed=false;cuts=candidate;sync();draw();
+}
+function safely(action) { try{action();}catch(error){status(error.message);} }
+data.pages.forEach((_,i)=>{const option=new Option(String(i+1),String(i));$("page").add(option);});
+$("page").onchange=loadPage;
+canvas.onpointermove=e=>{const r=canvas.getBoundingClientRect(),p=pageInfo();$("position").textContent=`x ${round((e.clientX-r.left)/r.width*p.width)}, y ${round((e.clientY-r.top)/r.height*p.height)} pt`;};
+canvas.onclick=e=>{
+  const r=canvas.getBoundingClientRect(),p=pageInfo(),x=round((e.clientX-r.left)/r.width*p.width),y=round((e.clientY-r.top)/r.height*p.height);
+  if($("mode").value==="crop"){if(corners.length===2){corners=[];edges=[];}corners.push([x,y]);}
+  else {const rect=cropRect();if(!rect)return status("Set the crop first");if(x<rect[0]||x>rect[2])return status("Boundary must lie inside the crop");edges.push(x);}
+  status(`${corners.length}/2 crop corners; ${edges.length} bar edges`);draw();
+};
+$("undo").onclick=()=>{if($("mode").value==="edges")edges.pop();else corners.pop();draw();};
+$("clear").onclick=()=>{corners=[];edges=[];draw();};
+$("add").onclick=()=>safely(()=>{
+  const rect=cropRect(),first=Number($("first").value),last=Number($("last").value),ordered=[...edges].sort((a,b)=>a-b);
+  if(!rect||rect[0]>=rect[2]||rect[1]>=rect[3])throw Error("Choose two distinct crop corners");
+  if(!Number.isInteger(first)||!Number.isInteger(last)||first<1||last<first||ordered.length!==last-first+2||ordered.some((x,i)=>i>0&&x<=ordered[i-1]))throw Error("Bar range and distinct edge count disagree");
+  if(first!==(cuts.systems.at(-1)?.throughBar??0)+1)throw Error("Add systems in continuous MIDI bar order");
+  cuts.systems.push({page:Number($("page").value)+1,fromBar:first,throughBar:last,crop:rect,barEdges:ordered});
+  cuts.expectedBars=Math.max(cuts.expectedBars,last);cuts.reviewed=false;
+  $("first").value=String(last+1);$("last").value=String(last+1);corners=[];edges=[];sync();draw();status("System added. Download to save your work.");
+});
+$("apply").onclick=()=>safely(()=>{applyJSON();status("JSON applied; visual approval remains required.");});
+$("load").onchange=async e=>{const file=e.target.files[0];if(!file)return;if(file.size>5*1024*1024)return status("Cuts file exceeds 5 MB");$("json").value=await file.text();safely(applyJSON);};
+$("export").onclick=()=>safely(()=>{
+  applyJSON();const url=URL.createObjectURL(new Blob([JSON.stringify(cuts,null,2)+"\n"],{type:"application/json"}));
+  const a=document.createElement("a");a.href=url;a.download="score.cuts.json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);status("Draft downloaded. Run check and review before approving.");
+});
+sync();loadPage();
+</script>
+</html>

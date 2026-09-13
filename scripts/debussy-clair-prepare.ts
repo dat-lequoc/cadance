@@ -1,0 +1,20 @@
+import { readFileSync, writeFileSync } from "node:fs";
+import { parseMidi } from "../src/core/import";
+import { measures } from "../src/core/loops";
+import { songFingerprint } from "../src/core/quests";
+
+const source = "public/pieces/debussy-clair-de-lune.mid";
+const bytes = readFileSync(source);
+const song = parseMidi(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), "Clair de lune");
+song.id = "debussy-clair-de-lune";
+song.title = "Claude Debussy · Clair de lune (Suite bergamasque, No. 3)";
+song.composer = "Claude Debussy";
+song.explanation = "Mutopia piano score and MIDI. Upper/lower source tracks are used as initial right/left targets; review Parts & accompaniment for personal redistribution.";
+song.trackNames = ["Lower written staff", "Upper written staff"];
+song.scoreUrl = "/pieces/debussy-clair-de-lune.pdf";
+song.studyScore = undefined;
+song.sourceUrl = "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1778";
+song.attribution = "Mutopia Project, Suite Bergamasque: Clair de Lune, typeset by Keith OHara from the E. Fromont (1905) source; public domain.";
+const { original: _, ...data } = song;
+writeFileSync("src/core/debussy-clair-de-lune.json", JSON.stringify({ ...data, originalBytes: [...bytes] }, null, 2) + "\n");
+console.log(JSON.stringify({ notes: song.notes.length, bars: measures(song).length, fingerprint: await songFingerprint(song), roleSource: song.roleSource }, null, 2));

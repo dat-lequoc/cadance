@@ -87,15 +87,17 @@ async function clean(page: Page, number: number, repetitions = 10, key = "a") {
     number === repetitions ? "Checkpoint cleared!" : "+1 run completed!",
   );
 }
-test("bundled Pathétique route can be downloaded and later quests start locked", async ({
+test("bundled route has section dividers and every quest is available immediately", async ({
   page,
 }) => {
   await page.goto("/");
   await expect(page.locator(".quest-overall")).toContainText("0 / 161");
   await page.locator(".quest-map summary").click();
   await expect(
-    page.getByRole("button", { name: "Locked quest 2:", exact: false }),
-  ).toBeDisabled();
+    page.getByRole("button", { name: "Start quest 2:", exact: false }),
+  ).toBeEnabled();
+  await expect(page.locator(".quest-session-divider").first()).toHaveText("Opening theme");
+  await expect(page.locator(".quest-map button:disabled")).toHaveCount(0);
   const download = page.waitForEvent("download");
   await page
     .getByRole("button", { name: "Download plan", exact: false })
@@ -107,6 +109,21 @@ test("bundled Pathétique route can be downloaded and later quests start locked"
     fullPage: true,
   });
 });
+test("can jump to an unfinished later checkpoint and back without earning runs", async ({ page }) => {
+  await loadFixture(page);
+  await page.locator(".quest-map summary").click();
+  await page.getByRole("button", { name: "Start quest 2:", exact: false }).click();
+  const simulated = page.getByRole("button", { name: "Use simulated input" });
+  if (await simulated.isVisible()) await simulated.click();
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
+  await expect(page.locator('select[aria-label="Choose checkpoint"] optgroup')).toHaveAttribute("label", "Test section");
+  await expect(page.locator(".quest-run-label strong")).toHaveText("0 / 10 completed runs");
+  await page.getByLabel("Choose checkpoint").selectOption("bar-1");
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
+  await page.reload();
+  await expect(page.locator(".quest-overall")).toContainText("0 / 2");
+});
+
 test("completed runs light the repetition track and clearing the checkpoint turns it gold", async ({
   page,
 }) => {
@@ -141,7 +158,7 @@ test("completed runs light the repetition track and clearing the checkpoint turn
   await expect(page.locator(".quest-transition-cue")).not.toBeVisible({ timeout: 5000 });
   await page.screenshot({ path: "test-results/quest-gold-reward.png" });
 });
-test("ten real completed runs unlock the next checkpoint; failures and reload preserve earned totals", async ({
+test("ten real completed runs advance to the next checkpoint; failures and reload preserve earned totals", async ({
   page,
 }) => {
   await loadFixture(page);

@@ -1,0 +1,746 @@
+{
+  "version": 1,
+  "fingerprint": "d73a399e0adbefbda8cd45bbdb5ff370dc3f71f41e2b9237b39cffe6314e591b",
+  "sourcePdf": "/pieces/debussy-clair-de-lune.pdf",
+  "pdfSha256": "6f8ab460228af0f86663c9eba64e508e1af408bb635dcd593a037241d19b6cc3",
+  "systems": [
+    {
+      "image": "/scores/debussy-clair-de-lune/system-01.png",
+      "width": 1717,
+      "height": 443,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 5
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-02.png",
+      "width": 1717,
+      "height": 458,
+      "page": 1,
+      "fromBar": 6,
+      "throughBar": 11
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-03.png",
+      "width": 1717,
+      "height": 492,
+      "page": 1,
+      "fromBar": 12,
+      "throughBar": 16
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-04.png",
+      "width": 1717,
+      "height": 468,
+      "page": 1,
+      "fromBar": 17,
+      "throughBar": 21
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-05.png",
+      "width": 1717,
+      "height": 479,
+      "page": 1,
+      "fromBar": 22,
+      "throughBar": 26
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-06.png",
+      "width": 1717,
+      "height": 383,
+      "page": 2,
+      "fromBar": 27,
+      "throughBar": 28
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-07.png",
+      "width": 1717,
+      "height": 466,
+      "page": 2,
+      "fromBar": 29,
+      "throughBar": 30
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-08.png",
+      "width": 1717,
+      "height": 442,
+      "page": 2,
+      "fromBar": 31,
+      "throughBar": 32
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-09.png",
+      "width": 1717,
+      "height": 439,
+      "page": 2,
+      "fromBar": 33,
+      "throughBar": 34
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-10.png",
+      "width": 1717,
+      "height": 378,
+      "page": 2,
+      "fromBar": 35,
+      "throughBar": 36
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-11.png",
+      "width": 1717,
+      "height": 426,
+      "page": 3,
+      "fromBar": 37,
+      "throughBar": 38
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-12.png",
+      "width": 1717,
+      "height": 454,
+      "page": 3,
+      "fromBar": 39,
+      "throughBar": 41
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-13.png",
+      "width": 1717,
+      "height": 499,
+      "page": 3,
+      "fromBar": 42,
+      "throughBar": 44
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-14.png",
+      "width": 1717,
+      "height": 463,
+      "page": 3,
+      "fromBar": 45,
+      "throughBar": 47
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-15.png",
+      "width": 1717,
+      "height": 402,
+      "page": 3,
+      "fromBar": 48,
+      "throughBar": 50
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-16.png",
+      "width": 1717,
+      "height": 412,
+      "page": 4,
+      "fromBar": 51,
+      "throughBar": 54
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-17.png",
+      "width": 1717,
+      "height": 479,
+      "page": 4,
+      "fromBar": 55,
+      "throughBar": 58
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-18.png",
+      "width": 1717,
+      "height": 460,
+      "page": 4,
+      "fromBar": 59,
+      "throughBar": 65
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-19.png",
+      "width": 1717,
+      "height": 475,
+      "page": 4,
+      "fromBar": 66,
+      "throughBar": 68
+    },
+    {
+      "image": "/scores/debussy-clair-de-lune/system-20.png",
+      "width": 1717,
+      "height": 460,
+      "page": 4,
+      "fromBar": 69,
+      "throughBar": 72
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1728,
+      "system": 0,
+      "left": 0.1097088,
+      "right": 0.3471054
+    },
+    {
+      "number": 2,
+      "tick": 1728,
+      "endTick": 3456,
+      "system": 0,
+      "left": 0.3471054,
+      "right": 0.4870588
+    },
+    {
+      "number": 3,
+      "tick": 3456,
+      "endTick": 5184,
+      "system": 0,
+      "left": 0.4870588,
+      "right": 0.6585323
+    },
+    {
+      "number": 4,
+      "tick": 5184,
+      "endTick": 6912,
+      "system": 0,
+      "left": 0.6585323,
+      "right": 0.784438
+    },
+    {
+      "number": 5,
+      "tick": 6912,
+      "endTick": 8640,
+      "system": 0,
+      "left": 0.784438,
+      "right": 0.9749738
+    },
+    {
+      "number": 6,
+      "tick": 8640,
+      "endTick": 10368,
+      "system": 1,
+      "left": 0.0354164,
+      "right": 0.2521083
+    },
+    {
+      "number": 7,
+      "tick": 10368,
+      "endTick": 12096,
+      "system": 1,
+      "left": 0.2521083,
+      "right": 0.4482528
+    },
+    {
+      "number": 8,
+      "tick": 12096,
+      "endTick": 13824,
+      "system": 1,
+      "left": 0.4482528,
+      "right": 0.5943914
+    },
+    {
+      "number": 9,
+      "tick": 13824,
+      "endTick": 15552,
+      "system": 1,
+      "left": 0.5943914,
+      "right": 0.7271637
+    },
+    {
+      "number": 10,
+      "tick": 15552,
+      "endTick": 17280,
+      "system": 1,
+      "left": 0.7271637,
+      "right": 0.8377461
+    },
+    {
+      "number": 11,
+      "tick": 17280,
+      "endTick": 19008,
+      "system": 1,
+      "left": 0.8377461,
+      "right": 0.9749738
+    },
+    {
+      "number": 12,
+      "tick": 19008,
+      "endTick": 20736,
+      "system": 2,
+      "left": 0.0354164,
+      "right": 0.2513221
+    },
+    {
+      "number": 13,
+      "tick": 20736,
+      "endTick": 22464,
+      "system": 2,
+      "left": 0.2513221,
+      "right": 0.4199126
+    },
+    {
+      "number": 14,
+      "tick": 22464,
+      "endTick": 24192,
+      "system": 2,
+      "left": 0.4199126,
+      "right": 0.580728
+    },
+    {
+      "number": 15,
+      "tick": 24192,
+      "endTick": 25920,
+      "system": 2,
+      "left": 0.580728,
+      "right": 0.7750029
+    },
+    {
+      "number": 16,
+      "tick": 25920,
+      "endTick": 27648,
+      "system": 2,
+      "left": 0.7750029,
+      "right": 0.9749738
+    },
+    {
+      "number": 17,
+      "tick": 27648,
+      "endTick": 29376,
+      "system": 3,
+      "left": 0.0354164,
+      "right": 0.322452
+    },
+    {
+      "number": 18,
+      "tick": 29376,
+      "endTick": 31104,
+      "system": 3,
+      "left": 0.322452,
+      "right": 0.4994817
+    },
+    {
+      "number": 19,
+      "tick": 31104,
+      "endTick": 32832,
+      "system": 3,
+      "left": 0.4994817,
+      "right": 0.6485906
+    },
+    {
+      "number": 20,
+      "tick": 32832,
+      "endTick": 34560,
+      "system": 3,
+      "left": 0.6485906,
+      "right": 0.8144904
+    },
+    {
+      "number": 21,
+      "tick": 34560,
+      "endTick": 36288,
+      "system": 3,
+      "left": 0.8144904,
+      "right": 0.9749738
+    },
+    {
+      "number": 22,
+      "tick": 36288,
+      "endTick": 38016,
+      "system": 4,
+      "left": 0.0354164,
+      "right": 0.2954572
+    },
+    {
+      "number": 23,
+      "tick": 38016,
+      "endTick": 39744,
+      "system": 4,
+      "left": 0.2954572,
+      "right": 0.4829528
+    },
+    {
+      "number": 24,
+      "tick": 39744,
+      "endTick": 41472,
+      "system": 4,
+      "left": 0.4829528,
+      "right": 0.7091497
+    },
+    {
+      "number": 25,
+      "tick": 41472,
+      "endTick": 43200,
+      "system": 4,
+      "left": 0.7091497,
+      "right": 0.8336401
+    },
+    {
+      "number": 26,
+      "tick": 43200,
+      "endTick": 44928,
+      "system": 4,
+      "left": 0.8336401,
+      "right": 0.9749738
+    },
+    {
+      "number": 27,
+      "tick": 44928,
+      "endTick": 46656,
+      "system": 5,
+      "left": 0.0354164,
+      "right": 0.5360687
+    },
+    {
+      "number": 28,
+      "tick": 46656,
+      "endTick": 48384,
+      "system": 5,
+      "left": 0.5360687,
+      "right": 0.9749738
+    },
+    {
+      "number": 29,
+      "tick": 48384,
+      "endTick": 50112,
+      "system": 6,
+      "left": 0.0354164,
+      "right": 0.5385323
+    },
+    {
+      "number": 30,
+      "tick": 50112,
+      "endTick": 51840,
+      "system": 6,
+      "left": 0.5385323,
+      "right": 0.9749738
+    },
+    {
+      "number": 31,
+      "tick": 51840,
+      "endTick": 53568,
+      "system": 7,
+      "left": 0.0354164,
+      "right": 0.5461677
+    },
+    {
+      "number": 32,
+      "tick": 53568,
+      "endTick": 55296,
+      "system": 7,
+      "left": 0.5461677,
+      "right": 0.9749738
+    },
+    {
+      "number": 33,
+      "tick": 55296,
+      "endTick": 57024,
+      "system": 8,
+      "left": 0.0354164,
+      "right": 0.5265638
+    },
+    {
+      "number": 34,
+      "tick": 57024,
+      "endTick": 58752,
+      "system": 8,
+      "left": 0.5265638,
+      "right": 0.9749738
+    },
+    {
+      "number": 35,
+      "tick": 58752,
+      "endTick": 60480,
+      "system": 9,
+      "left": 0.0354164,
+      "right": 0.5048631
+    },
+    {
+      "number": 36,
+      "tick": 60480,
+      "endTick": 62208,
+      "system": 9,
+      "left": 0.5048631,
+      "right": 0.9287595
+    },
+    {
+      "number": 37,
+      "tick": 62208,
+      "endTick": 63936,
+      "system": 10,
+      "left": 0.0354164,
+      "right": 0.5354397
+    },
+    {
+      "number": 38,
+      "tick": 63936,
+      "endTick": 65664,
+      "system": 10,
+      "left": 0.5354397,
+      "right": 0.9749738
+    },
+    {
+      "number": 39,
+      "tick": 65664,
+      "endTick": 67392,
+      "system": 11,
+      "left": 0.0354164,
+      "right": 0.3911706
+    },
+    {
+      "number": 40,
+      "tick": 67392,
+      "endTick": 69120,
+      "system": 11,
+      "left": 0.3911706,
+      "right": 0.6765463
+    },
+    {
+      "number": 41,
+      "tick": 69120,
+      "endTick": 70848,
+      "system": 11,
+      "left": 0.6765463,
+      "right": 0.9749738
+    },
+    {
+      "number": 42,
+      "tick": 70848,
+      "endTick": 72576,
+      "system": 12,
+      "left": 0.0354164,
+      "right": 0.389074
+    },
+    {
+      "number": 43,
+      "tick": 72576,
+      "endTick": 74304,
+      "system": 12,
+      "left": 0.389074,
+      "right": 0.7072452
+    },
+    {
+      "number": 44,
+      "tick": 74304,
+      "endTick": 76032,
+      "system": 12,
+      "left": 0.7072452,
+      "right": 0.9749738
+    },
+    {
+      "number": 45,
+      "tick": 76032,
+      "endTick": 77760,
+      "system": 13,
+      "left": 0.0354164,
+      "right": 0.3865579
+    },
+    {
+      "number": 46,
+      "tick": 77760,
+      "endTick": 79488,
+      "system": 13,
+      "left": 0.3865579,
+      "right": 0.6888119
+    },
+    {
+      "number": 47,
+      "tick": 79488,
+      "endTick": 81216,
+      "system": 13,
+      "left": 0.6888119,
+      "right": 0.9749738
+    },
+    {
+      "number": 48,
+      "tick": 81216,
+      "endTick": 82944,
+      "system": 14,
+      "left": 0.0354164,
+      "right": 0.3696447
+    },
+    {
+      "number": 49,
+      "tick": 82944,
+      "endTick": 84672,
+      "system": 14,
+      "left": 0.3696447,
+      "right": 0.6593361
+    },
+    {
+      "number": 50,
+      "tick": 84672,
+      "endTick": 86400,
+      "system": 14,
+      "left": 0.6593361,
+      "right": 0.9749738
+    },
+    {
+      "number": 51,
+      "tick": 86400,
+      "endTick": 88128,
+      "system": 15,
+      "left": 0.0354164,
+      "right": 0.3266803
+    },
+    {
+      "number": 52,
+      "tick": 88128,
+      "endTick": 89856,
+      "system": 15,
+      "left": 0.3266803,
+      "right": 0.5294817
+    },
+    {
+      "number": 53,
+      "tick": 89856,
+      "endTick": 91584,
+      "system": 15,
+      "left": 0.5294817,
+      "right": 0.7840711
+    },
+    {
+      "number": 54,
+      "tick": 91584,
+      "endTick": 93312,
+      "system": 15,
+      "left": 0.7840711,
+      "right": 0.9749738
+    },
+    {
+      "number": 55,
+      "tick": 93312,
+      "endTick": 95040,
+      "system": 16,
+      "left": 0.0354164,
+      "right": 0.3468259
+    },
+    {
+      "number": 56,
+      "tick": 95040,
+      "endTick": 96768,
+      "system": 16,
+      "left": 0.3468259,
+      "right": 0.5237507
+    },
+    {
+      "number": 57,
+      "tick": 96768,
+      "endTick": 98496,
+      "system": 16,
+      "left": 0.5237507,
+      "right": 0.7773442
+    },
+    {
+      "number": 58,
+      "tick": 98496,
+      "endTick": 100224,
+      "system": 16,
+      "left": 0.7773442,
+      "right": 0.9749738
+    },
+    {
+      "number": 59,
+      "tick": 100224,
+      "endTick": 101952,
+      "system": 17,
+      "left": 0.0354164,
+      "right": 0.2310367
+    },
+    {
+      "number": 60,
+      "tick": 101952,
+      "endTick": 103680,
+      "system": 17,
+      "left": 0.2310367,
+      "right": 0.335067
+    },
+    {
+      "number": 61,
+      "tick": 103680,
+      "endTick": 105408,
+      "system": 17,
+      "left": 0.335067,
+      "right": 0.4659697
+    },
+    {
+      "number": 62,
+      "tick": 105408,
+      "endTick": 107136,
+      "system": 17,
+      "left": 0.4659697,
+      "right": 0.5939895
+    },
+    {
+      "number": 63,
+      "tick": 107136,
+      "endTick": 108864,
+      "system": 17,
+      "left": 0.5939895,
+      "right": 0.717152
+    },
+    {
+      "number": 64,
+      "tick": 108864,
+      "endTick": 110592,
+      "system": 17,
+      "left": 0.717152,
+      "right": 0.843774
+    },
+    {
+      "number": 65,
+      "tick": 110592,
+      "endTick": 112320,
+      "system": 17,
+      "left": 0.843774,
+      "right": 0.9749738
+    },
+    {
+      "number": 66,
+      "tick": 112320,
+      "endTick": 114048,
+      "system": 18,
+      "left": 0.0354164,
+      "right": 0.4015143
+    },
+    {
+      "number": 67,
+      "tick": 114048,
+      "endTick": 115776,
+      "system": 18,
+      "left": 0.4015143,
+      "right": 0.6555795
+    },
+    {
+      "number": 68,
+      "tick": 115776,
+      "endTick": 117504,
+      "system": 18,
+      "left": 0.6555795,
+      "right": 0.9749738
+    },
+    {
+      "number": 69,
+      "tick": 117504,
+      "endTick": 119232,
+      "system": 19,
+      "left": 0.0354164,
+      "right": 0.3851427
+    },
+    {
+      "number": 70,
+      "tick": 119232,
+      "endTick": 120960,
+      "system": 19,
+      "left": 0.3851427,
+      "right": 0.6130868
+    },
+    {
+      "number": 71,
+      "tick": 120960,
+      "endTick": 122688,
+      "system": 19,
+      "left": 0.6130868,
+      "right": 0.8884508
+    },
+    {
+      "number": 72,
+      "tick": 122688,
+      "endTick": 123840,
+      "system": 19,
+      "left": 0.8884508,
+      "right": 0.9674257
+    }
+  ]
+}

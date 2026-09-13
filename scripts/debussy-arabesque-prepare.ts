@@ -1,0 +1,18 @@
+import { readFileSync, writeFileSync } from "node:fs";
+import { parseMidi } from "../src/core/import";
+import { measures } from "../src/core/loops";
+import { songFingerprint } from "../src/core/quests";
+const source = "public/pieces/debussy-arabesque-no-1.mid";
+const bytes = readFileSync(source);
+const song = parseMidi(bytes.buffer.slice(bytes.byteOffset, bytes.byteOffset + bytes.byteLength), "Arabesque No. 1");
+song.id = "debussy-arabesque-no-1";
+song.title = "Claude Debussy · Arabesque No. 1";
+song.composer = "Claude Debussy";
+song.explanation = "Mutopia piano score and MIDI. Upper/lower source tracks are used as initial right/left targets; review Parts & accompaniment for personal redistribution.";
+song.trackNames = ["Upper written staff", "Lower written staff"];
+song.scoreUrl = "/pieces/debussy-arabesque-no-1.pdf";
+song.sourceUrl = "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1777";
+song.attribution = "Mutopia Project, Première Arabesque, Music ID 1777, typeset by Bas Wassink; public-domain source.";
+const { original: _, ...data } = song;
+writeFileSync("src/core/debussy-arabesque-no-1.json", JSON.stringify({ ...data, originalBytes: [...bytes] }, null, 2) + "\n");
+console.log(JSON.stringify({ notes: song.notes.length, bars: measures(song).length, fingerprint: await songFingerprint(song) }, null, 2));

@@ -1,7 +1,9 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { TempoMap } from "../core/model";
+import { pieceNoteFor } from "../core/piece-notes";
 import { playedScorePosition, scorePitch, scoreAnchorAt, scoreBarAt, type PreparedScore } from "../core/score";
 import type { PracticeController } from "./usePracticeController";
+import PieceNote from "./PieceNote";
 
 export default function ScoreStrip({
   c,
@@ -11,18 +13,32 @@ export default function ScoreStrip({
   score: PreparedScore;
 }) {
   const map = useMemo(() => new TempoMap(c.song.ppq, c.song.tempos), [c.song]);
-  const position =
-    c.browsePosition ??
-    (c.engine.preparationRemaining > 0
-      ? Math.max(c.engine.passage[0], c.engine.currentPosition())
-      : c.engine.currentPosition());
+  const pieceNote = useMemo(() => pieceNoteFor(c.song), [c.song]);
+  const [noteOpen, setNoteOpen] = useState(false);
+  const noteId = useId();
+  const livePosition = c.engine.preparationRemaining > 0
+    ? Math.max(c.engine.passage[0], c.engine.currentPosition())
+    : c.engine.currentPosition();
+  // Keep the score anchored inside the active passage after its final note.
+  // The engine can briefly report the song position while a completed loop or
+  // quest is being reset, which otherwise makes the score jump to the next page.
+  const passageEnd = c.engine.passage[1];
+  const position = c.browsePosition ?? Math.min(livePosition, passageEnd - 0.001);
   const bar = scoreBarAt(score, map, position);
   const anchor = scoreAnchorAt(bar, map, position);
+  const barTick = map.ticks(position);
+  const barProgress = bar.endTick > bar.tick
+    ? Math.max(0, Math.min(1, (barTick - bar.tick) / (bar.endTick - bar.tick)))
+    : 0;
+  // Scores without note anchors still receive a moving cursor from verified
+  // MIDI bar geometry; anchors remain more precise when available.
+  const cursorX = anchor?.x ?? bar.left + (bar.right - bar.left) * barProgress;
   const only = c.sheetOnly;
   const required = new Set(c.engine.group?.notes.filter((n) => n.tick === anchor?.tick).map((n) => n.pitch - c.config.transpose) ?? []);
   const [browsing, setBrowsing] = useState<number | null>(null);
   const systemIndex = browsing ?? bar.system;
   const system = score.systems[systemIndex];
+  const stackScore = only || browsing !== null;
   const flats = (c.song.keys.findLast((key) => key.tick <= map.ticks(position))?.key ?? "").includes("b");
   const mismatches = c.sheetWrongNotes && c.active && c.engine.preparationRemaining <= 0 && c.browsePosition === null && browsing === null
     ? [...new Map([...c.engine.wrongHeld].filter(([key]) => c.engine.input.held.has(key)).map(([, value]) => [value.event.pitch, value])).values()] : [];
@@ -92,16 +108,21 @@ export default function ScoreStrip({
   const width = only ? Math.max(100, size.width - 48) * c.sheetZoom : system.width * fit * c.sheetZoom;
   const height = only ? width * system.height / system.width : system.height * fit * c.sheetZoom;
   const stackedTop = score.systems.slice(0, systemIndex).reduce((sum, s) => sum + width * s.height / s.width + 24, 12);
+  const stackHeight = score.systems.reduce((sum, s) => sum + width * s.height / s.width + 24, 12);
   useLayoutEffect(() => {
     const element = viewport.current!;
     const systemChanged = previousSystem.current !== systemIndex;
     previousSystem.current = systemIndex;
+    if (!only && browsing !== null) {
+      element.scrollTo({ top: Math.max(0, stackedTop - 12), behavior: systemChanged ? "smooth" : "instant" });
+      return;
+    }
     if (only && manualScroll.current) {
       if (c.browsePosition !== null || scrollFrame.current !== null) return;
       manualScroll.current = false;
     }
     if (only) {
-      const targetX = width * (anchor?.x ?? (bar.left + bar.right) / 2) + 24;
+      const targetX = width * cursorX + 24;
       if (height > size.height && anchor && browsing === null) {
         const focusNotes = anchor.notes.filter((n) => required.has(n.pitch));
         const points = focusNotes.length ? focusNotes : anchor.notes;
@@ -191,6 +212,7 @@ export default function ScoreStrip({
         <div className="score-actions">
           <button aria-pressed={only} onClick={() => c.setSheetOnly(!only)} title={only ? "Show sheet music with falling notes" : "Practice using only the sheet music"}>Sheet only</button>
           <button aria-label="Show wrong notes" aria-pressed={c.sheetWrongNotes} onClick={() => c.setSheetWrongNotes(!c.sheetWrongNotes)} title="Show wrong pressed notes in red on the sheet">Wrong notes</button>
+          <button className="restart-toggle" aria-label="Restart section on wrong note" aria-pressed={c.config.restartOnWrong} onClick={() => { c.engine.config.restartOnWrong = !c.engine.config.restartOnWrong; c.redraw((v) => v + 1); }} title="Restart this section when a wrong note is played">Restart on wrong</button>
           <button
             aria-label="Previous score system"
             disabled={systemIndex === 0}
@@ -240,14 +262,27 @@ export default function ScoreStrip({
           >
             {Math.round(c.sheetZoom * 100)}%
           </button>
-          <a
-            href={score.sourcePdf}
-            target="_blank"
-            rel="noreferrer"
-            title="Open complete score PDF"
-          >
-            PDF ↗
-          </a>
+          <div className="score-pdf-actions">
+            <a
+              href={score.sourcePdf}
+              target="_blank"
+              rel="noreferrer"
+              title="Open complete score PDF"
+            >
+              PDF ↗
+            </a>
+            {pieceNote && <button
+              className="piece-note-toggle"
+              type="button"
+              aria-expanded={noteOpen}
+              aria-controls={noteOpen ? noteId : undefined}
+              aria-label={noteOpen ? "Hide piece note" : "Show piece note"}
+              title={noteOpen ? "Hide piece note" : "About this piece"}
+              onClick={() => setNoteOpen((open) => !open)}
+            >
+              i
+            </button>}
+          </div>
           <button
             aria-label="Hide sheet music"
             onClick={() => c.setSheetMusic(false)}
@@ -256,14 +291,24 @@ export default function ScoreStrip({
           </button>
         </div>
       </div>
-      <div
-        className="score-viewport"
-        ref={viewport}
+      <div className="score-body">
+        {noteOpen && pieceNote && <PieceNote id={noteId} note={pieceNote} />}
+        <div
+          className="score-viewport"
+          ref={viewport}
         tabIndex={0}
         aria-label="Score image; scroll to pan"
         onWheel={(e) => {
           e.stopPropagation();
-          if (only && !e.ctrlKey && (e.deltaX || e.deltaY)) {
+          if (e.deltaX || e.deltaY) {
+            if (e.ctrlKey) return;
+            if (!only) {
+              // A manual pan should temporarily suspend score auto-follow while
+              // playback continues. Browsing renders the complete score stack,
+              // so the wheel can move continuously through every printed system.
+              if (browsing === null) setBrowsing(systemIndex);
+              return;
+            }
             manualScroll.current = true;
             scrollPoint.current = { x: e.clientX, y: e.clientY };
             c.pause();
@@ -271,12 +316,12 @@ export default function ScoreStrip({
           }
         }}
         onScroll={selectAfterScroll}
-      >
+        >
         {failed && <p role="status">This score image could not load. <button onClick={() => setFailedImage("")}>Retry</button> or <a href={score.sourcePdf} target="_blank" rel="noreferrer">open the PDF</a>.</p>}
-        <div className={"score-pan" + (only ? " score-stack" : "")} style={{ minWidth: width + (only ? 48 : 24), minHeight: Math.max(size.height, height + 20) }}>
-          {(only ? score.systems : [system]).map((item) => {
+        <div className={"score-pan" + (stackScore ? " score-stack" : "")} style={{ minWidth: width + (stackScore ? 48 : 24), minHeight: Math.max(size.height, stackScore ? stackHeight + 20 : height + 20) }}>
+          {(stackScore ? score.systems : [system]).map((item) => {
             const index = score.systems.indexOf(item);
-            const imageHeight = only ? width * item.height / item.width : height;
+            const imageHeight = stackScore ? width * item.height / item.width : height;
             const current = bar.system === index;
             return <div key={item.image} className="score-image" data-system={index} style={{ width, height: imageHeight }}
               onClick={(event) => {
@@ -284,7 +329,7 @@ export default function ScoreStrip({
                 manualScroll.current = true;
                 selectPrintedPoint(event.clientX, event.clientY);
               }}>
-              <img src={item.image} width={item.width} height={item.height} loading={only && index > systemIndex + 1 ? "lazy" : "eager"}
+              <img src={item.image} width={item.width} height={item.height} loading={stackScore && Math.abs(index - systemIndex) > 1 ? "lazy" : "eager"}
                 alt={`Score page ${item.page}, bars ${item.fromBar}–${item.throughBar}`}
                 onError={() => setFailedImage(item.image)} draggable={false} />
               {correctNotes.some((note) => note.system === index) && <svg className="score-correct-overlay" viewBox={`0 0 ${item.width} ${item.height}`} role="img" aria-label="Correct held notes on score">
@@ -293,9 +338,9 @@ export default function ScoreStrip({
               </svg>}
               {current && <>
                 <div className="score-current-bar" aria-label={`Highlighted bar ${bar.number}`} style={{ left: `${bar.left * 100}%`, width: `${(bar.right - bar.left) * 100}%` }} />
-                {anchor && <svg className="score-note-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" role="img" aria-label={`Score cursor at bar ${bar.number}`}>
-                  <line x1={anchor.x} x2={anchor.x} y1="0.08" y2="0.94" vectorEffect="non-scaling-stroke" />
-                </svg>}
+                <svg className="score-note-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" role="img" aria-label={`Score cursor at bar ${bar.number}`}>
+                  <line x1={cursorX} x2={cursorX} y1="0.08" y2="0.94" vectorEffect="non-scaling-stroke" />
+                </svg>
                 {(correctPitches.length > 0 || mismatches.length > 0) && <div className="score-input-labels" style={{ left: `${Math.min(.75, anchor?.x ?? bar.left) * 100}%` }}>
                   {correctPitches.length > 0 && <div className="score-input-feedback score-input-correct" role="status" aria-label="Correct played notes">
                     Correct {correctPitches.map((pitch) => scorePitch(pitch, flats).label).join(" + ")}
@@ -321,6 +366,7 @@ export default function ScoreStrip({
               </>}
             </div>;
           })}
+        </div>
         </div>
       </div>
     </section>

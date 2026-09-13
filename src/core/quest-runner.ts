@@ -76,7 +76,7 @@ export class QuestRunner {
     const plan = this.loaded?.plan,
       index = plan?.quests.findIndex((q) => q.id === id) ?? -1;
     if (!plan || !unlocked(plan, this.progress, index))
-      throw Error("Complete the earlier quest to unlock this one.");
+      throw Error("Unknown quest.");
     this.leave();
     this.engine.stop();
     const quest = plan.quests[index];
@@ -87,7 +87,7 @@ export class QuestRunner {
     this.autoContinue = true;
     this.error = "";
     this.message =
-      "Play the complete passage. Completed runs unlock the next quest.";
+      "Play the complete passage. Choose any checkpoint whenever you like.";
     this.changed();
   }
   leave() {
@@ -182,7 +182,7 @@ export class QuestRunner {
       if (outcome.success && this.token === job.token && this.activeId === job.id)
         this.lastRun = { id: job.result.id, count: this.count, goal: questGoal(job.loaded.plan, job.loaded.plan.quests.find((q) => q.id === job.id)!), complete: this.completed };
       if (this.progress.passes[job.id]?.completed)
-        this.message = "Quest complete! The next checkpoint is unlocked.";
+        this.message = "Quest complete! Choose any checkpoint to keep practicing.";
       if (
         this.token === job.token &&
         this.activeId === job.id &&

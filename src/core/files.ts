@@ -1,5 +1,6 @@
 import { fromExercise, validateExercise } from "./lessons";
 import type { Song } from "./model";
+import { recognizePreparedPiece } from "./catalogue";
 export async function importFile(file: File): Promise<Song> {
   if (file.size > 5 * 1024 * 1024)
     throw Error("Files must be smaller than 5 MB.");
@@ -19,7 +20,7 @@ export async function importFile(file: File): Promise<Song> {
     w.onmessage = (e) => {
       clearTimeout(timeout);
       w.terminate();
-      e.data.error ? reject(Error(e.data.error)) : resolve(e.data.song);
+      e.data.error ? reject(Error(e.data.error)) : resolve(recognizePreparedPiece(e.data.song));
     };
     w.onerror = () => {
       clearTimeout(timeout);

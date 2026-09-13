@@ -18,7 +18,7 @@ export interface PracticePreferences {
 }
 export function readPracticePreferences(
   value: unknown,
-  legacyPreparation: unknown = 2,
+  legacyPreparation: unknown = 1,
 ): PracticePreferences {
   const defaults: PracticePreferences = {
     version: 1,
@@ -26,9 +26,9 @@ export function readPracticePreferences(
     accompaniment: true,
     metronome: false,
     countIn: false,
-    preparationSeconds: [0, 2, 3, 5].includes(Number(legacyPreparation))
+    preparationSeconds: [0, 1, 2, 3, 5].includes(Number(legacyPreparation))
       ? Number(legacyPreparation)
-      : 2,
+      : 1,
     visualOffset: 0,
     audioOffset: 0,
     sheetMusic: false,
@@ -59,7 +59,7 @@ export function readPracticePreferences(
     if (typeof v[k] === "boolean") defaults[k] = v[k];
   if (v.soundSource === "computer" || v.soundSource === "piano")
     defaults.soundSource = v.soundSource;
-  if ([0, 2, 3, 5].includes(v.preparationSeconds))
+  if ([0, 1, 2, 3, 5].includes(v.preparationSeconds))
     defaults.preparationSeconds = v.preparationSeconds;
   if (Number.isFinite(v.visualOffset))
     defaults.visualOffset = Math.max(-300, Math.min(300, v.visualOffset));

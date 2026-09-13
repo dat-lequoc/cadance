@@ -114,6 +114,15 @@ export function MoreOptions({ c }: { c: PracticeController }) {
       <label className="checkbox">
         <input
           type="checkbox"
+          checked={c.config.restartOnWrong}
+          onChange={(e) => c.configure({ restartOnWrong: e.target.checked })}
+        />
+        Restart section on wrong note
+      </label>
+      <small>Wrong notes restart from the beginning of this passage and do not count as attempts.</small>
+      <label className="checkbox">
+        <input
+          type="checkbox"
           checked={c.engine.adaptive}
           onChange={(e) => {
             c.engine.adaptive = e.target.checked;

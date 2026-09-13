@@ -49,7 +49,7 @@ Physical piano, audible human listening, drivers, real pedal behavior, OS-level 
 
 The original MIDI/engine fixture helpers remain for development, but no exercise catalogue appears in the app. Remaining product gaps are documented in [limitations](limitations.md); redesign behavior and compatibility are documented in [redesign](redesign.md).
 
-Preparation verification: default two-second starts and repeats, pause/resume of the countdown, ignored positioning input, immediate Listen, configurable lead-in, disconnect feedback, and falling-roll A/B section markers. `preparation-section.png` captures the shared player during a paused lead-in.
+Preparation verification: default one-second starts and repeats, pause/resume of the countdown, ignored positioning input, immediate Listen, configurable lead-in, disconnect feedback, and falling-roll A/B section markers. `preparation-section.png` captures the shared player during a paused lead-in.
 
 Practice-polish verification: exact-position resume preparation, shared keyboard/pointer transport and preview, saved sound/count-in/offset preferences through immediate reload and backup restore, canceled delayed audio starts, one software voice per held MIDI note, and real service-worker update consent with a failed-save retry all pass. The fast-refresh preference scenario also passed five consecutive runs. See [practice polish](practice-polish.md); physical-instrument verification remains pending.
 

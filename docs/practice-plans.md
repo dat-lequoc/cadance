@@ -1,6 +1,6 @@
 # MIDI practice quests
 
-Open Pathétique in setup and choose **Start first quest**. The app selects the passage, hand, part and speed, then opens the same focused player as ordinary Wait for notes practice, with the full 88-key piano (A0–C8) visible. Tools → Display can change the keyboard range during a run. Finish ten completed runs to unlock the next quest. Each unfinished checkpoint repeats automatically after its result is saved; reaching the goal automatically starts the next checkpoint with the preparation gap. The header checkpoint selector switches between unlocked quests; later quests remain locked. Completed checkpoints remain available to replay.
+Open a bundled piece in setup and choose **Start first quest**, or select any checkpoint. The app selects the passage, hand, part and speed, then opens the same focused player as ordinary Wait for notes practice, with the full 88-key piano (A0–C8) visible. Tools → Display can change the keyboard range during a run. Each unfinished checkpoint repeats automatically after its result is saved; reaching the goal automatically starts the next unfinished checkpoint with the preparation gap. All checkpoints are available from the start. The header selector groups them by section, and the setup list includes section dividers. Completed checkpoints remain available to replay.
 
 The bundled [editable Markdown plan](../public/plans/pathetique-ii.md) covers all 73 bars in 43 passages, with 129 hand quests and 32 cumulative both-hand reviews. Each short passage has three quests: right hand, left hand, then both hands, always including all notes for the selected hands. The plan was built from the actual 1,629 MIDI events and score-derived part assignments. Most checkpoints span two bars. Busy passages, including bars 42–44, are split into individual bars. Bars 27–28 stay together because the melody sustains across the boundary. The plan includes a source-time and note-count table for reviewing these cuts.
 
@@ -47,7 +47,7 @@ Wrap that JSON in a fence labeled `cadance-plan` in the actual Markdown file. Th
 | --- | --- |
 | `repetitions` | Integer 1–100, shared by the plan |
 | `counting` | `total` or `consecutive` |
-| `quests` | 1–300 quests in unlock order; unique IDs |
+| `quests` | 1–1,000 quests in suggested practice order; unique IDs; no prerequisites |
 | `fromBar`, `throughBar` | Inclusive, one-based bar numbers in this MIDI |
 | `hand` | `right`, `left`, `both` |
 | `focus` | `melody`, `harmony`, `all` |
@@ -56,7 +56,11 @@ Wrap that JSON in a fence labeled `cadance-plan` in the actual Markdown file. Th
 
 The app rejects malformed plans, empty target selections and plans belonging to different MIDI content or part assignments. A filename/title change is allowed. Editing prose preserves progress; changing machine-readable plan data creates a separate progress record. Reimporting the old plan restores its earlier record. Imported MIDI needs appropriate melody/harmony assignments before using those filters.
 
-For developers, `songFingerprint(song)` in `src/core/quests.ts` generates the content identity from a normalized `Song`. `scripts/pathetique-plan.ts` is a complete authoring example; run `pnpm plan:pathetique` to regenerate the bundled Markdown. The app can read custom plans for imported pieces; automatic musical segmentation of arbitrary MIDI is not implemented.
+MIDI files uploaded through the web interface receive an automatic practice plan immediately. It groups bars into two-bar passages and eight-bar sessions (larger groups for very long files), with available-hand quests and both-hand session reviews. All checkpoints are unlocked. These are mechanical practice suggestions, not inferred musical phrases; check the suggested hand assignments. Custom imported plans take priority. Plans and progress survive reload through the local library, and generated plan identity remains stable when a file is renamed.
+
+Prepared songs in `src/core/*.json`, plans in `public/plans/*.md`, and reviewed scores in `public/scores/*/score.json` are discovered at build time without adding application imports or piece-ID branches. Frontend uploads are available immediately without a rebuild. An exact original MIDI byte match reuses a prepared song's verified assignments and reference metadata; plans and scores then match by musical fingerprint. Arbitrary MIDI uploads do not generate annotated PDF alignment.
+
+For developers, `songFingerprint(song)` in `src/core/quests.ts` generates the content identity from a normalized `Song`. `scripts/pathetique-plan.ts` is a complete authoring example; run `pnpm plan:pathetique` to regenerate the bundled Markdown. Automatic plans are versioned in `src/core/plans.ts`; change the generator version deliberately when changing progression semantics.
 
 ## Preparation and section markers
 

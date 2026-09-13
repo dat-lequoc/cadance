@@ -61,7 +61,7 @@ See [architecture](docs/architecture.md), [hardware setup](docs/hardware.md), [e
 
 ## Practice your piece
 
-1. **Import MIDI** or drop a file into the page. **Pieces** contains your searchable library; selecting Practice opens setup.
+1. **Import MIDI** or drop a file into the page. **Pieces** contains your searchable library; selecting Practice opens setup. Uploaded pieces automatically receive unlocked bar-based sessions, hand quests, and session reviews. Matching prepared MIDI files reuse their reviewed plans and scores; custom plans override automatic suggestions. Everything stays in your local browser library.
 2. Choose **Wait for notes**, **Practice rhythm**, or **Recital**, then choose a hand and All notes / Melody line / Harmonies independently. Choose speed, accompaniment and a whole piece or saved passage.
 3. **Start practice** enters the focused player. If no piano is selected, connect one or choose simulated input; the original start action continues automatically. **Listen** opens the same player immediately, with falling notes, sheet music, sheet-only mode, zoom, transport and loops. No MIDI hardware is required; browser fullscreen remains optional.
 4. The player fills the window. Use **⛶** for browser fullscreen; the keyboard remains visible above a slim transport dock. **Space** or **P** plays/pauses, **R** restarts, and **Escape** closes a panel or pauses. Simulated note keys stay available; hold **Shift** for sustain.
@@ -84,3 +84,5 @@ Dashboard appearance defaults to dark. Use the **Dark / Light** button in the to
 To ask an agent to prepare another piece, use: “Use $prepare-piano-piece to add [composer, title, movement] to Cadance from A to Z, including finding a matching MIDI and sheet.” The skill lives in this repository under `.agents/skills/prepare-piano-piece/`.
 
 Minute Waltz (Chopin Op. 64 No. 1) is also bundled: Pieces → Practice Chopin · Minute Waltz → Start first quest. Its 140 performed bars have 252 quests and an unfolded score in both player views. See [edition, preparation and limitations](docs/minute-waltz.md). This onboarding clone uses preview port 4187 for Playwright.
+
+Chopin's Ballade No. 1 (Op. 23) is available under **Pieces → Practice Chopin · Ballade No. 1 (Op. 23)**, with all 264 bars, 596 freely selectable hand/review quests, and 60 synchronized score systems in both player views. The supplied Paul Barton annotated PDF is copied into the project and linked separately from setup; playback uses a spacious engraving from the matching Mutopia MIDI source. See [sources, preparation and edition differences](docs/ballade-1.md). Mutopia Ballade assets and derivatives use CC BY-SA 4.0; the supplied Barton PDF retains its separate ownership.

@@ -12,7 +12,7 @@ This is a playable practice plan for the included, voice-separated MIDI of Beeth
 
 ## Quest rules
 
-Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** for new passages, or **5 completed runs** for cumulative reviews, to unlock the next quest. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
+Each passage has three quests: right hand, left hand, then both hands. Every stage includes all notes for its selected hand or hands, including the inner harmonies. Earn **10 completed runs in total** for new passages, or **5 completed runs** for cumulative reviews, to complete a checkpoint. Every quest is available from the start; jump to any passage whenever you like. Unfinished runs do not count. Correcting mistakes and finishing does count. The file can change counting to consecutive if you want a streak challenge.
 
 A completed run means finishing the entire passage and hitting every target note. Wrong notes and chord retries are recorded for feedback but do not cancel the repetition. These quests use Wait for notes: timing, hold duration, phrasing, fingering and pedal artistry are not graded. Use ordinary Rhythm practice when you want timing feedback.
 

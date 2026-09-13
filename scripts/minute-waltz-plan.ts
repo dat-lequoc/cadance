@@ -1,5 +1,7 @@
 import {writeFileSync} from "node:fs";
-import {minuteWaltz as song} from "../src/core/catalogue";
+import data from "../src/core/minute-waltz.json";
+import type { Song } from "../src/core/model";
+const song = data as Song;
 import {measures} from "../src/core/loops";
 import {songFingerprint,questTargets,readPracticePlan,type PracticePlan} from "../src/core/quests";
 const sections:[number,number,string][]=[[1,8,"Opening rotation"],[9,16,"Upper answer"],[17,20,"Opening cadence"],[21,28,"First repeated theme"],[29,36,"First ending"],[37,44,"Repeat return"],[45,52,"Second ending"],[53,60,"Sostenuto opening"],[61,68,"Singing response"],[69,76,"Grace-note variation"],[77,84,"Sostenuto close"],[85,88,"Held trill bridge"],[89,96,"Rotation returns"],[97,104,"Upper answer returns"],[105,108,"Return cadence"],[109,116,"Closing theme"],[117,124,"Closing response"],[125,132,"Final theme"],[133,140,"Coda"]];
