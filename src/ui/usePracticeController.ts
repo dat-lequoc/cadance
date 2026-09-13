@@ -590,7 +590,11 @@ export function usePracticeController() {
       report(e);
     }
   };
-  const selectMode = (mode: Config["mode"]) => configure({ mode });
+  const selectMode = (mode: Config["mode"]) => {
+    configure({ mode });
+    if (mode === "recital" || mode === "free")
+      engine.selectPassage(0, engine.song.duration, false);
+  };
   const listen = () => {
     if (engine.config.mode !== "listen") {
       if (engine.config.mode !== "free")

@@ -83,8 +83,8 @@ export default function SetupView({ c }: { c: PracticeController }) {
                   ],
                   [
                     "recital",
-                    "Recital",
-                    "Play through and review your performance.",
+                    "Full song",
+                    "Play the complete piece without quests or loops.",
                   ],
                 ] as const
               ).map(([mode, label, hint]) => (

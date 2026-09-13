@@ -43,7 +43,7 @@ export const modeName = (mode: string) =>
   ({
     wait: "Wait for notes",
     rhythm: "Practice rhythm",
-    recital: "Recital",
+    recital: "Full song",
     listen: "Listen",
     free: "Free play",
   })[mode] ?? mode;
