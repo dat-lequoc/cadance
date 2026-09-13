@@ -643,7 +643,9 @@ export class PracticeEngine {
       } else this.successes = 0;
       this.passage = [...this.loop];
       this.status = "ready";
-      this.start();
+      // Practice loops restart on the first target without another count-in;
+      // Listen mode may still use the configured lead-in.
+      this.start(this.config.mode === "listen" ? this.preparationDuration : 0);
     }
     this.emit();
   }

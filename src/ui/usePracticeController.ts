@@ -577,9 +577,13 @@ export function usePracticeController() {
       quests.runner.resume();
       setReview(null);
       setPanel(null);
-      engine.start();
-      // Sheet-only follows the printed cursor immediately; falling notes keep the count-in.
-      engine.preparationSeconds = sheetOnly ? 0 : preferenceSnapshot.current.preparationSeconds;
+      // Practice starts directly on the first target. Listen mode keeps the
+      // optional preparation/count-in preference for a calmer entry.
+      const listenMode = engine.config.mode === "listen";
+      engine.preparationSeconds = listenMode
+        ? preferenceSnapshot.current.preparationSeconds
+        : 0;
+      engine.start(listenMode ? engine.preparationDuration : 0);
       setPage("player");
     } catch (e) {
       starting.current = false;
@@ -607,7 +611,7 @@ export function usePracticeController() {
     // Listen from the selected point through the rest of the piece. This is
     // preview audio only and is restored before the next practice attempt.
     engine.selectPassage(Math.max(0, Math.min(engine.song.duration - 0.001, selected)), engine.song.duration, false);
-    engine.start(0);
+    engine.start(engine.preparationDuration);
   };
   const startPractice = () => {
     // Returning from the player leaves the engine paused but clears the

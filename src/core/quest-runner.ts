@@ -160,7 +160,7 @@ export class QuestRunner {
       if (this.next) {
         const id = this.next.id;
         this.prepare(id);
-        this.engine.start();
+        this.engine.start(0);
       }
     } catch (error) {
       this.error = error instanceof Error ? error.message : String(error);
@@ -202,10 +202,10 @@ export class QuestRunner {
           const nextId = this.next.id;
           this.saving = false;
           this.prepare(nextId);
-          this.engine.start();
+          this.engine.start(0);
         } else if (!this.completed) {
           this.engine.restart();
-          this.engine.start();
+          this.engine.start(0);
         }
       }
     } catch (error) {

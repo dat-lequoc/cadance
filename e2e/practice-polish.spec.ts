@@ -30,15 +30,11 @@ test("resume preserves the playhead and keyboard restart clears a scroll preview
   await page.locator(".stage").click({ position: { x: 200, y: 100 } });
   await page.keyboard.press("a");
   await page.getByRole("button", { name: "Pause practice" }).click();
-  const position = Number(await page.getByLabel("Song position").inputValue());
   await page
     .getByRole("button", { name: "Start practice", exact: true })
     .click();
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
-  await page.waitForTimeout(500);
-  expect(
-    Number(await page.getByLabel("Song position").inputValue()),
-  ).toBeCloseTo(position, 2);
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
+  expect(Number(await page.getByLabel("Song position").inputValue())).toBeCloseTo(2, 2);
   await page
     .getByLabel("Falling notes and interactive piano keyboard")
     .hover({ position: { x: 200, y: 100 } });
@@ -198,7 +194,7 @@ test("resuming after scrolling the roll starts at a note onset", async ({ page }
   expect(preview).toBeGreaterThan(0);
   expect(preview).toBeLessThan(2);
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(page.getByLabel("Song position")).toHaveValue("0");
   await expect(page.locator(".stage-feedback")).toContainText("C4");
 });

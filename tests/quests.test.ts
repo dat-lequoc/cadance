@@ -381,7 +381,7 @@ it("preparation ignores positioning notes, pauses its clock and requires a fresh
   e.start();
   expect(e.preparationRemaining).toBe(0);
 });
-it("quest repetition gives preparation time at the selected speed", async () => {
+it("quest repetition restarts immediately without preparation", async () => {
   let now = 0,
     p = emptyProgress();
   const e = new PracticeEngine(song, {}, () => now);
@@ -409,7 +409,7 @@ it("quest repetition gives preparation time at the selected speed", async () => 
   e.tick();
   await Promise.resolve();
   expect(runner.count).toBe(1);
-  expect(e.preparationRemaining).toBe(3);
+  expect(e.preparationRemaining).toBe(0);
   expect(e.hits.size).toBe(0);
 });
 

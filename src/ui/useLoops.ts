@@ -85,7 +85,8 @@ export function useLoops(
     try {
       beforeApply?.();
       engine.selectPassage(start, end, true);
-      if (resume) engine.start();
+      if (resume)
+        engine.start(engine.config.mode === "listen" ? engine.preparationDuration : 0);
       setNotice("Loop active");
     } catch (error) {
       onError(error);
@@ -96,7 +97,8 @@ export function useLoops(
     if (engine.loop) {
       beforeApply?.();
       engine.seek(position(), false);
-      if (resume) engine.start();
+      if (resume)
+        engine.start(engine.config.mode === "listen" ? engine.preparationDuration : 0);
       setNotice("Loop off");
     } else if (valid) apply(a, b, resume);
   };

@@ -326,13 +326,13 @@ test("playing after a preview keeps the active checkpoint attached", async ({ pa
   await expect(page.locator(".quest-reward")).toContainText("Checkpoint cleared!");
 });
 
-test("preparation is pausable, ignores hand placement and shows section boundaries on the roll", async ({
+test("practice starts immediately, ignores hand placement and shows section boundaries on the roll", async ({
   page,
 }) => {
   await loadFixture(page);
   await page.getByRole("button", { name: /Start first quest/ }).click();
   await page.getByRole("button", { name: "Use simulated input" }).click();
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(page.getByLabel("Falling notes section")).toContainText(
     "Checkpoint · bars 1–1",
   );
@@ -345,9 +345,8 @@ test("preparation is pausable, ignores hand placement and shows section boundari
     .getByRole("button", { name: "Start practice", exact: true })
     .click();
   await page.locator(".stage").click({ position: { x: 200, y: 100 } });
-  await page.keyboard.press("w");
   await clean(page, 1);
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await page.getByRole("button", { name: "Tools", exact: false }).click();
   await page.getByLabel("Preparation time").selectOption("0");
   await page.keyboard.press("Escape");
@@ -369,7 +368,7 @@ test("manual completion advances without played runs and survives reload", async
   await page.getByRole("button", { name: "Mark complete & next" }).click();
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
   await expect(page.locator(".quest-reward")).toContainText("Checkpoint cleared");
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await page.reload();
   await expect(page.locator(".quest-overall")).toContainText("1 / 2");
   await start(page);
@@ -396,7 +395,7 @@ test("manual completion advances without played runs and survives reload", async
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
   await page.reload();
   await expect(page.locator(".quest-overall")).toContainText("1 / 2");
-  await expect(page.locator(".next-quest h3")).toHaveText("Checkpoint 1");
+  await expect(page.locator(".next-quest h3")).toHaveText("Checkpoint 2");
 });
 
 test("bundled review upgrade retains old passage runs and leaves added reviews unfinished", async ({ page }) => {

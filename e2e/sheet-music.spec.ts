@@ -4,7 +4,7 @@ const score = JSON.parse(
   readFileSync("public/scores/pathetique-ii/score.json", "utf8"),
 );
 
-test("a later checkpoint shows its starting score during preparation and waiting", async ({
+test("a later checkpoint shows its starting score immediately", async ({
   page,
 }) => {
   await page.goto("/");
@@ -38,7 +38,7 @@ test("a later checkpoint shows its starting score during preparation and waiting
   await page.getByRole("button", { name: /Start first quest/ }).click();
   await page.getByRole("button", { name: "Use simulated input" }).click();
   await page.getByRole("button", { name: "Sheet music", exact: true }).click();
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(
     page.getByLabel("Highlighted bar 42", { exact: true }),
   ).toBeVisible();
@@ -46,7 +46,7 @@ test("a later checkpoint shows its starting score during preparation and waiting
   await page.getByRole("button", { name: "Sheet only", exact: true }).click();
   await expect(page.locator(".stage")).toHaveCount(0);
   await expect(page.locator(".score-position")).toContainText("Following bar");
-  await expect(page.locator(".score-note-overlay")).toHaveCount(0);
+  await expect(page.locator(".score-note-overlay")).toHaveCount(1);
   await expect(page.getByAltText("Score page 3, bars 42–43")).toBeInViewport();
   await page.screenshot({ path: "test-results/sheet-only-bar-fallback.png" });
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
@@ -308,7 +308,7 @@ test("scrolling back in sheet-only pauses and resume starts on the selected note
   expect(preview).toBeLessThan(score.bars[4].tick / 384 * (60 / 36));
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
   await expect(page.locator(".roll-preview")).toHaveCount(0);
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect.poll(async () => Number(await page.getByLabel("Song position").inputValue())).toBeCloseTo(preview, 4);
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   expect(Number(await page.getByLabel("Song position").inputValue())).toBeCloseTo(preview, 4);
@@ -318,6 +318,6 @@ test("scrolling back in sheet-only pauses and resume starts on the selected note
   await image.click({ position: { x: box.width * note.x, y: box.height * note.y } });
   await expect(page.getByLabel("Song position")).toHaveValue("0");
   await page.getByRole("button", { name: "Start practice", exact: true }).click();
-  await expect(page.locator(".stage-feedback")).toContainText("Get ready");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
   await expect(page.getByLabel("Song position")).toHaveValue("0");
 });

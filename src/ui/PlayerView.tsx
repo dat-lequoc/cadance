@@ -499,7 +499,7 @@ export default function PlayerView({ c }: { c: PracticeController }) {
             <>
               <h3>Getting ready</h3>
               <label className="preparation-setting">
-                Preparation before starts and repeats
+                Preparation before Listen starts
                 <select
                   aria-label="Preparation time"
                   value={c.engine.preparationSeconds}
@@ -512,8 +512,8 @@ export default function PlayerView({ c }: { c: PracticeController }) {
                 </select>
               </label>
               <p className="preparation-help">
-                P pauses preparation. Restart returns to the passage start; Play
-                gives you a fresh lead-in. Listening starts immediately.
+                Practice starts immediately, including loop repeats. Listen can
+                use this optional lead-in.
               </p>
               <h3>Display</h3>
               <DisplayOptions c={c} />
