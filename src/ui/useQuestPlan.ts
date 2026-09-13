@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { QuestRunner } from "../core/quest-runner";
 import {
   creditQuest,
@@ -6,10 +6,13 @@ import {
   resetQuest,
   readPracticePlan,
   readQuestProgress,
+  type LoadedPlan,
+  type PracticePlan,
 } from "../core/quests";
+import { carryUnchangedProgress, planMarkdown } from "../core/quest-editor";
 import type { PracticeEngine } from "../core/engine";
 import { db } from "../core/storage";
-import { automaticPlanFor, preparedPlanFor, previousPreparedPlansFor } from "../core/plans";
+import { automaticPlanFor, defaultPlanFor, preparedPlanFor, previousPreparedPlansFor } from "../core/plans";
 // Exact previous bundled plan; custom plans keep their own data and progress.
 const previousBundledSignature =
   "ec249e24cf7e9a408965ae57672928fd64798fd7fade19d42da1f7fc19af01d6";
@@ -55,6 +58,7 @@ export function useQuestPlan(
     [engine],
   );
   const song = engine.song;
+  const editLock = useRef(false);
   useEffect(() => {
     let alive = true;
     runner.load(null);
@@ -132,10 +136,10 @@ export function useQuestPlan(
       (await db.settings.get("quest-progress:" + loaded.signature))?.value,
       loaded.plan,
     );
-    await db.settings.put({
-      key: "quest-plan:" + song.id,
-      value: loaded.markdown,
-    });
+    await db.settings.bulkPut([
+      { key: "quest-plan:" + song.id, value: loaded.markdown },
+      { key: "quest-plan-base:" + song.id, value: loaded.markdown },
+    ]);
     if (engine.song.id === song.id) {
       engine.pause();
       const last = await db.settings.get("quest-last:" + loaded.signature);
@@ -144,10 +148,59 @@ export function useQuestPlan(
       setLoadError("");
     }
   };
+  const customize = async (resolve: () => Promise<LoadedPlan>) => {
+    if (editLock.current || loading || runner.saving || runner.error || !runner.loaded)
+      throw Error("Wait for the current plan or run to finish saving before editing quests.");
+    editLock.current = true;
+    const previous = runner.loaded;
+    const previousId = runner.activeId ?? runner.lastId;
+    const wasActive = !!runner.activeId;
+    try {
+      const loaded = await resolve();
+      if (engine.song !== song || runner.loaded !== previous)
+        throw Error("The piece changed. Reopen Customize quests for the current piece.");
+      engine.pause();
+      runner.suspend();
+      const result = await db.transaction("rw", db.settings, async () => {
+        const oldProgress = readQuestProgress((await db.settings.get("quest-progress:" + previous.signature))?.value, previous.plan);
+        const savedProgress = readQuestProgress((await db.settings.get("quest-progress:" + loaded.signature))?.value, loaded.plan);
+        const progress = carryUnchangedProgress(previous.plan, loaded.plan, oldProgress, savedProgress);
+        const baseKey = "quest-plan-base:" + song.id;
+        if (!(await db.settings.get(baseKey))) await db.settings.put({ key: baseKey, value: previous.markdown });
+        const lastSaved = (await db.settings.get("quest-last:" + loaded.signature))?.value;
+        const oldQuest = previous.plan.quests.find((q) => q.id === previousId);
+        const lastId = loaded.plan.quests.find((q) => q.id === previousId)?.id ??
+          loaded.plan.quests.find((q) => q.id === lastSaved)?.id ??
+          (oldQuest && loaded.plan.quests.find((q) => q.fromBar <= oldQuest.fromBar && q.throughBar >= oldQuest.fromBar)?.id) ??
+          loaded.plan.quests[0].id;
+        await db.settings.bulkPut([
+          { key: "quest-plan-history:" + song.id + ":" + previous.signature, value: previous.markdown },
+          { key: "quest-plan:" + song.id, value: loaded.markdown },
+          { key: "quest-progress:" + loaded.signature, value: progress },
+          { key: "quest-last:" + loaded.signature, value: lastId },
+        ]);
+        return { progress, lastId };
+      });
+      if (engine.song === song && runner.loaded === previous) {
+        runner.load(loaded, result.progress, result.lastId);
+        if (wasActive) { runner.prepare(result.lastId); runner.suspend(); }
+        setLoadError("");
+      }
+    } finally {
+      editLock.current = false;
+    }
+  };
   return {
     runner,
     loading,
     loadError,
+    savePlan: (plan: PracticePlan) => customize(() => readPracticePlan(planMarkdown(plan), song)),
+    restorePlan: () => customize(async () => {
+      const base = await db.settings.get("quest-plan-base:" + song.id);
+      const loaded = typeof base?.value === "string" ? await readPracticePlan(base.value, song) : await defaultPlanFor(song);
+      if (!loaded) throw Error("No original practice plan is available for this piece.");
+      return loaded;
+    }),
     importPlan: async (file: File) => {
       try {
         await importPlan(file);

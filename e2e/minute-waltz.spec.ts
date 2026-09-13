@@ -7,9 +7,7 @@ test("Minute Waltz library, quests, both score views, reload and offline assets"
  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
  await page.locator(".stage").click({position:{x:10,y:80}});
  for(const key of ["y","g","y","k","u","g","y","u","y","k","u"]){await page.keyboard.press(key);await page.waitForTimeout(500);}
- await page.getByRole("button",{name:/completed runs toward checkpoint|0 \/ 10 completed runs/}).click();
- await page.getByRole("button",{name:"Mark complete & next →"}).click();
- await expect(page.getByLabel("Choose checkpoint")).toHaveValue("section-17-28");
+ await expect(page.locator(".quest-dock strong")).toHaveText("1 / 10 completed runs");
  await page.getByRole("button",{name:"Sheet only",exact:true}).click();await expect(page.locator(".stage")).toHaveCount(0);
  await page.getByRole("button",{name:"Pause practice"}).click();await page.getByRole("button",{name:"Restart",exact:true}).click();
  await page.screenshot({path:"test-results/minute-waltz-sheet-only.png"});

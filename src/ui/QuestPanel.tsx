@@ -2,8 +2,11 @@ import { Fragment, useEffect, useRef, useState } from "react";
 import type { PracticeController } from "./usePracticeController";
 import { questCount, questGoal } from "../core/quests";
 import { download } from "../core/files";
+import Dialog from "./Dialog";
+import QuestEditor from "./QuestEditor";
 export default function QuestPanel({ c }: { c: PracticeController }) {
   const input = useRef<HTMLInputElement>(null),
+    [editing, setEditing] = useState(false),
     { runner, loading, loadError } = c.quests;
   const loaded = runner.loaded,
     plan = loaded?.plan,
@@ -119,6 +122,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
         </div>
       )}
       <div className="quest-file-actions">
+        <button className="secondary" disabled={!loaded} onClick={() => setEditing(true)}>Customize quests</button>
         <button className="secondary" onClick={() => input.current?.click()}>
           Import plan .md
         </button>
@@ -132,6 +136,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
           </button>
         )}
       </div>
+      {editing && <Dialog title="Customize quests" onClose={() => setEditing(false)}><QuestEditor c={c} onClose={() => setEditing(false)} /></Dialog>}
       <input
         ref={input}
         className="hidden-input"

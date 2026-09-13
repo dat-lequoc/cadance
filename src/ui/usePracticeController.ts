@@ -69,7 +69,7 @@ export function usePracticeController() {
   const [sheetSpace, setSheetSpace] = useState(35);
   const [dashboardDark, setDashboardDark] = useState(true);
   const [updating, setUpdating] = useState(false);
-  const [panel, setPanel] = useState<"tools" | "passages" | null>(null);
+  const [panel, setPanel] = useState<"tools" | "passages" | "quests" | null>(null);
   const [review, setReview] = useState<Result | null>(null);
   const [pendingSaves, setPendingSaves] = useState<Result[]>([]);
   const pendingSave = pendingSaves[0] ?? null;
@@ -713,7 +713,7 @@ export function usePracticeController() {
       void play();
     } else pendingStart.current = false;
   };
-  const openPanel = (next: "tools" | "passages") => {
+  const openPanel = (next: "tools" | "passages" | "quests") => {
     pause();
     setPanel(next);
   };

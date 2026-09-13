@@ -8,6 +8,7 @@ import { noteName } from "../core/model";
 import DebugControls from "./DebugControls";
 import Dialog from "./Dialog";
 import LoopPanel from "./LoopPanel";
+import QuestEditor from "./QuestEditor";
 import { QuestStatus } from "./QuestPanel";
 import { DisplayOptions, SoundOptions, Speed } from "./PracticeOptions";
 import { questBounds } from "../core/quests";
@@ -479,6 +480,7 @@ export default function PlayerView({ c }: { c: PracticeController }) {
                 <button onClick={() => c.openPanel("passages")}>
                   Passages
                 </button>
+                <button onClick={() => c.openPanel("quests")}>Customize quests</button>
               </>
             )}
             <button onClick={() => c.openPanel("tools")}>
@@ -490,10 +492,12 @@ export default function PlayerView({ c }: { c: PracticeController }) {
       </div>
       {c.panel && (
         <Dialog
-          title={c.panel === "tools" ? "Player tools" : "Passages"}
+          title={c.panel === "tools" ? "Player tools" : c.panel === "quests" ? "Customize quests" : "Passages"}
           onClose={() => c.setPanel(null)}
         >
-          {c.panel === "passages" ? (
+          {c.panel === "quests" ? (
+            <QuestEditor c={c} onClose={() => c.setPanel(null)} />
+          ) : c.panel === "passages" ? (
             <LoopPanel loops={c.loops} engine={c.engine} />
           ) : (
             <>

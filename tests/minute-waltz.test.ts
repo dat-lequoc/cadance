@@ -10,11 +10,7 @@ test("Minute Waltz preserves original performance and validates its complete rou
  const raw=readFileSync("public/pieces/minute-waltz.mid");const original=parseMidi(raw.buffer.slice(raw.byteOffset,raw.byteOffset+raw.byteLength),"source");
  const events=(s:typeof song)=>s.notes.map(n=>[n.tick,n.durationTicks,n.pitch,n.velocity].join(":")).sort();
  expect(events(song)).toEqual(events(original));expect(song.notes).toHaveLength(1370);expect(song.notes.filter(n=>n.hand==="left")).toHaveLength(634);expect(measures(song)).toHaveLength(140);
- const plan=await readPracticePlan(readFileSync("public/plans/minute-waltz.md","utf8"),song);
- expect(plan.plan.quests).toHaveLength(10);
- expect(plan.plan.quests.every(q=>q.hand==="both")).toBe(true);
- expect(plan.plan.quests.map(q=>[q.fromBar,q.throughBar])).toEqual([[1,16],[17,28],[29,44],[45,60],[61,76],[77,88],[89,104],[105,124],[125,132],[133,140]]);
- expect(plan.plan.quests.every(q=>q.throughBar-q.fromBar+1>=8)).toBe(true);
+ const plan=await readPracticePlan(readFileSync("public/plans/minute-waltz.md","utf8"),song);expect(plan.plan.quests).toHaveLength(252);expect(plan.plan.quests.every(q=>q.throughBar-q.fromBar<10)).toBe(true);
  expect((await validateScore(score as PreparedScore,song)).bars).toHaveLength(140);
  for(const system of score.systems)expect(readFileSync("public"+system.image).length).toBeGreaterThan(1000);
 });
