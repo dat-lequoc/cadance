@@ -297,7 +297,7 @@ test("shared player exposes checkpoint range, switching, speed and wheel browsin
   await page.screenshot({ path: "test-results/quest-shared-player.png" });
 });
 
-test("rehearing before a checkpoint preserves the quest for the next run", async ({ page }) => {
+test("playing after a preview keeps the active checkpoint attached", async ({ page }) => {
   await loadFixture(page, 1);
   await page.locator(".quest-map summary").click();
   await page.getByRole("button", { name: "Start quest 2:", exact: false }).click();
@@ -312,8 +312,7 @@ test("rehearing before a checkpoint preserves the quest for the next run", async
   const roll = page.getByLabel("Falling notes and interactive piano keyboard");
   await roll.hover({ position: { x: 200, y: 100 } });
   await page.mouse.wheel(0, -1000);
-  await expect(page.getByRole("button", { name: "Play from here", exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Play from here", exact: true }).click();
+  await expect(page.getByRole("button", { name: "Listen forward from here", exact: true })).toBeVisible();
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
   await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
   await expect(page.locator(".quest-dock strong")).toHaveText("0 / 1 completed runs");

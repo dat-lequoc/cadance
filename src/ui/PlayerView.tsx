@@ -386,13 +386,6 @@ export default function PlayerView({ c }: { c: PracticeController }) {
           <div className="roll-preview" role="status">
             <span>Resume here · {duration(c.resumePosition ?? 0)}</span>
             <button onClick={() => c.backToPlayhead()}>Back to playhead</button>
-            <button
-              onClick={() => {
-                c.playFromPreview();
-              }}
-            >
-              Play from here
-            </button>
           </div>
         )}
         {c.config.mode !== "free" && (
