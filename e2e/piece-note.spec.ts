@@ -91,6 +91,18 @@ test("combined score can pan vertically without the playhead reclaiming the scro
   await expect(viewport).toHaveJSProperty("scrollTop", moved);
 });
 
+test("combined score click previews the clicked place", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Listen", exact: true }).click();
+  await page.getByRole("button", { name: "Sheet music", exact: true }).click();
+  const image = page.locator(".score-image").first();
+  await expect(image).toBeVisible();
+  const box = await image.boundingBox();
+  expect(box).not.toBeNull();
+  await image.click({ position: { x: box!.width * 0.8, y: box!.height / 2 } });
+  await expect(page.locator(".score-position strong")).toContainText("Resume here · Bar");
+});
+
 test("Pathétique combined PDF can move upward at the screenshot's zoom", async ({ page }) => {
   await page.goto("/");
   await page.getByRole("button", { name: "Listen", exact: true }).click();

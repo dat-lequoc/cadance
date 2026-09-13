@@ -325,8 +325,7 @@ export default function ScoreStrip({
             const current = bar.system === index;
             return <div key={item.image} className="score-image" data-system={index} style={{ width, height: imageHeight }}
               onClick={(event) => {
-                if (!only) return;
-                manualScroll.current = true;
+                if (only) manualScroll.current = true;
                 selectPrintedPoint(event.clientX, event.clientY);
               }}>
               <img src={item.image} width={item.width} height={item.height} loading={stackScore && Math.abs(index - systemIndex) > 1 ? "lazy" : "eager"}
