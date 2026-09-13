@@ -297,6 +297,34 @@ test("shared player exposes checkpoint range, switching, speed and wheel browsin
   await page.screenshot({ path: "test-results/quest-shared-player.png" });
 });
 
+test("rehearing before a checkpoint preserves the quest for the next run", async ({ page }) => {
+  await loadFixture(page, 1);
+  await page.locator(".quest-map summary").click();
+  await page.getByRole("button", { name: "Start quest 2:", exact: false }).click();
+  const simulated = page.getByRole("button", { name: "Use simulated input" });
+  if (await simulated.isVisible()) await simulated.click();
+  await page.locator(".stage").click({ position: { x: 10, y: 80 } });
+  await expect(page.getByText("Your turn — play the highlighted notes.", { exact: false })).toBeVisible();
+  await page.getByRole("button", { name: "Tools", exact: false }).click();
+  await page.getByLabel("Preparation time").selectOption("0");
+  await page.keyboard.press("Escape");
+
+  const roll = page.getByLabel("Falling notes and interactive piano keyboard");
+  await roll.hover({ position: { x: 200, y: 100 } });
+  await page.mouse.wheel(0, -1000);
+  await expect(page.getByRole("button", { name: "Play from here", exact: true })).toBeVisible();
+  await page.getByRole("button", { name: "Play from here", exact: true }).click();
+  await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-2");
+  await expect(page.getByRole("button", { name: "Start practice", exact: true })).toBeVisible();
+  await expect(page.locator(".quest-dock strong")).toHaveText("0 / 1 completed runs");
+
+  await page.getByRole("button", { name: "Start practice", exact: true }).click();
+  await expect(page.getByText("Your turn — play the highlighted notes.", { exact: false })).toBeVisible();
+  await page.locator(".stage").click({ position: { x: 10, y: 80 } });
+  await page.keyboard.press("s");
+  await expect(page.locator(".quest-reward")).toContainText("Checkpoint cleared!");
+});
+
 test("preparation is pausable, ignores hand placement and shows section boundaries on the roll", async ({
   page,
 }) => {

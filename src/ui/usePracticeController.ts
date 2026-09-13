@@ -558,6 +558,14 @@ export function usePracticeController() {
         const activeId = quests.runner.activeId;
         if (activeId && Math.abs(onset - engine.passage[0]) < 1e-5) {
           quests.runner.prepare(activeId);
+        } else if (activeId) {
+          // Browsing away from a checkpoint is useful for rehearing an
+          // earlier phrase, but seeking the engine would turn the attempt
+          // into a different passage and silently discard quest credit. Play
+          // the preview as a listen-only segment, then restore the active
+          // checkpoint so the next practice run is still creditable.
+          await listenSection();
+          return;
         } else {
           // Score browsing leaves quest counting, but the lead-in should keep
           // the hand/part selected by the quest instead of falling back to
