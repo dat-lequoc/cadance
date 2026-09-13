@@ -122,6 +122,8 @@ test("can jump to an unfinished later checkpoint and back without earning runs",
   await expect(page.getByLabel("Choose checkpoint")).toHaveValue("bar-1");
   await page.reload();
   await expect(page.locator(".quest-overall")).toContainText("0 / 2");
+  await expect(page.locator(".next-quest h3")).toHaveText("Checkpoint 1");
+  await expect(page.getByRole("button", { name: /Start first quest|Continue quest/ })).toContainText("Start first quest");
 });
 
 test("completed runs light the repetition track and clearing the checkpoint turns it gold", async ({

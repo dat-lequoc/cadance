@@ -610,7 +610,17 @@ export function usePracticeController() {
     engine.start(0);
   };
   const startPractice = () => {
-    quests.runner.leave();
+    // Returning from the player leaves the engine paused but clears the
+    // transient activeId. Reattach the persisted checkpoint before resuming,
+    // so skipped checkpoints do not redirect the run to the first incomplete
+    // quest.
+    const resumedQuest =
+      engine.status === "paused" &&
+      !["listen", "free"].includes(engine.config.mode) &&
+      quests.runner.lastQuest;
+    if (resumedQuest)
+      quests.runner.prepare(resumedQuest.id);
+    else quests.runner.leave();
     if (engine.config.mode === "listen")
       configure({ mode: practiceMode.current });
     void play();

@@ -16,6 +16,7 @@ export class QuestRunner {
   loaded: LoadedPlan | null = null;
   progress: QuestProgress = emptyProgress();
   activeId: string | null = null;
+  lastId: string | null = null;
   saving = false;
   message = "";
   error = "";
@@ -41,6 +42,7 @@ export class QuestRunner {
     ) => Promise<Outcome>,
     private changed: () => void,
     private persistManual?: (loaded: LoadedPlan, id: string, reset?: boolean) => Promise<QuestProgress>,
+    private remember?: (loaded: LoadedPlan, id: string) => Promise<void>,
   ) {}
   get active() {
     return this.loaded?.plan.quests.find((q) => q.id === this.activeId) ?? null;
@@ -52,6 +54,9 @@ export class QuestRunner {
       ) ?? null
     );
   }
+  get lastQuest() {
+    return this.loaded?.plan.quests.find((q) => q.id === this.lastId) ?? null;
+  }
   get count() {
     return this.loaded && this.active
       ? questCount(this.loaded.plan, this.progress, this.active)
@@ -60,10 +65,11 @@ export class QuestRunner {
   get completed() {
     return !!this.activeId && !!this.progress.passes[this.activeId]?.completed;
   }
-  load(loaded: LoadedPlan | null, progress = emptyProgress()) {
+  load(loaded: LoadedPlan | null, progress = emptyProgress(), lastId: string | null = null) {
     this.leave();
     this.loaded = loaded;
     this.progress = progress;
+    this.lastId = loaded?.plan.quests.some((q) => q.id === lastId) ? lastId : null;
     this.message = "";
     this.lastRun = null;
     this.changed();
@@ -84,6 +90,9 @@ export class QuestRunner {
     this.engine.configure({ ...questConfig(quest), speed: this.speedOverride ?? quest.speed });
     this.engine.selectPassage(...questBounds(this.engine.song, quest), false);
     this.activeId = id;
+    this.lastId = id;
+    const loaded = this.loaded;
+    if (this.remember && loaded) void this.remember(loaded, id).catch(() => {});
     this.autoContinue = true;
     this.error = "";
     this.message =

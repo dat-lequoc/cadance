@@ -7,7 +7,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
     { runner, loading, loadError } = c.quests;
   const loaded = runner.loaded,
     plan = loaded?.plan,
-    next = runner.next;
+    next = runner.next ? (runner.lastQuest ?? runner.next) : null;
   const complete =
     plan?.quests.filter((q) => runner.progress.passes[q.id]?.completed)
       .length ?? 0;

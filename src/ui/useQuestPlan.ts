@@ -48,6 +48,9 @@ export function useQuestPlan(
           await db.settings.put({ key, value: next });
           return next;
         }),
+        async (loaded, id) => {
+          await db.settings.put({ key: "quest-last:" + loaded.signature, value: id });
+        },
       ),
     [engine],
   );
@@ -101,7 +104,9 @@ export function useQuestPlan(
         }
       }
       const progress = readQuestProgress(row?.value, loaded.plan);
-      if (alive) runner.load(loaded, progress);
+      const last = await db.settings.get("quest-last:" + loaded.signature);
+      const lastId = typeof last?.value === "string" ? last.value : null;
+      if (alive) runner.load(loaded, progress, lastId);
     })()
       .catch((error) => {
         if (alive)
@@ -133,7 +138,9 @@ export function useQuestPlan(
     });
     if (engine.song.id === song.id) {
       engine.pause();
-      runner.load(loaded, progress);
+      const last = await db.settings.get("quest-last:" + loaded.signature);
+      const lastId = typeof last?.value === "string" ? last.value : null;
+      runner.load(loaded, progress, lastId);
       setLoadError("");
     }
   };
