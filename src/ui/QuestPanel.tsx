@@ -71,7 +71,10 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
               </p>
             </div>
           )}
-          <details className="quest-map">
+          {/* Recreate the list when a personal plan is saved. Native
+              details/select controls can retain their old option tree while
+              a customization drawer closes. */}
+          <details className="quest-map" key={loaded.signature}>
             <summary>
               All checkpoints <span>{plan.quests.length} quests</span>
             </summary>
@@ -316,7 +319,8 @@ function QuestJourney({ c }: { c: PracticeController }) {
 
 export function QuestStatus({ c }: { c: PracticeController }) {
   const runner = c.quests.runner,
-    plan = runner.loaded?.plan;
+    plan = runner.loaded?.plan,
+    planSignature = runner.loaded?.signature;
   const quest = runner.active ?? runner.next;
   const [announcedQuest, setAnnouncedQuest] = useState<string | null>(null);
   const [continuing, setContinuing] = useState(false);
@@ -334,7 +338,7 @@ export function QuestStatus({ c }: { c: PracticeController }) {
     return () => clearTimeout(timer);
   }, [runner.activeId, runner.lastRun?.id]);
   const entering = !!runner.activeId && announcedQuest === runner.activeId;
-  if (!plan) return null;
+  if (!plan || !planSignature) return null;
   const goal = quest ? questGoal(plan, quest) : plan.repetitions;
   const count = quest
     ? runner.progress.passes[quest.id]?.completed ? goal : questCount(plan, runner.progress, quest)
@@ -348,6 +352,7 @@ export function QuestStatus({ c }: { c: PracticeController }) {
       <div className={"quest-route-control" + (entering ? " quest-entering" : "")}>
       <QuestJourney c={c} />
       <select
+        key={planSignature}
         aria-label="Choose checkpoint"
         value={runner.activeId ?? ""}
         disabled={runner.saving || !!runner.error}

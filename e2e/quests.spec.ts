@@ -259,6 +259,27 @@ test("quest completion saves atomically and a failed save can be retried without
   await expect(page.locator(".history article")).toHaveCount(1);
 });
 
+test("editing quests updates the setup list after saving", async ({ page }) => {
+  await loadFixture(page);
+  await expect(page.locator(".quest-overall")).toContainText("0 / 2");
+  await page.getByRole("button", { name: "Customize quests", exact: true }).click();
+  const editor = page.getByRole("dialog", { name: "Customize quests" });
+  await expect(editor).toBeVisible();
+  await editor.getByLabel("Select quest 1: Checkpoint 1").check();
+  await editor.getByLabel("Select quest 2: Checkpoint 2").check();
+  await editor.getByRole("button", { name: "Merge selected", exact: true }).click();
+  await expect(editor.locator(".quest-editor-row")).toHaveCount(1);
+  await editor.getByRole("button", { name: "Save my plan", exact: true }).click();
+  await expect(editor).toBeHidden();
+  await expect(page.locator(".quest-overall")).toContainText("0 / 1");
+  await page.locator(".quest-map summary").click();
+  await expect(page.locator(".quest-map button")).toHaveCount(1);
+  await page.getByRole("button", { name: "Start first quest", exact: false }).click();
+  const simulated = page.getByRole("button", { name: "Use simulated input" });
+  if (await simulated.isVisible()) await simulated.click();
+  await expect(page.getByLabel("Choose checkpoint").locator("option")).toHaveCount(2);
+});
+
 test("shared player exposes checkpoint range, switching, speed and wheel browsing", async ({
   page,
 }) => {
