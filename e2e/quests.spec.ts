@@ -278,6 +278,10 @@ test("editing quests updates the setup list after saving", async ({ page }) => {
   const simulated = page.getByRole("button", { name: "Use simulated input" });
   if (await simulated.isVisible()) await simulated.click();
   await expect(page.getByLabel("Choose checkpoint").locator("option")).toHaveCount(2);
+  await page.getByRole("button", { name: "Customize quests", exact: true }).click();
+  const currentEditor = page.getByRole("dialog", { name: "Customize quests" });
+  await expect(currentEditor.locator(".quest-editor-row.current")).toHaveCount(1);
+  await expect(currentEditor.getByText("Current section", { exact: false })).toBeVisible();
 });
 
 test("shared player exposes checkpoint range, switching, speed and wheel browsing", async ({

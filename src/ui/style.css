@@ -1182,13 +1182,18 @@ legend {
 .quest-editor-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: end; margin: 12px 0; }
 .quest-editor-actions button { font-size: 12px; padding: 7px 10px; }
 .quest-editor-help { color: #5d6d63; font-size: 12px !important; }
+.quest-editor-current { margin: 12px 0 8px; padding: 9px 10px; border: 1px solid #9fc68b; border-radius: 7px; background: #eef7e9; color: #315b3a; font-size: 12px; }
+.quest-editor-current span { color: #5d6d63; }
 .quest-editor-list { max-height: 300px; overflow-y: auto; border: 1px solid var(--line); border-radius: 8px; }
 .quest-editor-section { display: flex; justify-content: space-between; width: 100%; border: 0; border-bottom: 1px solid var(--line); background: #eef3ea; color: inherit; padding: 8px 10px; font-weight: 700; text-align: left; }
+.quest-editor-section.current { background: #dcefd2; color: #245332; }
 .quest-editor-section span { font-size: 11px; font-weight: 400; }
 .quest-editor-row { display: flex; gap: 9px; align-items: flex-start; padding: 9px 10px; border-bottom: 1px solid var(--line); font-size: 12px; cursor: pointer; }
+.quest-editor-row.current { background: #f4faef; box-shadow: inset 3px 0 #78ae5a; }
 .quest-editor-row input { margin-top: 2px; }
 .quest-editor-row span { display: grid; gap: 3px; }
 .quest-editor-row small { color: #65736a; }
+.quest-editor-row em { margin-left: 5px; color: #4f873e; font-size: 10px; font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
 .quest-editor-fields { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; margin: 14px 0; }
 .quest-editor-fields label, .quest-editor-actions label { display: grid; gap: 4px; font-size: 11px; color: #59685e; }
 .quest-editor-fields label:nth-child(5), .quest-editor-fields label:nth-child(6) { grid-column: span 2; }
@@ -3306,6 +3311,10 @@ legend {
 .wait-ready-label { padding: 8px 10px; border: 1px solid #91b779; border-radius: 6px; color: #2d633c; background: #eef8e9; font-size: 12px; font-weight: 700; }
 :root[data-theme="dark"] .wait-ready-label { color: #d9ffb5; background: #254a2d; border-color: #65954e; }
 :root[data-theme="dark"] .quest-editor-section { background: #20372b; }
+:root[data-theme="dark"] .quest-editor-section.current,
+:root[data-theme="dark"] .quest-editor-current { background: #254a2d; color: #d9ffb5; border-color: #65954e; }
+:root[data-theme="dark"] .quest-editor-current span { color: #b8cdb4; }
+:root[data-theme="dark"] .quest-editor-row.current { background: #1d3324; }
 :root[data-theme="dark"] .quest-editor-fields input,
 :root[data-theme="dark"] .quest-editor-fields select,
 :root[data-theme="dark"] .quest-editor-actions input { background: #15251e; color: #e5f0e4; border-color: #486654; }

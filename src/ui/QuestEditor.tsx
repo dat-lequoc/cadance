@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { measures } from "../core/loops";
 import { bothHandsOnly, mergeQuests, newQuestId, planMarkdown, rangeTitle, sameCheckpoint, splitQuest } from "../core/quest-editor";
 import { questGoal, readPracticePlan, type PracticePlan, type Quest } from "../core/quests";
@@ -14,6 +14,17 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
   const [confirmRestore, setConfirmRestore] = useState(false);
   const [form, setForm] = useState({ from: "1", through: "4", hand: "both" as Quest["hand"], runs: String(original.repetitions), title: "", section: "My passages", split: "2" });
   const barCount = measures(c.song).length;
+  const rememberedId = c.quests.runner.activeId ?? c.quests.runner.lastId ?? c.quests.runner.next?.id ?? null;
+  const currentQuestId = draft.quests.some((q) => q.id === rememberedId)
+    ? rememberedId
+    : draft.quests.find((q) => !c.quests.runner.progress.passes[q.id]?.completed)?.id ?? draft.quests[0]?.id ?? null;
+  const currentSection = draft.quests.find((q) => q.id === currentQuestId)?.section;
+  const currentRow = useRef<HTMLLabelElement>(null);
+  useEffect(() => {
+    if (!currentQuestId) return;
+    const frame = requestAnimationFrame(() => currentRow.current?.scrollIntoView({ block: "center" }));
+    return () => cancelAnimationFrame(frame);
+  }, [currentQuestId]);
   const pick = (ids: string[]) => {
     setSelected(ids);
     setError("");
@@ -61,12 +72,13 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
         <button disabled={history.length < 2} onClick={() => { setHistory(history.slice(0, -1)); setSelected([]); setError(""); }}>Undo</button>
       </div>
       <p className="quest-editor-help">Both hands only removes hand-by-hand duplicates without dropping passages. Select a section heading to merge its passages and reviews at once.</p>
+      {currentSection && <p className="quest-editor-current" role="status"><b>Current section</b> · {currentSection} <span>({currentQuestId === c.quests.runner.activeId ? "currently playing" : "last played"})</span></p>}
       <div className="quest-editor-list" role="group" aria-label="Quests to customize">
         {draft.quests.map((q, index) => <Fragment key={q.id}>
-          {(index === 0 || q.section !== draft.quests[index - 1].section) && <button className="quest-editor-section" onClick={() => pick([...new Set([...selected, ...draft.quests.filter((item) => item.section === q.section).map((item) => item.id)])])} aria-label={`Select section ${q.section}`}>{q.section} <span>Select section</span></button>}
-          <label className="quest-editor-row">
+          {(index === 0 || q.section !== draft.quests[index - 1].section) && <button className={"quest-editor-section" + (q.section === currentSection ? " current" : "")} onClick={() => pick([...new Set([...selected, ...draft.quests.filter((item) => item.section === q.section).map((item) => item.id)])])} aria-label={`Select section ${q.section}`}>{q.section} <span>{q.section === currentSection ? "Current · select section" : "Select section"}</span></button>}
+          <label ref={q.id === currentQuestId ? currentRow : undefined} className={"quest-editor-row" + (q.id === currentQuestId ? " current" : "")} aria-current={q.id === currentQuestId ? "step" : undefined}>
             <input type="checkbox" checked={selected.includes(q.id)} aria-label={`Select quest ${index + 1}: ${q.title}`} onChange={(e) => pick(e.target.checked ? [...selected, q.id] : selected.filter((id) => id !== q.id))} />
-            <span><b>{q.title}</b><small>{rangeTitle(q.fromBar, q.throughBar)} · {q.hand === "both" ? "Both hands" : q.hand === "right" ? "Right hand" : "Left hand"} · {questGoal(draft, q)} runs</small></span>
+            <span><b>{q.title} {q.id === currentQuestId && <em>Current</em>}</b><small>{rangeTitle(q.fromBar, q.throughBar)} · {q.hand === "both" ? "Both hands" : q.hand === "right" ? "Right hand" : "Left hand"} · {questGoal(draft, q)} runs</small></span>
           </label>
         </Fragment>)}
       </div>
