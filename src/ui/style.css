@@ -2999,14 +2999,12 @@ legend {
   position: relative;
 }
 .player-dock .stage-feedback {
-  position: absolute;
-  top: 50%;
-  bottom: auto;
-  left: auto;
-  right: calc(100% + 12px);
-  transform: translateY(-50%);
-  width: clamp(150px, calc(100vw - 850px), 430px);
-  max-width: none;
+  position: static;
+  flex: 0 1 clamp(220px, calc(100vw - 1250px), 430px);
+  width: auto;
+  min-width: 0;
+  max-width: 430px;
+  transform: none;
   margin: 0;
   padding: 8px 12px;
   border: 1px solid #526f86;
