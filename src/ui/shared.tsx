@@ -11,6 +11,7 @@ const paths: Record<string, string> = {
   plug: "M8 3v5 M16 3v5 M6 8h12v4a6 6 0 0 1-12 0z M12 18v4",
   arrow: "M5 12h14 M14 7l5 5-5 5",
   close: "M6 6l12 12 M18 6L6 18",
+  search: "M10.5 4a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13 M15.5 15.5L21 21",
   check: "M5 12l4 4L19 6",
   loop: "M5 8h12l-3-3 M19 16H7l3 3 M19 8v4 M5 16v-4",
   volume: "M4 9h4l5-4v14l-5-4H4z M17 8a6 6 0 0 1 0 8",
