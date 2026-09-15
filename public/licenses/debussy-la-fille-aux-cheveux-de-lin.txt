@@ -1,0 +1,5 @@
+Claude Debussy, La fille aux cheveux de lin (Préludes, Book I No. 8).
+Clean score and MIDI source: TuneOnMusic, The Girl with the Flaxen Hair, MuseScore 4.7.4 export.
+Source page: https://tuneonmusic.com/fr/music-sheets/classical/claude-debussy/la-fille-aux-cheveux/la-fille-aux-cheveux-advanced/
+Annotated study reference: IMSLP, Preludes (Book 1), scan linked from https://imslp.org/wiki/Preludes_(Book_1)_(Debussy,_Claude)
+Cadance keeps the source MIDI separately and removes four zero-duration placeholder events from the playable derivative.

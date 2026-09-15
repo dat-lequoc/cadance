@@ -16,6 +16,10 @@
     "test:e2e": "playwright test",
     "fixtures": "tsx scripts/fixtures.ts",
     "plan:pathetique": "tsx scripts/pathetique-plan.ts",
+    "prepare:debussy-la-fille": "tsx scripts/debussy-la-fille-prepare.ts",
+    "plan:debussy-la-fille": "tsx scripts/debussy-la-fille-plan.ts",
+    "score:debussy-la-fille": "python3 scripts/prepare-score.py render public/pieces/debussy-la-fille-aux-cheveux-de-lin.pdf scripts/scores/debussy-la-fille-aux-cheveux-de-lin.cuts.json --output public/scores/debussy-la-fille-aux-cheveux-de-lin --scale 3",
+    "align:debussy-la-fille": "tsx scripts/align-score.ts src/core/debussy-la-fille-aux-cheveux-de-lin.json public/scores/debussy-la-fille-aux-cheveux-de-lin/geometry.json /pieces/debussy-la-fille-aux-cheveux-de-lin.pdf",
     "benchmark": "tsx scripts/benchmark.ts",
     "score:pathetique": "tsx scripts/align-score.ts src/core/pathetique.json public/scores/pathetique-ii/geometry.json /pieces/pathetique-2.pdf",
     "report:ballade-barton": "tsx scripts/ballade-barton-report.ts"

@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "pdfSha256": "c1c01999f75167c3c3780891a49c545f884399c8f7796909fb12322ec2bfc02c",
+  "renderer": "PyMuPDF 1.28.2",
+  "scale": 3.0,
+  "systems": [
+    {
+      "image": "system-01.png",
+      "width": 1785,
+      "height": 465,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 3,
+      "barEdges": [
+        0.1026891,
+        0.4691933,
+        0.7588571,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-02.png",
+      "width": 1785,
+      "height": 435,
+      "page": 1,
+      "fromBar": 4,
+      "throughBar": 8,
+      "barEdges": [
+        0.0937815,
+        0.3128739,
+        0.4700168,
+        0.6168571,
+        0.7569244,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-03.png",
+      "width": 1785,
+      "height": 465,
+      "page": 1,
+      "fromBar": 9,
+      "throughBar": 12,
+      "barEdges": [
+        0.0937815,
+        0.3955462,
+        0.5888235,
+        0.7705546,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-04.png",
+      "width": 1785,
+      "height": 480,
+      "page": 1,
+      "fromBar": 13,
+      "throughBar": 15,
+      "barEdges": [
+        0.0937815,
+        0.4162185,
+        0.6796807,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-05.png",
+      "width": 1785,
+      "height": 480,
+      "page": 1,
+      "fromBar": 16,
+      "throughBar": 19,
+      "barEdges": [
+        0.0937815,
+        0.3312269,
+        0.5143361,
+        0.7152605,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-06.png",
+      "width": 1785,
+      "height": 540,
+      "page": 2,
+      "fromBar": 20,
+      "throughBar": 22,
+      "barEdges": [
+        0.0937815,
+        0.4437983,
+        0.6911092,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-07.png",
+      "width": 1785,
+      "height": 555,
+      "page": 2,
+      "fromBar": 23,
+      "throughBar": 26,
+      "barEdges": [
+        0.0937815,
+        0.3996807,
+        0.5934958,
+        0.7585714,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-08.png",
+      "width": 1785,
+      "height": 555,
+      "page": 2,
+      "fromBar": 27,
+      "throughBar": 30,
+      "barEdges": [
+        0.0937815,
+        0.3563025,
+        0.5103529,
+        0.7181513,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-09.png",
+      "width": 1785,
+      "height": 540,
+      "page": 2,
+      "fromBar": 31,
+      "throughBar": 34,
+      "barEdges": [
+        0.0937815,
+        0.3296807,
+        0.4847899,
+        0.7185882,
+        0.9524034
+      ]
+    },
+    {
+      "image": "system-10.png",
+      "width": 1785,
+      "height": 405,
+      "page": 3,
+      "fromBar": 35,
+      "throughBar": 39,
+      "barEdges": [
+        0.0937815,
+        0.4196639,
+        0.5131597,
+        0.6577479,
+        0.8041513,
+        0.9509412
+      ]
+    }
+  ]
+}

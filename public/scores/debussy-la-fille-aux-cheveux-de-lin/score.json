@@ -1,0 +1,402 @@
+{
+  "version": 1,
+  "fingerprint": "684dea55ba0e4af20bf9afc27b906608a13ca4ed615aa54cb09a8813a6e278fe",
+  "sourcePdf": "/pieces/debussy-la-fille-aux-cheveux-de-lin.pdf",
+  "pdfSha256": "c1c01999f75167c3c3780891a49c545f884399c8f7796909fb12322ec2bfc02c",
+  "systems": [
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-01.png",
+      "width": 1785,
+      "height": 465,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 3
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-02.png",
+      "width": 1785,
+      "height": 435,
+      "page": 1,
+      "fromBar": 4,
+      "throughBar": 8
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-03.png",
+      "width": 1785,
+      "height": 465,
+      "page": 1,
+      "fromBar": 9,
+      "throughBar": 12
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-04.png",
+      "width": 1785,
+      "height": 480,
+      "page": 1,
+      "fromBar": 13,
+      "throughBar": 15
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-05.png",
+      "width": 1785,
+      "height": 480,
+      "page": 1,
+      "fromBar": 16,
+      "throughBar": 19
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-06.png",
+      "width": 1785,
+      "height": 540,
+      "page": 2,
+      "fromBar": 20,
+      "throughBar": 22
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-07.png",
+      "width": 1785,
+      "height": 555,
+      "page": 2,
+      "fromBar": 23,
+      "throughBar": 26
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-08.png",
+      "width": 1785,
+      "height": 555,
+      "page": 2,
+      "fromBar": 27,
+      "throughBar": 30
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-09.png",
+      "width": 1785,
+      "height": 540,
+      "page": 2,
+      "fromBar": 31,
+      "throughBar": 34
+    },
+    {
+      "image": "/scores/debussy-la-fille-aux-cheveux-de-lin/system-10.png",
+      "width": 1785,
+      "height": 405,
+      "page": 3,
+      "fromBar": 35,
+      "throughBar": 39
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1440,
+      "system": 0,
+      "left": 0.1026891,
+      "right": 0.4691933
+    },
+    {
+      "number": 2,
+      "tick": 1440,
+      "endTick": 2880,
+      "system": 0,
+      "left": 0.4691933,
+      "right": 0.7588571
+    },
+    {
+      "number": 3,
+      "tick": 2880,
+      "endTick": 4320,
+      "system": 0,
+      "left": 0.7588571,
+      "right": 0.9524034
+    },
+    {
+      "number": 4,
+      "tick": 4320,
+      "endTick": 5760,
+      "system": 1,
+      "left": 0.0937815,
+      "right": 0.3128739
+    },
+    {
+      "number": 5,
+      "tick": 5760,
+      "endTick": 7200,
+      "system": 1,
+      "left": 0.3128739,
+      "right": 0.4700168
+    },
+    {
+      "number": 6,
+      "tick": 7200,
+      "endTick": 8640,
+      "system": 1,
+      "left": 0.4700168,
+      "right": 0.6168571
+    },
+    {
+      "number": 7,
+      "tick": 8640,
+      "endTick": 10080,
+      "system": 1,
+      "left": 0.6168571,
+      "right": 0.7569244
+    },
+    {
+      "number": 8,
+      "tick": 10080,
+      "endTick": 11520,
+      "system": 1,
+      "left": 0.7569244,
+      "right": 0.9524034
+    },
+    {
+      "number": 9,
+      "tick": 11520,
+      "endTick": 12960,
+      "system": 2,
+      "left": 0.0937815,
+      "right": 0.3955462
+    },
+    {
+      "number": 10,
+      "tick": 12960,
+      "endTick": 14400,
+      "system": 2,
+      "left": 0.3955462,
+      "right": 0.5888235
+    },
+    {
+      "number": 11,
+      "tick": 14400,
+      "endTick": 15840,
+      "system": 2,
+      "left": 0.5888235,
+      "right": 0.7705546
+    },
+    {
+      "number": 12,
+      "tick": 15840,
+      "endTick": 17280,
+      "system": 2,
+      "left": 0.7705546,
+      "right": 0.9524034
+    },
+    {
+      "number": 13,
+      "tick": 17280,
+      "endTick": 18720,
+      "system": 3,
+      "left": 0.0937815,
+      "right": 0.4162185
+    },
+    {
+      "number": 14,
+      "tick": 18720,
+      "endTick": 20160,
+      "system": 3,
+      "left": 0.4162185,
+      "right": 0.6796807
+    },
+    {
+      "number": 15,
+      "tick": 20160,
+      "endTick": 21600,
+      "system": 3,
+      "left": 0.6796807,
+      "right": 0.9524034
+    },
+    {
+      "number": 16,
+      "tick": 21600,
+      "endTick": 23040,
+      "system": 4,
+      "left": 0.0937815,
+      "right": 0.3312269
+    },
+    {
+      "number": 17,
+      "tick": 23040,
+      "endTick": 24480,
+      "system": 4,
+      "left": 0.3312269,
+      "right": 0.5143361
+    },
+    {
+      "number": 18,
+      "tick": 24480,
+      "endTick": 25920,
+      "system": 4,
+      "left": 0.5143361,
+      "right": 0.7152605
+    },
+    {
+      "number": 19,
+      "tick": 25920,
+      "endTick": 27360,
+      "system": 4,
+      "left": 0.7152605,
+      "right": 0.9524034
+    },
+    {
+      "number": 20,
+      "tick": 27360,
+      "endTick": 28800,
+      "system": 5,
+      "left": 0.0937815,
+      "right": 0.4437983
+    },
+    {
+      "number": 21,
+      "tick": 28800,
+      "endTick": 30240,
+      "system": 5,
+      "left": 0.4437983,
+      "right": 0.6911092
+    },
+    {
+      "number": 22,
+      "tick": 30240,
+      "endTick": 31680,
+      "system": 5,
+      "left": 0.6911092,
+      "right": 0.9524034
+    },
+    {
+      "number": 23,
+      "tick": 31680,
+      "endTick": 33120,
+      "system": 6,
+      "left": 0.0937815,
+      "right": 0.3996807
+    },
+    {
+      "number": 24,
+      "tick": 33120,
+      "endTick": 34560,
+      "system": 6,
+      "left": 0.3996807,
+      "right": 0.5934958
+    },
+    {
+      "number": 25,
+      "tick": 34560,
+      "endTick": 36000,
+      "system": 6,
+      "left": 0.5934958,
+      "right": 0.7585714
+    },
+    {
+      "number": 26,
+      "tick": 36000,
+      "endTick": 37440,
+      "system": 6,
+      "left": 0.7585714,
+      "right": 0.9524034
+    },
+    {
+      "number": 27,
+      "tick": 37440,
+      "endTick": 38880,
+      "system": 7,
+      "left": 0.0937815,
+      "right": 0.3563025
+    },
+    {
+      "number": 28,
+      "tick": 38880,
+      "endTick": 40320,
+      "system": 7,
+      "left": 0.3563025,
+      "right": 0.5103529
+    },
+    {
+      "number": 29,
+      "tick": 40320,
+      "endTick": 41760,
+      "system": 7,
+      "left": 0.5103529,
+      "right": 0.7181513
+    },
+    {
+      "number": 30,
+      "tick": 41760,
+      "endTick": 43200,
+      "system": 7,
+      "left": 0.7181513,
+      "right": 0.9524034
+    },
+    {
+      "number": 31,
+      "tick": 43200,
+      "endTick": 44640,
+      "system": 8,
+      "left": 0.0937815,
+      "right": 0.3296807
+    },
+    {
+      "number": 32,
+      "tick": 44640,
+      "endTick": 46080,
+      "system": 8,
+      "left": 0.3296807,
+      "right": 0.4847899
+    },
+    {
+      "number": 33,
+      "tick": 46080,
+      "endTick": 47520,
+      "system": 8,
+      "left": 0.4847899,
+      "right": 0.7185882
+    },
+    {
+      "number": 34,
+      "tick": 47520,
+      "endTick": 48960,
+      "system": 8,
+      "left": 0.7185882,
+      "right": 0.9524034
+    },
+    {
+      "number": 35,
+      "tick": 48960,
+      "endTick": 50400,
+      "system": 9,
+      "left": 0.0937815,
+      "right": 0.4196639
+    },
+    {
+      "number": 36,
+      "tick": 50400,
+      "endTick": 51840,
+      "system": 9,
+      "left": 0.4196639,
+      "right": 0.5131597
+    },
+    {
+      "number": 37,
+      "tick": 51840,
+      "endTick": 53280,
+      "system": 9,
+      "left": 0.5131597,
+      "right": 0.6577479
+    },
+    {
+      "number": 38,
+      "tick": 53280,
+      "endTick": 54720,
+      "system": 9,
+      "left": 0.6577479,
+      "right": 0.8041513
+    },
+    {
+      "number": 39,
+      "tick": 54720,
+      "endTick": 54959,
+      "system": 9,
+      "left": 0.8041513,
+      "right": 0.9509412
+    }
+  ]
+}

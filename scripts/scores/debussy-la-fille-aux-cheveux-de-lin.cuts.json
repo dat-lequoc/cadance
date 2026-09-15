@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "reviewed": true,
+  "pdfSha256": "c1c01999f75167c3c3780891a49c545f884399c8f7796909fb12322ec2bfc02c",
+  "expectedBars": 39,
+  "systems": [
+    { "page": 1, "fromBar": 1, "throughBar": 3, "crop": [0, 70, 595, 225], "barEdges": [61.1, 279.17, 451.52, 566.68] },
+    { "page": 1, "fromBar": 4, "throughBar": 8, "crop": [0, 220, 595, 365], "barEdges": [55.8, 186.16, 279.66, 367.03, 450.37, 566.68] },
+    { "page": 1, "fromBar": 9, "throughBar": 12, "crop": [0, 355, 595, 510], "barEdges": [55.8, 235.35, 350.35, 458.48, 566.68] },
+    { "page": 1, "fromBar": 13, "throughBar": 15, "crop": [0, 485, 595, 645], "barEdges": [55.8, 247.65, 404.41, 566.68] },
+    { "page": 1, "fromBar": 16, "throughBar": 19, "crop": [0, 630, 595, 790], "barEdges": [55.8, 197.08, 306.03, 425.58, 566.68] },
+    { "page": 2, "fromBar": 20, "throughBar": 22, "crop": [0, 25, 595, 205], "barEdges": [55.8, 264.06, 411.21, 566.68] },
+    { "page": 2, "fromBar": 23, "throughBar": 26, "crop": [0, 220, 595, 405], "barEdges": [55.8, 237.81, 353.13, 451.35, 566.68] },
+    { "page": 2, "fromBar": 27, "throughBar": 30, "crop": [0, 415, 595, 600], "barEdges": [55.8, 212.0, 303.66, 427.3, 566.68] },
+    { "page": 2, "fromBar": 31, "throughBar": 34, "crop": [0, 610, 595, 790], "barEdges": [55.8, 196.16, 288.45, 427.56, 566.68] },
+    { "page": 3, "fromBar": 35, "throughBar": 39, "crop": [0, 25, 595, 160], "barEdges": [55.8, 249.7, 305.33, 391.36, 478.47, 565.81] }
+  ]
+}
