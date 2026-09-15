@@ -873,44 +873,35 @@ legend {
   font-size: 13px;
 }
 .piece-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-  gap: 14px;
-}
-.piece-row {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  gap: 14px;
+  border-top: 1px solid var(--line);
+}
+.piece-row {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.6fr) minmax(150px, .6fr) minmax(190px, .8fr) minmax(120px, .55fr) auto;
+  align-items: center;
+  gap: 18px;
   min-width: 0;
-  min-height: 278px;
-  padding: 18px;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  background: white;
-  box-shadow: 0 3px 14px #243f2d0a;
-  transition: border-color .15s, box-shadow .15s, transform .15s;
+  min-height: 102px;
+  padding: 18px 8px;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  transition: background .15s, border-color .15s;
 }
 .piece-row:hover {
-  border-color: #a5c0b1;
-  box-shadow: 0 7px 22px #243f2d14;
-  transform: translateY(-1px);
+  border-color: #b8cdbf;
+  background: #f6f9f7;
 }
-.piece-card-top,
-.piece-card-footer,
 .piece-identity,
 .piece-title-line {
   display: flex;
   align-items: center;
 }
-.piece-card-top {
-  justify-content: space-between;
-  gap: 12px;
-  align-items: flex-start;
-}
 .piece-identity {
   min-width: 0;
   gap: 10px;
+  align-items: flex-start;
 }
 .piece-mark {
   display: grid;
@@ -932,14 +923,15 @@ legend {
 }
 .piece-title-line {
   min-width: 0;
+  flex-wrap: wrap;
   gap: 8px;
+  align-items: flex-start;
 }
 .piece-title-line h3 {
-  overflow: hidden;
+  min-width: 0;
   font-size: 16px;
-  line-height: 1.3;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 .current-piece-badge,
 .piece-status-label {
@@ -975,7 +967,6 @@ legend {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
-  padding-left: 44px;
   color: #718078;
   font-size: 11px;
 }
@@ -987,6 +978,7 @@ legend {
 .piece-number {
   flex: none;
   width: 22px;
+  padding-top: 9px;
   font-size: 12px;
   color: #8a948a;
 }
@@ -995,13 +987,12 @@ legend {
   min-width: 0;
 }
 .piece-row-title p {
-  overflow: hidden;
+  margin-top: 4px;
   font-size: 13px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  overflow-wrap: anywhere;
 }
 .piece-progress {
-  margin-top: auto;
+  min-width: 0;
 }
 .piece-progress-heading {
   display: flex;
@@ -1056,19 +1047,15 @@ legend {
   display: flex;
   gap: 8px;
 }
-.piece-card-footer {
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 10px;
-  padding-top: 11px;
-  border-top: 1px solid #edf0ed;
-}
-.piece-card-footer small {
-  overflow: hidden;
+.piece-last-practiced {
+  min-width: 0;
   color: #86938b;
   font-size: 10px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.4;
+}
+.piece-actions {
+  justify-self: end;
+  align-items: center;
 }
 .piece-actions button {
   font-size: 13px;
@@ -1921,7 +1908,7 @@ legend {
     padding-left: 7px;
   }
 }
-@media (max-width: 800px) {
+@media (max-width: 1100px) {
   .content {
     padding: 28px 22px 0;
   }
@@ -3627,13 +3614,13 @@ legend {
 :root[data-theme="dark"] .quest-editor-fields select,
 :root[data-theme="dark"] .quest-editor-actions input { background: #15251e; color: #e5f0e4; border-color: #486654; }
 
-/* Pieces browser: a scannable card grid with progress-first status. */
+/* Pieces browser: a readable list with progress-first status. */
 :root[data-theme="dark"] .library-summary strong { color: #bdebd8; }
 :root[data-theme="dark"] .library-summary span,
 :root[data-theme="dark"] .piece-sort,
 :root[data-theme="dark"] .library-results,
 :root[data-theme="dark"] .piece-card-meta,
-:root[data-theme="dark"] .piece-card-footer small { color: #9fb1bd; }
+:root[data-theme="dark"] .piece-last-practiced { color: #9fb1bd; }
 :root[data-theme="dark"] .continue-composer { color: #a8bdb6; }
 :root[data-theme="dark"] .continue-piece-meta { color: #a4d3bd; }
 :root[data-theme="dark"] .piece-search-wrap {
@@ -3651,11 +3638,10 @@ legend {
 }
 :root[data-theme="dark"] .library-filters button.selected span { color: #a4daca; }
 :root[data-theme="dark"] .piece-row {
-  background: #1b2936;
-  border-color: #354656;
-  box-shadow: none;
+  background: transparent;
+  border-color: #30414d;
 }
-:root[data-theme="dark"] .piece-row:hover { border-color: #6a9585; box-shadow: 0 7px 22px #0005; }
+:root[data-theme="dark"] .piece-row:hover { border-color: #6a9585; background: #182b36; }
 :root[data-theme="dark"] .piece-mark { background: #253d42; color: #9adac6; }
 :root[data-theme="dark"] .piece-mark-in-progress,
 :root[data-theme="dark"] .piece-status-label-in-progress { background: #4d3d25; color: #f3cc7e; }
@@ -3663,7 +3649,6 @@ legend {
 :root[data-theme="dark"] .piece-status-label-complete { background: #29493f; color: #b9edda; }
 :root[data-theme="dark"] .current-piece-badge,
 :root[data-theme="dark"] .piece-status-label { background: #29493f; color: #b9edda; }
-:root[data-theme="dark"] .piece-card-footer { border-color: #30414d; }
 :root[data-theme="dark"] .piece-progress-heading { color: #a4d3bd; }
 :root[data-theme="dark"] .piece-progress-heading span:last-child { color: #90a6a5; }
 :root[data-theme="dark"] .piece-row progress::-webkit-progress-bar,
@@ -3678,10 +3663,18 @@ legend {
   .piece-search-wrap { flex: 1; width: auto; }
 }
 @media (max-width: 800px) {
-  .piece-row { flex-wrap: nowrap; }
-  .piece-row-title { flex-basis: auto; }
-  .piece-actions { margin-left: 0; }
-  .piece-list { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .piece-row {
+    grid-template-columns: minmax(0, 1fr) minmax(200px, .65fr) auto;
+    grid-template-areas:
+      "identity progress actions"
+      "meta last actions";
+    gap: 10px 16px;
+  }
+  .piece-identity { grid-area: identity; }
+  .piece-card-meta { grid-area: meta; }
+  .piece-progress { grid-area: progress; }
+  .piece-last-practiced { grid-area: last; }
+  .piece-actions { grid-area: actions; margin-left: 0; }
 }
 @media (max-width: 600px) {
   .library-controls { align-items: stretch; flex-direction: column; }
@@ -3690,10 +3683,18 @@ legend {
   .piece-sort select { flex: 1; }
   .library-filter-row { align-items: flex-start; flex-direction: column; }
   .library-results { align-self: flex-end; }
-  .piece-list { grid-template-columns: 1fr; }
-  .piece-card-footer { align-items: stretch; flex-direction: column; }
-  .piece-card-footer small { order: 2; }
-  .piece-actions { width: 100%; }
+  .piece-row {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "identity"
+      "meta"
+      "progress"
+      "last"
+      "actions";
+    gap: 12px;
+    padding: 17px 4px;
+  }
+  .piece-actions { width: 100%; justify-self: stretch; }
   .piece-actions > .primary,
   .piece-actions > .secondary { flex: 1; }
   .continue-piece { padding: 21px; }

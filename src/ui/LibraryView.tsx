@@ -226,51 +226,49 @@ export default function LibraryView({ c }: { c: PracticeController }) {
           const meter = displayMeter(song);
           return (
             <article className={`piece-row piece-status-${status}`} key={song.id}>
-              <div className="piece-card-top">
-                <div className="piece-identity">
-                  <span className="piece-number">{String(i + 1).padStart(2, "0")}</span>
-                  <span className={`piece-mark piece-mark-${status}`} aria-hidden="true">
-                    <Icon name={status === "complete" ? "check" : "book"} size={18} />
-                  </span>
-                  <div className="piece-row-title">
-                    {editing === song.id ? (
-                      <form
-                        onSubmit={(e) => {
-                          e.preventDefault();
-                          if (!title.trim()) return;
-                          const next = { ...song, title: title.trim() };
-                          void db.songs
-                            .put(next)
-                            .then(() => {
-                              if (c.song.id === song.id) c.engine.song = next;
-                              setEditing(null);
-                              return c.reload();
-                            })
-                            .catch(c.report);
-                        }}
-                      >
-                        <input
-                          autoFocus
-                          aria-label="Piece title"
-                          maxLength={160}
-                          value={title}
-                          onChange={(e) => setTitle(e.target.value)}
-                        />
-                        <button className="secondary" type="submit">Save</button>
-                        <button type="button" onClick={() => setEditing(null)}>Cancel</button>
-                      </form>
-                    ) : (
-                      <>
-                        <div className="piece-title-line">
-                          <h3 title={song.title}>{song.title}</h3>
-                          {song.id === c.song.id && <span className="current-piece-badge">Open</span>}
-                        </div>
-                        <p>{song.composer || "Imported MIDI"}</p>
-                      </>
-                    )}
-                  </div>
+              <div className="piece-identity">
+                <span className="piece-number">{String(i + 1).padStart(2, "0")}</span>
+                <span className={`piece-mark piece-mark-${status}`} aria-hidden="true">
+                  <Icon name={status === "complete" ? "check" : "book"} size={18} />
+                </span>
+                <div className="piece-row-title">
+                  {editing === song.id ? (
+                    <form
+                      onSubmit={(e) => {
+                        e.preventDefault();
+                        if (!title.trim()) return;
+                        const next = { ...song, title: title.trim() };
+                        void db.songs
+                          .put(next)
+                          .then(() => {
+                            if (c.song.id === song.id) c.engine.song = next;
+                            setEditing(null);
+                            return c.reload();
+                          })
+                          .catch(c.report);
+                      }}
+                    >
+                      <input
+                        autoFocus
+                        aria-label="Piece title"
+                        maxLength={160}
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                      />
+                      <button className="secondary" type="submit">Save</button>
+                      <button type="button" onClick={() => setEditing(null)}>Cancel</button>
+                    </form>
+                  ) : (
+                    <>
+                      <div className="piece-title-line">
+                        <h3>{song.title}</h3>
+                        {song.id === c.song.id && <span className="current-piece-badge">Open</span>}
+                        <span className={`piece-status-label piece-status-label-${status}`}>{statusLabel}</span>
+                      </div>
+                      <p>{song.composer || "Imported MIDI"}</p>
+                    </>
+                  )}
                 </div>
-                <span className={`piece-status-label piece-status-label-${status}`}>{statusLabel}</span>
               </div>
               <div className="piece-card-meta">
                 <span>{duration(song.duration)}</span>
@@ -284,55 +282,53 @@ export default function LibraryView({ c }: { c: PracticeController }) {
                 </div>
                 <progress value={pieceProgress?.completed ?? 0} max={pieceProgress?.quests ?? 1} />
               </div>
-              <div className="piece-card-footer">
-                <small>
-                  {latest
-                    ? "Last practiced " + new Date(latest.date).toLocaleDateString()
-                    : "Ready for your first practice"}
-                </small>
-                <div className="piece-actions">
-                  <button
-                    className="secondary"
-                    onClick={() => {
-                      c.selectSong(song);
-                      c.listen();
-                    }}
-                    aria-label={"Listen to " + song.title}
-                  >
-                    <Icon name="volume" />
-                    Listen
-                  </button>
-                  <button
-                    className="primary"
-                    aria-label={"Practice " + song.title}
-                    onClick={() => c.selectSong(song)}
-                  >
-                    Practice <Icon name="arrow" />
-                  </button>
-                  <details className="item-menu">
-                    <summary aria-label={"Options for " + song.title}>⋯</summary>
-                    <div>
-                      <button
-                        onClick={() => {
-                          setEditing(song.id);
-                          setTitle(song.title);
-                        }}
-                      >
-                        Rename
-                      </button>
-                      <button
-                        onClick={() =>
-                          void db.songs
-                            .delete(song.id)
-                            .then(c.reload)
-                            .catch(c.report)
-                        }
-                      >
-                        Delete piece
-                      </button>
-                    </div>
-                  </details>
-                </div>
+              <small className="piece-last-practiced">
+                {latest
+                  ? "Last practiced " + new Date(latest.date).toLocaleDateString()
+                  : "Ready for your first practice"}
+              </small>
+              <div className="piece-actions">
+                <button
+                  className="secondary"
+                  onClick={() => {
+                    c.selectSong(song);
+                    c.listen();
+                  }}
+                  aria-label={"Listen to " + song.title}
+                >
+                  <Icon name="volume" />
+                  Listen
+                </button>
+                <button
+                  className="primary"
+                  aria-label={"Practice " + song.title}
+                  onClick={() => c.selectSong(song)}
+                >
+                  Practice <Icon name="arrow" />
+                </button>
+                <details className="item-menu">
+                  <summary aria-label={"Options for " + song.title}>⋯</summary>
+                  <div>
+                    <button
+                      onClick={() => {
+                        setEditing(song.id);
+                        setTitle(song.title);
+                      }}
+                    >
+                      Rename
+                    </button>
+                    <button
+                      onClick={() =>
+                        void db.songs
+                          .delete(song.id)
+                          .then(c.reload)
+                          .catch(c.report)
+                      }
+                    >
+                      Delete piece
+                    </button>
+                  </div>
+                </details>
               </div>
             </article>
           );
