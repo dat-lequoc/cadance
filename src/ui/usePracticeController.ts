@@ -7,6 +7,7 @@ import { useLoops } from "./useLoops";
 import { useQuestPlan } from "./useQuestPlan";
 import { applyDashboardTheme } from "./theme";
 import { MidiDebugLog } from "../core/midi-debug";
+import { practiceHandsSeparately } from "../core/quest-editor";
 
 import { readPracticePreferences } from "../core/preferences";
 import { keyboardRange } from "../core/model";
@@ -71,6 +72,8 @@ export function usePracticeController() {
   const [updating, setUpdating] = useState(false);
   const [panel, setPanel] = useState<"tools" | "passages" | "quests" | null>(null);
   const [questDialogOpen, setQuestDialogOpen] = useState(false);
+  const [preparingHands, setPreparingHands] = useState(false);
+  const handsLock = useRef(false);
   const [review, setReview] = useState<Result | null>(null);
   const [pendingSaves, setPendingSaves] = useState<Result[]>([]);
   const pendingSave = pendingSaves[0] ?? null;
@@ -950,6 +953,33 @@ export function usePracticeController() {
         void play();
       } catch (error) {
         report(error);
+      }
+    },
+    preparingHands,
+    practiceHandsSeparately: async (id: string) => {
+      if (handsLock.current) return;
+      handsLock.current = true;
+      setPreparingHands(true);
+      const sourceSong = engine.song;
+      try {
+        if (!quests.runner.loaded) throw Error("Wait for your practice plan to load.");
+        const result = practiceHandsSeparately(quests.runner.loaded.plan, id);
+        cancelStart();
+        stopListenPreview();
+        stopReplay();
+        pause();
+        await quests.savePlan(result.plan);
+        if (engine.song !== sourceSong) return;
+        clearBrowse();
+        setPanel(null);
+        quests.runner.prepare(result.rightId);
+        setVisible("88");
+        await play();
+      } catch (error) {
+        report(error);
+      } finally {
+        handsLock.current = false;
+        setPreparingHands(false);
       }
     },
     audio,

@@ -106,7 +106,7 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
       </div>
       <div className="quest-editor-actions">
         <label>Split after bar<input aria-label="Split after bar" type="number" min="1" max={barCount - 1} value={form.split} onChange={(e) => setForm({ ...form, split: e.target.value })} /></label>
-        <button disabled={selected.length !== 1} onClick={() => void change(() => splitQuest(draft, selected[0], Number(form.split)))}>Split selected</button>
+        <button disabled={selected.length !== 1} onClick={() => void change(() => splitQuest(draft, selected[0], Number(form.split)))}>Split into shorter passages</button>
         <button disabled={selected.length !== 1 || draft.quests[0]?.id === selected[0]} onClick={() => move(-1)}>Move up</button>
         <button disabled={selected.length !== 1 || draft.quests.at(-1)?.id === selected[0]} onClick={() => move(1)}>Move down</button>
       </div>

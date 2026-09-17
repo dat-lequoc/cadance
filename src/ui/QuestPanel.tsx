@@ -4,6 +4,19 @@ import { questCount, questGoal } from "../core/quests";
 import { download } from "../core/files";
 import Dialog from "./Dialog";
 import QuestEditor from "./QuestEditor";
+
+export function SeparateHandsButton({ c, questId }: { c: PracticeController; questId: string }) {
+  const quest = c.quests.runner.loaded?.plan.quests.find((q) => q.id === questId);
+  if (quest?.hand !== "both") return null;
+  return <button
+    disabled={c.preparingHands || c.quests.loading || c.quests.runner.saving || !!c.quests.runner.error}
+    title="Practice right hand, then left hand, then return to this both-hands quest. Existing progress is kept."
+    onClick={(event) => {
+      event.currentTarget.closest("details")?.removeAttribute("open");
+      void c.practiceHandsSeparately(questId);
+    }}
+  >{c.preparingHands ? "Preparing hands…" : "Practice hands separately"}</button>;
+}
 export default function QuestPanel({ c }: { c: PracticeController }) {
   const input = useRef<HTMLInputElement>(null),
     [editing, setEditing] = useState(false),
@@ -61,6 +74,7 @@ export default function QuestPanel({ c }: { c: PracticeController }) {
               >
                 {complete ? "Continue quest" : "Start first quest"} →
               </button>
+              <SeparateHandsButton c={c} questId={next.id} />
             </div>
           ) : (
             <div className="next-quest">
@@ -351,6 +365,7 @@ export function QuestStatus({ c }: { c: PracticeController }) {
     >
       <div className={"quest-route-control" + (entering ? " quest-entering" : "")}>
       <QuestJourney c={c} />
+      <div className="quest-checkpoint-controls">
       <select
         key={planSignature}
         aria-label="Choose checkpoint"
@@ -381,6 +396,17 @@ export function QuestStatus({ c }: { c: PracticeController }) {
           </optgroup>
         ))}
       </select>
+      {quest && <details className="quest-options">
+        <summary aria-label="Current quest options">⋯</summary>
+        <div>
+          <SeparateHandsButton c={c} questId={quest.id} />
+          <button onClick={(event) => {
+            event.currentTarget.closest("details")?.removeAttribute("open");
+            c.openPanel("quests");
+          }}>Customize quests</button>
+        </div>
+      </details>}
+      </div>
       <div className="quest-transition" role="status" aria-live="polite" aria-atomic="true">
         {entering && runner.active && <div key={`${runner.activeId}:${runner.lastRun?.id ?? "start"}`} className="quest-transition-cue">
           <b>{continuing ? "↻ Continue" : "→ New quest"}</b>

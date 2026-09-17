@@ -126,6 +126,36 @@ test("can jump to an unfinished later checkpoint and back without earning runs",
   await expect(page.getByRole("button", { name: /Start first quest|Continue quest/ })).toContainText("Start first quest");
 });
 
+test("practice hands separately restores bar 21 in place and reuses it on repeated requests", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Customize quests", exact: true }).click();
+  await page.getByRole("button", { name: "Both hands only", exact: true }).click();
+  await page.getByRole("button", { name: "Save my plan", exact: true }).click();
+  await start(page);
+  const checkpoints = page.getByLabel("Choose checkpoint");
+  await checkpoints.selectOption("bars-21-21-together");
+  const countBefore = await checkpoints.locator("option").count();
+  await page.screenshot({ path: "test-results/quest-separate-hands.png" });
+  await page.getByRole("button", { name: "Practice hands separately", exact: true }).click();
+  await expect(checkpoints.locator("option:checked")).toContainText("Bar 21 · Right hand");
+  await expect(page.locator(".stage-feedback")).toContainText("Your turn");
+  await expect(checkpoints.locator("option")).toHaveCount(countBefore + 2);
+  const rightId = await checkpoints.inputValue();
+  const neighbors = await checkpoints.locator("option").evaluateAll((options, id) => {
+    const index = options.findIndex((option) => (option as HTMLOptionElement).value === id);
+    return options.slice(index, index + 3).map((option) => option.textContent);
+  }, rightId);
+  expect(neighbors[1]).toContain("Bar 21 · Left hand");
+  expect(neighbors[2]).toContain("Bar 21 · Both hands");
+  await checkpoints.selectOption("bars-21-21-together");
+  await page.getByLabel("Current quest options").click();
+  await page.locator(".quest-options").getByRole("button", { name: "Practice hands separately", exact: true }).click();
+  await expect(checkpoints).toHaveValue(rightId);
+  await expect(checkpoints.locator("option")).toHaveCount(countBefore + 2);
+  await page.reload();
+  await expect(page.locator(".next-quest h3")).toHaveText("Bar 21 · Right hand");
+});
+
 test("completed runs light the repetition track and clearing the checkpoint turns it gold", async ({
   page,
 }) => {

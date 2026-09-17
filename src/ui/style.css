@@ -3486,6 +3486,12 @@ legend {
 @media (min-width: 601px) and (max-width: 1100px) { .quest-section-number { display: none; } }
 @media (prefers-reduced-motion: reduce) { .quest-journey-track i { transition: none; } }
 
+.quest-checkpoint-controls { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.quest-options { position: relative; flex: none; }
+.quest-options > summary { cursor: pointer; list-style: none; padding: 0 8px; color: #e8eff7; border: 1px solid #4e6782; border-radius: 5px; }
+.quest-options > summary::-webkit-details-marker { display: none; }
+.quest-options > div { position: absolute; right: 0; top: 100%; z-index: 50; display: flex; flex-direction: column; padding: 8px; min-width: 220px; background: #20394f; border: 1px solid #4e6782; border-radius: 6px; box-shadow: 0 6px 20px #0005; }
+.quest-options button { color: #e8eff7; text-align: left; justify-content: flex-start; }
 .quest-route-control { position: relative; border-radius: 5px; }
 .quest-route-control.quest-entering { animation: quest-arrival-glow 1s ease-out; }
 .quest-transition { position: absolute; bottom: 0; inset-inline: 0; pointer-events: none; }

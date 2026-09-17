@@ -9,7 +9,7 @@ import DebugControls from "./DebugControls";
 import Dialog from "./Dialog";
 import LoopPanel from "./LoopPanel";
 import QuestEditor from "./QuestEditor";
-import { QuestStatus } from "./QuestPanel";
+import { QuestStatus, SeparateHandsButton } from "./QuestPanel";
 import { DisplayOptions, SoundOptions, Speed } from "./PracticeOptions";
 import { questBounds } from "../core/quests";
 import { Icon, duration, modeName } from "./shared";
@@ -473,6 +473,7 @@ export default function PlayerView({ c }: { c: PracticeController }) {
                   Passages
                 </button>
                 <button onClick={() => c.openPanel("quests")}>Customize quests</button>
+                {c.quests.runner.activeId && <SeparateHandsButton c={c} questId={c.quests.runner.activeId} />}
               </>
             )}
             <button onClick={() => c.openPanel("tools")}>

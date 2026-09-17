@@ -6,6 +6,23 @@ export const planMarkdown = (plan: PracticePlan) =>
 export const newQuestId = () => `custom-${crypto.randomUUID()}`;
 export const rangeTitle = (from: number, through: number) => from === through ? `Bar ${from}` : `Bars ${from}–${through}`;
 
+/** Keep existing checkpoints intact, grouping hand practice before the source. */
+export function practiceHandsSeparately(plan: PracticePlan, id: string) {
+  const source = plan.quests.find((q) => q.id === id);
+  if (!source || source.hand !== "both") throw Error("Choose a both-hands quest to practice hands separately.");
+  const hands = (["right", "left"] as const).map((hand) =>
+    plan.quests.find((q) => q.hand === hand && q.fromBar === source.fromBar &&
+      q.throughBar === source.throughBar && q.section === source.section &&
+      q.focus === source.focus && q.mode === source.mode) ?? {
+      ...source, id: newQuestId(), hand,
+      title: `${rangeTitle(source.fromBar, source.throughBar)} · ${hand === "right" ? "Right" : "Left"} hand`,
+      instruction: `Play every target note with your ${hand} hand in this passage.`,
+    });
+  const reused = new Set(hands.map((q) => q.id));
+  const quests = plan.quests.flatMap((q) => q.id === id ? [...hands, q] : reused.has(q.id) ? [] : [q]);
+  return { plan: { ...plan, quests }, rightId: hands[0].id };
+}
+
 /** Labels may change; earned runs must never move to a different task. */
 export function sameCheckpoint(a: Quest, aPlan: PracticePlan, b: Quest, bPlan: PracticePlan) {
   return aPlan.song.fingerprint === bPlan.song.fingerprint && aPlan.counting === bPlan.counting &&
