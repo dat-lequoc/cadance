@@ -156,6 +156,32 @@ test("practice hands separately restores bar 21 in place and reuses it on repeat
   await expect(page.locator(".next-quest h3")).toHaveText("Bar 21 · Right hand");
 });
 
+test("restore missing bar 22 hands in the editor and merge right-hand bars 21–22", async ({ page }) => {
+  await page.goto("/");
+  await page.getByRole("button", { name: "Customize quests", exact: true }).click();
+  const editor = page.getByRole("region", { name: "Quest editor" });
+  const selectQuest = (title: string) => editor.getByRole("checkbox", { name: new RegExp(`Select quest \\d+: ${title}$`) });
+  await editor.getByRole("button", { name: "Both hands only", exact: true }).click();
+  for (const bar of [21, 22]) {
+    await selectQuest(`Bar ${bar} · Both hands`).check();
+    await editor.getByRole("button", { name: "Practice hands separately", exact: true }).click();
+    await expect(selectQuest(`Bar ${bar} · Right hand`)).toHaveCount(1);
+  }
+  await selectQuest("Bar 21 · Right hand").check();
+  await selectQuest("Bar 22 · Right hand").check();
+  await expect(editor.getByLabel("Quest hands")).toHaveValue("right");
+  await editor.getByRole("button", { name: "Merge selected", exact: true }).click();
+  await expect(selectQuest("Bars 21–22 · Right hand")).toHaveCount(1);
+  await editor.getByRole("button", { name: "Save my plan", exact: true }).click();
+  await page.locator(".quest-map summary").click();
+  await page.getByRole("button", { name: /Start quest \d+: Bars 21–22 · Right hand/ }).click();
+  await page.getByRole("button", { name: "Use simulated input" }).click();
+  await expect(page.getByLabel("Active hand: Right hand")).toBeVisible();
+  await expect(page.getByLabel("Choose checkpoint").locator("option:checked")).toContainText("Bars 21–22 · Right hand");
+  await page.reload();
+  await expect(page.locator(".next-quest h3")).toHaveText("Bars 21–22 · Right hand");
+});
+
 test("completed runs light the repetition track and clearing the checkpoint turns it gold", async ({
   page,
 }) => {

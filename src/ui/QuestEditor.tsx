@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useRef, useState } from "react";
 import { measures } from "../core/loops";
-import { bothHandsOnly, mergeQuests, newQuestId, planMarkdown, rangeTitle, sameCheckpoint, splitQuest } from "../core/quest-editor";
+import { bothHandsOnly, mergeQuests, newQuestId, planMarkdown, practiceHandsSeparately, rangeTitle, sameCheckpoint, splitQuest } from "../core/quest-editor";
 import { questGoal, readPracticePlan, type PracticePlan, type Quest } from "../core/quests";
 import type { PracticeController } from "./usePracticeController";
 
@@ -31,7 +31,7 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
     const quests = draft.quests.filter((q) => ids.includes(q.id));
     if (!quests.length) return;
     const first = quests[0], from = Math.min(...quests.map((q) => q.fromBar)), through = Math.max(...quests.map((q) => q.throughBar));
-    setForm({ from: String(from), through: String(through), hand: quests.length === 1 ? first.hand : "both", runs: String(questGoal(draft, first)), title: quests.length === 1 ? first.title : "", section: first.section, split: String(Math.floor((from + through) / 2)) });
+    setForm({ from: String(from), through: String(through), hand: quests.every((q) => q.hand === first.hand) ? first.hand : "both", runs: String(questGoal(draft, first)), title: quests.length === 1 ? first.title : "", section: first.section, split: String(Math.floor((from + through) / 2)) });
   };
   const change = async (transform: () => PracticePlan) => {
     setError("");
@@ -46,7 +46,7 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
   };
   const settings = (): Partial<Quest> => ({
     fromBar: Number(form.from), throughBar: Number(form.through), hand: form.hand,
-    repetitions: Number(form.runs), title: form.title.trim() || rangeTitle(Number(form.from), Number(form.through)),
+    repetitions: Number(form.runs), title: form.title.trim() || `${rangeTitle(Number(form.from), Number(form.through))} · ${form.hand === "both" ? "Both hands" : form.hand === "right" ? "Right hand" : "Left hand"}`,
     section: form.section.trim() || "My passages",
   });
   const save = async (restore = false) => {
@@ -68,10 +68,12 @@ export default function QuestEditor({ c, onClose }: { c: PracticeController; onC
     <fieldset disabled={busy}>
       <div className="quest-editor-actions">
         <button onClick={() => void change(() => bothHandsOnly(draft))}>Both hands only</button>
+        <button disabled={selected.length !== 1 || draft.quests.find((q) => q.id === selected[0])?.hand !== "both"}
+          onClick={() => void change(() => practiceHandsSeparately(draft, selected[0]).plan)}>Practice hands separately</button>
         <button disabled={!selected.length} onClick={() => pick([])}>Clear selection</button>
         <button disabled={history.length < 2} onClick={() => { setHistory(history.slice(0, -1)); setSelected([]); setError(""); }}>Undo</button>
       </div>
-      <p className="quest-editor-help">Both hands only removes hand-by-hand duplicates without dropping passages. Select a section heading to merge its passages and reviews at once.</p>
+      <p className="quest-editor-help">Select a both-hands quest and choose Practice hands separately to add its right and left hands here. Save my plan applies your changes. Selecting quests for the same hand keeps that hand when merging.</p>
       {currentSection && <p className="quest-editor-current" role="status"><b>Current section</b> · {currentSection} <span>({currentQuestId === c.quests.runner.activeId ? "currently playing" : "last played"})</span></p>}
       <div className="quest-editor-list" role="group" aria-label="Quests to customize">
         {draft.quests.map((q, index) => <Fragment key={q.id}>

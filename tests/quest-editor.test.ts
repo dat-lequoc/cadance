@@ -59,4 +59,10 @@ describe("personal quest editing", () => {
   it("rejects merging a range with a gap", () => {
     expect(() => mergeQuests(plan([quest("a", 1, 2, "both"), quest("b", 4, 5, "both")]), ["a", "b"])).toThrow("gap");
   });
+  it("keeps the hand and labels it when merging right-hand bars 21–22", () => {
+    const original = plan([quest("r21", 21, 21, "right"), quest("b21", 21, 21, "both"), quest("r22", 22, 22, "right"), quest("b22", 22, 22, "both")]);
+    const result = mergeQuests(original, ["r21", "r22"]);
+    expect(result.quests[0]).toMatchObject({ fromBar: 21, throughBar: 22, hand: "right", title: "Bars 21–22 · Right hand" });
+    expect(result.quests.slice(1)).toEqual([original.quests[1], original.quests[3]]);
+  });
 });

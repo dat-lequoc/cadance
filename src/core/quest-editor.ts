@@ -68,9 +68,10 @@ export function mergeQuests(plan: PracticePlan, ids: string[], settings: Partial
     end = Math.max(end, q.throughBar);
   }
   const from = ordered[0].fromBar;
+  const hand = settings.hand ?? (selected.every((q) => q.hand === selected[0].hand) ? selected[0].hand : "both");
   const merged: Quest = {
-    ...selected[0], fromBar: from, throughBar: end, hand: "both", focus: "all",
-    title: rangeTitle(from, end), instruction: "Connect this whole passage, including the transitions between its parts.",
+    ...selected[0], fromBar: from, throughBar: end, hand, focus: "all",
+    title: `${rangeTitle(from, end)} · ${hand === "both" ? "Both hands" : hand === "right" ? "Right hand" : "Left hand"}`, instruction: "Connect this whole passage, including the transitions between its parts.",
     ...settings, id: newQuestId(),
   };
   const first = plan.quests.indexOf(selected[0]);
