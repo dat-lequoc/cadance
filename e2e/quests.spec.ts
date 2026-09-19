@@ -424,6 +424,30 @@ test("practice starts immediately, ignores hand placement and shows section boun
   await expect(page.locator(".stage-feedback")).toContainText("Your turn");
 });
 
+test("later completed quests fill their own segment and retain their count when replayed", async ({ page }) => {
+  await loadFixture(page, 1);
+  await start(page);
+  const checkpoint = page.getByLabel("Choose checkpoint");
+  await checkpoint.selectOption("bar-2");
+  await page.locator(".stage").click({ position: { x: 10, y: 80 } });
+  await page.keyboard.press("s");
+  await expect(page.locator('.quest-journey-checkpoint[data-quest-id="bar-2"]')).toHaveClass(/completed/);
+  await expect(page.locator('.quest-journey-checkpoint[data-quest-id="bar-1"]')).not.toHaveClass(/completed/);
+  await expect(page.locator('.quest-journey-checkpoint[data-quest-id="bar-1"] i')).toHaveAttribute("style", "width: 0%;");
+  await expect(page.locator('.quest-journey-checkpoint[data-quest-id="bar-2"] i')).toHaveAttribute("style", "width: 100%;");
+  await expect(checkpoint.locator('option[value="bar-2"]')).toContainText("Completed ✓");
+  await expect(checkpoint.locator('option[value="bar-1"]')).toContainText("0/1 runs");
+  await checkpoint.selectOption("bar-1");
+  await checkpoint.selectOption("bar-2");
+  await expect(page.locator(".quest-run-label strong")).toHaveText("1 / 1 completed runs");
+  await page.reload();
+  await start(page);
+  await expect(checkpoint).toHaveValue("bar-2");
+  await expect(page.locator(".quest-run-label strong")).toHaveText("1 / 1 completed runs");
+  await expect(page.locator('.quest-journey-checkpoint[data-quest-id="bar-2"]')).toHaveClass(/completed/);
+  await page.screenshot({ path: "test-results/quest-nonconsecutive-progress.png" });
+});
+
 test("manual completion advances without played runs and survives reload", async ({ page }) => {
   await loadFixture(page);
   await start(page);

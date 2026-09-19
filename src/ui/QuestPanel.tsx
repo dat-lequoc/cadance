@@ -323,8 +323,17 @@ function QuestJourney({ c }: { c: PracticeController }) {
         {sections.map((section, i) => {
           const quests = plan.quests.filter((q) => q.section === section);
           const cleared = quests.filter((q) => runner.progress.passes[q.id]?.completed).length;
-          const fill = quests.reduce((sum, q) => sum + earned(q), 0) / quests.length;
-          return <span key={section} className={(cleared === quests.length ? "cleared " : "") + (section === current ? "current" : "")} style={{ flex: quests.length }} title={`Section ${i + 1}: ${section} · ${cleared} / ${quests.length} checkpoints cleared`}><i style={{ width: `${fill * 100}%` }} /></span>;
+          return <span key={section} className={"quest-journey-section " + (section === current ? "current" : "")} style={{ flex: quests.length }} title={`Section ${i + 1}: ${section} · ${cleared} / ${quests.length} checkpoints cleared`}>
+            {quests.map((q) => {
+              const complete = !!runner.progress.passes[q.id]?.completed;
+              const count = complete ? questGoal(plan, q) : questCount(plan, runner.progress, q);
+              const label = `${q.title} · ${complete ? "Completed" : `${count}/${questGoal(plan, q)} runs`}`;
+              return <span key={q.id} className={"quest-journey-checkpoint" + (complete ? " completed" : "") + (q.id === runner.activeId ? " active" : "")}
+                data-quest-id={q.id} title={label} aria-label={label}>
+                <i style={{ width: `${earned(q) * 100}%` }} />
+              </span>;
+            })}
+          </span>;
         })}
       </div>
     </div>
@@ -389,8 +398,7 @@ export function QuestStatus({ c }: { c: PracticeController }) {
             key={q.id}
             value={q.id}
           >
-            {runner.progress.passes[q.id]?.completed ? "✓ " : ""}
-            {i + 1}. {q.title}
+            {i + 1}. {q.title} · {runner.progress.passes[q.id]?.completed ? "Completed ✓" : `${questCount(plan, runner.progress, q)}/${questGoal(plan, q)} runs`}
           </option>
           ))}
           </optgroup>

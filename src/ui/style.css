@@ -3477,11 +3477,13 @@ legend {
 .quest-journey-label b { color: #c6ee91; margin-left: 5px; font-weight: 650; }
 .quest-journey-label > span:first-child { overflow: hidden; text-overflow: ellipsis; }
 .quest-section-number { color: #8faac0; }
-.quest-journey-track { display: flex; gap: 3px; height: 4px; margin-top: 2px; }
-.quest-journey-track > span { background: #34485a; overflow: hidden; border-radius: 2px; min-width: 2px; }
+.quest-journey-track { display: flex; gap: 4px; height: 6px; margin-top: 2px; }
+.quest-journey-section { display: flex; min-width: 0; border-radius: 2px; }
+.quest-journey-checkpoint { position: relative; flex: 1; min-width: 0; background: #34485a; overflow: hidden; border-radius: 1px; }
 .quest-journey-track > span.current { outline: 1px solid #8cabc7; outline-offset: 1px; }
-.quest-journey-track i { display: block; height: 100%; background: #b9ed83; transition: width .5s ease-out; }
-.quest-journey-track > span.cleared i { background: #ffd277; }
+.quest-journey-track i { display: block; height: 100%; background: #6aa479; transition: width .5s ease-out; }
+.quest-journey-checkpoint.completed i { background: #b9ed83; }
+.quest-journey-checkpoint.active { box-shadow: inset 0 0 0 1px #e8eff7; }
 .player-header .quest-counter { min-height: 0; }
 @media (min-width: 601px) and (max-width: 1100px) { .quest-section-number { display: none; } }
 @media (prefers-reduced-motion: reduce) { .quest-journey-track i { transition: none; } }
