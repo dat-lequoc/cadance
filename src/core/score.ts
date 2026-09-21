@@ -124,6 +124,20 @@ export function scoreAnchorAt(bar: ScoreBar, map: TempoMap, seconds: number) {
   return bar.anchors?.findLast((anchor) => anchor.tick <= tick + 1e-7) ?? null;
 }
 
+/** Return a smoothly moving cursor position between printed note anchors. */
+export function scoreCursorAt(bar: ScoreBar, map: TempoMap, seconds: number) {
+  const anchors = bar.anchors;
+  if (!anchors?.length) return null;
+  const tick = map.ticks(Number.isFinite(seconds) ? seconds : 0);
+  const nextIndex = anchors.findIndex((anchor) => anchor.tick > tick);
+  if (nextIndex <= 0) return anchors[0].x;
+  if (nextIndex < 0) return anchors.at(-1)!.x;
+  const before = anchors[nextIndex - 1];
+  const after = anchors[nextIndex];
+  const amount = (tick - before.tick) / Math.max(1, after.tick - before.tick);
+  return before.x + (after.x - before.x) * Math.max(0, Math.min(1, amount));
+}
+
 /** Name and diatonic staff position for an actual MIDI pitch, including accidentals. */
 export function scorePitch(pitch: number, flats = false) {
   const names = flats ? ["C", "D♭", "D", "E♭", "E", "F", "G♭", "G", "A♭", "A", "B♭", "B"] :

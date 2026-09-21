@@ -1,7 +1,7 @@
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { TempoMap } from "../core/model";
 import { pieceNoteFor } from "../core/piece-notes";
-import { playedScorePosition, scorePitch, scoreAnchorAt, scoreBarAt, type PreparedScore } from "../core/score";
+import { playedScorePosition, scorePitch, scoreAnchorAt, scoreBarAt, scoreCursorAt, type PreparedScore } from "../core/score";
 import type { PracticeController } from "./usePracticeController";
 import PieceNote from "./PieceNote";
 
@@ -32,7 +32,7 @@ export default function ScoreStrip({
     : 0;
   // Scores without note anchors still receive a moving cursor from verified
   // MIDI bar geometry; anchors remain more precise when available.
-  const cursorX = anchor?.x ?? bar.left + (bar.right - bar.left) * barProgress;
+  const cursorX = scoreCursorAt(bar, map, position) ?? bar.left + (bar.right - bar.left) * barProgress;
   const only = c.sheetOnly;
   const required = new Set(c.engine.group?.notes.filter((n) => n.tick === anchor?.tick).map((n) => n.pitch - c.config.transpose) ?? []);
   const [browsing, setBrowsing] = useState<number | null>(null);
