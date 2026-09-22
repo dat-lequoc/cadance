@@ -1,0 +1,4216 @@
+{
+  "version": 1,
+  "fingerprint": "ef92d9deff0e3220dea8d3cb151bc26480cd4e3ab557fd1cb282b6746585d95a",
+  "sourcePdf": "/pieces/chopin-waterfall-op-10-no-1.pdf",
+  "pdfSha256": "6f8ea4b25f30dc071d79538548b201a6e0470e683144ce21da35a4b4886573b2",
+  "systems": [
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-01.png",
+      "width": 1717,
+      "height": 452,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 2,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.1168053,
+              "y": 0.3993351,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.1168053,
+              "y": 0.6472988,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-02.png",
+      "width": 1717,
+      "height": 452,
+      "page": 1,
+      "fromBar": 3,
+      "throughBar": 4,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3988744,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6468401,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-03.png",
+      "width": 1717,
+      "height": 451,
+      "page": 1,
+      "fromBar": 5,
+      "throughBar": 7,
+      "staves": [
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3993044,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6478179,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-04.png",
+      "width": 1717,
+      "height": 451,
+      "page": 1,
+      "fromBar": 8,
+      "throughBar": 10,
+      "staves": [
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3988495,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6473634,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-05.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 11,
+      "throughBar": 12,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3997356,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6477001,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-06.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 13,
+      "throughBar": 15,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3986473,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6466131,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-07.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 16,
+      "throughBar": 17,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3997774,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.647736,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-08.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 18,
+      "throughBar": 20,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3986889,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6466526,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-09.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 21,
+      "throughBar": 23,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3998127,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6477764,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-10.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 24,
+      "throughBar": 25,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425129,
+              "y": 0.3985677,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425129,
+              "y": 0.6465318,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-11.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 26,
+      "throughBar": 27,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3985538,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6465195,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-12.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 28,
+      "throughBar": 29,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3985401,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6465038,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-13.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 30,
+      "throughBar": 31,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.398534,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6464998,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-14.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 32,
+      "throughBar": 33,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3985205,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6464863,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-15.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 34,
+      "throughBar": 35,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.042514,
+              "y": 0.3986085,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.042514,
+              "y": 0.6465726,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-16.png",
+      "width": 1717,
+      "height": 451,
+      "page": 4,
+      "fromBar": 36,
+      "throughBar": 37,
+      "staves": [
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425136,
+              "y": 0.3987156,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425136,
+              "y": 0.6472295,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-17.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 38,
+      "throughBar": 40,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3992752,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6472391,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-18.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 41,
+      "throughBar": 43,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3984939,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6464576,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-19.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 44,
+      "throughBar": 46,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3999387,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6479024,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-20.png",
+      "width": 1717,
+      "height": 467,
+      "page": 5,
+      "fromBar": 47,
+      "throughBar": 48,
+      "staves": [
+        {
+          "step": 0.016,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3868147,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6588145,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-21.png",
+      "width": 1717,
+      "height": 451,
+      "page": 5,
+      "fromBar": 49,
+      "throughBar": 51,
+      "staves": [
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3990543,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0165676,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6475679,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-22.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 52,
+      "throughBar": 54,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3990232,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6469889,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-23.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 55,
+      "throughBar": 56,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425139,
+              "y": 0.3998761,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425139,
+              "y": 0.6478398,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-24.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 57,
+      "throughBar": 58,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3985238,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6464879,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-25.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 59,
+      "throughBar": 60,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3985665,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6465318,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-26.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 61,
+      "throughBar": 62,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3988453,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.646809,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-27.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 63,
+      "throughBar": 64,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.399125,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6470909,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-28.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 65,
+      "throughBar": 66,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3994115,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6473752,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-29.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 67,
+      "throughBar": 68,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.3996907,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6476544,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-30.png",
+      "width": 1717,
+      "height": 436,
+      "page": 7,
+      "fromBar": 69,
+      "throughBar": 70,
+      "staves": [
+        {
+          "step": 0.0171376,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.4128747,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0171376,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6356632,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-31.png",
+      "width": 1717,
+      "height": 445,
+      "page": 7,
+      "fromBar": 71,
+      "throughBar": 72,
+      "staves": [
+        {
+          "step": 0.016791,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.4058743,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016791,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6409476,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-32.png",
+      "width": 1717,
+      "height": 452,
+      "page": 7,
+      "fromBar": 73,
+      "throughBar": 74,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.399007,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425134,
+              "y": 0.6469737,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-33.png",
+      "width": 1717,
+      "height": 489,
+      "page": 7,
+      "fromBar": 75,
+      "throughBar": 76,
+      "staves": [
+        {
+          "step": 0.0152802,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3683231,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.0152802,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6739256,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "image": "/scores/chopin-waterfall-op-10-no-1/system-34.png",
+      "width": 1717,
+      "height": 452,
+      "page": 7,
+      "fromBar": 77,
+      "throughBar": 79,
+      "staves": [
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.3991788,
+              "pitch": 67
+            }
+          ]
+        },
+        {
+          "step": 0.016531,
+          "clefs": [
+            {
+              "x": 0.0425138,
+              "y": 0.6471425,
+              "pitch": 53
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1536,
+      "system": 0,
+      "left": 0.1097612,
+      "right": 0.5879616
+    },
+    {
+      "number": 2,
+      "tick": 1536,
+      "endTick": 3072,
+      "system": 0,
+      "left": 0.5879616,
+      "right": 0.9897903
+    },
+    {
+      "number": 3,
+      "tick": 3072,
+      "endTick": 4608,
+      "system": 1,
+      "left": 0.0354688,
+      "right": 0.4404776
+    },
+    {
+      "number": 4,
+      "tick": 4608,
+      "endTick": 6144,
+      "system": 1,
+      "left": 0.4404776,
+      "right": 0.8026092
+    },
+    {
+      "number": 5,
+      "tick": 6144,
+      "endTick": 7680,
+      "system": 2,
+      "left": 0.0354688,
+      "right": 0.2536808
+    },
+    {
+      "number": 6,
+      "tick": 7680,
+      "endTick": 9216,
+      "system": 2,
+      "left": 0.2536808,
+      "right": 0.618608
+    },
+    {
+      "number": 7,
+      "tick": 9216,
+      "endTick": 10752,
+      "system": 2,
+      "left": 0.618608,
+      "right": 0.9897903
+    },
+    {
+      "number": 8,
+      "tick": 10752,
+      "endTick": 12288,
+      "system": 3,
+      "left": 0.0354688,
+      "right": 0.3853524
+    },
+    {
+      "number": 9,
+      "tick": 12288,
+      "endTick": 13824,
+      "system": 3,
+      "left": 0.3853524,
+      "right": 0.6910483
+    },
+    {
+      "number": 10,
+      "tick": 13824,
+      "endTick": 15360,
+      "system": 3,
+      "left": 0.6910483,
+      "right": 0.9897903
+    },
+    {
+      "number": 11,
+      "tick": 15360,
+      "endTick": 16896,
+      "system": 4,
+      "left": 0.0354688,
+      "right": 0.5306348
+    },
+    {
+      "number": 12,
+      "tick": 16896,
+      "endTick": 18432,
+      "system": 4,
+      "left": 0.5306348,
+      "right": 0.9897903
+    },
+    {
+      "number": 13,
+      "tick": 18432,
+      "endTick": 19968,
+      "system": 5,
+      "left": 0.0354688,
+      "right": 0.3832382
+    },
+    {
+      "number": 14,
+      "tick": 19968,
+      "endTick": 21504,
+      "system": 5,
+      "left": 0.3832382,
+      "right": 0.683081
+    },
+    {
+      "number": 15,
+      "tick": 21504,
+      "endTick": 23040,
+      "system": 5,
+      "left": 0.683081,
+      "right": 0.9897903
+    },
+    {
+      "number": 16,
+      "tick": 23040,
+      "endTick": 24576,
+      "system": 6,
+      "left": 0.0354688,
+      "right": 0.4344671
+    },
+    {
+      "number": 17,
+      "tick": 24576,
+      "endTick": 26112,
+      "system": 6,
+      "left": 0.4344671,
+      "right": 0.8064007
+    },
+    {
+      "number": 18,
+      "tick": 26112,
+      "endTick": 27648,
+      "system": 7,
+      "left": 0.0354688,
+      "right": 0.2561969
+    },
+    {
+      "number": 19,
+      "tick": 27648,
+      "endTick": 29184,
+      "system": 7,
+      "left": 0.2561969,
+      "right": 0.6315725
+    },
+    {
+      "number": 20,
+      "tick": 29184,
+      "endTick": 30720,
+      "system": 7,
+      "left": 0.6315725,
+      "right": 0.9897903
+    },
+    {
+      "number": 21,
+      "tick": 30720,
+      "endTick": 32256,
+      "system": 8,
+      "left": 0.0354688,
+      "right": 0.3717764
+    },
+    {
+      "number": 22,
+      "tick": 32256,
+      "endTick": 33792,
+      "system": 8,
+      "left": 0.3717764,
+      "right": 0.6967793
+    },
+    {
+      "number": 23,
+      "tick": 33792,
+      "endTick": 35328,
+      "system": 8,
+      "left": 0.6967793,
+      "right": 0.9897903
+    },
+    {
+      "number": 24,
+      "tick": 35328,
+      "endTick": 36864,
+      "system": 9,
+      "left": 0.0354688,
+      "right": 0.5265288
+    },
+    {
+      "number": 25,
+      "tick": 36864,
+      "endTick": 38400,
+      "system": 9,
+      "left": 0.5265288,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 36864,
+          "x": 0.5490507,
+          "notes": [
+            {
+              "pitch": 33,
+              "x": 0.5490507,
+              "y": 0.8449336
+            },
+            {
+              "pitch": 45,
+              "x": 0.5490507,
+              "y": 0.7291814
+            }
+          ]
+        },
+        {
+          "tick": 36960,
+          "x": 0.572813,
+          "notes": [
+            {
+              "pitch": 52,
+              "x": 0.572813,
+              "y": 0.6630752
+            }
+          ]
+        },
+        {
+          "tick": 37056,
+          "x": 0.6012405,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.6012405,
+              "y": 0.6134956
+            }
+          ]
+        },
+        {
+          "tick": 37152,
+          "x": 0.6319744,
+          "notes": [
+            {
+              "pitch": 61,
+              "x": 0.6319744,
+              "y": 0.5803761
+            }
+          ]
+        },
+        {
+          "tick": 37248,
+          "x": 0.6617822,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.6617822,
+              "y": 0.3985841
+            }
+          ]
+        },
+        {
+          "tick": 37344,
+          "x": 0.6876762,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.6876762,
+              "y": 0.4316372
+            }
+          ]
+        },
+        {
+          "tick": 37440,
+          "x": 0.7161037,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.7161037,
+              "y": 0.3820575
+            }
+          ]
+        },
+        {
+          "tick": 37536,
+          "x": 0.7468375,
+          "notes": [
+            {
+              "pitch": 73,
+              "x": 0.7468375,
+              "y": 0.3490044
+            }
+          ]
+        },
+        {
+          "tick": 37632,
+          "x": 0.7766453,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.7766453,
+              "y": 0.2828319
+            }
+          ]
+        },
+        {
+          "tick": 37728,
+          "x": 0.8025393,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.8025393,
+              "y": 0.315885
+            }
+          ]
+        },
+        {
+          "tick": 37824,
+          "x": 0.8309668,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.8309668,
+              "y": 0.2663053
+            }
+          ]
+        },
+        {
+          "tick": 37920,
+          "x": 0.8617006,
+          "notes": [
+            {
+              "pitch": 85,
+              "x": 0.8617006,
+              "y": 0.2332522
+            }
+          ]
+        },
+        {
+          "tick": 38016,
+          "x": 0.8915084,
+          "notes": [
+            {
+              "pitch": 91,
+              "x": 0.8915084,
+              "y": 0.167146
+            }
+          ]
+        },
+        {
+          "tick": 38112,
+          "x": 0.9174024,
+          "notes": [
+            {
+              "pitch": 85,
+              "x": 0.9174024,
+              "y": 0.2332522
+            }
+          ]
+        },
+        {
+          "tick": 38208,
+          "x": 0.9432964,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.9432964,
+              "y": 0.2663053
+            }
+          ]
+        },
+        {
+          "tick": 38304,
+          "x": 0.9691904,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.9691904,
+              "y": 0.315885
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 26,
+      "tick": 38400,
+      "endTick": 39936,
+      "system": 10,
+      "left": 0.0354688,
+      "right": 0.5319802,
+      "anchors": [
+        {
+          "tick": 38400,
+          "x": 0.0936866,
+          "notes": [
+            {
+              "pitch": 38,
+              "x": 0.0946476,
+              "y": 0.7953319
+            },
+            {
+              "pitch": 50,
+              "x": 0.0946476,
+              "y": 0.6795796
+            },
+            {
+              "pitch": 91,
+              "x": 0.0917647,
+              "y": 0.1671239
+            }
+          ]
+        },
+        {
+          "tick": 38496,
+          "x": 0.1248224,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.1248224,
+              "y": 0.2332301
+            }
+          ]
+        },
+        {
+          "tick": 38592,
+          "x": 0.1508212,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.1508212,
+              "y": 0.2662832
+            }
+          ]
+        },
+        {
+          "tick": 38688,
+          "x": 0.17682,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.17682,
+              "y": 0.3159292
+            }
+          ]
+        },
+        {
+          "tick": 38784,
+          "x": 0.2053698,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.2053698,
+              "y": 0.2828097
+            }
+          ]
+        },
+        {
+          "tick": 38880,
+          "x": 0.2352999,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.2352999,
+              "y": 0.3489823
+            }
+          ]
+        },
+        {
+          "tick": 38976,
+          "x": 0.2612988,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.2612988,
+              "y": 0.3820354
+            }
+          ]
+        },
+        {
+          "tick": 39072,
+          "x": 0.2872801,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.2872801,
+              "y": 0.431615
+            }
+          ]
+        },
+        {
+          "tick": 39168,
+          "x": 0.3145545,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.3145545,
+              "y": 0.3985619
+            }
+          ]
+        },
+        {
+          "tick": 39264,
+          "x": 0.3444846,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.3444846,
+              "y": 0.4646681
+            }
+          ]
+        },
+        {
+          "tick": 39360,
+          "x": 0.3730344,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.3730344,
+              "y": 0.6134735
+            }
+          ]
+        },
+        {
+          "tick": 39456,
+          "x": 0.3990332,
+          "notes": [
+            {
+              "pitch": 52,
+              "x": 0.3990332,
+              "y": 0.6630531
+            }
+          ]
+        },
+        {
+          "tick": 39552,
+          "x": 0.4298893,
+          "notes": [
+            {
+              "pitch": 66,
+              "x": 0.4298893,
+              "y": 0.4150885
+            }
+          ]
+        },
+        {
+          "tick": 39648,
+          "x": 0.4558882,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.4558882,
+              "y": 0.4646681
+            }
+          ]
+        },
+        {
+          "tick": 39744,
+          "x": 0.484438,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.484438,
+              "y": 0.6134735
+            }
+          ]
+        },
+        {
+          "tick": 39840,
+          "x": 0.5104368,
+          "notes": [
+            {
+              "pitch": 50,
+              "x": 0.5104368,
+              "y": 0.6795796
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 27,
+      "tick": 39936,
+      "endTick": 41472,
+      "system": 10,
+      "left": 0.5319802,
+      "right": 0.9897903
+    },
+    {
+      "number": 28,
+      "tick": 41472,
+      "endTick": 43008,
+      "system": 11,
+      "left": 0.0354688,
+      "right": 0.520431
+    },
+    {
+      "number": 29,
+      "tick": 43008,
+      "endTick": 44544,
+      "system": 11,
+      "left": 0.520431,
+      "right": 0.9897903
+    },
+    {
+      "number": 30,
+      "tick": 44544,
+      "endTick": 46080,
+      "system": 12,
+      "left": 0.0354688,
+      "right": 0.5373966
+    },
+    {
+      "number": 31,
+      "tick": 46080,
+      "endTick": 47616,
+      "system": 12,
+      "left": 0.5373966,
+      "right": 0.9897903
+    },
+    {
+      "number": 32,
+      "tick": 47616,
+      "endTick": 49152,
+      "system": 13,
+      "left": 0.0354688,
+      "right": 0.538113
+    },
+    {
+      "number": 33,
+      "tick": 49152,
+      "endTick": 50688,
+      "system": 13,
+      "left": 0.538113,
+      "right": 0.9897903
+    },
+    {
+      "number": 34,
+      "tick": 50688,
+      "endTick": 52224,
+      "system": 14,
+      "left": 0.0354688,
+      "right": 0.5456436
+    },
+    {
+      "number": 35,
+      "tick": 52224,
+      "endTick": 53760,
+      "system": 14,
+      "left": 0.5456436,
+      "right": 0.9897903
+    },
+    {
+      "number": 36,
+      "tick": 53760,
+      "endTick": 55296,
+      "system": 15,
+      "left": 0.0354688,
+      "right": 0.5169016
+    },
+    {
+      "number": 37,
+      "tick": 55296,
+      "endTick": 56832,
+      "system": 15,
+      "left": 0.5169016,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 55296,
+          "x": 0.5394059,
+          "notes": [
+            {
+              "pitch": 38,
+              "x": 0.5394059,
+              "y": 0.7963636
+            }
+          ]
+        },
+        {
+          "tick": 55392,
+          "x": 0.5663832,
+          "notes": [
+            {
+              "pitch": 45,
+              "x": 0.5663832,
+              "y": 0.7300443
+            }
+          ]
+        },
+        {
+          "tick": 55488,
+          "x": 0.5947408,
+          "notes": [
+            {
+              "pitch": 50,
+              "x": 0.5947408,
+              "y": 0.6803548
+            }
+          ]
+        },
+        {
+          "tick": 55584,
+          "x": 0.6254222,
+          "notes": [
+            {
+              "pitch": 54,
+              "x": 0.6254222,
+              "y": 0.6472284
+            }
+          ]
+        },
+        {
+          "tick": 55680,
+          "x": 0.6551602,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.6551602,
+              "y": 0.4649667
+            }
+          ]
+        },
+        {
+          "tick": 55776,
+          "x": 0.6810017,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.6810017,
+              "y": 0.4980931
+            }
+          ]
+        },
+        {
+          "tick": 55872,
+          "x": 0.7093593,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.7093593,
+              "y": 0.4484035
+            }
+          ]
+        },
+        {
+          "tick": 55968,
+          "x": 0.7400408,
+          "notes": [
+            {
+              "pitch": 66,
+              "x": 0.7400408,
+              "y": 0.4152772
+            }
+          ]
+        },
+        {
+          "tick": 56064,
+          "x": 0.7697787,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.7697787,
+              "y": 0.3490244
+            }
+          ]
+        },
+        {
+          "tick": 56160,
+          "x": 0.7956028,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.7956028,
+              "y": 0.3821508
+            }
+          ]
+        },
+        {
+          "tick": 56256,
+          "x": 0.8239604,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.8239604,
+              "y": 0.3324612
+            }
+          ]
+        },
+        {
+          "tick": 56352,
+          "x": 0.8546418,
+          "notes": [
+            {
+              "pitch": 78,
+              "x": 0.8546418,
+              "y": 0.2993348
+            }
+          ]
+        },
+        {
+          "tick": 56448,
+          "x": 0.8843797,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.8843797,
+              "y": 0.2330155
+            }
+          ]
+        },
+        {
+          "tick": 56544,
+          "x": 0.9102038,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.9102038,
+              "y": 0.2661419
+            }
+          ]
+        },
+        {
+          "tick": 56640,
+          "x": 0.9385614,
+          "notes": [
+            {
+              "pitch": 86,
+              "x": 0.9385614,
+              "y": 0.2164523
+            }
+          ]
+        },
+        {
+          "tick": 56736,
+          "x": 0.9692429,
+          "notes": [
+            {
+              "pitch": 90,
+              "x": 0.9692429,
+              "y": 0.1833259
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 38,
+      "tick": 56832,
+      "endTick": 58368,
+      "system": 16,
+      "left": 0.0354688,
+      "right": 0.3927781
+    },
+    {
+      "number": 39,
+      "tick": 58368,
+      "endTick": 59904,
+      "system": 16,
+      "left": 0.3927781,
+      "right": 0.6968317
+    },
+    {
+      "number": 40,
+      "tick": 59904,
+      "endTick": 61440,
+      "system": 16,
+      "left": 0.6968317,
+      "right": 0.9897903
+    },
+    {
+      "number": 41,
+      "tick": 61440,
+      "endTick": 62976,
+      "system": 17,
+      "left": 0.0354688,
+      "right": 0.3819103,
+      "anchors": [
+        {
+          "tick": 61440,
+          "x": 0.0946476,
+          "notes": [
+            {
+              "pitch": 35,
+              "x": 0.0946476,
+              "y": 0.8282743
+            }
+          ]
+        },
+        {
+          "tick": 61536,
+          "x": 0.109866,
+          "notes": [
+            {
+              "pitch": 41,
+              "x": 0.109866,
+              "y": 0.7621681
+            }
+          ]
+        },
+        {
+          "tick": 61632,
+          "x": 0.1287187,
+          "notes": [
+            {
+              "pitch": 47,
+              "x": 0.1287187,
+              "y": 0.7125885
+            }
+          ]
+        },
+        {
+          "tick": 61728,
+          "x": 0.1475713,
+          "notes": [
+            {
+              "pitch": 50,
+              "x": 0.1475713,
+              "y": 0.6795354
+            }
+          ]
+        },
+        {
+          "tick": 61824,
+          "x": 0.166424,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.166424,
+              "y": 0.6134292
+            }
+          ]
+        },
+        {
+          "tick": 61920,
+          "x": 0.1841409,
+          "notes": [
+            {
+              "pitch": 53,
+              "x": 0.1841409,
+              "y": 0.6464823
+            }
+          ]
+        },
+        {
+          "tick": 62016,
+          "x": 0.2029936,
+          "notes": [
+            {
+              "pitch": 59,
+              "x": 0.2029936,
+              "y": 0.5968363
+            }
+          ]
+        },
+        {
+          "tick": 62112,
+          "x": 0.2207105,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.2207105,
+              "y": 0.4480973
+            }
+          ]
+        },
+        {
+          "tick": 62208,
+          "x": 0.2395632,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.2395632,
+              "y": 0.3819912
+            }
+          ]
+        },
+        {
+          "tick": 62304,
+          "x": 0.2572801,
+          "notes": [
+            {
+              "pitch": 65,
+              "x": 0.2572801,
+              "y": 0.4150442
+            }
+          ]
+        },
+        {
+          "tick": 62400,
+          "x": 0.2761328,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.2761328,
+              "y": 0.3654646
+            }
+          ]
+        },
+        {
+          "tick": 62496,
+          "x": 0.2949854,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.2949854,
+              "y": 0.3323451
+            }
+          ]
+        },
+        {
+          "tick": 62592,
+          "x": 0.3139255,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.3139255,
+              "y": 0.2662389
+            }
+          ]
+        },
+        {
+          "tick": 62688,
+          "x": 0.3316424,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.3316424,
+              "y": 0.299292
+            }
+          ]
+        },
+        {
+          "tick": 62784,
+          "x": 0.350495,
+          "notes": [
+            {
+              "pitch": 83,
+              "x": 0.350495,
+              "y": 0.2497124
+            }
+          ]
+        },
+        {
+          "tick": 62880,
+          "x": 0.3693477,
+          "notes": [
+            {
+              "pitch": 86,
+              "x": 0.3693477,
+              "y": 0.2166593
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 42,
+      "tick": 62976,
+      "endTick": 64512,
+      "system": 17,
+      "left": 0.3819103,
+      "right": 0.6862609,
+      "anchors": [
+        {
+          "tick": 62976,
+          "x": 0.3981421,
+          "notes": [
+            {
+              "pitch": 28,
+              "x": 0.3982469,
+              "y": 0.8944469
+            },
+            {
+              "pitch": 40,
+              "x": 0.3982469,
+              "y": 0.7786947
+            },
+            {
+              "pitch": 91,
+              "x": 0.3979324,
+              "y": 0.1670796
+            }
+          ]
+        },
+        {
+          "tick": 63072,
+          "x": 0.4155795,
+          "notes": [
+            {
+              "pitch": 86,
+              "x": 0.4155795,
+              "y": 0.2166593
+            }
+          ]
+        },
+        {
+          "tick": 63168,
+          "x": 0.433279,
+          "notes": [
+            {
+              "pitch": 83,
+              "x": 0.433279,
+              "y": 0.2497124
+            }
+          ]
+        },
+        {
+          "tick": 63264,
+          "x": 0.4509959,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.4509959,
+              "y": 0.3158186
+            }
+          ]
+        },
+        {
+          "tick": 63360,
+          "x": 0.4698486,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.4698486,
+              "y": 0.2827655
+            }
+          ]
+        },
+        {
+          "tick": 63456,
+          "x": 0.4875655,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.4875655,
+              "y": 0.3323451
+            }
+          ]
+        },
+        {
+          "tick": 63552,
+          "x": 0.5052825,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.5052825,
+              "y": 0.3654646
+            }
+          ]
+        },
+        {
+          "tick": 63648,
+          "x": 0.5229819,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.5229819,
+              "y": 0.4315708
+            }
+          ]
+        },
+        {
+          "tick": 63744,
+          "x": 0.5431276,
+          "notes": [
+            {
+              "pitch": 33,
+              "x": 0.5432324,
+              "y": 0.8448009
+            },
+            {
+              "pitch": 45,
+              "x": 0.5432324,
+              "y": 0.729115
+            },
+            {
+              "pitch": 69,
+              "x": 0.5429179,
+              "y": 0.3819912
+            }
+          ]
+        },
+        {
+          "tick": 63840,
+          "x": 0.5628538,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.5628538,
+              "y": 0.3488717
+            }
+          ]
+        },
+        {
+          "tick": 63936,
+          "x": 0.5817065,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.5817065,
+              "y": 0.2827655
+            }
+          ]
+        },
+        {
+          "tick": 64032,
+          "x": 0.5994234,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.5994234,
+              "y": 0.3158186
+            }
+          ]
+        },
+        {
+          "tick": 64128,
+          "x": 0.6182761,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.6182761,
+              "y": 0.2662389
+            }
+          ]
+        },
+        {
+          "tick": 64224,
+          "x": 0.6371462,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.6371462,
+              "y": 0.2331858
+            }
+          ]
+        },
+        {
+          "tick": 64320,
+          "x": 0.6559988,
+          "notes": [
+            {
+              "pitch": 91,
+              "x": 0.6559988,
+              "y": 0.1670796
+            }
+          ]
+        },
+        {
+          "tick": 64416,
+          "x": 0.6736983,
+          "notes": [
+            {
+              "pitch": 88,
+              "x": 0.6736983,
+              "y": 0.2001327
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 43,
+      "tick": 64512,
+      "endTick": 66048,
+      "system": 17,
+      "left": 0.6862609,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 64512,
+          "x": 0.7024928,
+          "notes": [
+            {
+              "pitch": 26,
+              "x": 0.7025976,
+              "y": 0.9109735
+            },
+            {
+              "pitch": 38,
+              "x": 0.7025976,
+              "y": 0.7952212
+            },
+            {
+              "pitch": 89,
+              "x": 0.7022831,
+              "y": 0.1836062
+            }
+          ]
+        },
+        {
+          "tick": 64608,
+          "x": 0.7199301,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.7199301,
+              "y": 0.2331858
+            }
+          ]
+        },
+        {
+          "tick": 64704,
+          "x": 0.7376296,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.7376296,
+              "y": 0.2662389
+            }
+          ]
+        },
+        {
+          "tick": 64800,
+          "x": 0.7553465,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.7553465,
+              "y": 0.3323451
+            }
+          ]
+        },
+        {
+          "tick": 64896,
+          "x": 0.7741992,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.7741992,
+              "y": 0.299292
+            }
+          ]
+        },
+        {
+          "tick": 64992,
+          "x": 0.7919161,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.7919161,
+              "y": 0.3489381
+            }
+          ]
+        },
+        {
+          "tick": 65088,
+          "x": 0.8096331,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.8096331,
+              "y": 0.3819912
+            }
+          ]
+        },
+        {
+          "tick": 65184,
+          "x": 0.8273326,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.8273326,
+              "y": 0.4480973
+            }
+          ]
+        },
+        {
+          "tick": 65280,
+          "x": 0.8474782,
+          "notes": [
+            {
+              "pitch": 31,
+              "x": 0.847583,
+              "y": 0.8613938
+            },
+            {
+              "pitch": 43,
+              "x": 0.847583,
+              "y": 0.7456416
+            },
+            {
+              "pitch": 67,
+              "x": 0.8472685,
+              "y": 0.3985177
+            }
+          ]
+        },
+        {
+          "tick": 65376,
+          "x": 0.8672044,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.8672044,
+              "y": 0.3654646
+            }
+          ]
+        },
+        {
+          "tick": 65472,
+          "x": 0.8860571,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.8860571,
+              "y": 0.299292
+            }
+          ]
+        },
+        {
+          "tick": 65568,
+          "x": 0.903774,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.903774,
+              "y": 0.3323451
+            }
+          ]
+        },
+        {
+          "tick": 65664,
+          "x": 0.9226267,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.9226267,
+              "y": 0.2827655
+            }
+          ]
+        },
+        {
+          "tick": 65760,
+          "x": 0.9414968,
+          "notes": [
+            {
+              "pitch": 83,
+              "x": 0.9414968,
+              "y": 0.2497124
+            }
+          ]
+        },
+        {
+          "tick": 65856,
+          "x": 0.9603494,
+          "notes": [
+            {
+              "pitch": 89,
+              "x": 0.9603494,
+              "y": 0.1836062
+            }
+          ]
+        },
+        {
+          "tick": 65952,
+          "x": 0.9780489,
+          "notes": [
+            {
+              "pitch": 86,
+              "x": 0.9780489,
+              "y": 0.2166593
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 44,
+      "tick": 66048,
+      "endTick": 67584,
+      "system": 18,
+      "left": 0.0354688,
+      "right": 0.3634246,
+      "anchors": [
+        {
+          "tick": 66048,
+          "x": 0.0919744,
+          "notes": [
+            {
+              "pitch": 24,
+              "x": 0.0920792,
+              "y": 0.9289159
+            },
+            {
+              "pitch": 36,
+              "x": 0.0920792,
+              "y": 0.8132301
+            },
+            {
+              "pitch": 88,
+              "x": 0.0917647,
+              "y": 0.2015487
+            }
+          ]
+        },
+        {
+          "tick": 66144,
+          "x": 0.10894,
+          "notes": [
+            {
+              "pitch": 83,
+              "x": 0.10894,
+              "y": 0.2511283
+            }
+          ]
+        },
+        {
+          "tick": 66240,
+          "x": 0.1261153,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.1261153,
+              "y": 0.2842478
+            }
+          ]
+        },
+        {
+          "tick": 66336,
+          "x": 0.1427839,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.1427839,
+              "y": 0.350354
+            }
+          ]
+        },
+        {
+          "tick": 66432,
+          "x": 0.1604135,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.1604135,
+              "y": 0.3173009
+            }
+          ]
+        },
+        {
+          "tick": 66528,
+          "x": 0.1770821,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.1770821,
+              "y": 0.3668805
+            }
+          ]
+        },
+        {
+          "tick": 66624,
+          "x": 0.1937333,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.1937333,
+              "y": 0.3999336
+            }
+          ]
+        },
+        {
+          "tick": 66720,
+          "x": 0.2104019,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.2104019,
+              "y": 0.4660398
+            }
+          ]
+        },
+        {
+          "tick": 66816,
+          "x": 0.2292371,
+          "notes": [
+            {
+              "pitch": 29,
+              "x": 0.2293419,
+              "y": 0.8793363
+            },
+            {
+              "pitch": 41,
+              "x": 0.2293419,
+              "y": 0.7636504
+            },
+            {
+              "pitch": 65,
+              "x": 0.2290274,
+              "y": 0.4164602
+            }
+          ]
+        },
+        {
+          "tick": 66912,
+          "x": 0.2476354,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.2476354,
+              "y": 0.3834071
+            }
+          ]
+        },
+        {
+          "tick": 67008,
+          "x": 0.2652825,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.2652825,
+              "y": 0.3173009
+            }
+          ]
+        },
+        {
+          "tick": 67104,
+          "x": 0.2819336,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.2819336,
+              "y": 0.350354
+            }
+          ]
+        },
+        {
+          "tick": 67200,
+          "x": 0.2995632,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.2995632,
+              "y": 0.3007743
+            }
+          ]
+        },
+        {
+          "tick": 67296,
+          "x": 0.3171928,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.3171928,
+              "y": 0.2677212
+            }
+          ]
+        },
+        {
+          "tick": 67392,
+          "x": 0.3348224,
+          "notes": [
+            {
+              "pitch": 88,
+              "x": 0.3348224,
+              "y": 0.2015487
+            }
+          ]
+        },
+        {
+          "tick": 67488,
+          "x": 0.3520151,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.3520151,
+              "y": 0.2346018
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 45,
+      "tick": 67584,
+      "endTick": 69120,
+      "system": 18,
+      "left": 0.3634246,
+      "right": 0.6488526,
+      "anchors": [
+        {
+          "tick": 67584,
+          "x": 0.3791905,
+          "notes": [
+            {
+              "pitch": 35,
+              "x": 0.3792895,
+              "y": 0.8297566
+            },
+            {
+              "pitch": 47,
+              "x": 0.3792895,
+              "y": 0.7140044
+            },
+            {
+              "pitch": 86,
+              "x": 0.3789924,
+              "y": 0.2180752
+            }
+          ]
+        },
+        {
+          "tick": 67680,
+          "x": 0.3997845,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.3997845,
+              "y": 0.2677212
+            }
+          ]
+        },
+        {
+          "tick": 67776,
+          "x": 0.4164531,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.4164531,
+              "y": 0.3007743
+            }
+          ]
+        },
+        {
+          "tick": 67872,
+          "x": 0.4331043,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.4331043,
+              "y": 0.3668805
+            }
+          ]
+        },
+        {
+          "tick": 67968,
+          "x": 0.4502621,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.4502621,
+              "y": 0.3338274
+            }
+          ]
+        },
+        {
+          "tick": 68064,
+          "x": 0.4669132,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.4669132,
+              "y": 0.3834071
+            }
+          ]
+        },
+        {
+          "tick": 68160,
+          "x": 0.4835818,
+          "notes": [
+            {
+              "pitch": 65,
+              "x": 0.4835818,
+              "y": 0.4164602
+            }
+          ]
+        },
+        {
+          "tick": 68256,
+          "x": 0.5002504,
+          "notes": [
+            {
+              "pitch": 59,
+              "x": 0.5002504,
+              "y": 0.4825664
+            }
+          ]
+        },
+        {
+          "tick": 68352,
+          "x": 0.51788,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.51788,
+              "y": 0.4495133
+            }
+          ]
+        },
+        {
+          "tick": 68448,
+          "x": 0.5355096,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.5355096,
+              "y": 0.6148451
+            }
+          ]
+        },
+        {
+          "tick": 68544,
+          "x": 0.5521607,
+          "notes": [
+            {
+              "pitch": 53,
+              "x": 0.5521607,
+              "y": 0.6478982
+            }
+          ]
+        },
+        {
+          "tick": 68640,
+          "x": 0.5688294,
+          "notes": [
+            {
+              "pitch": 47,
+              "x": 0.5688294,
+              "y": 0.7140044
+            }
+          ]
+        },
+        {
+          "tick": 68736,
+          "x": 0.5923471,
+          "notes": [
+            {
+              "pitch": 35,
+              "x": 0.5923471,
+              "y": 0.8297566
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 46,
+      "tick": 69120,
+      "endTick": 70656,
+      "system": 18,
+      "left": 0.6488526,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 69120,
+          "x": 0.6716365,
+          "notes": [
+            {
+              "pitch": 47,
+              "x": 0.6717938,
+              "y": 0.7140044
+            },
+            {
+              "pitch": 87,
+              "x": 0.6714793,
+              "y": 0.2180752
+            }
+          ]
+        },
+        {
+          "tick": 69216,
+          "x": 0.6922714,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.6922714,
+              "y": 0.2677212
+            }
+          ]
+        },
+        {
+          "tick": 69312,
+          "x": 0.7189517,
+          "notes": [
+            {
+              "pitch": 78,
+              "x": 0.7189517,
+              "y": 0.3007743
+            }
+          ]
+        },
+        {
+          "tick": 69408,
+          "x": 0.7356203,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.7356203,
+              "y": 0.3668805
+            }
+          ]
+        },
+        {
+          "tick": 69504,
+          "x": 0.7623005,
+          "notes": [
+            {
+              "pitch": 75,
+              "x": 0.7623005,
+              "y": 0.3338274
+            }
+          ]
+        },
+        {
+          "tick": 69600,
+          "x": 0.7789691,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.7789691,
+              "y": 0.3834071
+            }
+          ]
+        },
+        {
+          "tick": 69696,
+          "x": 0.8056494,
+          "notes": [
+            {
+              "pitch": 66,
+              "x": 0.8056494,
+              "y": 0.4164602
+            }
+          ]
+        },
+        {
+          "tick": 69792,
+          "x": 0.822318,
+          "notes": [
+            {
+              "pitch": 59,
+              "x": 0.822318,
+              "y": 0.4825664
+            }
+          ]
+        },
+        {
+          "tick": 69888,
+          "x": 0.8489983,
+          "notes": [
+            {
+              "pitch": 63,
+              "x": 0.8489983,
+              "y": 0.4495133
+            }
+          ]
+        },
+        {
+          "tick": 69984,
+          "x": 0.8666278,
+          "notes": [
+            {
+              "pitch": 57,
+              "x": 0.8666278,
+              "y": 0.6148451
+            }
+          ]
+        },
+        {
+          "tick": 70080,
+          "x": 0.8933256,
+          "notes": [
+            {
+              "pitch": 54,
+              "x": 0.8933256,
+              "y": 0.6478982
+            }
+          ]
+        },
+        {
+          "tick": 70176,
+          "x": 0.9099942,
+          "notes": [
+            {
+              "pitch": 47,
+              "x": 0.9099942,
+              "y": 0.7140044
+            }
+          ]
+        },
+        {
+          "tick": 70272,
+          "x": 0.9340885,
+          "notes": [
+            {
+              "pitch": 35,
+              "x": 0.9340885,
+              "y": 0.8297566
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 47,
+      "tick": 70656,
+      "endTick": 72192,
+      "system": 19,
+      "left": 0.0354688,
+      "right": 0.5317006
+    },
+    {
+      "number": 48,
+      "tick": 72192,
+      "endTick": 73728,
+      "system": 19,
+      "left": 0.5317006,
+      "right": 0.9897903
+    },
+    {
+      "number": 49,
+      "tick": 73728,
+      "endTick": 75264,
+      "system": 20,
+      "left": 0.0354688,
+      "right": 0.3826616
+    },
+    {
+      "number": 50,
+      "tick": 75264,
+      "endTick": 76800,
+      "system": 20,
+      "left": 0.3826616,
+      "right": 0.6834653
+    },
+    {
+      "number": 51,
+      "tick": 76800,
+      "endTick": 78336,
+      "system": 20,
+      "left": 0.6834653,
+      "right": 0.9897903
+    },
+    {
+      "number": 52,
+      "tick": 78336,
+      "endTick": 79872,
+      "system": 21,
+      "left": 0.0354688,
+      "right": 0.3648923
+    },
+    {
+      "number": 53,
+      "tick": 79872,
+      "endTick": 81408,
+      "system": 21,
+      "left": 0.3648923,
+      "right": 0.6645079
+    },
+    {
+      "number": 54,
+      "tick": 81408,
+      "endTick": 82944,
+      "system": 21,
+      "left": 0.6645079,
+      "right": 0.9897903
+    },
+    {
+      "number": 55,
+      "tick": 82944,
+      "endTick": 84480,
+      "system": 22,
+      "left": 0.0354688,
+      "right": 0.5438439
+    },
+    {
+      "number": 56,
+      "tick": 84480,
+      "endTick": 86016,
+      "system": 22,
+      "left": 0.5438439,
+      "right": 0.9897903
+    },
+    {
+      "number": 57,
+      "tick": 86016,
+      "endTick": 87552,
+      "system": 23,
+      "left": 0.0354688,
+      "right": 0.5390914
+    },
+    {
+      "number": 58,
+      "tick": 87552,
+      "endTick": 89088,
+      "system": 23,
+      "left": 0.5390914,
+      "right": 0.9897903
+    },
+    {
+      "number": 59,
+      "tick": 89088,
+      "endTick": 90624,
+      "system": 24,
+      "left": 0.0354688,
+      "right": 0.5265463
+    },
+    {
+      "number": 60,
+      "tick": 90624,
+      "endTick": 92160,
+      "system": 24,
+      "left": 0.5265463,
+      "right": 0.9897903
+    },
+    {
+      "number": 61,
+      "tick": 92160,
+      "endTick": 93696,
+      "system": 25,
+      "left": 0.0354688,
+      "right": 0.5408561
+    },
+    {
+      "number": 62,
+      "tick": 93696,
+      "endTick": 95232,
+      "system": 25,
+      "left": 0.5408561,
+      "right": 0.9897903
+    },
+    {
+      "number": 63,
+      "tick": 95232,
+      "endTick": 96768,
+      "system": 26,
+      "left": 0.0354688,
+      "right": 0.535562
+    },
+    {
+      "number": 64,
+      "tick": 96768,
+      "endTick": 98304,
+      "system": 26,
+      "left": 0.535562,
+      "right": 0.9897903
+    },
+    {
+      "number": 65,
+      "tick": 98304,
+      "endTick": 99840,
+      "system": 27,
+      "left": 0.0354688,
+      "right": 0.5352126
+    },
+    {
+      "number": 66,
+      "tick": 99840,
+      "endTick": 101376,
+      "system": 27,
+      "left": 0.5352126,
+      "right": 0.9897903
+    },
+    {
+      "number": 67,
+      "tick": 101376,
+      "endTick": 102912,
+      "system": 28,
+      "left": 0.0354688,
+      "right": 0.5392662
+    },
+    {
+      "number": 68,
+      "tick": 102912,
+      "endTick": 104448,
+      "system": 28,
+      "left": 0.5392662,
+      "right": 0.9897903
+    },
+    {
+      "number": 69,
+      "tick": 104448,
+      "endTick": 105984,
+      "system": 29,
+      "left": 0.0354688,
+      "right": 0.5258474,
+      "anchors": [
+        {
+          "tick": 104448,
+          "x": 0.0946476,
+          "notes": [
+            {
+              "pitch": 36,
+              "x": 0.0946476,
+              "y": 0.8070413
+            }
+          ]
+        },
+        {
+          "tick": 104544,
+          "x": 0.1185323,
+          "notes": [
+            {
+              "pitch": 48,
+              "x": 0.1185323,
+              "y": 0.6871101
+            }
+          ]
+        },
+        {
+          "tick": 104640,
+          "x": 0.1470821,
+          "notes": [
+            {
+              "pitch": 55,
+              "x": 0.1470821,
+              "y": 0.6185092
+            }
+          ]
+        },
+        {
+          "tick": 104736,
+          "x": 0.1756319,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.1756319,
+              "y": 0.5671101
+            }
+          ]
+        },
+        {
+          "tick": 104832,
+          "x": 0.2016308,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.2016308,
+              "y": 0.4471789
+            }
+          ]
+        },
+        {
+          "tick": 104928,
+          "x": 0.2276296,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.2276296,
+              "y": 0.481445
+            }
+          ]
+        },
+        {
+          "tick": 105024,
+          "x": 0.2561794,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.2561794,
+              "y": 0.412844
+            }
+          ]
+        },
+        {
+          "tick": 105120,
+          "x": 0.2847292,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.2847292,
+              "y": 0.361445
+            }
+          ]
+        },
+        {
+          "tick": 105216,
+          "x": 0.3127373,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.3127373,
+              "y": 0.3271789
+            }
+          ]
+        },
+        {
+          "tick": 105312,
+          "x": 0.3387362,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.3387362,
+              "y": 0.361445
+            }
+          ]
+        },
+        {
+          "tick": 105408,
+          "x": 0.3692079,
+          "notes": [
+            {
+              "pitch": 82,
+              "x": 0.3692079,
+              "y": 0.2586468
+            }
+          ]
+        },
+        {
+          "tick": 105504,
+          "x": 0.3964822,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.3964822,
+              "y": 0.2415138
+            }
+          ]
+        },
+        {
+          "tick": 105600,
+          "x": 0.425032,
+          "notes": [
+            {
+              "pitch": 91,
+              "x": 0.425032,
+              "y": 0.1729817
+            }
+          ]
+        },
+        {
+          "tick": 105696,
+          "x": 0.4510309,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.4510309,
+              "y": 0.2415138
+            }
+          ]
+        },
+        {
+          "tick": 105792,
+          "x": 0.4783052,
+          "notes": [
+            {
+              "pitch": 82,
+              "x": 0.4783052,
+              "y": 0.2586468
+            }
+          ]
+        },
+        {
+          "tick": 105888,
+          "x": 0.504304,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.504304,
+              "y": 0.3271789
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 70,
+      "tick": 105984,
+      "endTick": 107520,
+      "system": 29,
+      "left": 0.5258474,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 105984,
+          "x": 0.549898,
+          "notes": [
+            {
+              "pitch": 48,
+              "x": 0.5513395,
+              "y": 0.6870413
+            },
+            {
+              "pitch": 90,
+              "x": 0.5484566,
+              "y": 0.1901147
+            }
+          ]
+        },
+        {
+          "tick": 106080,
+          "x": 0.5736867,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.5736867,
+              "y": 0.2415138
+            }
+          ]
+        },
+        {
+          "tick": 106176,
+          "x": 0.5996855,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.5996855,
+              "y": 0.2757798
+            }
+          ]
+        },
+        {
+          "tick": 106272,
+          "x": 0.6301573,
+          "notes": [
+            {
+              "pitch": 75,
+              "x": 0.6301573,
+              "y": 0.3271789
+            }
+          ]
+        },
+        {
+          "tick": 106368,
+          "x": 0.6610309,
+          "notes": [
+            {
+              "pitch": 78,
+              "x": 0.6610309,
+              "y": 0.3100459
+            }
+          ]
+        },
+        {
+          "tick": 106464,
+          "x": 0.6870297,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.6870297,
+              "y": 0.361445
+            }
+          ]
+        },
+        {
+          "tick": 106560,
+          "x": 0.7130285,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.7130285,
+              "y": 0.395711
+            }
+          ]
+        },
+        {
+          "tick": 106656,
+          "x": 0.7435003,
+          "notes": [
+            {
+              "pitch": 63,
+              "x": 0.7435003,
+              "y": 0.4471789
+            }
+          ]
+        },
+        {
+          "tick": 106752,
+          "x": 0.7734129,
+          "notes": [
+            {
+              "pitch": 77,
+              "x": 0.7734129,
+              "y": 0.3100459
+            }
+          ]
+        },
+        {
+          "tick": 106848,
+          "x": 0.7994118,
+          "notes": [
+            {
+              "pitch": 71,
+              "x": 0.7994118,
+              "y": 0.378578
+            }
+          ]
+        },
+        {
+          "tick": 106944,
+          "x": 0.8302854,
+          "notes": [
+            {
+              "pitch": 68,
+              "x": 0.8302854,
+              "y": 0.412844
+            }
+          ]
+        },
+        {
+          "tick": 107040,
+          "x": 0.8562842,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.8562842,
+              "y": 0.4643119
+            }
+          ]
+        },
+        {
+          "tick": 107136,
+          "x": 0.8861969,
+          "notes": [
+            {
+              "pitch": 65,
+              "x": 0.8861969,
+              "y": 0.4300459
+            }
+          ]
+        },
+        {
+          "tick": 107232,
+          "x": 0.9121957,
+          "notes": [
+            {
+              "pitch": 59,
+              "x": 0.9121957,
+              "y": 0.498578
+            }
+          ]
+        },
+        {
+          "tick": 107328,
+          "x": 0.9430693,
+          "notes": [
+            {
+              "pitch": 56,
+              "x": 0.9430693,
+              "y": 0.6185092
+            }
+          ]
+        },
+        {
+          "tick": 107424,
+          "x": 0.9690681,
+          "notes": [
+            {
+              "pitch": 50,
+              "x": 0.9690681,
+              "y": 0.6699083
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 71,
+      "tick": 107520,
+      "endTick": 109056,
+      "system": 30,
+      "left": 0.0354688,
+      "right": 0.5239779,
+      "anchors": [
+        {
+          "tick": 107520,
+          "x": 0.0946476,
+          "notes": [
+            {
+              "pitch": 36,
+              "x": 0.0946476,
+              "y": 0.8088315
+            }
+          ]
+        },
+        {
+          "tick": 107616,
+          "x": 0.118445,
+          "notes": [
+            {
+              "pitch": 48,
+              "x": 0.118445,
+              "y": 0.6913258
+            }
+          ]
+        },
+        {
+          "tick": 107712,
+          "x": 0.1482877,
+          "notes": [
+            {
+              "pitch": 55,
+              "x": 0.1482877,
+              "y": 0.6241798
+            }
+          ]
+        },
+        {
+          "tick": 107808,
+          "x": 0.1767501,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.1767501,
+              "y": 0.5737528
+            }
+          ]
+        },
+        {
+          "tick": 107904,
+          "x": 0.2026616,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.2026616,
+              "y": 0.4394607
+            }
+          ]
+        },
+        {
+          "tick": 108000,
+          "x": 0.2285906,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.2285906,
+              "y": 0.4730337
+            }
+          ]
+        },
+        {
+          "tick": 108096,
+          "x": 0.257053,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.257053,
+              "y": 0.4058876
+            }
+          ]
+        },
+        {
+          "tick": 108192,
+          "x": 0.2855154,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.2855154,
+              "y": 0.3555281
+            }
+          ]
+        },
+        {
+          "tick": 108288,
+          "x": 0.3134362,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.3134362,
+              "y": 0.3218876
+            }
+          ]
+        },
+        {
+          "tick": 108384,
+          "x": 0.3393652,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.3393652,
+              "y": 0.3555281
+            }
+          ]
+        },
+        {
+          "tick": 108480,
+          "x": 0.3678276,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.3678276,
+              "y": 0.2883146
+            }
+          ]
+        },
+        {
+          "tick": 108576,
+          "x": 0.39629,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.39629,
+              "y": 0.2379551
+            }
+          ]
+        },
+        {
+          "tick": 108672,
+          "x": 0.4247525,
+          "notes": [
+            {
+              "pitch": 88,
+              "x": 0.4247525,
+              "y": 0.204382
+            }
+          ]
+        },
+        {
+          "tick": 108768,
+          "x": 0.4506639,
+          "notes": [
+            {
+              "pitch": 84,
+              "x": 0.4506639,
+              "y": 0.2379551
+            }
+          ]
+        },
+        {
+          "tick": 108864,
+          "x": 0.4765929,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.4765929,
+              "y": 0.2883146
+            }
+          ]
+        },
+        {
+          "tick": 108960,
+          "x": 0.5025218,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.5025218,
+              "y": 0.3555281
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 72,
+      "tick": 109056,
+      "endTick": 110592,
+      "system": 30,
+      "left": 0.5239779,
+      "right": 0.9897903,
+      "anchors": [
+        {
+          "tick": 109056,
+          "x": 0.546954,
+          "notes": [
+            {
+              "pitch": 31,
+              "x": 0.547915,
+              "y": 0.8592584
+            },
+            {
+              "pitch": 43,
+              "x": 0.547915,
+              "y": 0.7416854
+            },
+            {
+              "pitch": 87,
+              "x": 0.545032,
+              "y": 0.204382
+            }
+          ]
+        },
+        {
+          "tick": 109152,
+          "x": 0.5701922,
+          "notes": [
+            {
+              "pitch": 81,
+              "x": 0.5701922,
+              "y": 0.2715281
+            }
+          ]
+        },
+        {
+          "tick": 109248,
+          "x": 0.600961,
+          "notes": [
+            {
+              "pitch": 78,
+              "x": 0.600961,
+              "y": 0.3051011
+            }
+          ]
+        },
+        {
+          "tick": 109344,
+          "x": 0.6268899,
+          "notes": [
+            {
+              "pitch": 72,
+              "x": 0.6268899,
+              "y": 0.3555281
+            }
+          ]
+        },
+        {
+          "tick": 109440,
+          "x": 0.6572918,
+          "notes": [
+            {
+              "pitch": 75,
+              "x": 0.6572918,
+              "y": 0.3218876
+            }
+          ]
+        },
+        {
+          "tick": 109536,
+          "x": 0.6832033,
+          "notes": [
+            {
+              "pitch": 69,
+              "x": 0.6832033,
+              "y": 0.3891011
+            }
+          ]
+        },
+        {
+          "tick": 109632,
+          "x": 0.7139895,
+          "notes": [
+            {
+              "pitch": 66,
+              "x": 0.7139895,
+              "y": 0.4226742
+            }
+          ]
+        },
+        {
+          "tick": 109728,
+          "x": 0.7399185,
+          "notes": [
+            {
+              "pitch": 60,
+              "x": 0.7399185,
+              "y": 0.4730337
+            }
+          ]
+        },
+        {
+          "tick": 109824,
+          "x": 0.7683809,
+          "notes": [
+            {
+              "pitch": 74,
+              "x": 0.7683809,
+              "y": 0.3387416
+            }
+          ]
+        },
+        {
+          "tick": 109920,
+          "x": 0.7987653,
+          "notes": [
+            {
+              "pitch": 68,
+              "x": 0.7987653,
+              "y": 0.3891011
+            }
+          ]
+        },
+        {
+          "tick": 110016,
+          "x": 0.828608,
+          "notes": [
+            {
+              "pitch": 65,
+              "x": 0.828608,
+              "y": 0.4226742
+            }
+          ]
+        },
+        {
+          "tick": 110112,
+          "x": 0.854537,
+          "notes": [
+            {
+              "pitch": 59,
+              "x": 0.854537,
+              "y": 0.4898202
+            }
+          ]
+        },
+        {
+          "tick": 110208,
+          "x": 0.8829994,
+          "notes": [
+            {
+              "pitch": 62,
+              "x": 0.8829994,
+              "y": 0.4562472
+            }
+          ]
+        },
+        {
+          "tick": 110304,
+          "x": 0.9133838,
+          "notes": [
+            {
+              "pitch": 56,
+              "x": 0.9133838,
+              "y": 0.6073933
+            }
+          ]
+        },
+        {
+          "tick": 110400,
+          "x": 0.9432266,
+          "notes": [
+            {
+              "pitch": 53,
+              "x": 0.9432266,
+              "y": 0.6409663
+            }
+          ]
+        },
+        {
+          "tick": 110496,
+          "x": 0.9691555,
+          "notes": [
+            {
+              "pitch": 47,
+              "x": 0.9691555,
+              "y": 0.7081124
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 73,
+      "tick": 110592,
+      "endTick": 112128,
+      "system": 31,
+      "left": 0.0354688,
+      "right": 0.5319103,
+      "anchors": [
+        {
+          "tick": 110592,
+          "x": 0.0946476,
+          "notes": [
+            {
+              "pitch": 31,
+              "x": 0.0946476,
+              "y": 0.8618584
+            },
+            {
+              "pitch": 43,
+              "x": 0.0946476,
+              "y": 0.7461726
+            }
+          ]
+        },
+        {
+          "tick": 110688,
+          "x": 0.1230052,
+          "notes": [
+            {
+              "pitch": 46,
+              "x": 0.1230052,
+              "y": 0.7131195
+            }
+          ]
+        },
+        {
+          "tick": 110784,
+          "x": 0.1510134,
+          "notes": [
+            {
+              "pitch": 52,
+              "x": 0.1510134,
+              "y": 0.6635398
+            }
+          ]
+        },
+        {
+          "tick": 110880,
+          "x": 0.177484,
+          "notes": [
+            {
+              "pitch": 55,
+              "x": 0.177484,
+              "y": 0.6304204
+            }
+          ]
+        },
+        {
+          "tick": 110976,
+          "x": 0.2060513,
+          "notes": [
+            {
+              "pitch": 61,
+              "x": 0.2060513,
+              "y": 0.4486283
+            }
+          ]
+        },
+        {
+          "tick": 111072,
+          "x": 0.234601,
+          "notes": [
+            {
+              "pitch": 58,
+              "x": 0.234601,
+              "y": 0.4816814
+            }
+          ]
+        },
+        {
+          "tick": 111168,
+          "x": 0.2626092,
+          "notes": [
+            {
+              "pitch": 64,
+              "x": 0.2626092,
+              "y": 0.4321018
+            }
+          ]
+        },
+        {
+          "tick": 111264,
+          "x": 0.2890973,
+          "notes": [
+            {
+              "pitch": 67,
+              "x": 0.2890973,
+              "y": 0.3989823
+            }
+          ]
+        },
+        {
+          "tick": 111360,
+          "x": 0.3176471,
+          "notes": [
+            {
+              "pitch": 73,
+              "x": 0.3176471,
+              "y": 0.3328761
+            }
+          ]
+        },
+        {
+          "tick": 111456,
+          "x": 0.3461969,
+          "notes": [
+            {
+              "pitch": 70,
+              "x": 0.3461969,
+              "y": 0.3659292
+            }
+          ]
+        },
+        {
+          "tick": 111552,
+          "x": 0.374205,
+          "notes": [
+            {
+              "pitch": 76,
+              "x": 0.374205,
+              "y": 0.3163496
+            }
+          ]
+        },
+        {
+          "tick": 111648,
+          "x": 0.4006931,
+          "notes": [
+            {
+              "pitch": 79,
+              "x": 0.4006931,
+              "y": 0.2832965
+            }
+          ]
+        },
+        {
+          "tick": 111744,
+          "x": 0.4292429,
+          "notes": [
+            {
+              "pitch": 85,
+              "x": 0.4292429,
+              "y": 0.2171903
+            }
+          ]
+        },
+        {
+          "tick": 111840,
+          "x": 0.4577927,
+          "notes": [
+            {
+              "pitch": 82,
+              "x": 0.4577927,
+              "y": 0.2502434
+            }
+          ]
+        },
+        {
+          "tick": 111936,
+          "x": 0.4858008,
+          "notes": [
+            {
+              "pitch": 88,
+              "x": 0.4858008,
+              "y": 0.2006637
+            }
+          ]
+        },
+        {
+          "tick": 112032,
+          "x": 0.5122889,
+          "notes": [
+            {
+              "pitch": 91,
+              "x": 0.5122889,
+              "y": 0.1675442
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 74,
+      "tick": 112128,
+      "endTick": 113664,
+      "system": 31,
+      "left": 0.5319103,
+      "right": 0.9897903
+    },
+    {
+      "number": 75,
+      "tick": 113664,
+      "endTick": 115200,
+      "system": 32,
+      "left": 0.0354688,
+      "right": 0.5492603
+    },
+    {
+      "number": 76,
+      "tick": 115200,
+      "endTick": 116736,
+      "system": 32,
+      "left": 0.5492603,
+      "right": 0.9897903
+    },
+    {
+      "number": 77,
+      "tick": 116736,
+      "endTick": 118272,
+      "system": 33,
+      "left": 0.0354688,
+      "right": 0.492947
+    },
+    {
+      "number": 78,
+      "tick": 118272,
+      "endTick": 119808,
+      "system": 33,
+      "left": 0.492947,
+      "right": 0.8910891
+    },
+    {
+      "number": 79,
+      "tick": 119808,
+      "endTick": 121344,
+      "system": 33,
+      "left": 0.8910891,
+      "right": 0.9819453,
+      "anchors": [
+        {
+          "tick": 119808,
+          "x": 0.9125102,
+          "notes": [
+            {
+              "pitch": 24,
+              "x": 0.9125102,
+              "y": 0.9281416
+            },
+            {
+              "pitch": 36,
+              "x": 0.9125102,
+              "y": 0.8124558
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

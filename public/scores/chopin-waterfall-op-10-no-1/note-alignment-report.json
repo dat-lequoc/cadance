@@ -1,0 +1,481 @@
+{
+  "version": 1,
+  "pdfSha256": "6f8ea4b25f30dc071d79538548b201a6e0470e683144ce21da35a4b4886573b2",
+  "method": "ordered-columns-and-staff-pitch",
+  "bars": [
+    {
+      "bar": 1,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 1152",
+      "onsets": 16
+    },
+    {
+      "bar": 2,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 1536",
+      "onsets": 16
+    },
+    {
+      "bar": 3,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 4224",
+      "onsets": 16
+    },
+    {
+      "bar": 4,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 4608",
+      "onsets": 16
+    },
+    {
+      "bar": 5,
+      "mode": "bar",
+      "reason": "8 printed columns / 16 MIDI onsets",
+      "onsets": 16
+    },
+    {
+      "bar": 6,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 7680",
+      "onsets": 16
+    },
+    {
+      "bar": 7,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 10368",
+      "onsets": 16
+    },
+    {
+      "bar": 8,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 10752",
+      "onsets": 16
+    },
+    {
+      "bar": 9,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 13440",
+      "onsets": 16
+    },
+    {
+      "bar": 10,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 13824",
+      "onsets": 16
+    },
+    {
+      "bar": 11,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 16512",
+      "onsets": 16
+    },
+    {
+      "bar": 12,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 16896",
+      "onsets": 16
+    },
+    {
+      "bar": 13,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 19584",
+      "onsets": 16
+    },
+    {
+      "bar": 14,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 19968",
+      "onsets": 16
+    },
+    {
+      "bar": 15,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 22656",
+      "onsets": 16
+    },
+    {
+      "bar": 16,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 23040",
+      "onsets": 16
+    },
+    {
+      "bar": 17,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 25728",
+      "onsets": 16
+    },
+    {
+      "bar": 18,
+      "mode": "bar",
+      "reason": "8 printed columns / 16 MIDI onsets",
+      "onsets": 16
+    },
+    {
+      "bar": 19,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 28800",
+      "onsets": 16
+    },
+    {
+      "bar": 20,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 29184",
+      "onsets": 16
+    },
+    {
+      "bar": 21,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 31872",
+      "onsets": 16
+    },
+    {
+      "bar": 22,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 99 at tick 32256",
+      "onsets": 16
+    },
+    {
+      "bar": 23,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 34944",
+      "onsets": 16
+    },
+    {
+      "bar": 24,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 35328",
+      "onsets": 16
+    },
+    {
+      "bar": 25,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 26,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 27,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 41088",
+      "onsets": 16
+    },
+    {
+      "bar": 28,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 101 at tick 41472",
+      "onsets": 16
+    },
+    {
+      "bar": 29,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 44160",
+      "onsets": 16
+    },
+    {
+      "bar": 30,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 99 at tick 44544",
+      "onsets": 16
+    },
+    {
+      "bar": 31,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 87 at tick 47232",
+      "onsets": 16
+    },
+    {
+      "bar": 32,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 99 at tick 47616",
+      "onsets": 16
+    },
+    {
+      "bar": 33,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 50304",
+      "onsets": 16
+    },
+    {
+      "bar": 34,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 50688",
+      "onsets": 16
+    },
+    {
+      "bar": 35,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 85 at tick 53376",
+      "onsets": 16
+    },
+    {
+      "bar": 36,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 97 at tick 53760",
+      "onsets": 16
+    },
+    {
+      "bar": 37,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 38,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 96 at tick 56832",
+      "onsets": 16
+    },
+    {
+      "bar": 39,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 79 at tick 59616",
+      "onsets": 16
+    },
+    {
+      "bar": 40,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 95 at tick 59904",
+      "onsets": 16
+    },
+    {
+      "bar": 41,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 42,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 43,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 44,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 45,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 13
+    },
+    {
+      "bar": 46,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 13
+    },
+    {
+      "bar": 47,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 71808",
+      "onsets": 16
+    },
+    {
+      "bar": 48,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 72192",
+      "onsets": 16
+    },
+    {
+      "bar": 49,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 74880",
+      "onsets": 16
+    },
+    {
+      "bar": 50,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 75264",
+      "onsets": 16
+    },
+    {
+      "bar": 51,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 77952",
+      "onsets": 16
+    },
+    {
+      "bar": 52,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 78336",
+      "onsets": 16
+    },
+    {
+      "bar": 53,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 81024",
+      "onsets": 16
+    },
+    {
+      "bar": 54,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 81408",
+      "onsets": 16
+    },
+    {
+      "bar": 55,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 84096",
+      "onsets": 16
+    },
+    {
+      "bar": 56,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 84480",
+      "onsets": 16
+    },
+    {
+      "bar": 57,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 87168",
+      "onsets": 16
+    },
+    {
+      "bar": 58,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 87552",
+      "onsets": 16
+    },
+    {
+      "bar": 59,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 90240",
+      "onsets": 16
+    },
+    {
+      "bar": 60,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 90624",
+      "onsets": 16
+    },
+    {
+      "bar": 61,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 93312",
+      "onsets": 16
+    },
+    {
+      "bar": 62,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 98 at tick 93696",
+      "onsets": 16
+    },
+    {
+      "bar": 63,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 86 at tick 96384",
+      "onsets": 16
+    },
+    {
+      "bar": 64,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 99 at tick 96768",
+      "onsets": 16
+    },
+    {
+      "bar": 65,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 88 at tick 99456",
+      "onsets": 16
+    },
+    {
+      "bar": 66,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 100 at tick 99840",
+      "onsets": 16
+    },
+    {
+      "bar": 67,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 89 at tick 102528",
+      "onsets": 16
+    },
+    {
+      "bar": 68,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 101 at tick 102912",
+      "onsets": 16
+    },
+    {
+      "bar": 69,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 70,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 71,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 72,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 73,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 16
+    },
+    {
+      "bar": 74,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 97 at tick 112128",
+      "onsets": 16
+    },
+    {
+      "bar": 75,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 96 at tick 114816",
+      "onsets": 16
+    },
+    {
+      "bar": 76,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 95 at tick 115200",
+      "onsets": 16
+    },
+    {
+      "bar": 77,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 84 at tick 117888",
+      "onsets": 16
+    },
+    {
+      "bar": 78,
+      "mode": "bar",
+      "reason": "Ambiguous pitch 96 at tick 118272",
+      "onsets": 16
+    },
+    {
+      "bar": 79,
+      "mode": "notes",
+      "reason": null,
+      "onsets": 1
+    }
+  ]
+}

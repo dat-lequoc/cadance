@@ -1,0 +1,461 @@
+{
+  "version": 1,
+  "pdfSha256": "6f8ea4b25f30dc071d79538548b201a6e0470e683144ce21da35a4b4886573b2",
+  "renderer": "PyMuPDF 1.28.2",
+  "scale": 3.0,
+  "systems": [
+    {
+      "image": "system-01.png",
+      "width": 1717,
+      "height": 452,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 2,
+      "barEdges": [
+        0.1097612,
+        0.5879616,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-02.png",
+      "width": 1717,
+      "height": 452,
+      "page": 1,
+      "fromBar": 3,
+      "throughBar": 4,
+      "barEdges": [
+        0.0354688,
+        0.4404776,
+        0.8026092
+      ]
+    },
+    {
+      "image": "system-03.png",
+      "width": 1717,
+      "height": 451,
+      "page": 1,
+      "fromBar": 5,
+      "throughBar": 7,
+      "barEdges": [
+        0.0354688,
+        0.2536808,
+        0.618608,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-04.png",
+      "width": 1717,
+      "height": 451,
+      "page": 1,
+      "fromBar": 8,
+      "throughBar": 10,
+      "barEdges": [
+        0.0354688,
+        0.3853524,
+        0.6910483,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-05.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 11,
+      "throughBar": 12,
+      "barEdges": [
+        0.0354688,
+        0.5306348,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-06.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 13,
+      "throughBar": 15,
+      "barEdges": [
+        0.0354688,
+        0.3832382,
+        0.683081,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-07.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 16,
+      "throughBar": 17,
+      "barEdges": [
+        0.0354688,
+        0.4344671,
+        0.8064007
+      ]
+    },
+    {
+      "image": "system-08.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 18,
+      "throughBar": 20,
+      "barEdges": [
+        0.0354688,
+        0.2561969,
+        0.6315725,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-09.png",
+      "width": 1717,
+      "height": 452,
+      "page": 2,
+      "fromBar": 21,
+      "throughBar": 23,
+      "barEdges": [
+        0.0354688,
+        0.3717764,
+        0.6967793,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-10.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 24,
+      "throughBar": 25,
+      "barEdges": [
+        0.0354688,
+        0.5265288,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-11.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 26,
+      "throughBar": 27,
+      "barEdges": [
+        0.0354688,
+        0.5319802,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-12.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 28,
+      "throughBar": 29,
+      "barEdges": [
+        0.0354688,
+        0.520431,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-13.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 30,
+      "throughBar": 31,
+      "barEdges": [
+        0.0354688,
+        0.5373966,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-14.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 32,
+      "throughBar": 33,
+      "barEdges": [
+        0.0354688,
+        0.538113,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-15.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 34,
+      "throughBar": 35,
+      "barEdges": [
+        0.0354688,
+        0.5456436,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-16.png",
+      "width": 1717,
+      "height": 451,
+      "page": 4,
+      "fromBar": 36,
+      "throughBar": 37,
+      "barEdges": [
+        0.0354688,
+        0.5169016,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-17.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 38,
+      "throughBar": 40,
+      "barEdges": [
+        0.0354688,
+        0.3927781,
+        0.6968317,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-18.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 41,
+      "throughBar": 43,
+      "barEdges": [
+        0.0354688,
+        0.3819103,
+        0.6862609,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-19.png",
+      "width": 1717,
+      "height": 452,
+      "page": 4,
+      "fromBar": 44,
+      "throughBar": 46,
+      "barEdges": [
+        0.0354688,
+        0.3634246,
+        0.6488526,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-20.png",
+      "width": 1717,
+      "height": 467,
+      "page": 5,
+      "fromBar": 47,
+      "throughBar": 48,
+      "barEdges": [
+        0.0354688,
+        0.5317006,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-21.png",
+      "width": 1717,
+      "height": 451,
+      "page": 5,
+      "fromBar": 49,
+      "throughBar": 51,
+      "barEdges": [
+        0.0354688,
+        0.3826616,
+        0.6834653,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-22.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 52,
+      "throughBar": 54,
+      "barEdges": [
+        0.0354688,
+        0.3648923,
+        0.6645079,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-23.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 55,
+      "throughBar": 56,
+      "barEdges": [
+        0.0354688,
+        0.5438439,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-24.png",
+      "width": 1717,
+      "height": 452,
+      "page": 5,
+      "fromBar": 57,
+      "throughBar": 58,
+      "barEdges": [
+        0.0354688,
+        0.5390914,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-25.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 59,
+      "throughBar": 60,
+      "barEdges": [
+        0.0354688,
+        0.5265463,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-26.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 61,
+      "throughBar": 62,
+      "barEdges": [
+        0.0354688,
+        0.5408561,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-27.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 63,
+      "throughBar": 64,
+      "barEdges": [
+        0.0354688,
+        0.535562,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-28.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 65,
+      "throughBar": 66,
+      "barEdges": [
+        0.0354688,
+        0.5352126,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-29.png",
+      "width": 1717,
+      "height": 452,
+      "page": 6,
+      "fromBar": 67,
+      "throughBar": 68,
+      "barEdges": [
+        0.0354688,
+        0.5392662,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-30.png",
+      "width": 1717,
+      "height": 436,
+      "page": 7,
+      "fromBar": 69,
+      "throughBar": 70,
+      "barEdges": [
+        0.0354688,
+        0.5258474,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-31.png",
+      "width": 1717,
+      "height": 445,
+      "page": 7,
+      "fromBar": 71,
+      "throughBar": 72,
+      "barEdges": [
+        0.0354688,
+        0.5239779,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-32.png",
+      "width": 1717,
+      "height": 452,
+      "page": 7,
+      "fromBar": 73,
+      "throughBar": 74,
+      "barEdges": [
+        0.0354688,
+        0.5319103,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-33.png",
+      "width": 1717,
+      "height": 489,
+      "page": 7,
+      "fromBar": 75,
+      "throughBar": 76,
+      "barEdges": [
+        0.0354688,
+        0.5492603,
+        0.9897903
+      ]
+    },
+    {
+      "image": "system-34.png",
+      "width": 1717,
+      "height": 452,
+      "page": 7,
+      "fromBar": 77,
+      "throughBar": 79,
+      "barEdges": [
+        0.0354688,
+        0.492947,
+        0.8910891,
+        0.9819453
+      ]
+    }
+  ]
+}
