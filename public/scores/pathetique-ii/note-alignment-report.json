@@ -144,7 +144,7 @@
     {
       "bar": 24,
       "mode": "bar",
-      "reason": "9 printed columns / 8 MIDI onsets",
+      "reason": "Ambiguous pitch 53 at tick 17664",
       "onsets": 8
     },
     {
@@ -161,8 +161,8 @@
     },
     {
       "bar": 27,
-      "mode": "bar",
-      "reason": "9 printed columns / 8 MIDI onsets",
+      "mode": "notes",
+      "reason": null,
       "onsets": 8
     },
     {
@@ -228,7 +228,7 @@
     {
       "bar": 38,
       "mode": "bar",
-      "reason": "24 printed columns / 12 MIDI onsets",
+      "reason": "Ambiguous pitch 63 at tick 28416",
       "onsets": 12
     },
     {
@@ -251,14 +251,14 @@
     },
     {
       "bar": 42,
-      "mode": "bar",
-      "reason": "18 printed columns / 12 MIDI onsets",
+      "mode": "notes",
+      "reason": null,
       "onsets": 12
     },
     {
       "bar": 43,
       "mode": "bar",
-      "reason": "19 printed columns / 12 MIDI onsets",
+      "reason": "Ambiguous pitch 52 at tick 32256",
       "onsets": 12
     },
     {
@@ -275,8 +275,8 @@
     },
     {
       "bar": 46,
-      "mode": "bar",
-      "reason": "24 printed columns / 12 MIDI onsets",
+      "mode": "notes",
+      "reason": null,
       "onsets": 12
     },
     {
@@ -287,20 +287,20 @@
     },
     {
       "bar": 48,
-      "mode": "bar",
-      "reason": "14 printed columns / 12 MIDI onsets",
+      "mode": "notes",
+      "reason": null,
       "onsets": 12
     },
     {
       "bar": 49,
-      "mode": "bar",
-      "reason": "14 printed columns / 12 MIDI onsets",
+      "mode": "notes",
+      "reason": null,
       "onsets": 12
     },
     {
       "bar": 50,
       "mode": "bar",
-      "reason": "21 printed columns / 12 MIDI onsets",
+      "reason": "Ambiguous pitch 58 at tick 37632",
       "onsets": 12
     },
     {
@@ -414,7 +414,7 @@
     {
       "bar": 69,
       "mode": "bar",
-      "reason": "24 printed columns / 12 MIDI onsets",
+      "reason": "Ambiguous pitch 51 at tick 52224",
       "onsets": 12
     },
     {

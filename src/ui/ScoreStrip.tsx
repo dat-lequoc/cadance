@@ -26,13 +26,9 @@ export default function ScoreStrip({
   const position = c.browsePosition ?? Math.min(livePosition, passageEnd - 0.001);
   const bar = scoreBarAt(score, map, position);
   const anchor = scoreAnchorAt(bar, map, position);
-  const barTick = map.ticks(position);
-  const barProgress = bar.endTick > bar.tick
-    ? Math.max(0, Math.min(1, (barTick - bar.tick) / (bar.endTick - bar.tick)))
-    : 0;
-  // Scores without note anchors still receive a moving cursor from verified
-  // MIDI bar geometry; anchors remain more precise when available.
-  const cursorX = scoreCursorAt(bar, map, position) ?? bar.left + (bar.right - bar.left) * barProgress;
+  // Uneven engraving cannot be located from bar time alone. Unmapped bars
+  // retain their highlight without implying an exact note position.
+  const cursorX = scoreCursorAt(bar, map, position);
   const only = c.sheetOnly;
   const required = new Set(c.engine.group?.notes.filter((n) => n.tick === anchor?.tick).map((n) => n.pitch - c.config.transpose) ?? []);
   const [browsing, setBrowsing] = useState<number | null>(null);
@@ -122,7 +118,7 @@ export default function ScoreStrip({
       manualScroll.current = false;
     }
     if (only) {
-      const targetX = width * cursorX + 24;
+      const targetX = width * (cursorX ?? bar.left) + 24;
       if (height > size.height && anchor && browsing === null) {
         const focusNotes = anchor.notes.filter((n) => required.has(n.pitch));
         const points = focusNotes.length ? focusNotes : anchor.notes;
@@ -337,9 +333,9 @@ export default function ScoreStrip({
               </svg>}
               {current && <>
                 <div className="score-current-bar" aria-label={`Highlighted bar ${bar.number}`} style={{ left: `${bar.left * 100}%`, width: `${(bar.right - bar.left) * 100}%` }} />
-                <svg className="score-note-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" role="img" aria-label={`Score cursor at bar ${bar.number}`}>
+                {cursorX !== null && <svg className="score-note-overlay" viewBox="0 0 1 1" preserveAspectRatio="none" role="img" aria-label={`Score cursor at bar ${bar.number}`}>
                   <line x1={cursorX} x2={cursorX} y1="0.08" y2="0.94" vectorEffect="non-scaling-stroke" />
-                </svg>
+                </svg>}
                 {(correctPitches.length > 0 || mismatches.length > 0) && <div className="score-input-labels" style={{ left: `${Math.min(.75, anchor?.x ?? bar.left) * 100}%` }}>
                   {correctPitches.length > 0 && <div className="score-input-feedback score-input-correct" role="status" aria-label="Correct played notes">
                     Correct {correctPitches.map((pitch) => scorePitch(pitch, flats).label).join(" + ")}

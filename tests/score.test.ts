@@ -79,13 +79,23 @@ describe("prepared score", () => {
 
 it("note anchors cover exact MIDI onset groups and cursor interpolates between printed notes", async () => {
   const map = new TempoMap(pathetique.ppq, pathetique.tempos);
-  expect(score.bars.filter((b) => b.anchors)).toHaveLength(58);
+  expect(score.bars.filter((b) => b.anchors)).toHaveLength(63);
   const first = score.bars[0];
   expect(first.anchors![0].notes.map((n) => n.pitch).sort()).toEqual([44, 56, 60]);
   expect(scoreAnchorAt(first, map, 0)?.tick).toBe(0);
   const firstAnchor = first.anchors![0], secondAnchor = first.anchors![1];
   const halfway = scoreCursorAt(first, map, map.seconds((firstAnchor.tick + secondAnchor.tick) / 2));
   expect(halfway).toBeCloseTo((firstAnchor.x + secondAnchor.x) / 2, 6);
+  for (const number of [27, 42, 46, 48, 49]) {
+    const bar = score.bars[number - 1];
+    expect(bar.anchors?.length).toBeGreaterThan(0);
+    for (const anchor of bar.anchors!) {
+      expect(scoreCursorAt(bar, map, map.seconds(anchor.tick))).toBeCloseTo(anchor.x, 6);
+    }
+    const last = bar.anchors!.at(-1)!;
+    expect(scoreCursorAt(bar, map, map.seconds(bar.endTick - 1))).toBe(last.x);
+  }
+  expect(scoreCursorAt(first, map, -1)).toBe(firstAnchor.x);
   expect(scoreAnchorAt(first, map, .2)?.tick).toBe(0);
   expect(scoreAnchorAt(first, map, map.seconds(96))?.tick).toBe(96);
   expect(scoreAnchorAt(first, map, 0)?.tick).toBe(0);

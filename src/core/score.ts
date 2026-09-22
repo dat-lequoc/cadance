@@ -130,8 +130,8 @@ export function scoreCursorAt(bar: ScoreBar, map: TempoMap, seconds: number) {
   if (!anchors?.length) return null;
   const tick = map.ticks(Number.isFinite(seconds) ? seconds : 0);
   const nextIndex = anchors.findIndex((anchor) => anchor.tick > tick);
-  if (nextIndex <= 0) return anchors[0].x;
   if (nextIndex < 0) return anchors.at(-1)!.x;
+  if (nextIndex === 0) return anchors[0].x;
   const before = anchors[nextIndex - 1];
   const after = anchors[nextIndex];
   const amount = (tick - before.tick) / Math.max(1, after.tick - before.tick);

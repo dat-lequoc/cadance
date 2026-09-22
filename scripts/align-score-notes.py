@@ -74,6 +74,18 @@ def anchors(pdf, cuts, score, song, scale):
         ticks = sorted({n['tick'] for n in notes})
         reason = None
         aligned = []
+        # Seconds in a chord put heads on opposite sides of a stem. These
+        # are one onset, not two columns. Only attempt this for excess
+        # columns; the complete onset/pitch checks below still must pass.
+        if len(columns) > len(ticks):
+            joined = []
+            for column in columns:
+                if joined and column[0]['x'] - joined[-1][0]['x'] <= column[0]['step'] * 3.6:
+                    joined[-1].extend(column)
+                else:
+                    joined.append(list(column))
+            if len(joined) == len(ticks):
+                columns = joined
         if len(columns) != len(ticks) or not ticks:
             reason = f'{len(columns)} printed columns / {len(ticks)} MIDI onsets'
         else:
