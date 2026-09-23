@@ -103,8 +103,12 @@ export default function ScoreStrip({
   );
   const width = only ? Math.max(100, size.width - 48) * c.sheetZoom : system.width * fit * c.sheetZoom;
   const height = only ? width * system.height / system.width : system.height * fit * c.sheetZoom;
-  const stackedTop = score.systems.slice(0, systemIndex).reduce((sum, s) => sum + width * s.height / s.width + 24, 12);
-  const stackHeight = score.systems.reduce((sum, s) => sum + width * s.height / s.width + 24, 12);
+  // Keep the inter-system gutter compact in the continuous sheet view. The
+  // rendered score already contains its own engraved whitespace; a second
+  // 24px layout gap makes page browsing look like the PDF has missing bands.
+  const scoreSystemGap = 8;
+  const stackedTop = score.systems.slice(0, systemIndex).reduce((sum, s) => sum + width * s.height / s.width + scoreSystemGap, 12);
+  const stackHeight = score.systems.reduce((sum, s) => sum + width * s.height / s.width + scoreSystemGap, 12);
   useLayoutEffect(() => {
     const element = viewport.current!;
     const systemChanged = previousSystem.current !== systemIndex;

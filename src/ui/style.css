@@ -3535,7 +3535,7 @@ legend {
 }
 .score-only .score-toolbar { flex-shrink: 0; }
 .score-only .score-viewport { flex: 1; height: auto; min-height: 0; background: white; }
-.score-pan.score-stack { flex-direction: column; justify-content: flex-start; gap: 24px; padding: 12px 24px; }
+.score-pan.score-stack { flex-direction: column; justify-content: flex-start; gap: 8px; padding: 12px 24px; }
 .score-note-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
 .score-note-overlay line { stroke: #2563a4; stroke-width: 2; opacity: .65; }
 .score-correct-overlay { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
