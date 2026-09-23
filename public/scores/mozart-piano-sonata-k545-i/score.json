@@ -1,0 +1,850 @@
+{
+  "version": 1,
+  "fingerprint": "f8423fc65dbd8e87962404895d00191a890debfd47ea437d815ffb06d73e431c",
+  "sourcePdf": "/pieces/mozart-piano-sonata-k545-i.pdf",
+  "pdfSha256": "97a3a59fe632fe1ee8f603d0fdca8dedfa78fa636d308cf4e0969eb74ed29151",
+  "systems": [
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-01.png",
+      "width": 1717,
+      "height": 463,
+      "page": 1,
+      "fromBar": 1,
+      "throughBar": 3
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-02.png",
+      "width": 1717,
+      "height": 477,
+      "page": 1,
+      "fromBar": 4,
+      "throughBar": 5
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-03.png",
+      "width": 1717,
+      "height": 466,
+      "page": 1,
+      "fromBar": 6,
+      "throughBar": 7
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-04.png",
+      "width": 1717,
+      "height": 477,
+      "page": 1,
+      "fromBar": 8,
+      "throughBar": 9
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-05.png",
+      "width": 1717,
+      "height": 484,
+      "page": 1,
+      "fromBar": 10,
+      "throughBar": 11
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-06.png",
+      "width": 1717,
+      "height": 441,
+      "page": 1,
+      "fromBar": 12,
+      "throughBar": 14
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-07.png",
+      "width": 1717,
+      "height": 382,
+      "page": 2,
+      "fromBar": 15,
+      "throughBar": 16
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-08.png",
+      "width": 1717,
+      "height": 446,
+      "page": 2,
+      "fromBar": 17,
+      "throughBar": 18
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-09.png",
+      "width": 1717,
+      "height": 446,
+      "page": 2,
+      "fromBar": 19,
+      "throughBar": 20
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-10.png",
+      "width": 1717,
+      "height": 446,
+      "page": 2,
+      "fromBar": 21,
+      "throughBar": 23
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-11.png",
+      "width": 1717,
+      "height": 451,
+      "page": 2,
+      "fromBar": 24,
+      "throughBar": 25
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-12.png",
+      "width": 1717,
+      "height": 446,
+      "page": 2,
+      "fromBar": 26,
+      "throughBar": 28
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-13.png",
+      "width": 1717,
+      "height": 418,
+      "page": 2,
+      "fromBar": 29,
+      "throughBar": 31
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-14.png",
+      "width": 1717,
+      "height": 389,
+      "page": 3,
+      "fromBar": 32,
+      "throughBar": 33
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-15.png",
+      "width": 1717,
+      "height": 459,
+      "page": 3,
+      "fromBar": 34,
+      "throughBar": 36
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-16.png",
+      "width": 1717,
+      "height": 451,
+      "page": 3,
+      "fromBar": 37,
+      "throughBar": 38
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-17.png",
+      "width": 1717,
+      "height": 451,
+      "page": 3,
+      "fromBar": 39,
+      "throughBar": 40
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-18.png",
+      "width": 1717,
+      "height": 451,
+      "page": 3,
+      "fromBar": 41,
+      "throughBar": 41
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-19.png",
+      "width": 1717,
+      "height": 452,
+      "page": 3,
+      "fromBar": 42,
+      "throughBar": 43
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-20.png",
+      "width": 1717,
+      "height": 417,
+      "page": 4,
+      "fromBar": 44,
+      "throughBar": 46
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-21.png",
+      "width": 1717,
+      "height": 485,
+      "page": 4,
+      "fromBar": 47,
+      "throughBar": 48
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-22.png",
+      "width": 1717,
+      "height": 496,
+      "page": 4,
+      "fromBar": 49,
+      "throughBar": 50
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-23.png",
+      "width": 1717,
+      "height": 459,
+      "page": 4,
+      "fromBar": 51,
+      "throughBar": 52
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-24.png",
+      "width": 1717,
+      "height": 459,
+      "page": 4,
+      "fromBar": 53,
+      "throughBar": 54
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-25.png",
+      "width": 1717,
+      "height": 440,
+      "page": 4,
+      "fromBar": 55,
+      "throughBar": 56
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-26.png",
+      "width": 1717,
+      "height": 468,
+      "page": 4,
+      "fromBar": 57,
+      "throughBar": 59
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-27.png",
+      "width": 1717,
+      "height": 368,
+      "page": 5,
+      "fromBar": 60,
+      "throughBar": 61
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-28.png",
+      "width": 1717,
+      "height": 440,
+      "page": 5,
+      "fromBar": 62,
+      "throughBar": 63
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-29.png",
+      "width": 1717,
+      "height": 439,
+      "page": 5,
+      "fromBar": 64,
+      "throughBar": 65
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-30.png",
+      "width": 1717,
+      "height": 440,
+      "page": 5,
+      "fromBar": 66,
+      "throughBar": 68
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-31.png",
+      "width": 1717,
+      "height": 458,
+      "page": 5,
+      "fromBar": 69,
+      "throughBar": 71
+    },
+    {
+      "image": "/scores/mozart-piano-sonata-k545-i/system-32.png",
+      "width": 1717,
+      "height": 485,
+      "page": 5,
+      "fromBar": 72,
+      "throughBar": 73
+    }
+  ],
+  "bars": [
+    {
+      "number": 1,
+      "tick": 0,
+      "endTick": 1536,
+      "system": 0,
+      "left": 0.1097612,
+      "right": 0.4371054
+    },
+    {
+      "number": 2,
+      "tick": 1536,
+      "endTick": 3072,
+      "system": 0,
+      "left": 0.4371054,
+      "right": 0.7131683
+    },
+    {
+      "number": 3,
+      "tick": 3072,
+      "endTick": 4608,
+      "system": 0,
+      "left": 0.7131683,
+      "right": 0.9749214
+    },
+    {
+      "number": 4,
+      "tick": 4608,
+      "endTick": 6144,
+      "system": 1,
+      "left": 0.0354688,
+      "right": 0.4924228
+    },
+    {
+      "number": 5,
+      "tick": 6144,
+      "endTick": 7680,
+      "system": 1,
+      "left": 0.4924228,
+      "right": 0.9749214
+    },
+    {
+      "number": 6,
+      "tick": 7680,
+      "endTick": 9216,
+      "system": 2,
+      "left": 0.0354688,
+      "right": 0.5234537
+    },
+    {
+      "number": 7,
+      "tick": 9216,
+      "endTick": 10752,
+      "system": 2,
+      "left": 0.5234537,
+      "right": 0.9749214
+    },
+    {
+      "number": 8,
+      "tick": 10752,
+      "endTick": 12288,
+      "system": 3,
+      "left": 0.0354688,
+      "right": 0.5245195
+    },
+    {
+      "number": 9,
+      "tick": 12288,
+      "endTick": 13824,
+      "system": 3,
+      "left": 0.5245195,
+      "right": 0.9749214
+    },
+    {
+      "number": 10,
+      "tick": 13824,
+      "endTick": 15360,
+      "system": 4,
+      "left": 0.0354688,
+      "right": 0.5165347
+    },
+    {
+      "number": 11,
+      "tick": 15360,
+      "endTick": 16896,
+      "system": 4,
+      "left": 0.5165347,
+      "right": 0.9749214
+    },
+    {
+      "number": 12,
+      "tick": 16896,
+      "endTick": 18432,
+      "system": 5,
+      "left": 0.0354688,
+      "right": 0.2505882
+    },
+    {
+      "number": 13,
+      "tick": 18432,
+      "endTick": 19968,
+      "system": 5,
+      "left": 0.2505882,
+      "right": 0.6192545
+    },
+    {
+      "number": 14,
+      "tick": 19968,
+      "endTick": 21504,
+      "system": 5,
+      "left": 0.6192545,
+      "right": 0.9749214
+    },
+    {
+      "number": 15,
+      "tick": 21504,
+      "endTick": 23040,
+      "system": 6,
+      "left": 0.0354688,
+      "right": 0.5307746
+    },
+    {
+      "number": 16,
+      "tick": 23040,
+      "endTick": 24576,
+      "system": 6,
+      "left": 0.5307746,
+      "right": 0.9749214
+    },
+    {
+      "number": 17,
+      "tick": 24576,
+      "endTick": 26112,
+      "system": 7,
+      "left": 0.0354688,
+      "right": 0.539371
+    },
+    {
+      "number": 18,
+      "tick": 26112,
+      "endTick": 27648,
+      "system": 7,
+      "left": 0.539371,
+      "right": 0.9749214
+    },
+    {
+      "number": 19,
+      "tick": 27648,
+      "endTick": 29184,
+      "system": 8,
+      "left": 0.0354688,
+      "right": 0.5302679
+    },
+    {
+      "number": 20,
+      "tick": 29184,
+      "endTick": 30720,
+      "system": 8,
+      "left": 0.5302679,
+      "right": 0.9749214
+    },
+    {
+      "number": 21,
+      "tick": 30720,
+      "endTick": 32256,
+      "system": 9,
+      "left": 0.0354688,
+      "right": 0.4233896
+    },
+    {
+      "number": 22,
+      "tick": 32256,
+      "endTick": 33792,
+      "system": 9,
+      "left": 0.4233896,
+      "right": 0.6700641
+    },
+    {
+      "number": 23,
+      "tick": 33792,
+      "endTick": 35328,
+      "system": 9,
+      "left": 0.6700641,
+      "right": 0.9749214
+    },
+    {
+      "number": 24,
+      "tick": 35328,
+      "endTick": 36864,
+      "system": 10,
+      "left": 0.0354688,
+      "right": 0.4962143
+    },
+    {
+      "number": 25,
+      "tick": 36864,
+      "endTick": 38400,
+      "system": 10,
+      "left": 0.4962143,
+      "right": 0.9749214
+    },
+    {
+      "number": 26,
+      "tick": 38400,
+      "endTick": 39936,
+      "system": 11,
+      "left": 0.0354688,
+      "right": 0.4191089
+    },
+    {
+      "number": 27,
+      "tick": 39936,
+      "endTick": 41472,
+      "system": 11,
+      "left": 0.4191089,
+      "right": 0.7639429
+    },
+    {
+      "number": 28,
+      "tick": 41472,
+      "endTick": 43008,
+      "system": 11,
+      "left": 0.7639429,
+      "right": 0.9670938
+    },
+    {
+      "number": 29,
+      "tick": 43008,
+      "endTick": 44544,
+      "system": 12,
+      "left": 0.0354688,
+      "right": 0.0797962
+    },
+    {
+      "number": 30,
+      "tick": 44544,
+      "endTick": 46080,
+      "system": 12,
+      "left": 0.0797962,
+      "right": 0.528014
+    },
+    {
+      "number": 31,
+      "tick": 46080,
+      "endTick": 47616,
+      "system": 12,
+      "left": 0.528014,
+      "right": 0.9749214
+    },
+    {
+      "number": 32,
+      "tick": 47616,
+      "endTick": 49152,
+      "system": 13,
+      "left": 0.0354688,
+      "right": 0.518544
+    },
+    {
+      "number": 33,
+      "tick": 49152,
+      "endTick": 50688,
+      "system": 13,
+      "left": 0.518544,
+      "right": 0.9749214
+    },
+    {
+      "number": 34,
+      "tick": 50688,
+      "endTick": 52224,
+      "system": 14,
+      "left": 0.0354688,
+      "right": 0.3616249
+    },
+    {
+      "number": 35,
+      "tick": 52224,
+      "endTick": 53760,
+      "system": 14,
+      "left": 0.3616249,
+      "right": 0.648311
+    },
+    {
+      "number": 36,
+      "tick": 53760,
+      "endTick": 55296,
+      "system": 14,
+      "left": 0.648311,
+      "right": 0.9749214
+    },
+    {
+      "number": 37,
+      "tick": 55296,
+      "endTick": 56832,
+      "system": 15,
+      "left": 0.0354688,
+      "right": 0.5299709
+    },
+    {
+      "number": 38,
+      "tick": 56832,
+      "endTick": 58368,
+      "system": 15,
+      "left": 0.5299709,
+      "right": 0.9749214
+    },
+    {
+      "number": 39,
+      "tick": 58368,
+      "endTick": 59904,
+      "system": 16,
+      "left": 0.0354688,
+      "right": 0.5165871
+    },
+    {
+      "number": 40,
+      "tick": 59904,
+      "endTick": 61440,
+      "system": 16,
+      "left": 0.5165871,
+      "right": 0.9749214
+    },
+    {
+      "number": 41,
+      "tick": 61440,
+      "endTick": 62976,
+      "system": 17,
+      "left": 0.0354688,
+      "right": 0.9749214
+    },
+    {
+      "number": 42,
+      "tick": 62976,
+      "endTick": 64512,
+      "system": 18,
+      "left": 0.0354688,
+      "right": 0.57318
+    },
+    {
+      "number": 43,
+      "tick": 64512,
+      "endTick": 66048,
+      "system": 18,
+      "left": 0.57318,
+      "right": 0.9749214
+    },
+    {
+      "number": 44,
+      "tick": 66048,
+      "endTick": 67584,
+      "system": 19,
+      "left": 0.0354688,
+      "right": 0.379237
+    },
+    {
+      "number": 45,
+      "tick": 67584,
+      "endTick": 69120,
+      "system": 19,
+      "left": 0.379237,
+      "right": 0.6718987
+    },
+    {
+      "number": 46,
+      "tick": 69120,
+      "endTick": 70656,
+      "system": 19,
+      "left": 0.6718987,
+      "right": 0.9749214
+    },
+    {
+      "number": 47,
+      "tick": 70656,
+      "endTick": 72192,
+      "system": 20,
+      "left": 0.0354688,
+      "right": 0.5235935
+    },
+    {
+      "number": 48,
+      "tick": 72192,
+      "endTick": 73728,
+      "system": 20,
+      "left": 0.5235935,
+      "right": 0.9749214
+    },
+    {
+      "number": 49,
+      "tick": 73728,
+      "endTick": 75264,
+      "system": 21,
+      "left": 0.0354688,
+      "right": 0.5259348
+    },
+    {
+      "number": 50,
+      "tick": 75264,
+      "endTick": 76800,
+      "system": 21,
+      "left": 0.5259348,
+      "right": 0.9749214
+    },
+    {
+      "number": 51,
+      "tick": 76800,
+      "endTick": 78336,
+      "system": 22,
+      "left": 0.0354688,
+      "right": 0.5259173
+    },
+    {
+      "number": 52,
+      "tick": 78336,
+      "endTick": 79872,
+      "system": 22,
+      "left": 0.5259173,
+      "right": 0.9749214
+    },
+    {
+      "number": 53,
+      "tick": 79872,
+      "endTick": 81408,
+      "system": 23,
+      "left": 0.0354688,
+      "right": 0.5235935
+    },
+    {
+      "number": 54,
+      "tick": 81408,
+      "endTick": 82944,
+      "system": 23,
+      "left": 0.5235935,
+      "right": 0.9749214
+    },
+    {
+      "number": 55,
+      "tick": 82944,
+      "endTick": 84480,
+      "system": 24,
+      "left": 0.0354688,
+      "right": 0.5247991
+    },
+    {
+      "number": 56,
+      "tick": 84480,
+      "endTick": 86016,
+      "system": 24,
+      "left": 0.5247991,
+      "right": 0.9749214
+    },
+    {
+      "number": 57,
+      "tick": 86016,
+      "endTick": 87552,
+      "system": 25,
+      "left": 0.0354688,
+      "right": 0.4438672
+    },
+    {
+      "number": 58,
+      "tick": 87552,
+      "endTick": 89088,
+      "system": 25,
+      "left": 0.4438672,
+      "right": 0.6109901
+    },
+    {
+      "number": 59,
+      "tick": 89088,
+      "endTick": 90624,
+      "system": 25,
+      "left": 0.6109901,
+      "right": 0.9749214
+    },
+    {
+      "number": 60,
+      "tick": 90624,
+      "endTick": 92160,
+      "system": 26,
+      "left": 0.0354688,
+      "right": 0.5138614
+    },
+    {
+      "number": 61,
+      "tick": 92160,
+      "endTick": 93696,
+      "system": 26,
+      "left": 0.5138614,
+      "right": 0.9749214
+    },
+    {
+      "number": 62,
+      "tick": 93696,
+      "endTick": 95232,
+      "system": 27,
+      "left": 0.0354688,
+      "right": 0.5138614
+    },
+    {
+      "number": 63,
+      "tick": 95232,
+      "endTick": 96768,
+      "system": 27,
+      "left": 0.5138614,
+      "right": 0.9749214
+    },
+    {
+      "number": 64,
+      "tick": 96768,
+      "endTick": 98304,
+      "system": 28,
+      "left": 0.0354688,
+      "right": 0.5255853
+    },
+    {
+      "number": 65,
+      "tick": 98304,
+      "endTick": 99840,
+      "system": 28,
+      "left": 0.5255853,
+      "right": 0.9749214
+    },
+    {
+      "number": 66,
+      "tick": 99840,
+      "endTick": 101376,
+      "system": 29,
+      "left": 0.0354688,
+      "right": 0.4039429
+    },
+    {
+      "number": 67,
+      "tick": 101376,
+      "endTick": 102912,
+      "system": 29,
+      "left": 0.4039429,
+      "right": 0.7240186
+    },
+    {
+      "number": 68,
+      "tick": 102912,
+      "endTick": 104448,
+      "system": 29,
+      "left": 0.7240186,
+      "right": 0.9749214
+    },
+    {
+      "number": 69,
+      "tick": 104448,
+      "endTick": 105984,
+      "system": 30,
+      "left": 0.0354688,
+      "right": 0.3140827
+    },
+    {
+      "number": 70,
+      "tick": 105984,
+      "endTick": 107520,
+      "system": 30,
+      "left": 0.3140827,
+      "right": 0.635696
+    },
+    {
+      "number": 71,
+      "tick": 107520,
+      "endTick": 109056,
+      "system": 30,
+      "left": 0.635696,
+      "right": 0.9749214
+    },
+    {
+      "number": 72,
+      "tick": 109056,
+      "endTick": 110592,
+      "system": 31,
+      "left": 0.0354688,
+      "right": 0.4169773
+    },
+    {
+      "number": 73,
+      "tick": 110592,
+      "endTick": 111744,
+      "system": 31,
+      "left": 0.4169773,
+      "right": 0.7613046
+    }
+  ]
+}
